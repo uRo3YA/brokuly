@@ -1,6 +1,12 @@
 from django.shortcuts import render, redirect
 from .forms import CustomUserCreationForm
 from django import forms
+from django.contrib.auth.forms import AuthenticationForm
+from django.contrib.auth import login as auth_login
+
+
+def test(request):
+    return render(request, 'accounts/test.html')
 
 
 def agreement(request):
@@ -34,4 +40,24 @@ def signup(request, is_seller):
         'form': form
     }
 
-    return render(request, 'accounts/signup.html', context)
+    return render(request, 'accounts/form.html', context)
+
+
+def login(request):
+    if request.method == 'POST':
+        form = AuthenticationForm(request, data=request.POST)
+
+        if form.is_valid():
+            auth_login(request, form.get_user())
+
+            # must change this statement
+            return redirect(request.GET.get('next') or 'accounts:test')
+
+    else:
+        form = AuthenticationForm(request)
+
+    context = {
+        'form': form
+    }
+
+    return render(request, 'accounts/form.html', context)

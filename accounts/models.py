@@ -7,7 +7,7 @@ class User(AbstractUser):
     first_name = None
     last_name = None
 
-    user_id = models.CharField(max_length=150)
+    name = models.CharField(max_length=150)
     address = models.CharField(max_length=150, blank=True)
     is_seller = models.BooleanField(default=False)
 
