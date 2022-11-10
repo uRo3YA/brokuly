@@ -1,0 +1,18 @@
+{% extends 'base.html' %}
+
+{% load django_bootstrap5 %}
+{% block body %}
+
+{% if request.resolver_match.url_name == 'create' %}
+<h2> 상품 정보 작성하기 </h2>
+{% else %}
+<h1> 상품 정보 수정하기 </h1>
+{% endif %}
+
+<form action="" method="POST" enctype="multipart/form-data">
+  {% csrf_token %}
+  {% bootstrap_form Product_Form %}
+  {% bootstrap_button button_type="submit" content="OK" %}
+</form>
+{% endblock %}
+<!--   -->   

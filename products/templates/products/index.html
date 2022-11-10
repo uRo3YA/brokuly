@@ -1,0 +1,12 @@
+{% extends 'base.html' %}
+{% block body %}
+
+<a  href="{% url 'products:create' %}">가게 작성하기</a>
+
+
+{% for content in contents %}
+<br>
+<a href="/products/{{ content.id }}/">{{ content.title }}</a>
+{% endfor %}
+{% endblock %}
+<!--   -->   
