@@ -1,12 +1,21 @@
 {% extends 'base.html' %}
+{% load static %}
+{% load django_bootstrap5 %}
 {% block body %}
 
-<a  href="{% url 'products:create' %}">가게 작성하기</a>
+<div class="container">
+<a  href="{% url 'products:create' %}">상품 작성하기</a>
+
+<div class="card">
+    {% for content in contents %}
+    <br>
+    <a href="/products/{{ content.id }}/">{{ content.title }}</a>
+    {% endfor %}
+</div>
+</div>
 
 
-{% for content in contents %}
-<br>
-<a href="/products/{{ content.id }}/">{{ content.title }}</a>
-{% endfor %}
-{% endblock %}
+
+    
+{% endblock body%}
 <!--   -->   

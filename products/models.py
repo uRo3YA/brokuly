@@ -33,6 +33,13 @@ class Product(models.Model):
         choices=ALLERGY_CHOICES,
     )
     # wishlist=models.ManyToManyField(settings.AUTH_USER_MODEL, related_name='wishlist_product')
+    def delete(self, *args, **kargs):
+        if self.produt_thum_img:
+            os.remove(os.path.join(settings.MEDIA_ROOT, self.produt_thum_img.path))
+        if self.produt_desc_img:
+            os.remove(os.path.join(settings.MEDIA_ROOT, self.produt_desc_img.path))
+        super(Product, self).delete(*args, **kargs)
+
     class Meta:
         db_table = "상품"
         verbose_name = "상품"
