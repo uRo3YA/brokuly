@@ -1,8 +1,9 @@
 {% extends 'base.html' %}
+{% load static %}
 {% load django_bootstrap5 %}
 {% block body %}
 
-
+<div class="container">
 <div class="text-end m-1">
     <button class="btn btn-sm" 
         onclick="location.href='/products/{{ product.pk }}/update/'">수정</button>
@@ -39,8 +40,11 @@
 {{product.sales_rate}}
 <br>
 이 제품에는 다음과 같은 알러지 성분이 포함되어 있습니다. <br>
-{{product.allergy}}
-
+{%for i in product.allergy%}
+{{i}}
+<br>
+{%endfor%}
+</div>
 <!--   -->   
 
 {% endblock %}
