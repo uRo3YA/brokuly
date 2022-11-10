@@ -11,7 +11,16 @@ from multiselectfield import MultiSelectField
 class Product(models.Model):
     title = models.CharField(max_length=255)
     price = models.IntegerField()
+    unit = models.CharField(max_length=64)
+    weight = models.CharField(max_length=64)
     produt_thum_img = ProcessedImageField(
+        upload_to="images/",
+        blank=True,
+        processors=[ResizeToFill(500, 350)],
+        format="JPEG",
+        options={"quality": 80},
+    )
+    produt_detail_img = ProcessedImageField(
         upload_to="images/",
         blank=True,
         processors=[ResizeToFill(500, 350)],
