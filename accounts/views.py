@@ -68,3 +68,16 @@ def logout(request):
 
     # must change this statement
     return redirect('accounts:login')
+
+
+def mypage(request):
+    if request.user.is_seller:
+        # 상품문의, 새로 작성된 리뷰, 팔로워 수
+        # 데이터가 필요하다.
+        pass
+    else:
+        # 적립금, 쿠폰, 팔로잉 수
+        # 데이터가 필요하다.
+        pass
+
+    return render(request, 'accounts/mypage.html')
