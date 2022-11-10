@@ -1,0 +1,43 @@
+html,
+body {
+  height: 100%;
+}
+
+#wrap {
+  min-height: 100%;
+  position: relative;
+  padding-bottom: 500px; /* footer height */
+}
+
+footer {
+  width: 100%;
+  position: absolute;
+  bottom: 0;
+}
+
+.btn-outline-gray {
+  background-color: white;
+  color: black;
+  border: 1px solid #9e9a9a;
+  border-radius: 5px;
+  padding: 10px 20px;
+}
+
+.topBtn {
+  background-color: white;
+  color: #008b47;
+  border: 2px solid #6ab64a92;
+  border-radius: 50%;
+  padding: 5px 13px;
+}
+
+.btn-outline-green:hover {
+  color: white;
+  background-color: #6bb64a;
+  border-color: #008b47;
+}
+
+.main-review {
+  width: 12rem;
+  height: 12rem;
+}
