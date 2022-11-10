@@ -2,7 +2,7 @@ from django.shortcuts import render, redirect
 from .forms import CustomUserCreationForm
 from django import forms
 from django.contrib.auth.forms import AuthenticationForm
-from django.contrib.auth import login as auth_login
+from django.contrib.auth import login as auth_login, logout as auth_logout
 
 
 def test(request):
@@ -61,3 +61,10 @@ def login(request):
     }
 
     return render(request, 'accounts/form.html', context)
+
+
+def logout(request):
+    auth_logout(request)
+
+    # must change this statement
+    return redirect('accounts:login')
