@@ -1,6 +1,7 @@
-aiohttp==3.8.3
-aiosignal==1.2.0
 asgiref==3.5.2
+
+
+
 asttokens==2.1.0
 async-generator==1.10
 async-timeout==4.0.2
@@ -119,6 +120,9 @@ parso==0.8.3
 pathspec==0.10.1
 pickleshare==0.7.5
 
+django-multiselectfield==0.1.12
+sqlparse==0.4.3
+tzdata==2022.6
 
 
 
