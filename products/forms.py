@@ -51,8 +51,17 @@ class ProductForm(forms.ModelForm):
                 "style": "width: 91%;",
             }
         )
-        self.fields["produt_thum_img"].label = "상품 사진"
+        self.fields["produt_thum_img"].label = "상품 대표 사진"
         self.fields["produt_thum_img"].widget.attrs.update(
+            {
+                "placeholder": "상품 대표 사진을 업로드 해주세요.",
+                "class": "form-control",
+                "id": "form_title",
+                "style": "width: 91%;",
+            }
+        )
+        self.fields["produt_detail_img"].label = "상품 상세 사진"
+        self.fields["produt_detail_img"].widget.attrs.update(
             {
                 "placeholder": "상품 대표 사진을 업로드 해주세요.",
                 "class": "form-control",
@@ -84,10 +93,13 @@ class ProductForm(forms.ModelForm):
         fields = [
             "title",
             "price",
+            "unit",
+            "weight",
             "description",
             "stock",
             "sales_rate",
             "produt_thum_img",
+            "produt_detail_img",
             "produt_desc_img",
             "allergy",
         ]
