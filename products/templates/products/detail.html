@@ -1,0 +1,46 @@
+{% extends 'base.html' %}
+{% load django_bootstrap5 %}
+{% block body %}
+
+
+<div class="text-end m-1">
+    <button class="btn btn-sm" 
+        onclick="location.href='/products/{{ product.pk }}/update/'">수정</button>
+</div>
+<div class="text-end m-1">
+    <button  class="btn btn-sm" 
+        onclick="location.href='/products/{{ product.pk }}/delete/'">삭제</button>
+</div>
+
+제품명 입력함<br>
+{{product.title}}<br>
+<br>
+제품가격 <br>
+{{product.price}}<br>
+<br>
+상품 대표 이미지 <br>
+{{product.produt_thum_img}}<br>
+<br>
+<img src="{{product.produt_thum_img.url}}">
+
+<br>
+상품 성분표 이미지<br>
+{{product.produt_desc_img}}<br>
+<br>
+<img src="{{product.produt_desc_img.url}}">
+<br>
+상품 설명글<br>
+{{product.description}}
+<br>
+상품 재고<br>
+{{product.stock}}
+<br>
+상품 할인율<br>
+{{product.sales_rate}}
+<br>
+이 제품에는 다음과 같은 알러지 성분이 포함되어 있습니다. <br>
+{{product.allergy}}
+
+<!--   -->   
+
+{% endblock %}
