@@ -1,10 +1,12 @@
 from django.urls import path
 from . import views
 
-app_name = 'accounts'
+app_name = "accounts"
 
 urlpatterns = [
     # test url
+
+
     path('', views.test, name='test'),
     path('signup/agreement/', views.agreement, name='agreement'),
     path('signup/<int:is_seller>/', views.signup, name='signup'),
@@ -16,4 +18,5 @@ urlpatterns = [
     path('wishlist/', views.wishlist,name='wishlist'),
     path('review/', views.review, name='review'),
     path('check/', views.check, name='check'),
+
 ]
