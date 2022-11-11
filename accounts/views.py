@@ -2,7 +2,7 @@ from django.shortcuts import render, redirect
 from .forms import CustomUserCreationForm
 from django import forms
 from django.contrib.auth.forms import AuthenticationForm
-from django.contrib.auth import login as auth_login, logout as auth_logout
+from django.contrib.auth import login as auth_login, logout as auth_logout, authenticate
 from products.models import Product
 from reviews.models import Review
 
@@ -135,3 +135,26 @@ def review(request):
     }
 
     return render(request, 'accounts/review.html', context)
+
+
+def check(request):
+    if request.method == 'POST':
+        form = AuthenticationForm(request, data=request.POST)
+
+        if form.is_valid():
+            user = authenticate(username=form.data['username'], password=form.data['password'])
+            check = request.user.username == user.get_username()
+
+            if check:
+                return redirect('accounts:update')
+            else:
+                return redirect('accounts:check')
+
+    else:
+        form = AuthenticationForm(request)
+
+    context = {
+        'form': form
+    }
+
+    return render(request, 'accounts/form.html', context)
