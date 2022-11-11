@@ -10,6 +10,17 @@
     {% if request.user.is_authenticated %}
         로그인 성공
         <a href="{% url 'accounts:logout' %}">로그아웃</a>
+
+        {% for data in products %}
+            <div>
+                <form>
+                    <p>{{ data.title }}</p>
+                    <a href="{% url 'accounts:add_cart' data.id %}">장바구니 담기</a>
+                </form>
+            </div>
+        {% endfor %}
+        <a href="{% url 'accounts:cart' %}">장바구니</a>
+
     {% else %}
         <a href="{% url 'accounts:login' %}">로그인</a>
         <a href="{% url 'accounts:agreement' %}">회원가입</a>
