@@ -1,5 +1,5 @@
 from django.shortcuts import render, redirect
-from .forms import CustomUserCreationForm
+from .forms import CustomUserCreationForm, LoginForm
 from django import forms
 from django.contrib.auth.forms import AuthenticationForm
 from django.contrib.auth import login as auth_login, logout as auth_logout, authenticate
@@ -56,7 +56,7 @@ def signup(request, is_seller):
 
     context = {"form": form}
 
-    return render(request, "accounts/form.html", context)
+    return render(request, "accounts/signup.html", context)
 
 
 def login(request):
@@ -74,7 +74,7 @@ def login(request):
 
     context = {"form": form}
 
-    return render(request, "accounts/form.html", context)
+    return render(request, "accounts/login.html", context)
 
 
 def logout(request):
@@ -139,29 +139,27 @@ def review(request):
 
     context = {"reviews": reviews}
 
-
-    return render(request, 'accounts/review.html', context)
+    return render(request, "accounts/review.html", context)
 
 
 def check(request):
-    if request.method == 'POST':
+    if request.method == "POST":
         form = AuthenticationForm(request, data=request.POST)
 
         if form.is_valid():
-            user = authenticate(username=form.data['username'], password=form.data['password'])
+            user = authenticate(
+                username=form.data["username"], password=form.data["password"]
+            )
             check = request.user.username == user.get_username()
 
             if check:
-                return redirect('accounts:update')
+                return redirect("accounts:update")
             else:
-                return redirect('accounts:check')
+                return redirect("accounts:check")
 
     else:
         form = AuthenticationForm(request)
 
-    context = {
-        'form': form
-    }
+    context = {"form": form}
 
-    return render(request, 'accounts/form.html', context)
-
+    return render(request, "accounts/form.html", context)
