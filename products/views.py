@@ -2,6 +2,8 @@ from django.shortcuts import render, redirect
 from .forms import ProductForm
 from .models import Product
 from reviews.models import Review
+from accounts.models import User
+from django.contrib.auth import get_user_model
 
 #
 # Create your views here.
@@ -11,7 +13,7 @@ def index(request):
     context = {
         "contents": contents,
     }
-    
+
     return render(request, "products/index.html", context)
 
 
@@ -29,9 +31,7 @@ def create(request):
     else:
         Product_Form = ProductForm()
 
-    context = {
-        "Product_Form": Product_Form
-    }
+    context = {"Product_Form": Product_Form}
 
     return render(request, "products/form.html", context=context)
 
