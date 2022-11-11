@@ -4,7 +4,7 @@ from django import forms
 from django.contrib.auth.forms import AuthenticationForm
 from django.contrib.auth import login as auth_login, logout as auth_logout
 from products.models import Product
-
+from reviews.models import Review
 
 def test(request):
     context = {
@@ -116,4 +116,22 @@ def wishlist(request):
         'wishlist': request.user.wishlist
     }
 
-    return render(request, 'accounts/wishlist.html', context)
+    return render(request, 'accounts/wishlist.html', context)\
+
+
+def review(request):
+    if request.user.is_seller:
+        # 자신의 판매 상품 리뷰 목록을 보여준다.
+        products = Product.objects.filter(user=request.user)
+        reviews = []
+        for product in products:
+            reviews += product.review_set.all()
+    else:
+        # 자신이 작성한 리뷰 목록을 보여준다.
+        reviews = Review.objects.filter(user=request.user)
+
+    context = {
+        'reviews': reviews
+    }
+
+    return render(request, 'accounts/review.html', context)

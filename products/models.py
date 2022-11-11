@@ -10,6 +10,7 @@ from multiselectfield import MultiSelectField
 # Create your models here.
 class Product(models.Model):
     title = models.CharField(max_length=255)
+    user = models.ForeignKey(settings.AUTH_USER_MODEL, on_delete=models.CASCADE)
     price = models.IntegerField()
     unit = models.CharField(max_length=64)
     weight = models.CharField(max_length=64)

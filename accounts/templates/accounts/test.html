@@ -20,7 +20,7 @@
             </div>
         {% endfor %}
         <a href="{% url 'accounts:cart' %}">장바구니</a>
-
+        <a href="{% url 'accounts:review' %}">작성한 리뷰 혹은 / 판매자 달린 리뷰 보기</a>
     {% else %}
         <a href="{% url 'accounts:login' %}">로그인</a>
         <a href="{% url 'accounts:agreement' %}">회원가입</a>
