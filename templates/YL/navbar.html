@@ -1,3 +1,4 @@
+{% load static %}
 <!DOCTYPE html>
 <html lang="ko">
 <head>
@@ -15,8 +16,8 @@
     <nav class="navbar navbar-expand-lg p-0">
         <div class="container d-felx justify-content-end">
             <div class="navbar-nav">
-              <a class="nav-link active mx-3 small" aria-current="page" href="#"><small>회원가입</small></a>
-              <a class="nav-link active mx-3 small" href="#"><small>로그인</small></a>
+              <a class="nav-link active mx-3 small" aria-current="page" href="{% url 'accounts:agreement' %}"><small>회원가입</small></a>
+              <a class="nav-link active mx-3 small" href="{% url 'accounts:login' %}"><small>로그인</small></a>
               <a class="nav-link active mx-3 small" href="#"><small>고객센터</small></a>
             </div>
         </div>
@@ -24,7 +25,7 @@
     <!-- 중간 Navbar -->
     <nav class="navbar navbar-expand-lg p-0">
         <div class="container d-flex justify-content-center">
-            <img src="./main.assets/logo.png">
+            <img src="{% static 'images/logo.png' %}">
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
             </button>
@@ -53,7 +54,7 @@
         </div>
     </nav>  
     <!-- 하단 Navbar -->
-    <nav class="navbar">
+    <nav class="navbar nav-shadow">
         <div class="container d-flex justify-content-evenly">
             <li class="nav-item dropdown m-0 list-unstyled">
                 <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">

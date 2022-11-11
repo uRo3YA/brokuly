@@ -7,7 +7,9 @@
     <title>Document</title>
 </head>
 <body>
-    마이페이지
-    <a href="{% url 'accounts:check' %}">회원정보 수정</a>
+    <h1>장바구니</h1>
+    {% for product in products %}
+        <p>product.title</p>
+    {% endfor %}
 </body>
 </html>

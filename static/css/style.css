@@ -1,5 +1,6 @@
 html,
 body {
+  font-family: "Noto Sans KR", sans-serif;
   height: 100%;
 }
 
@@ -15,7 +16,44 @@ footer {
   bottom: 0;
 }
 
+/* Text */
+.text-green {
+  color: #008b47;
+}
+
+/* Buttons */
+.btn-green {
+  color: white;
+  background-color: #008b47;
+}
+
+.btn-green:hover {
+  color: white;
+  background-color: #006e39;
+}
+
+.btn-outline-green {
+  color: #008b47;
+  background-color: white;
+  border: 2px solid #008b47;
+}
+
+.btn-outline-green:hover {
+  color: white;
+  background-color: #6bb64a;
+  border: 2px solid #008b47;
+}
+
+.btn-outline-grey {
+  border: 2px solid #9e9a9a;
+}
+
+.btn-outline-grey:hover {
+  border: 2px solid #9e9a9a;
+}
+
 .btn-outline-gray {
+  /* footer 전용 */
   background-color: white;
   color: black;
   border: 1px solid #9e9a9a;
@@ -31,10 +69,60 @@ footer {
   padding: 5px 13px;
 }
 
-.btn-outline-green:hover {
-  color: white;
+/* line */
+.green-line {
+  background-color: #008b47;
+  opacity: 100;
+  border: none;
+  height: 2px;
+}
+
+.lightgreen-line {
   background-color: #6bb64a;
-  border-color: #008b47;
+  opacity: 60%;
+  border: none;
+  height: 1.5px;
+}
+
+/* card */
+
+/* 기타 */
+select {
+  width: 150px;
+  padding: 0.5em 1em;
+  border: 1px solid #999;
+  font-family: inherit;
+  background: url("data:image/svg+xml;charset=US-ASCII,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20width%3D%22292.4%22%20height%3D%22292.4%22%3E%3Cpath%20fill%3D%22%23131313%22%20d%3D%22M287%2069.4a17.6%2017.6%200%200%200-13-5.4H18.4c-5%200-9.3%201.8-12.9%205.4A17.6%2017.6%200%200%200%200%2082.2c0%205%201.8%209.3%205.4%2012.9l128%20127.9c3.6%203.6%207.8%205.4%2012.8%205.4s9.2-1.8%2012.8-5.4L287%2095c3.5-3.5%205.4-7.8%205.4-12.8%200-5-1.9-9.2-5.5-12.8z%22%2F%3E%3C%2Fsvg%3E");
+  background-repeat: no-repeat;
+  background-position: right 0.7rem top 50%;
+  background-size: 0.65rem auto;
+  border-radius: 0px;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
+}
+
+/* 장바구니 페이지 */
+.check input[type="checkbox"] {
+  transform: scale(1.5);
+}
+
+.bi-dash-circle {
+  color: #6bb64a;
+  font-size: 20px;
+}
+
+.bi-dash-circle:hover {
+  cursor: pointer;
+}
+
+.bi-plus-circle {
+  color: #008b47;
+  font-size: 20px;
+}
+
+.bi-plus-circle:hover {
+  cursor: pointer;
 }
 
 .main-review {

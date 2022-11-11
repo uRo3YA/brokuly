@@ -90,6 +90,7 @@ footer {
   background-color: #008b47;
 }
 
+
 .btn-lightgreen {
   color: #ffffff;
   background-color: #6bb64a;
@@ -100,6 +101,7 @@ footer {
   background-color: #59963f;
 }
 
+
 .btn-grade {
   background-color: #ffffff;
   border-color: #008b47;
@@ -107,6 +109,7 @@ footer {
   color: #008b47;
   border-style: solid;
   margin-right: 1rem;
+
 }
 
 .signin-border {
