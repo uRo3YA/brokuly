@@ -11,9 +11,9 @@
       integrity="sha384-Zenh87qX5JnK2Jl0vWa8Ck2rdkQ2Bzep5IDxbcnCeuOxjzrPF/et3URy9Bv1WTRi"
       crossorigin="anonymous"
     />
-    <link rel="stylesheet" href="style_1.css" />
+    <link rel="stylesheet" href="style.css" />
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.9.1/font/bootstrap-icons.css"/>
-    <title>Document</title>
+    <title>Detail of Product</title>
     <style>
       body {
         font-family: "Noto Sans KR", sans-serif;
@@ -35,7 +35,7 @@
     <!-- 중간 Navbar -->
     <nav class="navbar navbar-expand-lg p-0">
         <div class="container d-flex justify-content-center">
-            <img src="./YL.assets/logo.png">
+            <img src="./main.assets/logo.png">
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
             </button>
@@ -64,8 +64,8 @@
         </div>
     </nav>  
     <!-- 하단 Navbar -->
-    <nav class="navbar">
-        <div class="container nav-menu">
+    <nav class="navbar nav-shadow">
+        <div class="container container d-flex justify-content-evenly">
             <li class="nav-item dropdown m-0 list-unstyled">
                 <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
                 <svg xmlns="http://www.w3.org/2000/svg" width="25" height="20" fill="currentColor" class="bi bi-list" viewBox="0 0 16 16">
@@ -80,16 +80,16 @@
                 <li><a class="dropdown-item" href="#">Something else here</a></li>
                 </ul>
             </li>
-            <li class="nav-item list-unstyled">
+            <li class="nav-item list-unstyled nav-menu">
                 <a class="nav-link active" href="#">신상품</a>
             </li>
-            <li class="nav-item list-unstyled">
+            <li class="nav-item list-unstyled nav-menu">
                 <a class="nav-link active" href="#">베스트</a>
             </li>
-            <li class="nav-item list-unstyled">
+            <li class="nav-item list-unstyled nav-menu">
                 <a class="nav-link active" href="#">알뜰쇼핑</a>
             </li>
-            <li class="nav-item list-unstyled">
+            <li class="nav-item list-unstyled nav-menu">
                 <a class="nav-link active" href="#">특가/혜택</a>
             </li>
         </div>
@@ -99,44 +99,213 @@
 
         <!-- 상품 이미지 및 상품명 -->
         <div class="container text-center mt-5">
-          <div class="row">
-            <div class="col">
-                <img src="./YL.assets/상품이미지.png" alt="상품 이미지">
-            </div>
-            <div class="col-4">
-                <h3>[아우프글렛]크로플 3개입</h3>
-                <h3><span style="color: #fbcd24">30% </span>21,000원</h3>
-                <hr>
-                <p>판매 판매자명</p>
-                <hr>
-                <p>상품설명</p>
-                <hr>
-                <p>상품설명</p>
-                <div class="d-flex align-items-center float-end">
-                    <a class="mx-3" href="#">
-                        <svg xmlns="http://www.w3.org/2000/svg" width="30" height="30" fill="currentColor" class="bi bi-heart" viewBox="0 0 16 16">
-                        <path d="m8 2.748-.717-.737C5.6.281 2.514.878 1.4 3.053c-.523 1.023-.641 2.5.314 4.385.92 1.815 2.834 3.989 6.286 6.357 3.452-2.368 5.365-4.542 6.286-6.357.955-1.886.838-3.362.314-4.385C13.486.878 10.4.28 8.717 2.01L8 2.748zM8 15C-7.333 4.868 3.279-3.04 7.824 1.143c.06.055.119.112.176.171a3.12 3.12 0 0 1 .176-.17C12.72-3.042 23.333 4.867 8 15z"/>
-                        </svg>   
-                    </a>        
-                    <button type="button" class="btn btn-green"><strong>위시리스트에 담기</strong></button>
-                </div>
-            </div>
+            <div class="row justify-content-center">
+              <div class="col-4">
+                  <img src="./main.assets/상품이미지.png" alt="상품 이미지">
+              </div>
+              <div class="col-4 text-start mx-5">
+                  <h3 class="mx-1">[아우프글렛]크로플 3개입</h3>
+                  <h3 class="mx-1"><span class="fw-bold" style="color: #fbcd24">30% </span>21,000원</h3>
+                  <hr>
+                  <p class="mx-1">판매 판매자명</p>
+                  <hr>
+                  <p class="mx-1">상품설명</p>
+                  <hr>
+                  <p class="mx-1">상품설명</p>
+                  <hr>
+                  <p class="mx-1">상품설명</p>
+              </div>
+          </div>
+        </div>
+
+        <!-- 버튼들 -->
+        <div class="container p-5">
+          <div class="d-flex align-items-center float-end">
+            <a class="mx-3" href="#">
+                <svg xmlns="http://www.w3.org/2000/svg" width="30" height="30" fill="currentColor" class="bi bi-heart" viewBox="0 0 16 16">
+                <path d="m8 2.748-.717-.737C5.6.281 2.514.878 1.4 3.053c-.523 1.023-.641 2.5.314 4.385.92 1.815 2.834 3.989 6.286 6.357 3.452-2.368 5.365-4.542 6.286-6.357.955-1.886.838-3.362.314-4.385C13.486.878 10.4.28 8.717 2.01L8 2.748zM8 15C-7.333 4.868 3.279-3.04 7.824 1.143c.06.055.119.112.176.171a3.12 3.12 0 0 1 .176-.17C12.72-3.042 23.333 4.867 8 15z"/>
+                </svg>   
+            </a> 
+            <a class="mx-3" href="#">
+              <svg xmlns="http://www.w3.org/2000/svg" width="30" height="30" fill="currentColor" class="bi bi-bell" viewBox="0 0 16 16">
+                <path d="M8 16a2 2 0 0 0 2-2H6a2 2 0 0 0 2 2zM8 1.918l-.797.161A4.002 4.002 0 0 0 4 6c0 .628-.134 2.197-.459 3.742-.16.767-.376 1.566-.663 2.258h10.244c-.287-.692-.502-1.49-.663-2.258C12.134 8.197 12 6.628 12 6a4.002 4.002 0 0 0-3.203-3.92L8 1.917zM14.22 12c.223.447.481.801.78 1H1c.299-.199.557-.553.78-1C2.68 10.2 3 6.88 3 6c0-2.42 1.72-4.44 4.005-4.901a1 1 0 1 1 1.99 0A5.002 5.002 0 0 1 13 6c0 .88.32 4.2 1.22 6z"/>
+              </svg>
+            </a>      
+            <button type="button" class="btn btn-green p-2 px-5 mx-2"><strong>위시리스트에 담기</strong></button>
           </div>
         </div>
         
+
         <!-- 하단 상품 이미지 및 설명 -->
-        <div class="container d-felx justify-content-center">
-            <img src="./YL.assets/상품 상세 이미지.png" alt="상품 상세 이미지"/>
-            <h3 class="text-center">[아우프글렛]크로플 3개입</h3>
-            <p class="text-center">
-                Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
-            </p>
+        <div class="container mt-5 pt-5 pb-5">
+          <div class="d-flex justify-content-center mt-5">
+              <img src="./main.assets/상품 상세 이미지.png" alt="상품 상세 이미지"/>
+          </div>    
+          <h3 class="text-center mt-5">[아우프글렛]크로플 3개입</h3>
+          <br>
+          <p class="text-center">
+              Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+          </p>
+          <h4 class="text-center mt-5 mx-1 pt-5">상품 성분표</h4>
+          <div class="d-flex justify-content-center mt-3 mb-5">
+            <img src="https://dummyimage.com/600x200/000/fff" alt="상품 성분표"/>
+          </div>
+        </div>
+        
+
+        <!-- 하단 상품 후기 -->
+        <div class="container pt-5 pb-5">
+          <h2 class="text-center">고객님들의 후기</h2>
+          <div class="d-flex justify-content-center mt-5 mb-3">
+            <img src="./main.assets/상품후기 이미지.png" alt=""/>
+          </div>
+          <div class="d-flex float-start mt-3">
+            <p class="mx-3">총 5개</p>
+          </div>
+          <br>
+          <br>
+          <hr> 
+
+          <div class="container mt-5">
+            <div class="row">
+              <div class="col-2">
+                <div class="d-flex align-content-center">
+                  <button class="btn-grade">등급</button>
+                  <h6 class="mb-0 pt-1">이동근</h6>
+                </div>
+              </div>
+              <div class="col-8">
+                <h5 class="text-muted fw-bold">상품명 및 상품 제목</h5>
+                <p class="text-muted">Lorem ipsum dolor sit, amet consectetur adipisicing elit. Vitae, rerum beatae provident cum voluptatem optio ducimus a magni numquam odit sed eos error delectus, ullam voluptates praesentium odio quam velit.</p>
+                <img src="./main.assets/상품후기 이미지 2.png">
+              </div>
+            </div>
+          </div>
+          <hr>
+          <div class="container mt-5">
+            <div class="row">
+              <div class="col-2">
+                <div class="d-flex align-content-center">
+                  <button class="btn-grade">등급</button>
+                  <h6 class="mb-0 pt-1">최준우</h6>
+                </div>
+              </div>
+              <div class="col-8">
+                <h5 class="text-muted fw-bold">상품명 및 상품 제목</h5>
+                <p class="text-muted">Lorem ipsum dolor sit amet consectetur adipisicing elit. Maxime fugiat praesentium, aspernatur in magni nostrum error sunt voluptatum sed velit dolor tenetur incidunt itaque? Quibusdam labore sed perspiciatis, ratione ullam nam veniam perferendis, tempora beatae minima, asperiores ea quod earum? Voluptatem laboriosam necessitatibus labore sed quo nihil id ipsam quae dolores magni repellendus, aut explicabo, quibusdam provident tempore. Voluptatibus, soluta!</p>
+                <img src="./main.assets/상품후기 이미지 2.png">
+              </div>
+            </div>
+          </div>
+        </div>
+
+      <!-- 상품문의 -->
+        <div class="container mt-5 pt-5">
+          <div class="row justify-content-between">
+            <div class="col-6">
+              <h2 class="text-start">상품문의</h2>
+              <p class="text-muted">해당 상품에 대한 문의를 남겨주세요!<br>
+              배송과 관련된 문의 사항이 있으시다면 마이페이지 내 1:1 문의에 남겨주세요.</p>
+            </div>
+            <div class="col-4 pt-5">
+             <button class="btn btn-outline-green p-2 px-5 float-end" type="button" data-bs-toggle="modal" data-bs-target="#askModal" data-bs-whatever="@mdo">상품문의하기</button>
+             <!-- 상품문의 모달 -->
+             <div class="modal fade" id="askModal" tabindex="-1" aria-labelledby="askModalLabel" aria-hidden="true">
+              <div class="modal-dialog modal-lg">
+                <div class="container modal-content">
+                  <div class="modal-header">
+                    <h1 class="modal-title fs-3" id="askModalLabel">상품 문의하기</h1>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                  </div>
+                  <div class="modal-body">
+                    <div class="row">
+                      <div class="col-3">
+                        <img src="./main.assets/상품이미지.png" width="150" height="180" class="mx-2" alt="상품이미지"/>
+                      </div>
+                      <div class="col-7">
+                        <p class="text-start mt-5">[아우프글렛]크로플 3개입</p>
+                      </div>
+                    </div>
+                    <div class="container">
+                        <form>
+                          <div class="row mb-3 mt-5">
+                            <div class="col-1">
+                              <label for="recipient-name" class="col-form-label">제목</label>
+                            </div>
+                            <div class="col-11">
+                              <input type="text" class="form-control" id="recipient-name">
+                            </div>
+                          </div>
+                          <div class="row mb-3">
+                            <div class="col-1">
+                              <label for="message-text" class="col-form-label">내용</label>
+                            </div>
+                            <div class="col-11">
+                              <textarea class="form-control" id="message-text" rows="4" cols="50"></textarea>
+                            </div>
+                          </div>
+                        </form>
+                    </div>
+                    <div class="d-flex justify-content-center">
+                      <button type="button" class="btn btn-outline-green p-2 px-5 mx-2" data-bs-dismiss="modal">취소</button>
+                      <button type="button" class="btn btn-green p-2 px-5">등록</button>
+                    </div>
+                 </div>
+               </div>
+             </div>
+            </div>
+          </div> 
+        </div>
+        <div class="container mt-5">
+          <div class="row">
+            <div class="col-2">
+              <div class="d-flex align-content-center">
+                <button class="btn-grade">등급</button>
+                <h6 class="mb-0 pt-1">임선주</h6>
+              </div>
+            </div>
+            <div class="col-8">
+              <h5 class="text-muted fw-bold">상품명 및 상품 제목</h5>
+              <p class="text-muted">Lorem ipsum dolor sit amet consectetur adipisicing elit. Maxime fugiat praesentium, aspernatur in magni nostrum error sunt voluptatum sed velit dolor tenetur incidunt itaque? Quibusdam labore sed perspiciatis, ratione ullam nam veniam perferendis, tempora beatae minima, asperiores ea quod earum? Voluptatem laboriosam necessitatibus labore sed quo nihil id ipsam quae dolores magni repellendus, aut explicabo, quibusdam provident tempore. Voluptatibus, soluta!</p>
+            </div>
+          </div>
+        </div>
+        <div class="container mt-5">
+          <div class="row">
+            <div class="col-2">
+              <div class="d-flex align-content-center">
+                <button class="btn-grade">등급</button>
+                <h6 class="mb-0 pt-1">김예린</h6>
+              </div>
+            </div>
+            <div class="col-8">
+              <h5 class="text-muted fw-bold">상품명 및 상품 제목</h5>
+              <p class="text-muted">Lorem ipsum dolor sit amet consectetur adipisicing elit. Maxime fugiat praesentium, aspernatur in magni nostrum error sunt voluptatum sed velit dolor tenetur incidunt itaque? Quibusdam labore sed perspiciatis, ratione ullam nam veniam perferendis, tempora beatae minima, asperiores ea quod earum? Voluptatem laboriosam necessitatibus labore sed quo nihil id ipsam quae dolores magni repellendus, aut explicabo, quibusdam provident tempore. Voluptatibus, soluta!</p>
+            </div>
+          </div>
+        </div>
+        <div class="container mt-5">
+          <div class="row">
+            <div class="col-2">
+              <div class="d-flex align-content-center">
+                <button class="btn-grade">등급</button>
+                <h6 class="mb-0 pt-1">이태극</h6>
+              </div>
+            </div>
+            <div class="col-8">
+              <h5 class="text-muted fw-bold">상품명 및 상품 제목</h5>
+              <p class="text-muted">Lorem ipsum dolor sit amet consectetur adipisicing elit. Maxime fugiat praesentium, aspernatur in magni nostrum error sunt voluptatum sed velit dolor tenetur incidunt itaque? Quibusdam labore sed perspiciatis, ratione ullam nam veniam perferendis, tempora beatae minima, asperiores ea quod earum? Voluptatem laboriosam necessitatibus labore sed quo nihil id ipsam quae dolores magni repellendus, aut explicabo, quibusdam provident tempore. Voluptatibus, soluta!</p>
+            </div>
+          </div>
         </div>
 
 
-    <!-- Footer -->
+
       <!-- Top 버튼 -->
-      <div class="d-flex justify-content-end mb-4 me-4 fixed-bottom" style="z-index: 2">
+      <div
+        class="d-flex justify-content-end mb-4 me-4 fixed-bottom"
+        style="z-index: 2"
+      >
         <button onclick="topFunction()" class="topBtn" title="Go to top">
           <i class="bi bi-arrow-up fs-2"></i>
         </button>
@@ -144,7 +313,7 @@
       <!-- footer -->
       <footer class="d-flex flex-column">
         <hr />
-        <div class="d-flex justify-content-around mx-5 pt-3">
+        <div class="d-flex justify-content-around pt-3">
           <!-- 문의상담 -->
           <div class="">
             <h5>고객행복센터</h5>
