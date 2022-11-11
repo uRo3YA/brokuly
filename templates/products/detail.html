@@ -13,7 +13,7 @@
           <h3>{{product.title}}</h3>
           <h3><span style="color: #fbcd24">{{product.sales_rate}}% </span>{{product.price}}원</h3>
           <hr>
-          <p>판매자명:</p>
+          <p>판매자명:{{product.user.name}}</p>
           <hr>
           <p>포장 타입: {{product.}}</p>
           <br>
@@ -43,11 +43,12 @@
   </div>
 
   <!-- 하단 상품 이미지 및 설명 -->
-  <div class="d-flex justify-content-center flex-wrap">
+  <div class="d-flex justify-content-center flex-column">
       <div>
-      <img  src="{{product.produt_detail_img.url}}" alt="상품 상세 이미지"/>
-      </div>
-      <br>
+      <p class="text-center">
+        <img  src="{{product.produt_detail_img.url}}" alt="상품 상세 이미지" />
+      </p>
+        <br>
       <h3 class="text-center">{{product.title}}</h3>
       <br>
       <p class="text-center">
@@ -55,7 +56,7 @@
         <br>
         <img src="{{product.produt_desc_img.url}}" alt="상품 성분표 이미지"/>
       </p>
-
+    </div>
   </div>
   <!-- 리뷰 영역 -->
   <table class="table table-hover text-center">
@@ -63,9 +64,9 @@
         <tr>
             <th scope="col">번호</th>
             <th scope="col">제목</th>
+            <th scope="col">작성자</th>
             <th scope="col">작성 시간</th>
             <th scope="col">마지막 수정 시간</th>
-            <th scope="col">작성자</th>
             <th scope="col">추천</th>
         </tr>
     </thead>
@@ -74,7 +75,7 @@
         <tr onclick="location.href='/reviews/{{review.pk}}/'" style="vertical-align: middle;">
             <th scope="row">{{ forloop.counter }}</th>
             <td> {{ review.title }}</td>
-            </td>
+            <td> {{ review.user.name }}</td>
         </tr>
         {% endfor %}
     </tbody>
