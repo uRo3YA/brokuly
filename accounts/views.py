@@ -3,10 +3,15 @@ from .forms import CustomUserCreationForm
 from django import forms
 from django.contrib.auth.forms import AuthenticationForm
 from django.contrib.auth import login as auth_login, logout as auth_logout
+from products.models import Product
 
 
 def test(request):
-    return render(request, 'accounts/test.html')
+    context = {
+        'products': Product.objects.all(),
+    }
+
+    return render(request, 'accounts/test.html', context)
 
 
 def agreement(request):
@@ -27,7 +32,7 @@ def signup(request, is_seller):
             form.save()
 
             # must change this statement
-            return render(request, 'accounts/test.html')
+            return redirect('accounts:test')
 
     else:
         form = CustomUserCreationForm()
@@ -81,3 +86,26 @@ def mypage(request):
         pass
 
     return render(request, 'accounts/mypage.html')
+
+
+def cart(request):
+    products = request.user.carts.all()
+
+    context = {
+        'products': products,
+    }
+
+    return render(request, 'accounts/cart.html', context)
+
+
+def add_cart(request, product_id):
+    cart = request.user.carts
+    product = Product.objects.get(id=product_id)
+
+    if product in cart.all():
+        cart.remove(product)
+    else:
+        cart.add(product)
+        
+    # must change this statement
+    return redirect('accounts:test')
