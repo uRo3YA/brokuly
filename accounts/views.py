@@ -109,3 +109,11 @@ def add_cart(request, product_id):
         
     # must change this statement
     return redirect('accounts:test')
+
+
+def wishlist(request):
+    context = {
+        'wishlist': request.user.wishlist
+    }
+
+    return render(request, 'accounts/wishlist.html', context)
