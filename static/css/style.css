@@ -22,6 +22,16 @@ footer {
 }
 
 /* Buttons */
+.btn-green {
+  color: white;
+  background-color: #008b47;
+}
+
+.btn-green:hover {
+  color: white;
+  background-color: #006e39;
+}
+
 .btn-outline-green {
   color: #008b47;
   background-color: white;
@@ -61,7 +71,7 @@ footer {
 
 /* line */
 .green-line {
-  background-color: #008b48;
+  background-color: #008b47;
   opacity: 100;
   border: none;
   height: 2px;
@@ -90,6 +100,29 @@ select {
   -webkit-appearance: none;
   -moz-appearance: none;
   appearance: none;
+}
+
+/* 장바구니 페이지 */
+.check input[type="checkbox"] {
+  transform: scale(1.5);
+}
+
+.bi-dash-circle {
+  color: #6bb64a;
+  font-size: 20px;
+}
+
+.bi-dash-circle:hover {
+  cursor: pointer;
+}
+
+.bi-plus-circle {
+  color: #008b47;
+  font-size: 20px;
+}
+
+.bi-plus-circle:hover {
+  cursor: pointer;
 }
 
 .main-review {
