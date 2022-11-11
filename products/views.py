@@ -1,6 +1,7 @@
 from django.shortcuts import render, redirect
 from .forms import ProductForm
 from .models import Product
+from reviews.models import Review
 
 #
 # Create your views here.
@@ -27,10 +28,11 @@ def create(request):
 
 def detail(request, pk):
     product = Product.objects.get(pk=pk)
-    # review = Review.objects.filter(review_id=product.pk)
+    review = Review.objects.filter(product_id=product.pk)
 
     context = {
         "product": product,
+        "reviews": review,
     }
     return render(request, "products/detail.html", context)
 

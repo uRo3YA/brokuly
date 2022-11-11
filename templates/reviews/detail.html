@@ -1,0 +1,12 @@
+{% extends 'base.html' %}
+{% load django_bootstrap5 %}
+{% load static %}
+{% block body %} 
+여기는 리뷰 제목<br>
+{{review.title}} <br>
+여기는 평점 <br>
+{{review.grade}} <br>
+여기는 내용 <br>
+{{review.content}} <br>
+
+{% endblock %}
