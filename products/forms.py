@@ -2,6 +2,13 @@ from django import forms
 from .models import Product
 
 #
+class AddProductForm(forms.Form):
+    quantity = forms.IntegerField()
+    is_update = forms.BooleanField(
+        required=False, initial=False, widget=forms.HiddenInput
+    )
+
+
 class ProductForm(forms.ModelForm):
     def __init__(self, *args, **kwargs):
         super(ProductForm, self).__init__(*args, **kwargs)

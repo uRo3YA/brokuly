@@ -1,9 +1,10 @@
-from django.shortcuts import render, redirect
-from .forms import ProductForm
+from django.shortcuts import render, redirect, get_object_or_404
+from .forms import ProductForm, AddProductForm
 from .models import Product
 from reviews.models import Review
 from accounts.models import User
 from django.contrib.auth import get_user_model
+from django.http import HttpResponse, JsonResponse
 
 #
 # Create your views here.
@@ -39,11 +40,8 @@ def create(request):
 def detail(request, pk):
     product = Product.objects.get(pk=pk)
     review = Review.objects.filter(product_id=product.pk)
-
-    context = {
-        "product": product,
-        "reviews": review,
-    }
+    cart = AddProductForm(initial={"quantity": 1})
+    context = {"product": product, "reviews": review, "cart": cart}
 
     return render(request, "products/detail.html", context)
 
@@ -75,3 +73,20 @@ def delete(request, pk):
     info.delete()
 
     return redirect("products:index")
+
+
+def cart(request, pk):
+
+    print(request.POST)
+    review = get_object_or_404(Product, pk=pk)
+    # comment_form = AddProductForm(request.POST)
+    # if comment_form.is_valid():
+    #     comment = comment_form.save(commit=False)
+    #     comment.review = review
+    #     # comment.user = request.user
+    #     comment.save()
+    #     context = {
+    #         "content": comment.content,
+    #         #'userName': comment.user.username
+    #     }
+    return redirect("products:cart")
