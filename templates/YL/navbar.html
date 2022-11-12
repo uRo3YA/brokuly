@@ -1,4 +1,3 @@
-{% load static %}
 <!DOCTYPE html>
 <html lang="ko">
 <head>
@@ -8,7 +7,8 @@
     <title>Navbar</title>
     <!-- CSS only -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-Zenh87qX5JnK2Jl0vWa8Ck2rdkQ2Bzep5IDxbcnCeuOxjzrPF/et3URy9Bv1WTRi" crossorigin="anonymous">
-
+    <link rel="stylesheet" href="style_1.css" />
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.9.1/font/bootstrap-icons.css"/>
 </head>
 <body>
     <!-- Navbar -->
@@ -16,44 +16,51 @@
     <nav class="navbar navbar-expand-lg p-0">
         <div class="container d-felx justify-content-end">
             <div class="navbar-nav">
-                {% if request.user.is_authenticated %}
-                <a class="nav-link active mx-3 small" aria-current="page" href="{% url 'accounts:mypage' %}"><small>마이페이지</small></a>
-                <a class="nav-link active mx-3 small" href="{% url 'accounts:logout' %}"><small>로그아웃</small></a>   
-                {% else %} 
-                <a class="nav-link active mx-3 small" aria-current="page" href="{% url 'accounts:agreement' %}"><small>회원가입</small></a>
-                <a class="nav-link active mx-3 small" href="{% url 'accounts:login' %}"><small>로그인</small></a>
-                {% endif %}
-                <a class="nav-link active mx-3 small" href="#"><small>고객센터</small></a>
+              <a class="nav-link active mx-3 small" aria-current="page" href="#"><small>회원가입</small></a>
+              <a class="nav-link active mx-3 small" href="#"><small>로그인</small></a>
+              <a class="nav-link active mx-3 small" href="#"><small>고객센터</small></a>
             </div>
         </div>
     </nav>
     <!-- 중간 Navbar -->
     <nav class="navbar navbar-expand-lg p-0">
         <div class="container d-flex justify-content-center">
-            <img src="{% static 'images/logo.png' %}">
-            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
-                <span class="navbar-toggler-icon"></span>
-            </button>
-            <form class="d-flex" role="search">
-                <input class="form-control me-2" type="search" placeholder="검색어를 입력해주세요" aria-label="Search">
-            </form>
+            <img src="./main.assets/logo.png">
+            <div class="d-flex mt-4 mb-3 align-content-center">
+                <div class="nav-searchbar mx-3">
+                  <input type="text" aria-label="Text input with dropdown button" placeholder=" 검색어를 입력해주세요">
+                  <a href="#">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor" class="bi bi-search" viewBox="0 0 16 16">
+                    <path d="M11.742 10.344a6.5 6.5 0 1 0-1.397 1.398h-.001c.03.04.062.078.098.115l3.85 3.85a1 1 0 0 0 1.415-1.414l-3.85-3.85a1.007 1.007 0 0 0-.115-.1zM12 6.5a5.5 5.5 0 1 1-11 0 5.5 5.5 0 0 1 11 0z"/>
+                  </svg>
+                  </a>
+                </div>
+              </div>
             <span class="mx-5"></span>
             <ul class="navbar-nav">
                 <li class="nav-item mx-3">
-                    <svg xmlns="http://www.w3.org/2000/svg" width="25" height="25" fill="currentColor" class="bi bi-geo-alt" viewBox="0 0 16 16">
+                    <a href="#">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="25" height="25" fill="currentColor" class="bi bi-geo-alt text-decoration-none" viewBox="0 0 16 16" style="color: black;">
                         <path d="M12.166 8.94c-.524 1.062-1.234 2.12-1.96 3.07A31.493 31.493 0 0 1 8 14.58a31.481 31.481 0 0 1-2.206-2.57c-.726-.95-1.436-2.008-1.96-3.07C3.304 7.867 3 6.862 3 6a5 5 0 0 1 10 0c0 .862-.305 1.867-.834 2.94zM8 16s6-5.686 6-10A6 6 0 0 0 2 6c0 4.314 6 10 6 10z"/>
                         <path d="M8 8a2 2 0 1 1 0-4 2 2 0 0 1 0 4zm0 1a3 3 0 1 0 0-6 3 3 0 0 0 0 6z"/>
-                      </svg>                
+                        </svg> 
+                    </a>              
                 </li>
                 <li class="nav-item mx-3">
-                    <svg xmlns="http://www.w3.org/2000/svg" width="25" height="25" fill="currentColor" class="bi bi-heart" viewBox="0 0 16 16">
+                    <a href="#">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="25" height="25" fill="currentColor" class="bi bi-heart text-decoration-none" viewBox="0 0 16 16" style="color: black;">
                         <path d="m8 2.748-.717-.737C5.6.281 2.514.878 1.4 3.053c-.523 1.023-.641 2.5.314 4.385.92 1.815 2.834 3.989 6.286 6.357 3.452-2.368 5.365-4.542 6.286-6.357.955-1.886.838-3.362.314-4.385C13.486.878 10.4.28 8.717 2.01L8 2.748zM8 15C-7.333 4.868 3.279-3.04 7.824 1.143c.06.055.119.112.176.171a3.12 3.12 0 0 1 .176-.17C12.72-3.042 23.333 4.867 8 15z"/>
-                    </svg>                
+                        </svg> 
+                    </a>
+                                   
                 </li>
                 <li class="nav-item mx-3">
-                    <svg xmlns="http://www.w3.org/2000/svg" width="25" height="25" fill="currentColor" class="bi bi-cart" viewBox="0 0 16 16">
+                    <a href="#">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="25" height="25" fill="currentColor" class="bi bi-cart text-decoration-none" viewBox="0 0 16 16" style="color: black;">
                         <path d="M0 1.5A.5.5 0 0 1 .5 1H2a.5.5 0 0 1 .485.379L2.89 3H14.5a.5.5 0 0 1 .491.592l-1.5 8A.5.5 0 0 1 13 12H4a.5.5 0 0 1-.491-.408L2.01 3.607 1.61 2H.5a.5.5 0 0 1-.5-.5zM3.102 4l1.313 7h8.17l1.313-7H3.102zM5 12a2 2 0 1 0 0 4 2 2 0 0 0 0-4zm7 0a2 2 0 1 0 0 4 2 2 0 0 0 0-4zm-7 1a1 1 0 1 1 0 2 1 1 0 0 1 0-2zm7 0a1 1 0 1 1 0 2 1 1 0 0 1 0-2z"/>
-                    </svg>                
+                        </svg>  
+                    </a>
+                                  
                 </li>
             </ul>
         </div>
@@ -75,16 +82,16 @@
                 <li><a class="dropdown-item" href="#">Something else here</a></li>
                 </ul>
             </li>
-            <li class="nav-item list-unstyled">
+            <li class="nav-item list-unstyled nav-menu">
                 <a class="nav-link active" href="#">신상품</a>
             </li>
-            <li class="nav-item list-unstyled">
+            <li class="nav-item list-unstyled nav-menu">
                 <a class="nav-link active" href="#">베스트</a>
             </li>
-            <li class="nav-item list-unstyled">
+            <li class="nav-item list-unstyled nav-menu">
                 <a class="nav-link active" href="#">알뜰쇼핑</a>
             </li>
-            <li class="nav-item list-unstyled">
+            <li class="nav-item list-unstyled nav-menu">
                 <a class="nav-link active" href="#">특가/혜택</a>
             </li>
         </div>
