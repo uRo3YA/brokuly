@@ -54,3 +54,18 @@ class Product(models.Model):
         db_table = "상품"
         verbose_name = "상품"
         verbose_name_plural = "상품"
+
+
+# 일단 장바구니 구현 ->> 이동 필요, accunts앱으로?
+class Cart(models.Model):
+    user = models.ForeignKey(
+        settings.AUTH_USER_MODEL,
+        on_delete=models.CASCADE,
+    )
+    products = models.ForeignKey(
+        Product, on_delete=models.CASCADE, related_name="wish_product", blank=True
+    )
+    quantity = models.IntegerField(default=1)
+
+    def __str__(self):
+        return "{} // {}".format(self.user, self.products.name)
