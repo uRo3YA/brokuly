@@ -71,29 +71,35 @@
           <dl class="list">
             <dt class="tit">주문</dt>
             <dd class="desc">
-            <!-- <div class="subdiv">
+            <div class="subdiv">
+              <form action="{% url 'products:add_cart' product.pk%}" method="POST">
+                {% csrf_token %} 
               <div class="basketprice"><input type="hidden" name="p_price" id="p_price1" class="p_price" value="{{product.price}}"></div>
               <div class="num">
                   <div class="updown">
-                      <input type="text" name="p_num1" id="p_num1" size="2" maxlength="4" class="p_num" value="1" onkeyup="javascript:basket.changePNum(1);" >
                       <span onclick="javascript:basket.changePNum(1);"><i class="fas fa-arrow-alt-circle-up up"></i></span>
+                      <input type="text" name="p_num1" id="p_num1" size="2" maxlength="4" class="p_num" value="1" onkeyup="javascript:basket.changePNum(1);" >
                       <span onclick="javascript:basket.changePNum(1);"><i class="fas fa-arrow-alt-circle-down down"></i></span>
                   </div>
               </div>
-              <div class="sum">{{product.price}}원</div> -->
-              <form action="{% url 'products:add_cart' product.pk%}" method="POST">
-                {% csrf_token %}  
+              <div class="sum">{{product.price}}원</div>
+              <button type="submit" class="btn btn-outline-secondary" style="margin-right:5px;">Add To Cart</button>
+            </form>
+              <!-- <form action="{% url 'products:add_cart' product.pk%}" method="POST">
+                {% csrf_token %}   -->
                 <!--   수량   -->
-                    <div id="mainDiv" style="display: flex; align-items: center; margin-bottom:25px; margin-top:20px; font-size:16px;color:#555555;">
-                        수량 선택 <input type="number" name="quantity" style="width:70px; margin-left:20px;" min="1" id="numberPlace" class="form-control qty-input text-center">
-                    </div>
+                    <!-- <div id="mainDiv" style="display: flex; align-items: center; margin-bottom:25px; margin-top:20px; font-size:16px;color:#555555;">
+                        수량 선택 <input type="number" name="quantity" style="width:70px; margin-left:20px;" min="1" id="numberPlace" value="1" class="form-control qty-input text-center">
+                        
+                    </div> -->
                 <!--   수량  끝 --> 
-               <button type="submit" class="btn btn-outline-secondary" style="margin-right:5px;">Add To Cart</button>
-                </form>
+               <!-- <button type="submit" class="btn btn-outline-secondary" style="margin-right:5px;">Add To Cart</button>
+              </form>
                 
-             <script>
+              <script type="text/javascript">
               document.getElementById('numberPlace').value = '1';
-            </script>
+              </script> -->
+            
             </dd>
           </dl>
 
@@ -150,27 +156,39 @@
 
   <!-- 리뷰 영역 -->
   <div id="bookmark_cm_opinion" style="height: 100px; margin-top: -100px;"></div>
-  <table class="table table-hover text-center">
-    <thead class="table-dark">
-        <tr>
-            <th scope="col">번호</th>
-            <th scope="col">제목</th>
-            <th scope="col">작성자</th>
-            <th scope="col">작성 시간</th>
-            <th scope="col">마지막 수정 시간</th>
-            <th scope="col">추천</th>
-        </tr>
-    </thead>
-    <tbody class="table-dark">
-        {% for review in reviews %}
-        <tr onclick="location.href='/reviews/{{review.pk}}/'" style="vertical-align: middle;">
-            <th scope="row">{{ forloop.counter }}</th>
-            <td> {{ review.title }}</td>
-            <td> {{ review.user.name }}</td>
-        </tr>
-        {% endfor %}
-    </tbody>
-</table>
+  <!-- 하단 상품 후기 -->
+  <div class="container pt-5 pb-5">
+    <h2 class="text-center">고객님들의 후기</h2>
+    <div class="d-flex justify-content-center mt-5 mb-3">
+      <img src="./main.assets/상품후기 이미지.png" alt=""/>
+    </div>
+    <div class="d-flex float-start mt-3">
+      <p class="mx-3">총 {{reviews.count}}개</p>
+    </div>
+    <br>
+    <br>
+    <hr> 
+
+    <div class="container mt-5">
+      {% for review in reviews %}
+      <div class="row">
+        <div class="col-2">
+          
+          <div class="d-flex align-content-center">
+            <button class="btn-grade">등급</button>
+            <h6 class="mb-0 pt-1">{{ review.user.name }}</h6>
+          </div>
+        </div>
+        <div class="col-8"  onclick="location.href='/reviews/{{review.pk}}/'">
+          <h5 class="text-muted fw-bold">상품명 및 상품 제목 {{ review.title }}</h5>
+          <p class="text-muted">{{review.content}}Lorem ipsum dolor sit, amet consectetur adipisicing elit. Vitae, rerum beatae provident cum voluptatem optio ducimus a magni numquam odit sed eos error delectus, ullam voluptates praesentium odio quam velit.</p>
+          <img src="./main.assets/상품후기 이미지 2.png">
+        </div>
+
+      </div>
+    </div>
+    <hr>
+    {% endfor %}
 
 
 <div class="text-end m-1">

@@ -9,7 +9,8 @@ urlpatterns = [
     path("<int:pk>/", views.detail, name="detail"),
     path("<int:pk>/update/", views.update, name="update"),
     path("<int:pk>/delete/", views.delete, name="delete"),
-    path("add_cart/<int:pk>", views.add_cart, name="add_cart")
+    path("add_cart/<int:pk>", views.add_cart, name="add_cart"),
+    # path("cart/", views.cart, name="cart")
     # path('search', views.search, name='search'),
     # path('<int:pk>/wishlist/', views.wishlist),
 ]

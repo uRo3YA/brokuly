@@ -7,6 +7,7 @@ from accounts.models import User
 from django.contrib.auth import get_user_model
 from django.http import HttpResponse, JsonResponse
 from django.contrib import messages
+from collections import Counter
 
 #
 # Create your views here.
@@ -80,29 +81,39 @@ def delete(request, pk):
     return redirect("products:index")
 
 
-# def cart(request, pk):
-#     quantity = int(request.POST.get("p_num1"))
-#     product = Product.objects.get(pk=pk)
-#     print(request.POST)
-#     review = get_object_or_404(Product, pk=pk)
-#     comment_form = AddProductForm(request.POST)
-#     if comment_form.is_valid():
-#         comment = comment_form.save(commit=False)
-#         comment.review = review
-#         # comment.user = request.user
-#         comment.save()
+# def cart(request):
+#     cart_item = Cart.objects.filter(user__id=request.user.pk)
+#     # 장바구니에 담긴 상품의 총 합계 가격
+#     total_price = 0
+#     total_quantity = 0
+#     dic = {}
+#     for cart in cart_item:
+#         if cart.products.pk in dic:
+#             dic[cart.products.pk] += cart.quantity
+#         else:
+#             dic[cart.products.pk] = 1
+#     print(dic)
+#     # for loop 를 순회하여 각 상품 * 수량을 total_price 에 담는다
+#     for each_total in cart_item:
+#         total_price += each_total.products.price * each_total.quantity
+#         total_quantity += each_total.quantity
+#     if cart_item is not None:
 #         context = {
-#             "content": comment.content,
-#             #'userName': comment.user.username
+#             # 없으면 없는대로 빈 conext 를 템플릿 변수에서 사용
+#             "cart_item": cart_item,
+#             "total_price": total_price,
+#             "total_quantity": total_quantity,
+#             "dic":dic
 #         }
-#     return redirect("products:cart")
+
+#         return render(request, "products/cart.html", context)
+#     return redirect("/")
 
 
 def add_cart(request, pk):
-
     if request.method == "POST":
         selected_product = Product.objects.get(pk=pk)
-        selected_quantity = int(request.POST.get("quantity"))
+        selected_quantity = int(request.POST.get("p_num1"))
         # stock_now = Product.objects.get(id=selected_inventory).stock
         print("selected_inventory:", selected_product)
         print("selected_quantity:", selected_quantity)

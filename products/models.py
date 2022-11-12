@@ -69,3 +69,7 @@ class Cart(models.Model):
 
     def __str__(self):
         return "{} // {}".format(self.user, self.products.name)
+
+    def sub_total(self):
+        # 템플릿에서 사용하는 변수로 장바구니에 담긴 각 상품의 합계
+        return self.products.price * self.quantity

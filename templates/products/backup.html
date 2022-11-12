@@ -1,28 +1,36 @@
-<h3>{{product.title}}</h3>
-<h3><span style="color: #fbcd24">{{product.sales_rate}}% </span>{{product.price}}원</h3>
-<hr>
-<p>판매자명:{{product.user.name}}</p>
-<hr>
-<p>포장 타입: {{product.}}</p>
-<br>
-<p>판매 단위: {{product.unit}}</p>
-<p>중량/용량: {{product.weight}}</p>
-<p>원산지: 상세페이지 별도 표기</p>
-<p>상품 재고: {{product.stock}}</p>  
-<hr>
-<p>이 제품에는 다음과 같은 알러지 성분이 포함되어 있습니다.</p>
-  {%for i in product.allergy%}
-  {{i}},
-  {%endfor%}
-  <br>
-  <p>
-      상품선택
-  </p>
-<div class="d-flex align-items-center float-end">
-    <a class="mx-3" href="#">
-        <svg xmlns="http://www.w3.org/2000/svg" width="30" height="30" fill="currentColor" class="bi bi-heart" viewBox="0 0 16 16">
-        <path d="m8 2.748-.717-.737C5.6.281 2.514.878 1.4 3.053c-.523 1.023-.641 2.5.314 4.385.92 1.815 2.834 3.989 6.286 6.357 3.452-2.368 5.365-4.542 6.286-6.357.955-1.886.838-3.362.314-4.385C13.486.878 10.4.28 8.717 2.01L8 2.748zM8 15C-7.333 4.868 3.279-3.04 7.824 1.143c.06.055.119.112.176.171a3.12 3.12 0 0 1 .176-.17C12.72-3.042 23.333 4.867 8 15z"/>
-        </svg>   
-    </a>        
-    <button type="button" class="btn btn-green"><strong>위시리스트에 담기</strong></button>
-</div>
+{% extends 'base.html' %}
+{% load static %}
+{% block script %}
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.min.css" />
+<script type="text/javascript" src="{% static 'js/10-11.js' %}"></script> 
+{% endblock script %}
+{% load django_bootstrap5 %}
+{% block body %}
+<!-- 장바구니 -->
+
+<div style="display:flex;">
+    <button id="minus">-</button>
+    <p>0</p>
+    <button id="plus">+</button>
+  </div>
+  
+  <script>
+    let countNum = 0
+  
+    const minus = document.querySelector('#minus')
+    minus.addEventListener('click', function () {
+      countNum -= 1
+      const p = document.querySelector('p')
+      p.innerText = countNum
+    })
+  
+    const plus = document.querySelector('#plus')
+    plus.addEventListener('click', function () {
+      countNum += 1
+      const p = document.querySelector('p')
+      p.innerText = countNum
+    })
+  </script>
+  
+  <a class="btn btn-secondary" href="{% url 'cart:add_cart' product.id %}">장바구니 담기</a>
+  {% endblock %}
