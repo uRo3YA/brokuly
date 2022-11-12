@@ -1,10 +1,12 @@
 from django.shortcuts import render, redirect, get_object_or_404
-from .forms import ProductForm, AddProductForm
+from .forms import ProductForm
 from .models import Product
+from .models import Cart
 from reviews.models import Review
 from accounts.models import User
 from django.contrib.auth import get_user_model
 from django.http import HttpResponse, JsonResponse
+from django.contrib import messages
 
 #
 # Create your views here.
@@ -40,8 +42,11 @@ def create(request):
 def detail(request, pk):
     product = Product.objects.get(pk=pk)
     review = Review.objects.filter(product_id=product.pk)
-    cart = AddProductForm(initial={"quantity": 1})
-    context = {"product": product, "reviews": review, "cart": cart}
+    # cart = AddProductForm(initial={"quantity": 1})
+    context = {
+        "product": product,
+        "reviews": review,
+    }
 
     return render(request, "products/detail.html", context)
 
@@ -75,18 +80,36 @@ def delete(request, pk):
     return redirect("products:index")
 
 
-def cart(request, pk):
+# def cart(request, pk):
+#     quantity = int(request.POST.get("p_num1"))
+#     product = Product.objects.get(pk=pk)
+#     print(request.POST)
+#     review = get_object_or_404(Product, pk=pk)
+#     comment_form = AddProductForm(request.POST)
+#     if comment_form.is_valid():
+#         comment = comment_form.save(commit=False)
+#         comment.review = review
+#         # comment.user = request.user
+#         comment.save()
+#         context = {
+#             "content": comment.content,
+#             #'userName': comment.user.username
+#         }
+#     return redirect("products:cart")
 
-    print(request.POST)
-    review = get_object_or_404(Product, pk=pk)
-    # comment_form = AddProductForm(request.POST)
-    # if comment_form.is_valid():
-    #     comment = comment_form.save(commit=False)
-    #     comment.review = review
-    #     # comment.user = request.user
-    #     comment.save()
-    #     context = {
-    #         "content": comment.content,
-    #         #'userName': comment.user.username
-    #     }
-    return redirect("products:cart")
+
+def add_cart(request, pk):
+
+    if request.method == "POST":
+        selected_product = Product.objects.get(pk=pk)
+        selected_quantity = int(request.POST.get("quantity"))
+        # stock_now = Product.objects.get(id=selected_inventory).stock
+        print("selected_inventory:", selected_product)
+        print("selected_quantity:", selected_quantity)
+        cart = Cart()
+        cart.user = request.user
+        cart.products = selected_product
+        cart.quantity = selected_quantity
+        cart.save()
+        # request.pk -> 개인 장바구니 페이지 연결 필요
+        return redirect("/")
