@@ -10,7 +10,8 @@ from django.contrib import messages
 from collections import Counter
 from django.contrib import messages
 from django.db.models import Q
-
+from qnas.models import Question, Answer
+from qnas.forms import QuestionForm, AnswerForm
 #
 # Create your views here.
 def index(request):
@@ -46,9 +47,19 @@ def detail(request, pk):
     product = Product.objects.get(pk=pk)
     review = Review.objects.filter(product_id=product.pk)
     # cart = AddProductForm(initial={"quantity": 1})
+
+    questions = Question.objects.filter(product_id=product.pk)
+    answers = Answer.objects.all()
+    question_form = QuestionForm()
+    answer_form = AnswerForm()
+
     context = {
         "product": product,
         "reviews": review,
+        'questions':questions,
+        'answers':answers,
+        'question_form': question_form,
+        'answer_form': answer_form,
     }
 
     return render(request, "products/detail.html", context)
