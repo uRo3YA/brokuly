@@ -8,6 +8,8 @@ from django.contrib.auth import get_user_model
 from django.http import HttpResponse, JsonResponse
 from django.contrib import messages
 from collections import Counter
+from django.contrib import messages
+from django.db.models import Q
 
 #
 # Create your views here.
@@ -81,6 +83,48 @@ def delete(request, pk):
     return redirect("products:index")
 
 
+# def search(request):
+#     print(request.GET.get("q", ""))
+#     search_keyword = request.GET.get("q", "")
+#     print(request.GET.get("q", ""))
+#     search_type = "all"
+#     product_list = Product.objects.order_by("-id")
+#     if search_keyword:
+#         if len(search_keyword) > 1:
+#             if search_type == "all":
+#                 search_product_list = product_list.filter(
+#                     Q(title__icontains=search_keyword)
+#                     | Q(description__icontains=search_keyword)
+#                 )
+#         # return search_product_list
+#         return render(
+#             request,
+#             "product/search.html",
+#             {"search_product_list": search_product_list, "q": search_keyword},
+#         )
+#     else:
+#         messages.error(request, "검색어는 2글자 이상 입력해주세요.")
+#     # return product_list
+#     return render(request, "products/search.html")
+def search(request):
+    result = Product.objects.all().order_by("-id")
+    search_keyword = request.POST.get("q", "")
+    if search_keyword:
+        result = result.filter(
+            Q(title__icontains=search_keyword)
+            | Q(description__icontains=search_keyword)
+        )
+        return render(
+            request,
+            "products/search.html",
+            {"search_product_list": result, "q": search_keyword},
+        )
+
+    else:
+        return render(request, "products/search.html")
+
+
+#############################################
 # def cart(request):
 #     cart_item = Cart.objects.filter(user__id=request.user.pk)
 #     # 장바구니에 담긴 상품의 총 합계 가격

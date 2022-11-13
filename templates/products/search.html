@@ -1,0 +1,20 @@
+{% extends 'base.html' %}
+{% load static %}
+{% load django_bootstrap5 %}
+{% block body %}
+<div class="container">
+{% if not search_product_list %}
+    {{q}}에 대한 검색 결과가 없습니다.
+{% else %}
+    <p>
+    {{q}}에 대한 {{search_product_list.count}}건 검색 결과가 있습니다
+    </p>
+    {% for product_list in search_product_list.all %}
+    <p>
+    <a href="/products/{{ product_list.id }}/">{{ product_list.title }}</a>
+    </p>
+    {% endfor %}
+
+{% endif %}
+</div>
+{% endblock %}
