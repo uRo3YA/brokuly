@@ -135,7 +135,7 @@
         </a>
       </span>
       <span class="sociallink ml-1">
-        <a href="javascript:sendLinkKakao()" id="kakao-link-btn" title="카카오톡으로 공유">
+        <a id="kakaotalk-sharing-btn" href="javascript:;" title="카카오톡으로 공유">
           <img src="https://windybay.net/static/images//kakaotalk.png" width=36 alt="Kakaotalk">
         </a>
       </span>
@@ -390,15 +390,12 @@
                   'Share on Twitter',
                   'scrollbars=no, width=500, height=500');
   }
-  function sendLinkNaver(){
-      var raw_url = "{{ request.build_absolute_uri }}";
-      // var raw_title = "{{ post.title }}"
-      var naver_root_url = "http://share.naver.com/web/shareView.nhn?url="
-      // var naver_share_url = naver_root_url+encodeURI(raw_url)+"&title="+encodeURI(raw_title);
-      var naver_share_url = naver_root_url+encodeURI(raw_url);
-      window.open(naver_share_url,
-                  'Share on Naver',
-                  'scrollbars=no, width=500, height=500');    
+  
+  function sendLinkNaver() {
+      var url = encodeURI(encodeURIComponent(window.location.href));
+      var title = encodeURI("{{ product.title }}");
+      var shareURL = "https://share.naver.com/web/shareView?url=" + url + "&title=" + title;
+      window.open(shareURL, 'Share on Naver', 'scrollbars=no, width=500, height=500');
   }
 
 
@@ -429,5 +426,50 @@
     }
   }
 
+</script>
+
+<!--카카오 공유 버튼-->
+<script src="https://t1.kakaocdn.net/kakao_js_sdk/2.0.1/kakao.min.js"
+  integrity="sha384-eKjgHJ9+vwU/FCSUG3nV1RKFolUXLsc6nLQ2R1tD0t4YFPCvRmkcF8saIfOZNWf/" crossorigin="anonymous"></script>
+<script>
+  Kakao.init('c089c8172def97eb00c07217cae17495'); // 사용하려는 앱의 JavaScript 키 입력
+</script>
+
+<script>
+  Kakao.Share.createDefaultButton({
+    container: '#kakaotalk-sharing-btn',
+    objectType: 'feed',
+    content: {
+      title: '#{{ product.title }}',
+      description: '#Brocurly #브로컬리 #신선식품 #인기상품 #샛별배송',
+      imageUrl:
+        'https://i0.wp.com/news.kurly.com/wp-content/uploads/2022/03/indentity-1.png?fit=410%2C410&ssl=1',
+      link: {
+        mobileWebUrl: window.location.href,
+        webUrl: window.location.href,
+      },
+    },
+    social: {
+      likeCount: 286,
+      commentCount: 45,
+      sharedCount: 845,
+    },
+    buttons: [
+      {
+        title: '웹으로 보기',
+        link: {
+          mobileWebUrl: window.location.href,
+          webUrl: window.location.href,
+        },
+      },
+      {
+        title: '앱으로 보기',
+        link: {
+          mobileWebUrl: window.location.href,
+          webUrl: window.location.href,
+        },
+      },
+    ],
+  });
 </script>
 {% endblock %}

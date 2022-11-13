@@ -542,3 +542,12 @@ select {
 .display-none {
   display: none;
 }
+
+html.dark {
+  background: #121212;
+  color: #bbb;
+}
+
+html.dark a {
+  color: #3ea6ff;
+}
