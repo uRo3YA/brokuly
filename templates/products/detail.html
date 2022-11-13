@@ -117,6 +117,30 @@
       </div>
     </div>
   </div>
+  <!--소셜 공유버튼 영역-->
+  <div class="d-flex float-end mx-5">
+    <span class="sociallink ml-1">
+        <a href="javascript:sendLinkFacebook()" title="페이스북으로 공유">
+          <img src="https://windybay.net/static/images/facebook.png" width=36 alt="Facebook">
+        </a>
+      </span>
+      <span class="sociallink ml-1">
+        <a href="javascript:sendLinkTwitter()" title="트위터로 공유">
+          <img src="https://windybay.net/static/images/twitter.png" width=36 alt="Twitter">
+        </a>
+      </span>
+      <span class="sociallink ml-1">
+        <a href="javascript:sendLinkNaver()" title="네이버로 공유">
+          <img src="https://windybay.net/static/images/naver.png" width=36 alt="Naver">
+        </a>
+      </span>
+      <span class="sociallink ml-1">
+        <a href="javascript:sendLinkKakao()" id="kakao-link-btn" title="카카오톡으로 공유">
+          <img src="https://windybay.net/static/images//kakaotalk.png" width=36 alt="Kakaotalk">
+        </a>
+      </span>
+  </div>
+
   <!--탭 테스트  -->
   <div >
   <div class="detail_tab">
@@ -130,6 +154,12 @@
         <a href="#bookmark_cm_opinion">
           <h3 class="tab_txt">상품리뷰</h3>
           <strong class="num_c" id="productOpinionTabCount"></strong>
+        </a>
+      </li>
+      <li class="tab_item item02" id="bookmark_cm_inquiry_item">
+        <a href="#bookmark_cm_inquiry">
+          <h3 class="tab_txt">문의하기</h3>
+          <strong class="num_c" id="productInquiryTabCount"></strong>
         </a>
       </li>
     </ul>
@@ -206,4 +236,198 @@
 </div>
 </div>
 
+
+<!-- 문의 영역 -->
+<div id="bookmark_cm_inquiry" style="height: 100px; margin-top: -100px;"></div>
+<!-- 하단 상품 후기 -->
+<div class="container pt-5 pb-5">
+  <h2 class="text-center">상품문의</h2>
+  <br>
+  <div class="d-flex justify-content-between">
+    <div>
+      <ul>
+        <!-- <li>상품에 대한 문의를 남기는 공간입니다. 해당 게시판의 성격과 다른 글은 사전동의 없이 담당 게시판으로 이동될 수 있습니다.</li>
+        <li>배송관련, 주문(취소/교환/환불)관련 문의 및 요청사항은 마이컬리 내 1:1문의에 남겨주세요.</li> -->
+        <li>해당 상품에 대한 문의를 남겨주세요!</li>
+        <li>배송과 관련된 문의 사항이 있으시다면 마이페이지 내 1:1 문의에 남겨주세요.</li>
+      </ul>
+    </div>
+    <div>
+      <div class="d-flex justify-content-end">
+        <button type="button" class="btn btn-outline-success" data-bs-toggle="modal" data-bs-target="#inquiry-modal">
+            상품 문의하기
+        </button>
+      </div>
+    </div>
+  </div>
+
+  <!-- Modal -->
+  <div class="modal fade" id="inquiry-modal" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="staticBackdropLabel">상품 문의하기</h5>          
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <form action="qnas/question/create/" method="POST">
+          {% csrf_token %}
+        <div class="modal-body">
+            <hr>
+            <img src="{{product.produt_thum_img.url}}" alt="상품 이미지" style="width:72px;"> {{product.title}}
+            <hr>
+            {% bootstrap_form question_form %}
+            <i class="bi bi-check-circle"></i><i class="bi bi-check-circle-fill"></i>비밀글로 문의하기
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-outline-success" data-bs-dismiss="modal">취소</button>
+          <button type="submit" class="btn btn-success">등록</button>
+        </div>
+      </form>
+      </div>
+    </div>
+  </div>
+
+  <!-- <div class="container mt-5">
+    <table class="table">
+      <thead>
+        <tr>
+          <th scope="col">제목</th>
+          <th scope="col">작성자</th>
+          <th scope="col">작성일</th>
+          <th scope="col">답변상태</th>
+        </tr>
+      </thead>
+      <tbody>
+        {% for question in questions %}
+        <tr>
+          <th scope="row">{{ question.title }}</th>
+          <td>{{ question.user.username }}</td>
+          <td>작성일</td>
+          <td>답변상태</td>
+        </tr>
+        {% endfor %}
+      </tbody>
+    </table> -->
+
+    <div class="container mt-5" id="inquiry-list">
+      <hr style="color:#008B47;">
+      {% for question in questions %}
+      <div class="d-flex">
+        <hr>
+        <div>
+          등급 {{ question.user.name }}
+        </div>
+        <div>
+        {{ question.title }}
+        <br>
+          {{ question.content }}
+        </div>
+        {% if question.user.pk == request.user.pk %}
+        <a href="/qnas/{{ question.pk }}/update/?next={{ request.path }}"><button type="button" class="btn btn-primary" data-question-id="{{ question.pk }}">수정하기</button></a>
+        <!-- <button type="button" class="btn btn-primary" data-question-id="{{ question.pk }}" onclick="questionUpdateForm()">수정하기</button> -->
+        <button type="button" class="btn btn-danger" data-question-id="{{ question.pk }}" onclick="questionDelete()">삭제하기</button>
+        <br>
+        {% for answer in answers %}
+        {% if answer.question_id == question.pk%}
+        답글:{{ answer.content }}
+        <a href="/qnas/answer/{{ answer.pk }}/update/?next={{ request.path }}"><button type="button" class="btn btn-primary" data-question-id="{{ question.pk }}">수정하기</button></a>
+        <button type="button" class="btn btn-danger" data-answer-id="{{ answer.pk }}" onclick="answerDelete()">삭제하기</button>
+        {% endif %}
+        {% endfor %}
+        {% if question.is_answered == 0 %}
+        <button id="question-{{ question.pk }}-answer-create" type="button" class="btn btn-info" data-question-id="{{ question.pk }}" onclick="getCreateAnswer(this.id);">답글달기</button>
+        <form action="/qnas/{{ question.pk }}/answer/create/?next={{ request.path }}" method="POST" id="question-{{ question.pk }}-answer-create-form" data-question-id="{{ question.pk }}" class="display-none">
+          {% csrf_token %}
+          {% bootstrap_form answer_form %}
+          {% bootstrap_button button_type="submit" content="확인" %}
+        </form>
+        {% endif %}
+        {% endif %}
+      </div>
+      <hr>
+      {% endfor %}
+    </div>
+
+<!-- UpdateModal -->
+<div class="modal fade" id="update-modal" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="staticBackdropLabel">문의 수정하기</h5>          
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <form action="qnas/question/create/" method="POST">
+        {% csrf_token %}
+      <div class="modal-body">
+          <hr>
+          <img id="product-img" src="{{product.produt_thum_img.url}}" alt="상품 이미지" style="width:72px;"> <span id="product-title">{{product.title}}</span>
+          <hr>
+          {% bootstrap_form question_form %}
+          <i class="bi bi-check-circle"></i><i class="bi bi-check-circle-fill"></i>비밀글로 문의하기
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-outline-success" data-bs-dismiss="modal">취소</button>
+        <button type="submit" class="btn btn-success">등록</button>
+      </div>
+    </form>
+    </div>
+  </div>
+</div>
+
+<!--자바스크립트-->
+<script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+<script>
+  function sendLinkFacebook(){
+    var facebook_share_url = "https://www.facebook.com/sharer/sharer.php?u={{ request.build_absolute_uri }}";
+    window.open(facebook_share_url,
+                'Share on Facebook',
+                'scrollbars=no, width=500, height=500');
+  }
+  function sendLinkTwitter(){
+      var twitter_share_text="{{ post.title }}";
+      var twitter_share_url="{{ request.build_absolute_uri }}";
+      window.open("https://twitter.com/share?text="+twitter_share_text+"&url="+twitter_share_url,
+                  'Share on Twitter',
+                  'scrollbars=no, width=500, height=500');
+  }
+  function sendLinkNaver(){
+      var raw_url = "{{ request.build_absolute_uri }}";
+      // var raw_title = "{{ post.title }}"
+      var naver_root_url = "http://share.naver.com/web/shareView.nhn?url="
+      // var naver_share_url = naver_root_url+encodeURI(raw_url)+"&title="+encodeURI(raw_title);
+      var naver_share_url = naver_root_url+encodeURI(raw_url);
+      window.open(naver_share_url,
+                  'Share on Naver',
+                  'scrollbars=no, width=500, height=500');    
+  }
+
+
+  function questionDelete(e){
+    event.preventDefault()
+    if (confirm("정말 삭제하시겠습니까?") == true){
+        window.location.href = `/qnas/${event.target.dataset.questionId}/delete/?next={{ request.path }}`
+    }else{
+        return;
+    }
+  }
+
+  const getCreateAnswer = function (e) {
+    console.log(e)
+    const answerForm = document.querySelector(`#${e}-form`)
+    answerForm.classList.toggle('display-none');
+  }
+  const submitAnswer = function (e) {
+
+  }
+
+  function answerDelete(e){
+    event.preventDefault()
+    if (confirm("정말 삭제하시겠습니까?") == true){
+        window.location.href = `/qnas/answer/${event.target.dataset.answerId}/delete/?next={{ request.path }}`
+    }else{
+        return;
+    }
+  }
+
+</script>
 {% endblock %}
