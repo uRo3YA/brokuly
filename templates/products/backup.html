@@ -169,14 +169,20 @@
 <!-- 문의 영역 -->
 <div id="bookmark_cm_inquiry" style="height: 100px; margin-top: -100px;"></div>
 <!-- 하단 상품 후기 -->
-<div class="container mt-5 pt-5">
-    <div class="row justify-content-between">
-        <div class="col-6">
-            <h2 class="text-start">상품문의</h2>
-            <p class="text-muted">해당 상품에 대한 문의를 남겨주세요!<br>
-            배송과 관련된 문의 사항이 있으시다면 마이페이지 내 1:1 문의에 남겨주세요.</p>
-        </div> 
-        <div class="col-4 pt-5">
+<div class="container pt-5 pb-5">
+  <h2 class="text-center">상품문의</h2>
+  <br>
+  <div class="d-flex justify-content-between">
+    <div>
+      <ul>
+        <!-- <li>상품에 대한 문의를 남기는 공간입니다. 해당 게시판의 성격과 다른 글은 사전동의 없이 담당 게시판으로 이동될 수 있습니다.</li>
+        <li>배송관련, 주문(취소/교환/환불)관련 문의 및 요청사항은 마이컬리 내 1:1문의에 남겨주세요.</li> -->
+        <li>해당 상품에 대한 문의를 남겨주세요!</li>
+        <li>배송과 관련된 문의 사항이 있으시다면 마이페이지 내 1:1 문의에 남겨주세요.</li>
+      </ul>
+    </div>
+    <div>
+      <div class="d-flex justify-content-end">
         <button type="button" class="btn btn-outline-success" data-bs-toggle="modal" data-bs-target="#inquiry-modal">
             상품 문의하기
         </button>
@@ -209,110 +215,67 @@
       </div>
     </div>
   </div>
-  <hr class="green-line">
-  <div class="container mt-3 p-1">
-    <div class="row">
-      <div class="col-6">
-        <p class="text-center">제목</p>
-      </div>
-      <div class="col-6 ">
-        <div class="d-flex float-end">
-          <p class="text-center" style="margin-right: 3rem;">작성자</p>
-          <p class="text-center" style="margin-right: 3rem; margin-left: 5rem;">작성일</p>
-          <p class="text-center mx-5">답변상태</p>
-        </div>
-      </div>
-    </div>
-    <hr>
-    <div class="container accordion accordion-flush row" id="accordionFlushExample">
-        {% for question in questions %}
-        <div class="accordion-item">
-          <h2 class="accordion-header d-flex align-content-center" id="flush-headingOne-{{question.pk}}">
-              <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#flush-collapseOne-{{question.pk}}" aria-expanded="false" aria-controls="flush-collapseOne-{{question.pk}}">
-                <div class="col-6 ">
-                    {{ question.title }}
-                </div>
-                <div class="col-6">
-                  <div class="d-flex float-end">
-                    <p class="text-center mx-5">{{ question.user.name }}</p>
-                    <p class="text-center mx-5">2022.11.14</p>
-                    {%if question.is_answered == 1%}
-                    <p class="text-center" style="margin-left: 3rem; color: #008b47;">답변완료</p>
-                    {%else%}
-                    <p class="text-center" style="margin-left: 3rem; color: #797979;">답변대기</p>
-                    {%endif%}
-                  </div>
-                </div>
-              </button>
-          </h2>
-          <div id="flush-collapseOne-{{question.pk}}" class="accordion-collapse collapse" aria-labelledby="flush-headingOne-{{question.pk}}" data-bs-parent="#accordionFlushExample">
-                <div class="accordion-body answer-form">
-                    <div class="container d-flex mt-3">
-                        <img src="./main.assets/Q_icon.png" width="30rem" height="30rem">
-                            <p class="ms-3 mt-3">{{ question.content}}</p>
-                    </div>
-                    {% for answer in answers %}
-                    {% if answer.question_id == question.pk%}
-                    <div class="container d-flex mt-5">
-                        <img src="./main.assets/A_icon.png" width="30rem" height="30rem">
-                        <p class="mx-3 mt-3">{{ answer.content }}</p>
-                    </div>
-                    {% endif %}
-                    {% endfor %}
-                </div>
-                <!-- 버튼 -->
-            <div class="d-felx float-end mb-3">
-                <!-- 상품문의 답변 모달 -->
-                {% if product.user_id == request.user.pk %}
-                <button id="question-{{ question.pk }}-answer-create" type="button" class="btn btn-green" data-bs-toggle="modal" data-bs-target="#ansModal-{{ question.pk }}" data-question-id="{{ question.pk }}" onclick="getCreateAnswer(this.id);">답변</button>
-                {%endif%}
-                <div class="modal fade" id="ansModal-{{ question.pk }}" tabindex="-1" aria-labelledby="ansModalLabel" aria-hidden="true">
-                    <div class="modal-dialog modal-lg">
-                        <div class="container modal-content">
-                            <div class="modal-header">
-                            <h1 class="modal-title fs-3" id="ansModalLabel">상품문의 답변</h1>
-                            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-                        </div>
-                    <div class="modal-body">
-                        <div class="container mt-3 mx-3">
-                            <p class="fw-bold">{{ question.title }}</p>
-                        </div>
-                        <div class="container">
-                            <form action="/qnas/{{ question.pk }}/answer/create/?next={{ request.path }}" method="POST" id="question-{{ question.pk }}-answer-create-form" data-question-id="{{ question.pk }}" class="display-none">
-                                {% csrf_token %}
-                                <div class="container mt-3 mx-3">
-                                    <p>{{ question.content}}</p>
-                                </div>
-                                <div class="row mb-3 mt-5">
-                                    <div class="col-2">
-                                        <label for="message-text" class="col-form-label mx-3 fw-bold">답변</label>
-                                    </div>
-                                    <div class="col-10">
-                                        <!-- <input class="form-control" id="message-text" rows="4" cols="50"/> -->
-                                        {% bootstrap_form answer_form %}
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="d-flex justify-content-center mt-5">
-                                    <button type="button" class="btn btn-outline-green p-2 px-3 mx-2" data-bs-dismiss="modal">취소</button>
-                                    <button type="submit" class="btn btn-green p-2 px-3">답변</button>
-                                </div>
-                            </form>
-                        </div>
-                    </div>
-                </div>
-              </div>
-              {% if question.user.pk == request.user.pk %}
-              <a href="/qnas/{{ question.pk }}/update/?next={{ request.path }}"><button type="button" class="btn btn-outline-green" data-question-id="{{ question.pk }}">수정</button></a>
-              <button type="button" class="btn btn-danger" data-question-id="{{ question.pk }}" onclick="questionDelete()">삭제</button>
-              {% endif %}
-            </div>                  
-            </div>
 
-          </div>
-          {% endfor %}
+  <!-- <div class="container mt-5">
+    <table class="table">
+      <thead>
+        <tr>
+          <th scope="col">제목</th>
+          <th scope="col">작성자</th>
+          <th scope="col">작성일</th>
+          <th scope="col">답변상태</th>
+        </tr>
+      </thead>
+      <tbody>
+        {% for question in questions %}
+        <tr>
+          <th scope="row">{{ question.title }}</th>
+          <td>{{ question.user.username }}</td>
+          <td>작성일</td>
+          <td>답변상태</td>
+        </tr>
+        {% endfor %}
+      </tbody>
+    </table> -->
+
+    <div class="container mt-5" id="inquiry-list">
+      <hr style="color:#008B47;">
+      {% for question in questions %}
+      <div class="d-flex">
+        <hr>
+        <div>
+          등급 {{ question.user.name }}
         </div>
-    
+        <div>
+        {{ question.title }}
+        <br>
+          {{ question.content }}
+        </div>
+        {% if question.user.pk == request.user.pk %}
+        <a href="/qnas/{{ question.pk }}/update/?next={{ request.path }}"><button type="button" class="btn btn-primary" data-question-id="{{ question.pk }}">수정하기</button></a>
+        <!-- <button type="button" class="btn btn-primary" data-question-id="{{ question.pk }}" onclick="questionUpdateForm()">수정하기</button> -->
+        <button type="button" class="btn btn-danger" data-question-id="{{ question.pk }}" onclick="questionDelete()">삭제하기</button>
+        <br>
+        {% for answer in answers %}
+        {% if answer.question_id == question.pk%}
+        답글:{{ answer.content }}
+        <a href="/qnas/answer/{{ answer.pk }}/update/?next={{ request.path }}"><button type="button" class="btn btn-primary" data-question-id="{{ question.pk }}">수정하기</button></a>
+        <button type="button" class="btn btn-danger" data-answer-id="{{ answer.pk }}" onclick="answerDelete()">삭제하기</button>
+        {% endif %}
+        {% endfor %}
+        {% if question.is_answered == 0 %}
+        <button id="question-{{ question.pk }}-answer-create" type="button" class="btn btn-info" data-question-id="{{ question.pk }}" onclick="getCreateAnswer(this.id);">답글달기</button>
+        <form action="/qnas/{{ question.pk }}/answer/create/?next={{ request.path }}" method="POST" id="question-{{ question.pk }}-answer-create-form" data-question-id="{{ question.pk }}" class="display-none">
+          {% csrf_token %}
+          {% bootstrap_form answer_form %}
+          {% bootstrap_button button_type="submit" content="확인" %}
+        </form>
+        {% endif %}
+        {% endif %}
+      </div>
+      <hr>
+      {% endfor %}
+    </div>
 
 <!-- UpdateModal -->
 <div class="modal fade" id="update-modal" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
