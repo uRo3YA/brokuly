@@ -18,13 +18,13 @@ class Review(models.Model):
     title = models.CharField(max_length=20)
     grade = models.CharField(max_length=10, choices=star_Choices)
     content = models.TextField()
-    image = ProcessedImageField(
-        upload_to="images/",
-        blank=True,
-        processors=[ResizeToFill(1200, 960)],
-        format="JPEG",
-        options={"quality": 80},
-    )
+    # image = ProcessedImageField(
+    #     upload_to="images/",
+    #     blank=True,
+    #     processors=[ResizeToFill(1200, 960)],
+    #     format="JPEG",
+    #     options={"quality": 80},
+    # )
     user = models.ForeignKey(settings.AUTH_USER_MODEL, on_delete=models.CASCADE)
     like_users = models.ManyToManyField(
         settings.AUTH_USER_MODEL, related_name="like_revies"
@@ -41,7 +41,7 @@ class Comment(models.Model):
     review = models.ForeignKey(Review, on_delete=models.CASCADE)
     # user = models.ForeignKey(settings.AUTH_USER_MODEL, on_delete=models.CASCADE)
     content = models.TextField(verbose_name="댓글내용")
-    # created = models.DateTimeField(auto_now_add=True, verbose_name='작성일')
+    # created = models.DateTimeField(auto_now_add=True, verbose_name="작성일")
     # deleted = models.BooleanField(default=False, verbose_name='삭제여부')
     # reply = models.IntegerField(verbose_name='답글위치', default=0)
     def __str__(self):
@@ -67,3 +67,10 @@ class Comment(models.Model):
         db_table = "댓글"
         verbose_name = "댓글"
         verbose_name_plural = "댓글"
+
+
+# 단일 파일은 도저히 처리 불가능.
+# 모델을 새로 만듬.
+class ReviewImage(models.Model):
+    image = models.ImageField(upload_to="images/", null=True, blank=True)
+    review = models.ForeignKey(Review, on_delete=models.CASCADE)

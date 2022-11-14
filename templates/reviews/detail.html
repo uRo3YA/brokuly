@@ -9,6 +9,15 @@
 {{review.grade}} <br>
 여기는 내용 <br>
 {{review.content}} <br>
+<br>
+여기는 이미지
+{% for image in review.reviewimage_set.all %}
+<div style="overflow:auto">
+    <img src="/media/{{image.image}}">
+    </div>
+    <br/>
+{% endfor %}
+
 
             <!--댓글-->
             <div class="card" style="width: 100%;">

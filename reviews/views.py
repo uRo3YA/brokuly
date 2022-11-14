@@ -2,7 +2,7 @@ from django.shortcuts import render, redirect, get_object_or_404
 from products.models import Product
 
 from .forms import ReviewForm, CommentForm
-from .models import Review, Comment
+from .models import Review, Comment, ReviewImage
 from django.http import HttpResponse, JsonResponse
 import json
 from django.core.serializers.json import DjangoJSONEncoder
@@ -16,9 +16,15 @@ def index(request):
 
 
 def detail(request, pk):
-    review = get_object_or_404(Review, pk=pk)
+    # review = get_object_or_404(Review, pk=pk)
+    ##
+    # prefetch_related를 통해 review를 상속받는 reveiwimage의 image들을 가져온다.
+    # reveiwimage_set의 reveiwimage는 DB에 저장된 이름이다
+    # review에 대한 query를 실행해 pk에 대한 리뷰를 받아오고,
+    # 가져온 데이터에서 review의 id에 대해 reveiwimage의 query를 실행해 데이터를 가져온다
+    review = Review.objects.prefetch_related("reviewimage_set").get(id=pk)
     comment_form = CommentForm()
-    
+
     context = {
         "review": review,
         "comments": review.comment_set.all(),
@@ -30,7 +36,7 @@ def detail(request, pk):
 
 def review_create(request, pk):
     info = Product.objects.get(pk=pk)
-    
+
     if request.method == "POST":
         # DB에 저장하는 로직
         review_form = ReviewForm(request.POST)
@@ -40,15 +46,17 @@ def review_create(request, pk):
             new.product_id = info.pk
             new.user = request.user
             new.save()
-
+            for image in request.FILES.getlist("image", None):
+                postimage = ReviewImage()
+                postimage.image = image
+                postimage.review = new
+                postimage.save()
             return redirect("products:detail", info.pk)
-          
+
     else:
         review_form = ReviewForm()
 
-    context = {
-        "review_form": review_form
-    }
+    context = {"review_form": review_form}
 
     return render(request, "reviews/form.html", context=context)
 
