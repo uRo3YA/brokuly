@@ -698,11 +698,10 @@ html.dark a {
 }
 
 .login-input input {
-  width: 60%;
+  width: 100%;
   border: solid 1px rgb(206, 205, 205);
   border-radius: 7px;
-  padding: 15px;
-  justify-content: center;
+  padding: 10px;
 }
 
 /* 상품상세페이지 아이콘 */
