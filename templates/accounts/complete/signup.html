@@ -34,7 +34,7 @@
                 {{ form.username }}
             </div>
             <div class="col-4">
-              <button type="button" class="btn btn-outline-green p-1 px-3 mx-2" data-bs-dismiss="modal">중복확인</button>
+              <button type="button" class="btn btn-outline-green p-1 px-3 mx-2" data-bs-toggle="modal" data-bs-target="#idCheckModal" onclick="checkId();">중복확인</button>
             </div>
         </div>
         <div class="row ms-1 mt-2 mb-4">
@@ -69,7 +69,7 @@
             {{ form.email }}
           </div>
           <div class="col-3">
-            <button type="button" class="btn btn-outline-green p-1 px-3 mx-2" data-bs-dismiss="modal">이메일 인증</button>
+            <button type="button" class="btn btn-outline-green p-1 px-3 mx-2" data-bs-toggle="modal" data-bs-target="#emailCheckModal" onclick="checkEmail();">이메일 인증</button>
           </div>
         </div>
         <div class="row ms-1 mt-2 mb-4 align-content-center">
@@ -78,14 +78,16 @@
           </div>
           <div class="col-4 search-bar">
             {{ form.address }}
-            <a href="#">
-              <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor" class="bi bi-search" viewBox="0 0 16 16">
+            <a style="cursor:pointer;">
+              <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor" class="bi bi-search" viewBox="0 0 16 16" id="address-search" onclick="DaumPostcode()">
                 <path d="M11.742 10.344a6.5 6.5 0 1 0-1.397 1.398h-.001c.03.04.062.078.098.115l3.85 3.85a1 1 0 0 0 1.415-1.414l-3.85-3.85a1.007 1.007 0 0 0-.115-.1zM12 6.5a5.5 5.5 0 1 1-11 0 5.5 5.5 0 0 1 11 0z"/>
               </svg>
             </a>
           </div>
         </div>
       </div>
+      <!--지도-->
+      <div id="map" style="width:300px;height:300px;margin-top:10px;display:none;margin:auto;"></div>
 
       <!-- 가입하기 버튼 -->
       <div class="d-flex justify-content-center mt-5">
@@ -96,5 +98,120 @@
 
     </form>
   </div>
+
+<!--아이디 중복체크 모달-->
+<div class="modal fade" id="idCheckModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content" style="width:330px;height:160px;">
+      <div class="modal-body" id="modal-body" style="padding: 40px 30px;font-size: 16px;text-align: center;letter-spacing: -0.5px;">
+      </div>
+      <div class="d-flex justify-content-center">
+        <button type="button" data-bs-dismiss="modal" class="btn" style="color:#008b47;">확인</button>
+      </div>
+      <br>
+      <br>
+    </div>
+  </div>
+</div>
+
+<!--이메일 인증 모달-->
+<div class="modal fade" id="emailCheckModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content" style="width:330px;height:160px;">
+      <div class="modal-body" id="modal-body" style="padding: 40px 30px;font-size: 16px;text-align: center;letter-spacing: -0.5px;">
+        이메일을 인증해주세요.
+      </div>
+      <div class="d-flex justify-content-center">
+        <button type="button" data-bs-dismiss="modal" class="btn" style="color:#008b47;">확인</button>
+      </div>
+      <br>
+      <br>
+    </div>
+  </div>
+</div>
     
+<!--자바스크립트-->
+<script src="//t1.daumcdn.net/mapjsapi/bundle/postcode/prod/postcode.v2.js"></script>
+<script src="//dapi.kakao.com/v2/maps/sdk.js?appkey=f120b1818e7d400b80e5bf358936933a&libraries=services"></script>
+<script>
+//주소 카카오 API
+var mapContainer = document.getElementById('map'), // 지도를 표시할 div
+        mapOption = {
+            center: new daum.maps.LatLng(37.537187, 127.005476), // 지도의 중심좌표
+            level: 5 // 지도의 확대 레벨
+        };
+
+    //지도를 미리 생성
+    var map = new daum.maps.Map(mapContainer, mapOption);
+    //주소-좌표 변환 객체를 생성
+    var geocoder = new daum.maps.services.Geocoder();
+    //마커를 미리 생성
+    var marker = new daum.maps.Marker({
+        position: new daum.maps.LatLng(37.537187, 127.005476),
+        map: map
+    });
+
+
+function DaumPostcode() {
+
+        new daum.Postcode({
+            oncomplete: function(data) {
+                var addr = data.address; // 최종 주소 변수
+
+                // 주소 정보를 해당 필드에 넣는다.
+                let test = document.getElementById("id_address").value = addr;
+
+                // 주소로 상세 정보를 검색
+                geocoder.addressSearch(data.address, function(results, status) {
+                    // 정상적으로 검색이 완료됐으면
+                    if (status === daum.maps.services.Status.OK) {
+
+                        var result = results[0]; //첫번째 결과의 값을 활용
+
+                        // 해당 주소에 대한 좌표를 받아서
+                        var coords = new daum.maps.LatLng(result.y, result.x);
+                        // 지도를 보여준다.
+                        mapContainer.style.display = "block";
+                        map.relayout();
+                        // 지도 중심을 변경한다.
+                        map.setCenter(coords);
+                        // 마커를 결과값으로 받은 위치로 옮긴다.
+                        marker.setPosition(coords)
+                    }
+                });
+            }
+        }).open();
+    }
+
+</script>
+<script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+<script>
+const checkId = function () {
+  const userName = document.querySelector('#id_username').value
+  const modalBody = document.querySelector('#modal-body')
+
+  axios({
+          method: 'post',
+          url: `/accounts/check_id/`,
+          headers: {'X-CSRFToken': '{{ csrf_token }}'},
+          data: {'user_id': userName}
+        }).then(response =>{
+          console.log(response.data.is_exist)
+          if(userName.length === 0) {
+            modalBody.innerText = "아이디를 입력해주세요."
+          }
+          else if (response.data.is_exist === false) {
+            modalBody.innerText = "사용가능한 아이디입니다."
+          }
+          else {
+            modalBody.innerText = "이미 존재하는 아이디입니다."
+          }
+        })
+
+}
+
+const checkEmail = function () {
+  console.log("이메일을 확인하세요")
+}
+</script>
 {% endblock %}
