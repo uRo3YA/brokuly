@@ -54,14 +54,16 @@ def login(request):
             auth_login(request, form.get_user())
 
             # must change this statement
-            return redirect(request.GET.get("next") or "accounts:test")
+            return redirect(request.GET.get("next") or "root")
 
     else:
         form = AuthenticationForm(request)
 
-    context = {"form": form}
+    context = {
+        "form": form,
+    }
 
-    return render(request, "accounts/login.html", context)
+    return render(request, "accounts/complete/login.html", context)
 
 
 # 로그아웃
