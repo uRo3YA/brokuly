@@ -72,7 +72,7 @@
             <dt class="tit">주문</dt>
             <dd class="desc">
             <div class="subdiv">
-              <form action="{% url 'accounts:add_cart' product.pk%}" method="POST">
+              <form action="{% url 'products:add_cart' product.pk%}" method="POST">
                 {% csrf_token %} 
               <div class="basketprice"><input type="hidden" name="p_price" id="p_price1" class="p_price" value="{{product.price}}"></div>
               <div class="num">
@@ -433,7 +433,7 @@
 <script src="https://t1.kakaocdn.net/kakao_js_sdk/2.0.1/kakao.min.js"
   integrity="sha384-eKjgHJ9+vwU/FCSUG3nV1RKFolUXLsc6nLQ2R1tD0t4YFPCvRmkcF8saIfOZNWf/" crossorigin="anonymous"></script>
 <script>
-  Kakao.init('f120b1818e7d400b80e5bf358936933a'); // 사용하려는 앱의 JavaScript 키 입력
+  Kakao.init('c089c8172def97eb00c07217cae17495'); // 사용하려는 앱의 JavaScript 키 입력
 </script>
 
 <script>

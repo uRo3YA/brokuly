@@ -6,118 +6,46 @@
 {% endblock script %}
 {% load django_bootstrap5 %}
 {% block body %}
-
- <!-- 상품 이미지 및 상품명 -->
- <div class="container mt-5">
-    <div class="row">
-      <div class="col">
-          <img src="{{product.produt_thum_img.url}}" alt="상품 이미지">
-      </div>
-      <div class="col-6">
-        <p class="goods_name">
-          <strong class="name">{{product.title}}</strong>
-          <span class="short_desc">{{product.summary}}</span>
-        </p>
-        <p class="goods_price">
-            <span class="position">
-                <span class="dc">
-                    <span class="dc_price">
-                      {{product.price}}
-                        <input type="hidden" value={{product.price}}>
-                    </span>
-                    <span class="won">원</span>
-                </span>
-                
-            </span>
-        </p>
-          <div class="goods_info">
-            <dl class="list fst">
-              <dt class="tit">판매단위</dt>
-              <dd class="desc">{{product.unit}}</dd>
-          </dl>
-          <dl class="list">
-              <dt class="tit">중량/용량</dt>
-              <dd class="desc">{{product.weight}}</dd>
-          </dl>
-          <dl class="list">
-              <dt class="tit">배송구분</dt>
-              <dd class="desc">샛별배송/택배배송</dd>
-          </dl>
-          <dl class="list">
-              <dt class="tit">원산지</dt>
-              <dd class="desc">상세페이지 별도 표기</dd>
-          </dl>
-          <dl class="list">
-              <dt class="tit">포장타입</dt>
-              <dd class="desc">
-                  냉장/종이포장
-                  <strong class="emphd">택배배송은 에코포장이 스티로폼으로 대체됩니다.</strong>
-              </dd>
-          </dl>
-          <dl class="list">
-              <dt class="tit">알레르기정보</dt>
-              <dd class="desc">-{%for i in product.allergy%}
-                {{i}} 
-                {%endfor%}</dd>
-          </dl>
-          <dl class="list">
-              <dt class="tit">유통기한</dt>
-              <dd class="desc">수령일 포함 최소 1일이상 남은 상품을 배송드립니다.</dd>
-          </dl>
-          <dl class="list">
-            <dt class="tit">재고</dt>
-            <dd class="desc">현재 남은 수량: {{product.stock}} </dd>
-          </dl>
-          <dl class="list">
-            <dt class="tit">주문</dt>
-            <dd class="desc">
-            <div class="subdiv">
-              <form action="{% url 'accounts:add_cart' product.pk%}" method="POST">
-                {% csrf_token %} 
-              <div class="basketprice"><input type="hidden" name="p_price" id="p_price1" class="p_price" value="{{product.price}}"></div>
-              <div class="num">
-                  <div class="updown">
-                      <span onclick="javascript:basket.changePNum(1);"><i class="fas fa-arrow-alt-circle-up up"></i></span>
-                      <input type="text" name="p_num1" id="p_num1" size="2" maxlength="4" class="p_num" value="1" onkeyup="javascript:basket.changePNum(1);" >
-                      <span onclick="javascript:basket.changePNum(1);"><i class="fas fa-arrow-alt-circle-down down"></i></span>
-                  </div>
+        <!-- 상품 이미지 및 상품명 -->
+        <div class="container text-center mt-5">
+            <div class="row justify-content-center">
+              <div class="col-4">
+                <img src="{{product.produt_thum_img.url}}" alt="상품 이미지">
               </div>
-              <div class="sum">{{product.price}}원</div>
-              <button type="submit" class="btn btn-outline-secondary" style="margin-right:5px;">Add To Cart</button>
-            </form>
-              <!-- <form action="{% url 'products:add_cart' product.pk%}" method="POST">
-                {% csrf_token %}   -->
-                <!--   수량   -->
-                    <!-- <div id="mainDiv" style="display: flex; align-items: center; margin-bottom:25px; margin-top:20px; font-size:16px;color:#555555;">
-                        수량 선택 <input type="number" name="quantity" style="width:70px; margin-left:20px;" min="1" id="numberPlace" value="1" class="form-control qty-input text-center">
-                        
-                    </div> -->
-                <!--   수량  끝 --> 
-               <!-- <button type="submit" class="btn btn-outline-secondary" style="margin-right:5px;">Add To Cart</button>
-              </form>
-                
-              <script type="text/javascript">
-              document.getElementById('numberPlace').value = '1';
-              </script> -->
-            
-            </dd>
-          </dl>
-
-         <!--장바구니 추가는 어떻게?-->
-         <div class="d-flex align-items-center float-end">
-          <a class="mx-3" href="#">
-              <svg xmlns="http://www.w3.org/2000/svg" width="30" height="30" fill="currentColor" class="bi bi-heart" viewBox="0 0 16 16">
-              <path d="m8 2.748-.717-.737C5.6.281 2.514.878 1.4 3.053c-.523 1.023-.641 2.5.314 4.385.92 1.815 2.834 3.989 6.286 6.357 3.452-2.368 5.365-4.542 6.286-6.357.955-1.886.838-3.362.314-4.385C13.486.878 10.4.28 8.717 2.01L8 2.748zM8 15C-7.333 4.868 3.279-3.04 7.824 1.143c.06.055.119.112.176.171a3.12 3.12 0 0 1 .176-.17C12.72-3.042 23.333 4.867 8 15z"/>
-              </svg>   
-          </a>        
-          <button type="button" class="btn btn-green"><strong>위시리스트에 담기</strong></button>
-
+              <div class="col-4 text-start mx-5">
+                  <h3 class="mx-1">[아우프글렛]크로플 3개입</h3>
+                  <h3 class="mx-1"><span class="fw-bold" style="color: #fbcd24">30% </span>21,000원</h3>
+                  <hr>
+                  <p class="mx-1">판매 판매자명</p>
+                  <hr>
+                  <p class="mx-1">상품설명</p>
+                  <hr>
+                  <p class="mx-1">상품설명</p>
+                  <hr>
+                  <p class="mx-1">상품설명</p>
+              </div>
+          </div>
         </div>
+
+        <!-- 버튼들 -->
+        <div class="container p-5">
+          <div class="d-flex align-items-center float-end">
+            <a class="mx-3" href="#">
+                <svg xmlns="http://www.w3.org/2000/svg" width="30" height="30" fill="currentColor" class="bi bi-heart" viewBox="0 0 16 16">
+                <path d="m8 2.748-.717-.737C5.6.281 2.514.878 1.4 3.053c-.523 1.023-.641 2.5.314 4.385.92 1.815 2.834 3.989 6.286 6.357 3.452-2.368 5.365-4.542 6.286-6.357.955-1.886.838-3.362.314-4.385C13.486.878 10.4.28 8.717 2.01L8 2.748zM8 15C-7.333 4.868 3.279-3.04 7.824 1.143c.06.055.119.112.176.171a3.12 3.12 0 0 1 .176-.17C12.72-3.042 23.333 4.867 8 15z"/>
+                </svg>   
+            </a> 
+            <a class="mx-3" href="#">
+              <svg xmlns="http://www.w3.org/2000/svg" width="30" height="30" fill="currentColor" class="bi bi-bell" viewBox="0 0 16 16">
+                <path d="M8 16a2 2 0 0 0 2-2H6a2 2 0 0 0 2 2zM8 1.918l-.797.161A4.002 4.002 0 0 0 4 6c0 .628-.134 2.197-.459 3.742-.16.767-.376 1.566-.663 2.258h10.244c-.287-.692-.502-1.49-.663-2.258C12.134 8.197 12 6.628 12 6a4.002 4.002 0 0 0-3.203-3.92L8 1.917zM14.22 12c.223.447.481.801.78 1H1c.299-.199.557-.553.78-1C2.68 10.2 3 6.88 3 6c0-2.42 1.72-4.44 4.005-4.901a1 1 0 1 1 1.99 0A5.002 5.002 0 0 1 13 6c0 .88.32 4.2 1.22 6z"/>
+              </svg>
+            </a>      
+            <button type="button" class="btn btn-green p-2 px-5 mx-2"><strong>위시리스트에 담기</strong></button>
+          </div>
         </div>
-      </div>
-    </div>
-  </div>
-  <!--소셜 공유버튼 영역-->
+        
+
+          <!--소셜 공유버튼 영역-->
   <div class="d-flex float-end mx-5">
     <span class="sociallink ml-1">
         <a href="javascript:sendLinkFacebook()" title="페이스북으로 공유">
@@ -433,7 +361,7 @@
 <script src="https://t1.kakaocdn.net/kakao_js_sdk/2.0.1/kakao.min.js"
   integrity="sha384-eKjgHJ9+vwU/FCSUG3nV1RKFolUXLsc6nLQ2R1tD0t4YFPCvRmkcF8saIfOZNWf/" crossorigin="anonymous"></script>
 <script>
-  Kakao.init('f120b1818e7d400b80e5bf358936933a'); // 사용하려는 앱의 JavaScript 키 입력
+  Kakao.init('c089c8172def97eb00c07217cae17495'); // 사용하려는 앱의 JavaScript 키 입력
 </script>
 
 <script>

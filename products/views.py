@@ -28,7 +28,6 @@ def index(request):
 def create(request):
     if request.method == "POST":
         Product_Form = ProductForm(request.POST, request.FILES)
-
         if Product_Form.is_valid():
             product = Product_Form.save(commit=False)
             product.user = request.user
@@ -39,9 +38,11 @@ def create(request):
     else:
         Product_Form = ProductForm()
 
-    context = {"Product_Form": Product_Form}
+    context = {
+        "Product_Form": Product_Form,
+    }
 
-    return render(request, "products/form.html", context=context)
+    return render(request, "products/complete/enroll_ product.html", context=context)
 
 
 def detail(request, pk):
@@ -69,8 +70,8 @@ def detail(request, pk):
         "answer_form": answer_form,
         "review_image": review_image,
     }
-
-    return render(request, "products/detail.html", context)
+    return render(request, "products/complete/product_detail.html", context)
+    # return render(request, "products/detail.html", context)
 
 
 # @seller_required
@@ -158,17 +159,17 @@ def search(request):
 #     return redirect("/")
 
 
-def add_cart(request, pk):
-    if request.method == "POST":
-        selected_product = Product.objects.get(pk=pk)
-        selected_quantity = int(request.POST.get("p_num1"))
-        # stock_now = Product.objects.get(id=selected_inventory).stock
-        print("selected_inventory:", selected_product)
-        print("selected_quantity:", selected_quantity)
-        cart = Cart()
-        cart.user = request.user
-        cart.products = selected_product
-        cart.quantity = selected_quantity
-        cart.save()
-        # request.pk -> 개인 장바구니 페이지 연결 필요
-        return redirect("/")
+# def add_cart(request, pk):
+#     if request.method == "POST":
+#         selected_product = Product.objects.get(pk=pk)
+#         selected_quantity = int(request.POST.get("p_num1"))
+#         # stock_now = Product.objects.get(id=selected_inventory).stock
+#         print("selected_inventory:", selected_product)
+#         print("selected_quantity:", selected_quantity)
+#         cart = Cart()
+#         cart.user = request.user
+#         cart.products = selected_product
+#         cart.quantity = selected_quantity
+#         cart.save()
+#         # request.pk -> 개인 장바구니 페이지 연결 필요
+#         return redirect("/")
