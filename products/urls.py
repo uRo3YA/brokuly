@@ -1,6 +1,7 @@
 from django.urls import path
 from . import views
 from qnas import views as qnas_views
+
 #
 app_name = "products"
 urlpatterns = [
@@ -12,8 +13,12 @@ urlpatterns = [
     path("search", views.search, name="search"),
     #############################################
     # path("cart/", views.cart, name="cart")
-    path("add_cart/<int:pk>", views.add_cart, name="add_cart"),
+    # path("add_cart/<int:pk>", views.add_cart, name="add_cart"),
     # path('<int:pk>/wishlist/', views.wishlist),
     #############################################
-    path('<int:pk>/qnas/question/create/', qnas_views.question_create, name='question_create'),
+    path(
+        "<int:pk>/qnas/question/create/",
+        qnas_views.question_create,
+        name="question_create",
+    ),
 ]

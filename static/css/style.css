@@ -695,3 +695,69 @@ html.dark a {
   padding: 15px;
   justify-content: center;
 }
+
+/* 상품상세페이지 아이콘 */
+.detail-icon {
+  border: solid 1px rgb(208, 204, 204);
+  border-radius: 0.5rem;
+  text-decoration: none;
+  width: 3rem;
+  height: 3rem;
+  padding: 0;
+}
+
+.detail-icon:hover {
+  border: solid 1px rgb(208, 204, 204);
+  border-radius: 0.5rem;
+  text-decoration: none;
+  width: 3rem;
+  height: 3rem;
+  padding: 0;
+  background-color: #e8e6e6;
+}
+
+/* 상품문의 아코디언 수정 */
+.accordion::after {
+  border: #ffffff;
+  background-color: #ffffff;
+  color: #ffffff;
+  outline: none;  
+
+}
+.accordion-button {
+  border: #ffffff;
+  outline: none;  
+}
+.accordion-button::after {
+  border: #ffffff;
+  background-color: #ffffff;
+  background-image: none;
+  outline: none;  
+
+}
+.accordion-button:not(.collapsed) {
+  color: black;
+  background-color: #ffffff;
+  background-image: none;
+}
+
+.accordion-button:not(.collapsed)::after {
+  background-image: none;
+  border: #ffffff
+}
+
+.accordion-button:focus {
+  border-color: none;
+  outline: none;
+  box-shadow: none;
+}
+
+/* 상품문의 답변폼 */
+.answer-form {
+  width: 80%;
+  height: 100%;
+  background-color: #fffaee;
+  border-radius: 0.5rem;
+  padding: 0.5rem;
+  margin: 1rem;
+} 

@@ -4,12 +4,11 @@
 
 {% block body %}
 
-  <link rel="stylesheet" href="{% static 'css/style.css' %}" />
+<link rel="stylesheet" href="{% static 'css/style.css' %}" />
 
-  <div id="wrap">
-    <!-- 회원가입 이용약관 -->
-    <div class="container mt-5 p-3">
-      <h1 class="text-center mb-5">
+  <!-- 회원가입 이용약관 -->
+  <div class="container mt-5 p-3">
+    <h1 class="text-center mb-5">
         <span>
           {% if is_seller %}
             판매자
@@ -18,82 +17,84 @@
           {% endif %}
         </span>
         회원가입
-      </h1>
-      <div class="row justify-content-end">
-        <div class="col-3">
-          <p class="float-start mx-3"><span style="color: orangered;">*</span>필수입력사항</p>
+    </h1>
+    <div class="row justify-content-end">
+      <div class="col-3">
+        <p class="float-start mx-3"><span style="color: orangered;">*</span>필수입력사항</p>
+      </div>
+    </div>
+    <form action="" method="POST">
+      {% csrf_token %}
+      <div class="container p-3">
+        <div class="row ms-1 mt-2 mb-4 d-flex justify-content-center">
+            <div class="col-4 text-end">
+                <p class="ms-5 mt-2 mb-0">아이디<span style="color: orangered;">*</span></p>
+            </div>
+            <div class="col-4">
+                {{ form.username }}
+            </div>
+            <div class="col-4">
+              <button type="button" class="btn btn-outline-green p-1 px-3 mx-2" data-bs-dismiss="modal">중복확인</button>
+            </div>
+        </div>
+        <div class="row ms-1 mt-2 mb-4">
+          <div class="col-4 text-end">
+              <p class="ms-5 mt-2 mb-0">비밀번호<span style="color: orangered;">*</span></p>
+          </div>
+          <div class="col-4">
+            {{ form.password1 }}
+          </div>
+        </div>
+        <div class="row ms-1 mt-2 mb-4">
+          <div class="col-4 text-end">
+            <p class="ms-5 mt-2 mb-0">비밀번호확인<span style="color: orangered;">*</span></p>
+          </div>
+          <div class="col-4">
+            {{ form.password2 }}
+          </div>
+        </div>
+        <div class="row ms-1 mt-2 mb-4">
+          <div class="col-4 text-end">
+            <p class="ms-5 mt-2 mb-0">이름<span style="color: orangered;">*</span></p>
+          </div>
+          <div class="col-4">
+            {{ form.name }}
+          </div>
+        </div>
+        <div class="row ms-1 mt-2 mb-4">
+          <div class="col-4 text-end">
+            <p class="ms-5 mt-2 mb-0">이메일<span style="color: orangered;">*</span></p>
+          </div>
+          <div class="col-4">
+            {{ form.email }}
+          </div>
+          <div class="col-3">
+            <button type="button" class="btn btn-outline-green p-1 px-3 mx-2" data-bs-dismiss="modal">이메일 인증</button>
+          </div>
+        </div>
+        <div class="row ms-1 mt-2 mb-4 align-content-center">
+          <div class="col-4 text-end">
+            <p class="ms-5 mt-2 mb-0">주소<span style="color: orangered;">*</span></p>
+          </div>
+          <div class="col-4 search-bar">
+            {{ form.address }}
+            <a href="#">
+              <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor" class="bi bi-search" viewBox="0 0 16 16">
+                <path d="M11.742 10.344a6.5 6.5 0 1 0-1.397 1.398h-.001c.03.04.062.078.098.115l3.85 3.85a1 1 0 0 0 1.415-1.414l-3.85-3.85a1.007 1.007 0 0 0-.115-.1zM12 6.5a5.5 5.5 0 1 1-11 0 5.5 5.5 0 0 1 11 0z"/>
+              </svg>
+            </a>
+          </div>
         </div>
       </div>
-      <div class="container p-5">
-          <div class="row mt-2 mb-3">
-              <div class="col-2 text-end">
-                  <p class="mt-2 mb-0">아이디<span style="color: orangered;">*</span></p>
-              </div>
-              <div class="col-7">
-                  <input type="text" class="form-control" aria-label="Text input with dropdown button" placeholder="아이디를 입력해주세요">
-              </div>
-              <div class="col-3">
-                <button type="button" class="btn btn-outline-green p-1 px-3 mx-2" data-bs-dismiss="modal">중복확인</button>
-              </div>
-          </div>
-          <div class="row mt-2 mb-3">
-            <div class="col-2 text-end">
-                <p class="mt-2 mb-0">비밀번호<span style="color: orangered;">*</span></p>
-            </div>
-            <div class="col-7">
-                <input type="password" class="form-control" aria-label="Text input with dropdown button" placeholder="비밀번호를 입력해주세요">
-            </div>
-          </div>
-          <div class="row mt-2 mb-3">
-            <div class="col-2 text-end">
-              <p class="mt-2 mb-0">비밀번호확인<span style="color: orangered;">*</span></p>
-            </div>
-            <div class="col-7">
-              <input type="password" class="form-control" aria-label="Text input with dropdown button" placeholder="비밀번호를 한번 더 입력해주세요">
-            </div>
 
-          </div>
-          <div class="row mt-2 mb-3">
-            <div class="col-2 text-end">
-              <p class="mt-2 mb-0">이름<span style="color: orangered;">*</span></p>
-            </div>
-            <div class="col-7">
-              <input type="text" class="form-control" aria-label="Text input with dropdown button" placeholder="이름을 입력해 주세요">
-            </div>
-          </div>
-          <div class="row mt-2 mb-3">
-            <div class="col-2 text-end">
-              <p class="mt-2 mb-0">이메일<span style="color: orangered;">*</span></p>
-            </div>
-            <div class="col-7">
-              <input type="text" class="form-control" aria-label="Text input with dropdown button" placeholder="예 : brokurly@brokurly.com">
-            </div>
-            <div class="col-3">
-              <button type="button" class="btn btn-outline-green p-1 px-3 mx-2" data-bs-dismiss="modal">이메일 인증</button>
-            </div>
-          </div>
-          <div class="row mt-2 mb-3 align-content-center">
-            <div class="col-2 text-end">
-              <p class="mt-2 mb-0">주소<span style="color: orangered;">*</span></p>
-            </div>
-            <div class="col-7 search-bar">
-              <input type="text" aria-label="Text input with dropdown button" placeholder="주소검색">
-              <a href="#">
-                <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor" class="bi bi-search" viewBox="0 0 16 16">
-                  <path d="M11.742 10.344a6.5 6.5 0 1 0-1.397 1.398h-.001c.03.04.062.078.098.115l3.85 3.85a1 1 0 0 0 1.415-1.414l-3.85-3.85a1.007 1.007 0 0 0-.115-.1zM12 6.5a5.5 5.5 0 1 1-11 0 5.5 5.5 0 0 1 11 0z"/>
-                </svg>
-              </a>
-              
-            </div>
-          </div>
-        </div>
-    </div>
-    <!-- 가입하기 버튼 -->
-    <div class="d-flex justify-content-center mt-5">
-      <form action="" method="POST">
-        <a type="submit" class="btn btn-green p-3 px-5 mx-5" href="{% url 'accounts:signup' is_seller %}">가입하기</a>
-      </form>
-    </div>
+      <!-- 가입하기 버튼 -->
+      <div class="d-flex justify-content-center mt-5">
+          <a href="{% url 'accounts:signup' is_seller %}">
+            <button type="submit" class="btn btn-green p-3 px-5 mx-5">가입하기</button>
+          </a>
+      </div>
+
+    </form>
   </div>
     
 {% endblock %}
