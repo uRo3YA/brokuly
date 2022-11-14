@@ -200,25 +200,26 @@
     <hr> 
 
     <div class="container mt-5">
-      {% for review in reviews %}
-      <div class="row">
-        <div class="col-2">
-          
-          <div class="d-flex align-content-center">
-            <button class="btn-grade">등급</button>
-            <h6 class="mb-0 pt-1">{{ review.user.name }}</h6>
-          </div>
+        {% for review in reviews %}
+        <div class="row">
+            <div class="col-2">
+                <div class="d-flex align-content-center">
+                    <button class="btn-grade">등급</button>
+                    <h6 class="mb-0 pt-1">{{ review.user.name }}</h6>
+                </div>
+            </div>
+            <div class="col-8"  onclick="location.href='/reviews/{{review.pk}}/'">
+                <h5 class="text-muted fw-bold">상품명 및 상품 제목 {{ review.title }}</h5>
+                <p class="text-muted">{{review.content}}Lorem ipsum dolor sit, amet consectetur adipisicing elit. Vitae, rerum beatae provident cum voluptatem optio ducimus a magni numquam odit sed eos error delectus, ullam voluptates praesentium odio quam velit.</p>
+                {% for image in review_image %}  
+                    {% if image.review_id == review.pk %}
+                        <img src="/media/{{image.image}}" style="width: 64px; height: 64px;">
+                    {%endif%}
+                {% endfor %}
+            </div>
         </div>
-        <div class="col-8"  onclick="location.href='/reviews/{{review.pk}}/'">
-          <h5 class="text-muted fw-bold">상품명 및 상품 제목 {{ review.title }}</h5>
-          <p class="text-muted">{{review.content}}Lorem ipsum dolor sit, amet consectetur adipisicing elit. Vitae, rerum beatae provident cum voluptatem optio ducimus a magni numquam odit sed eos error delectus, ullam voluptates praesentium odio quam velit.</p>
-          <img src="./main.assets/상품후기 이미지 2.png">
-        </div>
-
-      </div>
-    </div>
-    <hr>
-    {% endfor %}
+        <hr>
+        {% endfor %}
 
 
 <div class="text-end m-1">

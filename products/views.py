@@ -2,17 +2,17 @@ from django.shortcuts import render, redirect, get_object_or_404
 from .forms import ProductForm
 from .models import Product
 from .models import Cart
-from reviews.models import Review
+from reviews.models import Review, ReviewImage
 from accounts.models import User
 from django.contrib.auth import get_user_model
 from django.http import HttpResponse, JsonResponse
 from django.contrib import messages
-from collections import Counter
-from django.contrib import messages
+
 from django.db.models import Q
 from qnas.models import Question, Answer
 from qnas.forms import QuestionForm, AnswerForm
-#
+
+# from .decorators import seller_required
 # Create your views here.
 def index(request):
     contents = Product.objects.all()
@@ -24,6 +24,7 @@ def index(request):
     return render(request, "products/index.html", context)
 
 
+# @seller_required
 def create(request):
     if request.method == "POST":
         Product_Form = ProductForm(request.POST, request.FILES)
@@ -46,6 +47,12 @@ def create(request):
 def detail(request, pk):
     product = Product.objects.get(pk=pk)
     review = Review.objects.filter(product_id=product.pk)
+
+    # 일단 전체를 받아오고
+    # 프론트 단에서 Review의 pk와
+    # ReviewImage의 review_id를 비교해서 출력
+    review_image = ReviewImage.objects.all()
+
     # cart = AddProductForm(initial={"quantity": 1})
 
     questions = Question.objects.filter(product_id=product.pk)
@@ -56,67 +63,53 @@ def detail(request, pk):
     context = {
         "product": product,
         "reviews": review,
-        'questions':questions,
-        'answers':answers,
-        'question_form': question_form,
-        'answer_form': answer_form,
+        "questions": questions,
+        "answers": answers,
+        "question_form": question_form,
+        "answer_form": answer_form,
+        "review_image": review_image,
     }
 
     return render(request, "products/detail.html", context)
 
 
+# @seller_required
 def update(request, pk):
     info = Product.objects.get(pk=pk)
+    if request.user == info.user:
+        if request.method == "POST":
+            Product_Form = ProductForm(request.POST, request.FILES, instance=info)
 
-    if request.method == "POST":
-        Product_Form = ProductForm(request.POST, request.FILES, instance=info)
+            if Product_Form.is_valid():
+                info.save()
+                Product_Form.save()
 
-        if Product_Form.is_valid():
-            info.save()
-            Product_Form.save()
+                return redirect("products:detail", info.pk)
 
-            return redirect("products:detail", info.pk)
+        else:
+            Product_Form = ProductForm(instance=info)
 
+        context = {
+            "Product_Form": Product_Form,
+        }
+        return render(request, "products/update.html", context)
     else:
-        Product_Form = ProductForm(instance=info)
-
-    context = {
-        "Product_Form": Product_Form,
-    }
-
-    return render(request, "products/update.html", context)
+        messages.warning(request, "잘못된 접근입니다.")
+        return redirect("products:detail", info.pk)
 
 
+# @seller_required
 def delete(request, pk):
+    # if request.user == info.user:
     info = Product.objects.get(pk=pk)
     info.delete()
-
+    # else:
+    #     messages.warning(request, '잘못된 접근입니다.')
+    #     return redirect('products:detail', info.pk)
+    # return redirect("products:index")
     return redirect("products:index")
 
 
-# def search(request):
-#     print(request.GET.get("q", ""))
-#     search_keyword = request.GET.get("q", "")
-#     print(request.GET.get("q", ""))
-#     search_type = "all"
-#     product_list = Product.objects.order_by("-id")
-#     if search_keyword:
-#         if len(search_keyword) > 1:
-#             if search_type == "all":
-#                 search_product_list = product_list.filter(
-#                     Q(title__icontains=search_keyword)
-#                     | Q(description__icontains=search_keyword)
-#                 )
-#         # return search_product_list
-#         return render(
-#             request,
-#             "product/search.html",
-#             {"search_product_list": search_product_list, "q": search_keyword},
-#         )
-#     else:
-#         messages.error(request, "검색어는 2글자 이상 입력해주세요.")
-#     # return product_list
-#     return render(request, "products/search.html")
 def search(request):
     result = Product.objects.all().order_by("-id")
     search_keyword = request.POST.get("q", "")
