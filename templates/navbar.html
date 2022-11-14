@@ -31,23 +31,14 @@
     <nav class="navbar navbar-expand-lg p-0">
         <div class="container d-flex justify-content-center">
             <img src="{% static 'images/logo.png' %}">
-            <form class="d-flex" role="search" >
+            <form class="d-flex nav-searchbar" role="search">
                 <input class="form-control me-2" type="search" placeholder="검색어를 입력해주세요" aria-label="Search">
-            </form>
-            <div class="d-flex mt-4 mb-3 align-content-center">
-                <div class="nav-searchbar mx-3">
-                    <!-- 임시로 작동하게 만든 검색 폼-->
-                    <form action="{% url 'products:search' %}" method="post">
-                        {% csrf_token %}
-                    <input type="text" aria-label="Text input with dropdown button" placeholder=" 검색어를 입력해주세요"  name="q" value="{{q}}">
-                    <a type="submit">
-                    <svg  xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor" class="bi bi-search" viewBox="0 0 16 16">
+                <a href="#">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor" class="bi bi-search" viewBox="0 0 16 16">
                     <path d="M11.742 10.344a6.5 6.5 0 1 0-1.397 1.398h-.001c.03.04.062.078.098.115l3.85 3.85a1 1 0 0 0 1.415-1.414l-3.85-3.85a1.007 1.007 0 0 0-.115-.1zM12 6.5a5.5 5.5 0 1 1-11 0 5.5 5.5 0 0 1 11 0z"/>
-                    </svg>
-                    </a>
-                    </form>
-                </div>
-            </div>
+                  </svg>
+                  </a>
+            </form>
             <span class="mx-5"></span>
             <ul class="navbar-nav">
                 <li class="nav-item mx-3">
