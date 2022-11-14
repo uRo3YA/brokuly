@@ -5,7 +5,9 @@ from django.contrib.auth.forms import AuthenticationForm
 from django.contrib.auth import login as auth_login, logout as auth_logout, authenticate
 from products.models import Product
 from reviews.models import Review
-
+from django.http import JsonResponse
+import json
+from .models import User
 
 # 회원가입 약관
 def agreement(request):
@@ -158,3 +160,16 @@ def check(request):
     context = {"form": form}
 
     return render(request, "accounts/form.html", context)
+
+# 아이디 중복체크
+def check_id(request):
+    jsonObject = json.loads(request.body)
+    user_id= jsonObject.get('user_id')
+
+    if User.objects.filter(username=user_id):
+        is_exist = True
+    else:
+        is_exist = False
+
+    context = {'is_exist': is_exist}
+    return JsonResponse(context) 

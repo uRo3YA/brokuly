@@ -14,4 +14,5 @@ urlpatterns = [
     path('wishlist/', views.wishlist,name='wishlist'),
     path('review/', views.review, name='review'),
     path('check/', views.check, name='check'),
+    path('check_id/', views.check_id, name='check_id'),
 ]
