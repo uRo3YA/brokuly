@@ -5,37 +5,25 @@ from django.contrib.auth.forms import AuthenticationForm
 from django.contrib.auth import login as auth_login, logout as auth_logout, authenticate
 from products.models import Product
 from reviews.models import Review
-from django.contrib import messages
 
 
-def test(request):
-    context = {
-        "products": Product.objects.all(),
-    }
-
-    return render(request, "accounts/test.html", context)
-
-
+# 회원가입 약관
 def agreement(request):
-    if request.POST.get("agreement1", False) and request.POST.get("agreement2", False):
-        request.session["agreement"] = True
-        if request.POST.get("seller") == "seller":
-            is_seller = 1
-            return redirect("accounts:signup", is_seller)
-        else:
+    if request.method == 'POST':
+        data = request.POST.get('buyer') or request.POST.get('seller')
+
+        if data == 'buyer':
             is_seller = 0
-            return redirect("accounts:signup", is_seller)
+        else:
+            is_seller = 1
+
+        return redirect("accounts:signup", is_seller)
+
     else:
-        messages.info(request, "약관에 모두 동의해주세요.")
-        return render(request, "accounts/agreement.html")
-    # context = {
-    #     'buyer': 0,
-    #     'seller': 1,
-    # }
-
-    # return render(request, 'accounts/agreement.html', context)
+        return render(request, "accounts/complete/agreement.html")
 
 
+# 회원가입
 def signup(request, is_seller):
     if request.method == "POST":
         form = CustomUserCreationForm(request.POST)
@@ -54,11 +42,15 @@ def signup(request, is_seller):
         if is_seller:
             form.fields["address"].widget = forms.HiddenInput()
 
-    context = {"form": form}
+    context = {
+        "form": form,
+        "is_seller": is_seller,     
+    }
 
-    return render(request, "accounts/signup.html", context)
+    return render(request, "accounts/complete/signup.html", context)
 
 
+# 로그인
 def login(request):
     if request.method == "POST":
         form = AuthenticationForm(request, data=request.POST)
@@ -77,6 +69,7 @@ def login(request):
     return render(request, "accounts/login.html", context)
 
 
+# 로그아웃
 def logout(request):
     auth_logout(request)
 
@@ -97,6 +90,7 @@ def mypage(request):
     return render(request, "accounts/mypage.html")
 
 
+# 장바구니
 def cart(request):
     products = request.user.carts.all()
 
@@ -107,6 +101,7 @@ def cart(request):
     return render(request, "accounts/cart.html", context)
 
 
+# 장바구니 추가
 def add_cart(request, product_id):
     cart = request.user.carts
     product = Product.objects.get(id=product_id)
@@ -120,12 +115,14 @@ def add_cart(request, product_id):
     return redirect("accounts:test")
 
 
+# 위시리스트 목록
 def wishlist(request):
     context = {"wishlist": request.user.wishlist}
 
     return render(request, "accounts/wishlist.html", context)
 
 
+# 
 def review(request):
     if request.user.is_seller:
         # 자신의 판매 상품 리뷰 목록을 보여준다.
@@ -142,6 +139,7 @@ def review(request):
     return render(request, "accounts/review.html", context)
 
 
+# 개인정보 수정 확인(미완성)
 def check(request):
     if request.method == "POST":
         form = AuthenticationForm(request, data=request.POST)
