@@ -46,7 +46,7 @@ class ProductForm(forms.ModelForm):
                 "placeholder": "재고를 입력해주세요.",
                 "class": "form-control",
                 "id": "form_title",
-                "style": "width: 91%; height:40%;",
+                "style": "width: 91%;",
             }
         )
         self.fields["sales_rate"].label = "할인율"
@@ -63,7 +63,7 @@ class ProductForm(forms.ModelForm):
             {
                 "placeholder": "상품 대표 사진을 업로드 해주세요.",
                 "class": "form-control",
-                "id": "form_title",
+                "id": "form_produt_thum_img",
                 "style": "width: 91%;",
             }
         )
@@ -72,7 +72,7 @@ class ProductForm(forms.ModelForm):
             {
                 "placeholder": "상품 대표 사진을 업로드 해주세요.",
                 "class": "form-control",
-                "id": "form_title",
+                "id": "form_produt_detail_img",
                 "style": "width: 91%;",
             }
         )
@@ -81,7 +81,7 @@ class ProductForm(forms.ModelForm):
             {
                 "placeholder": "상품 성분 사진을 업로드 해주세요.",
                 "class": "form-control",
-                "id": "form_title",
+                "id": "form_produt_desc_img",
                 "style": "width: 91%;",
             }
         )
@@ -90,7 +90,25 @@ class ProductForm(forms.ModelForm):
             {
                 "placeholder": "알러지 정보를 선택해주세요.",
                 "class": "form-control",
-                "id": "form_title",
+                "id": "form_allergy",
+                "style": "width: 91%;",
+            }
+        )
+        self.fields["unit"].label = "단위"
+        self.fields["unit"].widget.attrs.update(
+            {
+                "placeholder": "판매 단위를 입력해주세요.(1kg/개)",
+                "class": "form-control",
+                "id": "form_unit",
+                "style": "width: 91%;",
+            }
+        )
+        self.fields["weight"].label = "중량"
+        self.fields["weight"].widget.attrs.update(
+            {
+                "placeholder": "중량을 입력해주세요.(1kg 또는 300g)",
+                "class": "form-control",
+                "id": "form_unit",
                 "style": "width: 91%;",
             }
         )
