@@ -32,15 +32,10 @@ def signup(request, is_seller):
             form.save(commit=False).is_seller = is_seller
             form.save()
 
-            # must change this statement
-            return redirect("accounts:test")
+            return redirect("accounts:login")
 
     else:
         form = CustomUserCreationForm()
-
-        # Hide address part of the form
-        if is_seller:
-            form.fields["address"].widget = forms.HiddenInput()
 
     context = {
         "form": form,
