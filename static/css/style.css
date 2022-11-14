@@ -4,16 +4,24 @@ body {
   height: 100%;
 }
 
-#wrap {
+/* footer 하단 고정 */
+#body-wrapper {
   min-height: 100%;
   position: relative;
-  padding-bottom: 500px; /* footer height */
+  /* padding-bottom: 500px; footer height */
+}
+
+#body-content {
+  margin-top: 100px;
+  padding-bottom: 425px; /* footer height */
 }
 
 footer {
   width: 100%;
+  height: 425px;
   position: absolute;
   bottom: 0;
+  left: 0;
 }
 
 /* Text */
@@ -591,7 +599,8 @@ html.dark a {
 
 /* Navbar */
 .nav-shadow {
-  box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.2);
+  /* box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.2); */
+  box-shadow: rgba(96, 96, 96, 0.092) 0px 7px 10px;
 }
 
 .nav-menu {
@@ -721,19 +730,17 @@ html.dark a {
   border: #ffffff;
   background-color: #ffffff;
   color: #ffffff;
-  outline: none;  
-
+  outline: none;
 }
 .accordion-button {
   border: #ffffff;
-  outline: none;  
+  outline: none;
 }
 .accordion-button::after {
   border: #ffffff;
   background-color: #ffffff;
   background-image: none;
-  outline: none;  
-
+  outline: none;
 }
 .accordion-button:not(.collapsed) {
   color: black;
@@ -743,7 +750,7 @@ html.dark a {
 
 .accordion-button:not(.collapsed)::after {
   background-image: none;
-  border: #ffffff
+  border: #ffffff;
 }
 
 .accordion-button:focus {
@@ -760,4 +767,4 @@ html.dark a {
   border-radius: 0.5rem;
   padding: 0.5rem;
   margin: 1rem;
-} 
+}
