@@ -29,8 +29,7 @@
             {% if request.user.is_authenticated %}
             <a class="text-decoration-none text-dark" aria-current="page" href="{% url 'accounts:mypage' %}"><small>마이페이지</small></a>
             <p class="mb-0 mx-3 text-lightgreen opacity-50">|</p>
-            <a class="text-decoration-none text-dark" href="{% url 'accounts:logout' %}"><small>로그아웃</small>
-            <p class="mb-0 mx-3 text-lightgreen opacity-50">|</p> 
+            <a class="text-decoration-none text-dark" href="{% url 'accounts:logout' %}"><small>로그아웃</small></a>
             {% else %} 
             <a class="text-decoration-none text-green" aria-current="page" href="{% url 'accounts:agreement' %}"><small>회원가입</small></a>
             <p class="mb-0 mx-3 text-lightgreen opacity-50">|</p>
