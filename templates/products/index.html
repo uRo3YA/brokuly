@@ -3,238 +3,54 @@
 {% load django_bootstrap5 %}
 {% block body %}
 
+<div class="container">
 
-    <div id="wrap">
-  <!-- carousel -->
-      <div id="carouselExampleControls" class="carousel slide" data-bs-ride="carousel">
-          <div class="carousel-inner">
-            <div class="carousel-item active">
-              <img src="https://dummyimage.com/1063x200/000/fff" class="d-block w-100" alt="...">
-            </div>
-            <div class="carousel-item">
-              <img src="https://dummyimage.com/1063x200/000/fff" class="d-block w-100" alt="...">
-            </div>
-            <div class="carousel-item">
-              <img src="https://dummyimage.com/1063x200/000/fff" class="d-block w-100" alt="...">
-            </div>
-          </div>
-          <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleControls" data-bs-slide="prev">
-            <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-            <span class="visually-hidden">Previous</span>
-          </button>
-          <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleControls" data-bs-slide="next">
-            <span class="carousel-control-next-icon" aria-hidden="true"></span>
-            <span class="visually-hidden">Next</span>
-          </button>
-      </div>
-
-      <!-- 추천 상품 목록 카드 -->
-      <div class="d-flex justify-content-center mt-5 mb-5">
-          <h3>지금 가장 핫한 상품들</h3>
-      </div>
-      <div class="card-group container mt-3">
-          <div class="card mx-2 border-0">
-            <img src="https://dummyimage.com/330x350/000/fff" class="card-img-top" alt="상품 사진">
-            <div class="card-body">
-              <h6 class="card-title">상품명 및 상품제목</h6>
-              <p class="card-text">21,000 원</p>
-            </div>
-          </div>
-          <div class="card mx-2 border-0">
-            <img src="https://dummyimage.com/330x350/000/fff" class="card-img-top" alt="상품 사진">
-            <div class="card-body">
-              <h6 class="card-title">상품명 및 상품제목</h6>
-              <p class="card-text">21,000 원</p>
-            </div>
-          </div>
-          <div class="card mx-2 border-0">
-            <img src="https://dummyimage.com/330x350/000/fff" class="card-img-top" alt="상품 사진">
-            <div class="card-body">
-              <h6 class="card-title">상품명 및 상품제목</h6>
-              <p class="card-text">21,000 원</p>
-            </div>
-          </div>
-          <div class="card mx-2 border-0">
-              <img src="https://dummyimage.com/330x350/000/fff" class="card-img-top" alt="상품 사진">
-              <div class="card-body">
-                <h6 class="card-title">상품명 및 상품제목</h6>
-                <p class="card-text">21,000 원</p>
-              </div>
-          </div>
-      </div>
-
-      <!-- 광고배너 -->
-      <div class="d-flex justify-content-center p-5 mt-5 mb-5">
-          <img src="https://dummyimage.com/1050x140/000/fff" alt="광고 배너"/>
-      </div>
-
-      <!-- 특가 세일 상품 목록 카드 -->
-      <div class="d-flex justify-content-center mt-5 mb-5">
-          <h3>현재 특가 세일 중!</h3>
-      </div>
-      <div class="card-group container mt-3">
-          <div class="card mx-2 border-0">
-            <img src="https://dummyimage.com/330x350/000/fff" class="card-img-top" alt="상품 사진">
-            <div class="card-body">
-              <h6 class="card-title">상품명 및 상품제목</h6>
-              <p class="card-text">21,000 원</p>
-            </div>
-          </div>
-          <div class="card mx-2 border-0">
-            <img src="https://dummyimage.com/330x350/000/fff" class="card-img-top" alt="상품 사진">
-            <div class="card-body">
-              <h6 class="card-title">상품명 및 상품제목</h6>
-              <p class="card-text">21,000 원</p>
-            </div>
-          </div>
-          <div class="card mx-2 border-0">
-            <img src="https://dummyimage.com/330x350/000/fff" class="card-img-top" alt="상품 사진">
-            <div class="card-body">
-              <h6 class="card-title">상품명 및 상품제목</h6>
-              <p class="card-text">21,000 원</p>
-            </div>
-          </div>
-          <div class="card mx-2 border-0">
-              <img src="https://dummyimage.com/330x350/000/fff" class="card-img-top" alt="상품 사진">
-              <div class="card-body">
-                <h6 class="card-title">상품명 및 상품제목</h6>
-                <p class="card-text">21,000 원</p>
-              </div>
-          </div>
-      </div>
-
-      <!-- MD의 추천 -->
-      <div class="d-flex justify-content-center mt-5 mb-5">
-          <h3>MD의 추천</h3>
-      </div>
-      <div class="d-flex justify-content-center mt-3">
-          <button class="rounded-pill border-0 mx-2 p-1 btn-outline-green">샐러드 / 간편식</button>
-          <button class="rounded-pill border-0 mx-2 p-1 btn-outline-green">간식 / 과자</button>
-          <button class="rounded-pill border-0 mx-2 p-1 btn-outline-green">와인</button>
-          <button class="rounded-pill border-0 mx-2 p-1 btn-outline-green">건강식품</button>
-          <button class="rounded-pill border-0 mx-2 p-1 btn-outline-green">밀키트</button>
-          <button class="rounded-pill border-0 mx-2 p-1 btn-outline-green">베이커리</button>
-      </div>
-      <div class="d-flex justify-content-center mt-3">
-          <button class="rounded-pill border-0 mx-2 p-1 btn-outline-green">샐러드 / 간편식</button>
-          <button class="rounded-pill border-0 mx-2 p-1 btn-outline-green">간식 / 과자</button>
-          <button class="rounded-pill border-0 mx-2 p-1 btn-outline-green">와인</button>
-          <button class="rounded-pill border-0 mx-2 p-1 btn-outline-green">건강식품</button>
-          <button class="rounded-pill border-0 mx-2 p-1 btn-outline-green">밀키트</button>
-          <button class="rounded-pill border-0 mx-2 p-1 btn-outline-green">베이커리</button>
-          <button class="rounded-pill border-0 mx-2 p-1 btn-outline-green">베이커리</button>
-          <button class="rounded-pill border-0 mx-2 p-1 btn-outline-green">베이커리</button>
-      </div>
-      <div class="d-flex justify-content-center mt-3">
-          <button class="rounded-pill border-0 mx-2 btn-outline-green">샐러드 / 간편식</button>
-          <button class="rounded-pill border-0 mx-2 btn-outline-green">간식 / 과자</button>
-          <button class="rounded-pill border-0 mx-2 btn-outline-green">와인</button>
-          <button class="rounded-pill border-0 mx-2 btn-outline-green">건강식품</button>
-          <button class="rounded-pill border-0 mx-2 btn-outline-green">밀키트</button>
-          <button class="rounded-pill border-0 mx-2 btn-outline-green">베이커리</button>
-      </div>
-      <div class="card-group container mt-5">
-          <div class="card mx-2 border-0">
-            <img src="https://dummyimage.com/330x350/000/fff" class="card-img-top" alt="상품 사진">
-            <div class="card-body">
-              <h6 class="card-title">상품명 및 상품제목</h6>
-              <p class="card-text">21,000 원</p>
-            </div>
-          </div>
-          <div class="card mx-2 border-0">
-            <img src="https://dummyimage.com/330x350/000/fff" class="card-img-top" alt="상품 사진">
-            <div class="card-body">
-              <h6 class="card-title">상품명 및 상품제목</h6>
-              <p class="card-text">21,000 원</p>
-            </div>
-          </div>
-          <div class="card mx-2 border-0">
-            <img src="https://dummyimage.com/330x350/000/fff" class="card-img-top" alt="상품 사진">
-            <div class="card-body">
-              <h6 class="card-title">상품명 및 상품제목</h6>
-              <p class="card-text">21,000 원</p>
-            </div>
-          </div>
-          <div class="card mx-2 border-0">
-              <img src="https://dummyimage.com/330x350/000/fff" class="card-img-top" alt="상품 사진">
-              <div class="card-body">
-                <h6 class="card-title">상품명 및 상품제목</h6>
-                <p class="card-text">21,000 원</p>
-              </div>
-          </div>
-      </div>
-       <!-- 후기가 많은 상품들 -->
-       <div class="d-flex justify-content-center mt-5 mb-5">
-        <h3>후기가 많은 상품들</h3>
-       </div>
-       <div class="card-group container mt-3">
-          <div class="card mx-2 border-0">
-            <img src="https://dummyimage.com/330x350/000/fff" class="card-img-top" alt="상품 사진">
-            <div class="card-body">
-              <h6 class="card-title">상품명 및 상품제목</h6>
-              <p class="card-text">21,000 원</p>
-            </div>
-          </div>
-          <div class="card mx-2 border-0">
-            <img src="https://dummyimage.com/330x350/000/fff" class="card-img-top" alt="상품 사진">
-            <div class="card-body">
-              <h6 class="card-title">상품명 및 상품제목</h6>
-              <p class="card-text">21,000 원</p>
-            </div>
-          </div>
-          <div class="card mx-2 border-0">
-            <img src="https://dummyimage.com/330x350/000/fff" class="card-img-top" alt="상품 사진">
-            <div class="card-body">
-              <h6 class="card-title">상품명 및 상품제목</h6>
-              <p class="card-text">21,000 원</p>
-            </div>
-          </div>
-          <div class="card mx-2 border-0">
-              <img src="https://dummyimage.com/330x350/000/fff" class="card-img-top" alt="상품 사진">
-              <div class="card-body">
-                <h6 class="card-title">상품명 및 상품제목</h6>
-                <p class="card-text">21,000 원</p>
-              </div>
-          </div>
-       </div>
-      <!-- 고객 후기 -->
-      <div class="d-flex justify-content-center mt-5 mb-5">
-          <h3>고객님들의 생생한 후기</h3>
-      </div>
-      <div class="card-group container justify-content-center mt-5">
-          <div class="mx-1 border-0">
-            <img src="./main.assets/후기 1.png" class="card-img-top main-review" alt="상품 사진">
-            <div class="card-body">
-              <p class="card-title">@ererink</p>
-            </div>
-          </div>
-          <div class="mx-1 border-0">
-            <img src="./main.assets/후기2.png" class="card-img-top main-review" alt="상품 사진">
-            <div class="card-body">
-              <p class="card-title">@snnzzoo</p>
-            </div>
-          </div>
-          <div class="mx-1 border-0">
-            <img src="./main.assets/후기 3.png" class="card-img-top main-review" alt="상품 사진">
-            <div class="card-body">
-              <p class="card-title">@qlghwp123</p>
-            </div>
-          </div>
-          <div class="mx-1 border-0">
-              <img src="./main.assets/후기 4.png" class="card-img-top main-review" alt="상품 사진">
-              <div class="card-body">
-                <p class="card-title">@uRo3YA</p>
-              </div>
-          </div>
-          <div class="mx-1 border-0">
-              <img src="./main.assets/후기 5.png" class="card-img-top main-review" alt="상품 사진">
-              <div class="card-body">
-                <p class="card-title">@wnsn8546</p>
-              </div>
-          </div>
-      </div>
+    {% for products in products_all %}
+    <div><!-- 여기에 요소 출력 해야함 -->
+        <a href="{% url 'products:detail' products.pk %}" class="text-black text-decoration-none">{{ products.title }}</a>
     </div>
+    {% endfor %}
+    <ul class="pagination justify-content-center">
+        <!-- 이전페이지 -->
+        {% if products_all.has_previous %}
+        <li class="page-item mx-0">
+            <a class="page-link" href="?page={{ products_all.previous_page_number }}">이전</a>
+        </li>
+        {% else %}
+        <li class="page-item disabled mx-0">
+            <a class="page-link" tabindex="-1" aria-disabled="true" href="#">이전</a>
+        </li>
+        {% endif %}
+        <!-- 페이지리스트 -->
+        {% for page_number in products_all.paginator.page_range %}
+        {% if page_number >= products_all.number|add:-3 and page_number <= products_all.number|add:3 %}
+        {% if page_number == products_all.number %}
+        <li class="page-item active mx-0" aria-current="page">
+            <a class="page-link" href="?page={{ page_number }}">{{ page_number }}</a>
+        </li>
+        {% else %}
+        <li class="page-item mx-0">
+            <a class="page-link" href="?page={{ page_number }}">{{ page_number }}</a>
+        </li>
+        {% endif %}
+        {% endif %}
+        {% endfor %}
+        <!-- 다음페이지 -->
+        {% if products_all.has_next %}
+        <li class="page-item mx-0">
+            <a class="page-link" href="?page={{ products_all.next_page_number }}">다음</a>
+        </li>
+        {% else %}
+        <li class="page-item disabled mx-0">
+            <a class="page-link" tabindex="-1" aria-disabled="true" href="#">다음</a>
+        </li>
+        {% endif %}
+    </ul>
 </div>
 
+
+
+
+    
 {% endblock body%}
-      
+<!--   -->   
