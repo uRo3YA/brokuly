@@ -695,6 +695,7 @@ html.dark a {
   border: solid 1px rgb(206, 205, 205);
   border-radius: 7px;
   padding: 10px;
+  height: 60px;
 }
 
 /* 상품상세페이지 아이콘 */
