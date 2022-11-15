@@ -1,5 +1,6 @@
 {% extends 'base.html' %}
 {% load static %}
+{% load humanize %}
 {% block script %}
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.min.css" />
 <script type="text/javascript" src="{% static 'js/10-11.js' %}"></script> 
@@ -9,24 +10,30 @@
         <!-- 상품 이미지 및 상품명 -->
         <div class="container text-center mt-5">
             <div class="row justify-content-center">
-              <div class="col-4">
+              <div class="col-6">
                 <img src="{{product.produt_thum_img.url}}" alt="상품 이미지">
               </div>
-              <div class="col-4 text-start mx-5">
-                  <h3 class="mx-1">[아우프글렛]크로플 3개입</h3>
-                  <h3 class="mx-1"><span class="fw-bold" style="color: #fbcd24">30% </span>21,000원</h3>
+              <div class="col-6 text-start mx-7 ">
+                  <h3 class="mx-1">{{product.title}}</h3>
+                  <h3 class="mx-1"><span class="fw-bold" style="color: #fbcd24"> {{product.sales_rate}}% </span>{{product.price|intcomma}}원</h3>
                   <hr>
-                  <p class="mx-1">판매 판매자명</p>
+                  <p class="mx-1">판매자 {{product.user.name}}</p>
                   <hr>
-                  <p class="mx-1">상품설명</p>
+                  <p class="mx-1">판매단위 {{product.unit}}개</p>
                   <hr>
-                  <p class="mx-1">상품설명</p>
+                  <p class="mx-1">배송구분: {{product.shiping_type}} </p>
                   <hr>
-                  <p class="mx-1">상품설명</p>
+                  <p class="mx-1">원산지: 상세 이미지 별도</p>
+                  <hr>
+                  <p class="mx-1">알레르기정보 -{%for i in product.allergy%}
+                    {{i}} 
+                    {%endfor%}</p>
+                  <hr>
+                  <p class="mx-1">재고</p>
+                  <hr>
               </div>
           </div>
         </div>
-
         <!-- 버튼들 -->
         <div class="container p-5">
           <div class="d-flex align-items-center float-end">

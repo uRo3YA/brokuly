@@ -48,6 +48,7 @@ INSTALLED_APPS = [
     "django.contrib.sessions",
     "django.contrib.messages",
     "django.contrib.staticfiles",
+    "django.contrib.humanize",
 ]
 
 MIDDLEWARE = [
@@ -152,8 +153,8 @@ DEFAULT_AUTO_FIELD = "django.db.models.BigAutoField"
 AUTH_USER_MODEL = "accounts.User"
 
 # Email valid
-EMAIL_HOST = 'smtp.gmail.com'
+EMAIL_HOST = "smtp.gmail.com"
 EMAIL_PORT = 587
-EMAIL_HOST_USER = 'peterctest210@gmail.com'
-EMAIL_HOST_PASSWORD = 'jrtsqamzdhduymsh'
+EMAIL_HOST_USER = "peterctest210@gmail.com"
+EMAIL_HOST_PASSWORD = "jrtsqamzdhduymsh"
 EMAIL_USE_TLS = True

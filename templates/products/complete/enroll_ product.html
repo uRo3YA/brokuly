@@ -1,277 +1,275 @@
 {% extends 'base.html' %}
-{% load static %}
 {% load django_bootstrap5 %}
+{% load static %}
+
 {% block body %}
-        <link rel="stylesheet" href="{% static 'css/style.css' %}" />
-        <div class="container mt-5 p-3">
-            <form action="" method="POST" enctype="multipart/form-data">
-                {% csrf_token %}
-            <h2 class="text-start mx-2">상품 등록</h2>
-            <hr class="green-line">
-            <div class="container p-5">
-                
-                <div class="row mt-2 mb-3">
-                    <div class="col-2 text-start">
-                        <p class="mt-2 mb-0" style="margin-left: 3rem;">상품 이름</p>
+
+    <div class="container my-5">
+        <form action="" method="POST" enctype="multipart/form-data">
+            {% csrf_token %}
+            <h3 class="fw-bold text-center my-4">상품 등록</h3>
+            <div class="container">
+                <div class="row justify-content-center align-items-center" style="padding: 12px 0px;">
+                    <hr class="green-line mb-4" style="width: 80%;">
+                    <div class="col-2" style="margin-left: 3rem;">
+                        <p class="mb-0">상품 이름</p>
                     </div>
                     <div class="col-7">
                         {{ Product_Form.title }}
                     </div>
                 </div>
-                <div class="row mt-4 mb-3">
-                <div class="col-2 text-start">
-                    <p class="mt-2 mb-0" style="margin-left: 3rem;">가격</p>
+                <div class="row justify-content-center align-items-center" style="padding: 12px 0px;">
+                    <div class="col-2" style="margin-left: 3rem;">
+                        <p class="mb-0">가격</p>
+                    </div>
+                    <div class="col-7">
+                        {{ Product_Form.price }}
+                    </div>
                 </div>
-                <div class="col-7">
-                    {{ Product_Form.price }}
-                </div>
-                </div>
-                <div class="row mt-4 mb-3">
-                    <div class="col-2 text-start">
-                        <p class="mt-2 mb-0" style="margin-left: 3rem;">단위</p>
+                <div class="row justify-content-center align-items-center" style="padding: 12px 0px;">
+                    <div class="col-2" style="margin-left: 3rem;">
+                        <p class="mb-0">단위</p>
                     </div>
                     <div class="col-7">
                         {{ Product_Form.unit }}
                     </div>
-                    </div>
-                    <div class="row mt-4 mb-3">
-                        <div class="col-2 text-start">
-                            <p class="mt-2 mb-0" style="margin-left: 3rem;">할인율</p>
-                        </div>
-                        <div class="col-7">
-                            {{ Product_Form.sales_rate }}
-                        </div>
-                    </div>
-                    <div class="row mt-4 mb-3">
-                        <div class="col-2 text-start">
-                            <p class="mt-2 mb-0" style="margin-left: 3rem;">중량</p>
-                        </div>
-                        <div class="col-7">
-                            {{ Product_Form.weight }}
-                        </div>
-                    </div>
-                <div class="row mt-4 mb-3">
-                <div class="col-2 text-start">
-                    <p class="mt-2 mb-0" style="margin-left: 3rem;">대표 이미지</p>
                 </div>
-                <div class="col-7">
-                    {{ Product_Form.produt_detail_img }}
-                    <!-- <input type="text" class="form-control" aria-label="Text input with dropdown button"> -->
+                <div class="row justify-content-center align-items-center" style="padding: 12px 0px;">
+                    <div class="col-2" style="margin-left: 3rem;">
+                        <p class="mb-0">할인율</p>
+                    </div>
+                    <div class="col-7">
+                        {{ Product_Form.sales_rate }}
+                    </div>
                 </div>
-                <div class="row mt-4 mb-3">
-                    <div class="col-2 text-start">
-                        <p class="mt-2 mb-0" style="margin-left: 3rem;">상세 이미지</p>
+                <div class="row justify-content-center align-items-center" style="padding: 12px 0px;">
+                    <div class="col-2" style="margin-left: 3rem;">
+                        <p class="mb-0">중량</p>
+                    </div>
+                    <div class="col-7">
+                        {{ Product_Form.weight }}
+                    </div>
+                </div>
+                <div class="row justify-content-center align-items-center" style="padding: 12px 0px;">
+                    <div class="col-2" style="margin-left: 3rem;">
+                        <p class="mb-0">대표 이미지</p>
+                    </div>
+                    <div class="col-7">
+                        {{ Product_Form.produt_detail_img }}
+                    </div>
+                </div>
+                <div class="row justify-content-center align-items-center" style="padding: 12px 0px;">
+                    <div class="col-2" style="margin-left: 3rem;">
+                        <p class="mb-0">상세 이미지</p>
                     </div>
                     <div class="col-7">
                         {{ Product_Form.produt_thum_img }}
-                        <!-- <input type="text" class="form-control" aria-label="Text input with dropdown button"> -->
                     </div>
                 </div>
-                <div class="row mt-4 mb-3 ">
-                <div class="col-2 text-start">
-                    <p class="mt-2 mb-0" style="margin-left: 3rem;">상세설명</p>
-                </div>
-                <div class="col-7">
-                    {{ Product_Form.description }}
-                </div>
-                </div>
-                <div class="row mt-4 mb-3">
-                <div class="col-2 text-start">
-                    <p class="mt-2 mb-0" style="margin-left: 3rem;">성분표</p>
-                </div>
-                <div class="col-7">
-                    {{ Product_Form.produt_desc_img }}
-                    <!-- <label for="form_produt_desc_img">Choose file</label> -->
-                    <!-- <input type="text" class="form-control" aria-label="Text input with dropdown button"> -->
-                </div>
-                <div class="col-2">
-                    
-                    <button type="button"  class="btn btn-outline-green p-1 px-3 mx-2" data-bs-dismiss="modal">업로드</button>
-                </div>
-                </div>
-                <div class="row mt-4 mb-3 align-content-center">
-                <div class="col-2 text-start">
-                    <p class="mt-2 mb-0" style="margin-left: 3rem;">알러지</p>
-                </div>
-                <div class="col-7">
-                    <div>
-                     <!-- <input type="text" class="form-control" aria-label="Text input with dropdown button"> -->
-                     <div class="mb-3"><label class="form-label">알러지 정보</label><div placeholder="알러지 정보를 선택해주세요." class="form-control" id="form_allergy" style="width: 91%;">
-                        <div class="form-check">
-                            <input class="form-check-input"
-                                   type="checkbox"
-                                   name="allergy"
-                                   id="form_allergy_0"
-                                    value="대두">
-                            <label class="form-check-label" for="form_allergy_0">대두</label>
-                        </div>
-                        <div class="form-check">
-                            <input class="form-check-input"
-                                   type="checkbox"
-                                   name="allergy"
-                                   id="form_allergy_1"
-                                     value="게">
-                            <label class="form-check-label" for="form_allergy_1">게</label>
-                        </div>
-                        <div class="form-check">
-                            <input class="form-check-input"
-                                   type="checkbox"
-                                   name="allergy"
-                                   id="form_allergy_2"
-                                     value="토마토">
-                            <label class="form-check-label" for="form_allergy_2">토마토</label>
-                        </div>
-                        <div class="form-check">
-                            <input class="form-check-input"
-                                   type="checkbox"
-                                   name="allergy"
-                                   id="form_allergy_3"
-                                     value="조개류">
-                            <label class="form-check-label" for="form_allergy_3">조개류</label>
-                        </div>
-                        <div class="form-check">
-                            <input class="form-check-input"
-                                   type="checkbox"
-                                   name="allergy"
-                                   id="form_allergy_4"
-                                     value="돼지고기">
-                            <label class="form-check-label" for="form_allergy_4">돼지고기</label>
-                        </div>
-                        <div class="form-check">
-                            <input class="form-check-input"
-                                   type="checkbox"
-                                   name="allergy"
-                                   id="form_allergy_5"
-                                     value="우유">
-                            <label class="form-check-label" for="form_allergy_5">우유</label>
-                        </div>
-                        <div class="form-check">
-                            <input class="form-check-input"
-                                   type="checkbox"
-                                   name="allergy"
-                                   id="form_allergy_6"
-                                     value="호두">
-                            <label class="form-check-label" for="form_allergy_6">호두</label>
-                        </div>
-                        <div class="form-check">
-                            <input class="form-check-input"
-                                   type="checkbox"
-                                   name="allergy"
-                                   id="form_allergy_7"
-                                     value="새우">
-                            <label class="form-check-label" for="form_allergy_7">새우</label>
-                        </div>
-                        <div class="form-check">
-                            <input class="form-check-input"
-                                   type="checkbox"
-                                   name="allergy"
-                                   id="form_allergy_8"
-                                     value="오징어">
-                            <label class="form-check-label" for="form_allergy_8">오징어</label>
-                        </div>
-                        <div class="form-check">
-                            <input class="form-check-input"
-                                   type="checkbox"
-                                   name="allergy"
-                                   id="form_allergy_9"
-                                     value="땅콩">
-                            <label class="form-check-label" for="form_allergy_9">땅콩</label>
-                        </div>
-                        <div class="form-check">
-                            <input class="form-check-input"
-                                   type="checkbox"
-                                   name="allergy"
-                                   id="form_allergy_10"
-                                     value="아황산류">
-                            <label class="form-check-label" for="form_allergy_10">아황산류</label>
-                        </div>
-                        <div class="form-check">
-                            <input class="form-check-input"
-                                   type="checkbox"
-                                   name="allergy"
-                                   id="form_allergy_11"
-                                     value="고등어"                                     >
-                            <label class="form-check-label" for="form_allergy_11">고등어</label>
-                        </div>
-                        <div class="form-check">
-                            <input class="form-check-input"
-                                   type="checkbox"
-                                   name="allergy"
-                                   id="form_allergy_12"
-                                     value="난류">
-                            <label class="form-check-label" for="form_allergy_12">난류</label>
-                        </div>
-                        <div class="form-check">
-                            <input class="form-check-input"
-                                   type="checkbox"
-                                   name="allergy"
-                                   id="form_allergy_13"
-                                     value="복숭아">
-                            <label class="form-check-label" for="form_allergy_13">복숭아</label>
-                        </div>
-                        <div class="form-check">
-                            <input class="form-check-input"
-                                   type="checkbox"
-                                   name="allergy"
-                                   id="form_allergy_14"
-                                     value="밀" >
-                            <label class="form-check-label" for="form_allergy_14">밀</label>
-                        </div>
-                        <div class="form-check">
-                            <input class="form-check-input"
-                                   type="checkbox"
-                                   name="allergy"
-                                   id="form_allergy_15"
-                                     value="닭고기">
-                            <label class="form-check-label" for="form_allergy_15">닭고기</label>
-                        </div>
-                        <div class="form-check">
-                            <input class="form-check-input"
-                                   type="checkbox"
-                                   name="allergy"
-                                   id="form_allergy_16"
-                                     value="메밀">
-                            <label class="form-check-label" for="form_allergy_16">메밀</label>
-                        </div>
-                        <div class="form-check">
-                            <input class="form-check-input"
-                                   type="checkbox"
-                                   name="allergy"
-                                   id="form_allergy_17"
-                                     value="쇠고기">
-                            <label class="form-check-label" for="form_allergy_17">쇠고기</label>
-                        </div>
-                        <div class="form-check">
-                            <input class="form-check-input"
-                                   type="checkbox"
-                                   name="allergy"
-                                   id="form_allergy_18"
-                                     value="해당없음">
-                            <label class="form-check-label" for="form_allergy_18">해당없음</label>
-                        </div>
-                    
-                
-                       </div>
-                    </div>
-                    </div>
-                </div>
-                <div class="row mt-4 mb-3 align-content-center">
-                    <div class="col-2 text-start">
-                    <p class="mt-2 mb-0" style="margin-left: 3rem;">재고</p>
+                <div class="row justify-content-center align-items-center" style="padding: 12px 0px;">
+                    <div class="col-2" style="margin-left: 3rem;">
+                        <p class="mb-0">상세설명</p>
                     </div>
                     <div class="col-7">
-                        {{ Product_Form.stock }}
+                        {{ Product_Form.description }}
+                    </div>
+                </div>
+                <div class="row justify-content-center align-items-center" style="padding: 12px 0px;">
+                    <div class="col-2" style="margin-left: 3rem;">
+                        <p class="mb-0">성분표</p>
+                    </div>
+                    <div class="col-7">
+                        {{ Product_Form.produt_desc_img }}
+                        <!-- <div type="button"  class="btn btn-outline-green p-1 px-3 mx-2" data-bs-dismiss="modal">업로드</div> -->
+                    </div>
+                </div>
+                <div class="row justify-content-center" style="padding: 12px 0px;">
+                    <div class="col-2" style="margin-left: 3rem;">
+                        <p class="mt-1 mb-0">알러지 정보</p>
+                    </div>
+                    <div class="col-7">
+                        <div placeholder="알러지 정보를 선택해주세요" class="form-control py-3" id="form_allergy" style="width: 91%;">
+                          <div class="d-flex justify-content-between">
+                            <!-- row1 -->
+                            <div class="ms-5">
+                                <div class="form-check">
+                                  <input class="form-check-input"
+                                         type="checkbox"
+                                         name="allergy"
+                                         id="form_allergy_0"
+                                          value="대두">
+                                  <label class="form-check-label" for="form_allergy_0">대두</label>
+                                </div>
+                                <div class="form-check">
+                                    <input class="form-check-input"
+                                           type="checkbox"
+                                           name="allergy"
+                                           id="form_allergy_1"
+                                             value="게">
+                                    <label class="form-check-label" for="form_allergy_1">게</label>
+                                </div>
+                                <div class="form-check">
+                                    <input class="form-check-input"
+                                           type="checkbox"
+                                           name="allergy"
+                                           id="form_allergy_2"
+                                             value="토마토">
+                                    <label class="form-check-label" for="form_allergy_2">토마토</label>
+                                </div>
+                                <div class="form-check">
+                                    <input class="form-check-input"
+                                           type="checkbox"
+                                           name="allergy"
+                                           id="form_allergy_3"
+                                             value="조개류">
+                                    <label class="form-check-label" for="form_allergy_3">조개류</label>
+                                </div>
+                                <div class="form-check">
+                                    <input class="form-check-input"
+                                           type="checkbox"
+                                           name="allergy"
+                                           id="form_allergy_4"
+                                             value="돼지고기">
+                                    <label class="form-check-label" for="form_allergy_4">돼지고기</label>
+                                </div>
+                                <div class="form-check">
+                                    <input class="form-check-input"
+                                           type="checkbox"
+                                           name="allergy"
+                                           id="form_allergy_5"
+                                             value="우유">
+                                    <label class="form-check-label" for="form_allergy_5">우유</label>
+                                </div>
+                                <div class="form-check">
+                                    <input class="form-check-input"
+                                           type="checkbox"
+                                           name="allergy"
+                                           id="form_allergy_6"
+                                             value="호두">
+                                    <label class="form-check-label" for="form_allergy_6">호두</label>
+                                </div>
+                                <div class="form-check">
+                                    <input class="form-check-input"
+                                           type="checkbox"
+                                           name="allergy"
+                                           id="form_allergy_7"
+                                             value="새우">
+                                    <label class="form-check-label" for="form_allergy_7">새우</label>
+                                </div>
+                                <div class="form-check">
+                                    <input class="form-check-input"
+                                           type="checkbox"
+                                           name="allergy"
+                                           id="form_allergy_8"
+                                             value="오징어">
+                                    <label class="form-check-label" for="form_allergy_8">오징어</label>
+                                </div>
+                                <div class="form-check">
+                                    <input class="form-check-input"
+                                           type="checkbox"
+                                           name="allergy"
+                                           id="form_allergy_9"
+                                             value="땅콩">
+                                    <label class="form-check-label" for="form_allergy_9">땅콩</label>
+                                </div>
+                            </div>
+                            <!-- row2 -->
+                            <div style="padding: 0px 200px 0px 60px;">
+                              <div class="form-check">
+                                  <input class="form-check-input"
+                                         type="checkbox"
+                                         name="allergy"
+                                         id="form_allergy_10"
+                                           value="아황산류">
+                                  <label class="form-check-label" for="form_allergy_10">아황산류</label>
+                              </div>
+                              <div class="form-check">
+                                  <input class="form-check-input"
+                                         type="checkbox"
+                                         name="allergy"
+                                         id="form_allergy_11"
+                                           value="고등어"                                     >
+                                  <label class="form-check-label" for="form_allergy_11">고등어</label>
+                              </div>
+                              <div class="form-check">
+                                  <input class="form-check-input"
+                                         type="checkbox"
+                                         name="allergy"
+                                         id="form_allergy_12"
+                                           value="난류">
+                                  <label class="form-check-label" for="form_allergy_12">난류</label>
+                              </div>
+                              <div class="form-check">
+                                  <input class="form-check-input"
+                                         type="checkbox"
+                                         name="allergy"
+                                         id="form_allergy_13"
+                                           value="복숭아">
+                                  <label class="form-check-label" for="form_allergy_13">복숭아</label>
+                              </div>
+                              <div class="form-check">
+                                  <input class="form-check-input"
+                                         type="checkbox"
+                                         name="allergy"
+                                         id="form_allergy_14"
+                                           value="밀" >
+                                  <label class="form-check-label" for="form_allergy_14">밀</label>
+                              </div>
+                              <div class="form-check">
+                                  <input class="form-check-input"
+                                         type="checkbox"
+                                         name="allergy"
+                                         id="form_allergy_15"
+                                           value="닭고기">
+                                  <label class="form-check-label" for="form_allergy_15">닭고기</label>
+                              </div>
+                              <div class="form-check">
+                                  <input class="form-check-input"
+                                         type="checkbox"
+                                         name="allergy"
+                                         id="form_allergy_16"
+                                           value="메밀">
+                                  <label class="form-check-label" for="form_allergy_16">메밀</label>
+                              </div>
+                              <div class="form-check">
+                                  <input class="form-check-input"
+                                         type="checkbox"
+                                         name="allergy"
+                                         id="form_allergy_17"
+                                           value="쇠고기">
+                                  <label class="form-check-label" for="form_allergy_17">쇠고기</label>
+                              </div>
+                              <div class="form-check">
+                                  <input class="form-check-input"
+                                         type="checkbox"
+                                         name="allergy"
+                                         id="form_allergy_18"
+                                           value="해당없음">
+                                  <label class="form-check-label" for="form_allergy_18">해당없음</label>
+                              </div>
+                            </div>
+                        </div>
+                    </div>
+                </div> <!-- 알러지 정보-->
+                        
+                <div class="row justify-content-center align-items-center" style="padding: 12px 0px;">
+                    <div class="col-2" style="margin-left: 3rem;">
+                        <p class="mb-0">재고</p>
+                    </div>
+                    <div class="col-7">
+                         {{ Product_Form.stock }}
                         <!-- <input type="text" class="form-control" aria-label="Text input with dropdown button"> -->
                     </div>
                 </div>
-                
-            </div>
-                  <!-- 등록 버튼 -->
-            <div class="d-flex justify-content-center mt-5">
-                <button type="cancel" class="btn btn-outline-green p-3 px-5 mx-5" data-bs-dismiss="modal">취소</button>
-                <button type="submit" class="btn btn-green p-3 px-5 mx-5" data-bs-dismiss="modal">등록</button>
-            </div> 
+            
+                <hr class="green-line mt-5 mb-4" style="width: 80%;">
+                <!-- 등록 버튼 -->
+                <div class="d-flex justify-content-center mb-5">
+                    <!-- ??????????? 취소 버튼 누르면 어디로????????? -->
+                    <button type="cancel" class="btn btn-outline-green p-2 px-5" data-bs-dismiss="modal">취소</button>
+                    <button type="submit" class="btn btn-green p-2 px-5 ms-4" data-bs-dismiss="modal">등록</button>
+                </div>
+            </div> <!-- container -->
         </form>
-      </div>
-     
-      {% endblock %}
+    </div>
+{% endblock body %}
