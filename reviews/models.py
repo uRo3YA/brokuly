@@ -39,9 +39,9 @@ class Review(models.Model):
 
 class Comment(models.Model):
     review = models.ForeignKey(Review, on_delete=models.CASCADE)
-    # user = models.ForeignKey(settings.AUTH_USER_MODEL, on_delete=models.CASCADE)
+    user = models.ForeignKey(settings.AUTH_USER_MODEL, on_delete=models.CASCADE)
     content = models.TextField(verbose_name="댓글내용")
-    # created = models.DateTimeField(auto_now_add=True, verbose_name="작성일")
+    created = models.DateTimeField(auto_now_add=True, verbose_name="작성일")
     # deleted = models.BooleanField(default=False, verbose_name='삭제여부')
     # reply = models.IntegerField(verbose_name='답글위치', default=0)
     def __str__(self):
