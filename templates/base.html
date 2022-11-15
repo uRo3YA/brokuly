@@ -30,16 +30,13 @@
     <!-- Navbar -->
     {% include "./navbar.html" %}
 
-    <div id="body-wrapper">
-
       <!-- 콘텐츠 -->
-      <div id="body-content">
-        {% block body %}{% endblock body %}
-      </div>
+        <div id="wrapper">
+          {% block body %}{% endblock body %}
+        </div>
       
       <!-- footer -->
       {% include "./footer.html" %}
       
-    </div>
   </body>
 </html>
