@@ -74,17 +74,22 @@ def logout(request):
     return redirect("accounts:login")
 
 
+# 마이페이지
 def mypage(request):
     if request.user.is_seller:
         # 상품문의, 새로 작성된 리뷰, 팔로워 수
         # 데이터가 필요하다.
-        pass
+        products = Product.objects.filter(user=request.user)
+        context = {
+            "products": products
+        }
+
     else:
         # 적립금, 쿠폰, 팔로잉 수
         # 데이터가 필요하다.
         pass
 
-    return render(request, "accounts/mypage.html")
+    return render(request, "accounts/working/mypage.html", context)
 
 
 # 장바구니
