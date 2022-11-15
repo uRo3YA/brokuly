@@ -6,6 +6,10 @@ import os
 from django.conf import settings
 from multiselectfield import MultiSelectField
 
+ship_Choices = (
+    ("샛별배송", "샛별배송"),
+    ("일반택배", "일반택배"),
+)
 #
 # Create your models here.
 class Product(models.Model):
@@ -38,10 +42,14 @@ class Product(models.Model):
     description = description = models.TextField(blank=True)
     stock = models.IntegerField()
     sales_rate = models.PositiveIntegerField()
-
+    ship_type = models.CharField(max_length=10, choices=ship_Choices)
     allergy = MultiSelectField(
         choices=ALLERGY_CHOICES,
     )
+    is_crawl = models.BooleanField(default=False)
+    crawl_produt_thum_img = models.TextField(blank=True)
+    crawl_produt_detail_img = models.TextField(blank=True)
+    crawl_produt_desc_img = models.TextField(blank=True)
     # wishlist=models.ManyToManyField(settings.AUTH_USER_MODEL, related_name='wishlist_product')
     def delete(self, *args, **kargs):
         if self.produt_thum_img:
