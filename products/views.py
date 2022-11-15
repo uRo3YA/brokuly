@@ -11,16 +11,23 @@ from django.contrib import messages
 from django.db.models import Q
 from qnas.models import Question, Answer
 from qnas.forms import QuestionForm, AnswerForm
+from django.core.paginator import Paginator
 
 # from .decorators import seller_required
 # Create your views here.
 def index(request):
-    contents = Product.objects.all()
+
+    products = Product.objects.all()
+    # 입력 파라미터
+    page = request.GET.get("page", "1")
+    # 페이징
+    paginator_all = Paginator(products, 5)
+    page_obg_all = paginator_all.get_page(page)
 
     context = {
-        "contents": contents,
+        "products": products,
+        "products_all": page_obg_all,
     }
-
     return render(request, "products/index.html", context)
 
 
@@ -112,17 +119,27 @@ def delete(request, pk):
 
 
 def search(request):
-    result = Product.objects.all().order_by("-id")
+    products = Product.objects.all().order_by("-id")
+    page = request.GET.get("page", "1")
     search_keyword = request.POST.get("q", "")
     if search_keyword:
-        result = result.filter(
+        products = products.filter(
             Q(title__icontains=search_keyword)
             | Q(description__icontains=search_keyword)
         )
+        paginator_all = Paginator(products, 5)
+        page_obg_all = paginator_all.get_page(page)
+        context = {
+            "products": products,
+            "products_all": page_obg_all,
+            "q": search_keyword,
+            "search_count": len(page_obg_all),
+        }
+
         return render(
             request,
             "products/search.html",
-            {"search_product_list": result, "q": search_keyword},
+            context,
         )
 
     else:

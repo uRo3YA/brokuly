@@ -5,18 +5,58 @@
 <div class="container">
     <!--추가로 해야 할 작업-->
     <!--product 메인과 같은 레이아웃으로 만들기-->
-{% if not search_product_list %}
+{% if not products_all %}
     {{q}}에 대한 검색 결과가 없습니다.
 {% else %}
     <p><!--여기는 검색어에 대한 결과 크게 출력-->
-    {{q}}에 대한 {{search_product_list.count}}건 검색 결과가 있습니다
+    {{q}}에 대한 {{search_count}}건 검색 결과가 있습니다
     </p><!--여기서부터 메인과 같은 레이아웃으로 출력-->
-    {% for product_list in search_product_list.all %}
-    <p>
-    <a href="/products/{{ product_list.id }}/">{{ product_list.title }}</a>
-    </p>
-    {% endfor %}
+    <div class="container">
 
-{% endif %}
-</div>
+        {% for products in products_all %}
+        <div>
+            <a href="{% url 'products:detail' products.pk %}" class="text-black text-decoration-none">{{ products.title }}</a>
+        </div>
+        {% endfor %}
+        <ul class="pagination justify-content-center">
+            <!-- 이전페이지 -->
+            {% if products_all.has_previous %}
+            <li class="page-item mx-0">
+                <a class="page-link" href="?page={{ products_all.previous_page_number }}">이전</a>
+            </li>
+            {% else %}
+            <li class="page-item disabled mx-0">
+                <a class="page-link" tabindex="-1" aria-disabled="true" href="#">이전</a>
+            </li>
+            {% endif %}
+            <!-- 페이지리스트 -->
+            {% for page_number in products_all.paginator.page_range %}
+            {% if page_number >= products_all.number and page_number <= products_all.number%}
+            {% if page_number == products_all.number %}
+            <li class="page-item active mx-0" aria-current="page">
+                <a class="page-link" href="?page={{ page_number }}">{{ page_number }}</a>
+            </li>
+            {% else %}
+            <li class="page-item mx-0">
+                <a class="page-link" href="?page={{ page_number }}">{{ page_number }}</a>
+            </li>
+            {% endif %}
+            {% endif %}
+            {% endfor %}
+            <!-- 다음페이지 -->
+            {% if products_all.has_next %}
+            <li class="page-item mx-0">
+                <a class="page-link" href="?page={{ products_all.next_page_number }}">다음</a>
+            </li>
+            {% else %}
+            <li class="page-item disabled mx-0">
+                <a class="page-link" tabindex="-1" aria-disabled="true" href="#">다음</a>
+            </li>
+            {% endif %}
+        </ul>
+    </div>
+    
+    
+    {% endif %}
+    </div>
 {% endblock %}
