@@ -8,6 +8,7 @@ from reviews.models import Review
 from django.http import JsonResponse
 import json
 from .models import User
+from qnas.models import Question
 
 # 회원가입 약관
 def agreement(request):
@@ -78,18 +79,33 @@ def logout(request):
 
 # 마이페이지
 def mypage(request):
+    reviews = Review.objects.filter(user=request.user)
+
     if request.user.is_seller:
         # 상품문의, 새로 작성된 리뷰, 팔로워 수
         # 데이터가 필요하다.
         products = Product.objects.filter(user=request.user)
+        questions = []
+        
+        for product in products:
+            questions += product.question_set.all()
+
         context = {
-            "products": products
+            "products": products,
+            "reviews": reviews,
+            "questions": questions,
         }
 
     else:
         # 적립금, 쿠폰, 팔로잉 수
+        # 주문 내역, 위시리스트 목록, 상품 후기 목록, 상품 문의 목록
         # 데이터가 필요하다.
-        pass
+        questions = Question.objects.filter(user=request.user)
+
+        context = {
+            "reviews": reviews,
+            "questions": questions,
+        }
 
     return render(request, "accounts/working/mypage.html", context)
 
@@ -126,7 +142,7 @@ def wishlist(request):
     return render(request, "accounts/wishlist.html", context)
 
 
-# 
+# 리뷰 목록
 def review(request):
     if request.user.is_seller:
         # 자신의 판매 상품 리뷰 목록을 보여준다.
@@ -138,9 +154,11 @@ def review(request):
         # 자신이 작성한 리뷰 목록을 보여준다.
         reviews = Review.objects.filter(user=request.user)
 
-    context = {"reviews": reviews}
+    context = {
+        "reviews": reviews,
+    }
 
-    return render(request, "accounts/review.html", context)
+    return render(request, "accounts/working/mypage_review.html", context)
 
 
 # 개인정보 수정 확인(미완성)

@@ -1,0 +1,62 @@
+{% extends 'accounts/working/mypage.html' %}
+
+{% load django_bootstrap5 %}
+{% load static %}
+
+{% block content %}
+
+<div class="col-10 py-5 px-5 bg-light">
+    <div class="d-flex justify-content-between">
+      <h3 class="fw-bold">상품문의</h3>
+      <select onchange="if(this.value) location.href=(this.value);">
+        <option value="#">답변 대기중</option>
+        <option value="#" >답변 완료</option>
+      </select>
+    </div>
+    <hr class="green-line mb-4" />
+    <!-- 상품 -->
+    {% for question in questions %}
+      <div class="row">
+        <div class="card bg-light border-0">
+          <div class="d-flex justify-content-between mx-4">
+            <p class="fs-5 mb-2">여기에 Question 모델에 날짜가 필요함</p>
+            <a class="text-decoration-none text-muted" href="{% url 'products:detail' question.product.pk %}">
+              상품 상세보기 >
+            </a>
+          </div>
+          <hr class="mt-0 mb-4" />
+          <div class="d-flex justify-content-between">
+            <div class="d-flex mx-4 align-items-center">
+              <img
+                class="me-4"
+                src="{{ question.product.produt_thum_img.url }}"
+                alt="상품사진"
+                style="height: 180px; width: 150px"
+              />
+              <div class="d-inline-flex flex-column align-content-center me-4">
+                <p class="mb-2 text-muted">상품명</p>
+                <p class="mb-2 text-muted">문의제목</p>
+                <p class="mb-2 text-muted">문의자</p>
+                <p class="mb-2 text-muted">문의내용</p>
+              </div>
+              {% comment %} 모든 상품에 대한 Question {% endcomment %}
+              <div class="d-inline-flex flex-column align-content-center me-5">
+                <p class="mb-2">{{ question.product.title }}</p>
+                <p class="mb-2">{{ question.title }}</p>
+                <p class="mb-2">{{ question.user }}</p>
+                <p class="mb-2">{{ question.content }}</p>                    
+              </div>
+            </div>
+            <div class="d-flex align-items-center">
+              <button class="btn btn-outline-green me-4">답변하기</button>
+            </div>
+          </div>
+        </div>
+      </div>
+      <hr class="lightgreen-line my-4">
+    {% endfor %}
+    <!-- 상품 -->
+    </div>
+  </div>
+
+{% endblock content %}
