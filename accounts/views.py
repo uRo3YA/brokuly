@@ -196,3 +196,36 @@ def check_id(request):
 
     context = {'is_exist': is_exist}
     return JsonResponse(context) 
+
+def id_check(request):
+    jsonObject = json.loads(request.body)
+    username = jsonObject.get('username')
+    username = "k" + str(username)
+    print(username)
+    if User.objects.filter(username=username).exists():
+        user = User.objects.get(username=username)
+    else:
+        email = jsonObject.get('email')
+        name = jsonObject.get('nickname')
+        user = User.objects.create(username=username, email=email, name=name)
+        user.save()
+    auth_login(request, user, backend='django.contrib.auth.backends.ModelBackend')
+    return JsonResponse({'username': user.username, 'email': user.email, 'name':user.name,})
+
+def id_check_naver(request):
+    jsonObject = json.loads(request.body)
+    username = jsonObject.get('id')
+    username = "n" + str(username)
+    print(username)
+    if User.objects.filter(username=username).exists():
+        user = User.objects.get(username=username)
+    else:
+        email = jsonObject.get('email')
+        name = jsonObject.get('name')
+        user = User.objects.create(username=username, email=email, name=name)
+        user.save()
+    auth_login(request, user, backend='django.contrib.auth.backends.ModelBackend')
+    return JsonResponse({'username': user.username, 'email': user.email, 'name':user.name,})
+
+def naver_callback(request):
+    return render(request, 'accounts/complete/naver_callback.html')

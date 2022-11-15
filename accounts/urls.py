@@ -15,4 +15,8 @@ urlpatterns = [
     path('review/', views.review, name='review'),
     path('check/', views.check, name='check'),
     path('check_id/', views.check_id, name='check_id'),
+
+    path('login/naver_callback/', views.naver_callback, name='naver_callback'),
+    path('id_check/', views.id_check, name='id_check'),
+    path('id_check_naver/', views.id_check_naver, name='id_check_naver'),
 ]
