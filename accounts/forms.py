@@ -10,7 +10,7 @@ class CustomUserCreationForm(UserCreationForm):
             {
                 "placeholder": "아이디를 입력해주세요.",
                 "class": "form-control mx-0",
-                "style": "width: 100%;",
+                "style": "width: 100%; height: 50px;",
             }
         )
 
@@ -19,7 +19,7 @@ class CustomUserCreationForm(UserCreationForm):
             {
                 "placeholder": "비밀번호를 입력해주세요.",
                 "class": "form-control",
-                "style": "width: 100%;",
+                "style": "width: 100%; height: 50px;",
             }
         )
 
@@ -28,7 +28,7 @@ class CustomUserCreationForm(UserCreationForm):
             {
                 "placeholder": "비밀번호를 한번 더 입력해주세요.",
                 "class": "form-control",
-                "style": "width: 100%;",
+                "style": "width: 100%; height: 50px;",
             }
         )
 
@@ -37,7 +37,7 @@ class CustomUserCreationForm(UserCreationForm):
             {
                 "placeholder": "이름을 입력해주세요.",
                 "class": "form-control",
-                "style": "width: 100%;",
+                "style": "width: 100%; height: 50px;",
             }
         )       
 
@@ -46,7 +46,7 @@ class CustomUserCreationForm(UserCreationForm):
             {
                 "placeholder": "예 : brokurly@brokurly.com",
                 "class": "form-control mx-0",
-                "style": "width: 100%;",
+                "style": "width: 100%; height: 50px;",
             }
         )       
 
@@ -55,7 +55,7 @@ class CustomUserCreationForm(UserCreationForm):
             {
                 "placeholder": "주소 검색",
                 "class": "form-control",
-                "style": "width: 100%;",
+                "style": "width: 100%; height: 50px;",
             }
         ) 
     class Meta:
