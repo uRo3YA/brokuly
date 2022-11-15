@@ -2,6 +2,22 @@
 {% load django_bootstrap5 %}
 {% load static %}
 
+{% comment %} 
+누르면 옆에 메뉴 active 클래스 추가하게끔 만드는거 미완성 
+{% endcomment %}
+{% block script %}
+<!-- jQuery CDN -->
+<script src="https://code.jquery.com/jquery-3.6.1.slim.min.js" integrity="sha256-w8CvhFs7iHNVUtnSP0YKEg00p9Ih13rlL9zGqvLdePA=" crossorigin="anonymous"></script>
+<script>
+
+$("a").on("click", function(e){
+    $("a").removeClass("active");
+    $("e.target").addClass("active");
+});
+
+</script>
+{% endblock script %}
+
 {% block body %}
 
     <!-- 판매자 상품문의 -->
@@ -44,17 +60,23 @@
             <div class="">
               <div class="d-flex">
                 {% if request.user.is_seller %}
+                  {% comment %} 링크 추가 해야함 {% endcomment %}
                   <button class="card col-4 ps-4">
                     <p class="mt-3 mb-0">상품문의 ></p>
-                    <p class="fs-4 fw-bold text-green">0개</p>
+                    <p class="fs-4 fw-bold text-green">{{ questions | length }}개</p>
                   </button>
-                  <button class="card col-4 ms-3 ps-4">
-                    <p class="mt-3 mb-0">새로 작성된 리뷰 ></p>
-                    <p class="fs-4 fw-bold text-green">0개</p>
-                  </button>
+                  {% comment %} 링크 추가 해야함 {% endcomment %}
+                  <a 
+                    type="button" 
+                    class="card col-4 ms-3 ps-4 text-decoration-none text-dark"
+                    href="{% url 'accounts:review' %}"
+                  >
+                    <p class="mt-3 mb-0">작성된 리뷰 ></p>
+                    <p class="fs-4 fw-bold text-green">{{ reviews | length }}개</p>
+                  </a>
                   <button class="card col-4 ms-3 ps-4">
                     <p class="mt-3 mb-0">팔로워</p>
-                    <p class="fs-4 fw-bold">0</p>
+                    <p class="fs-4 fw-bold">{{ request.user.following_user.all | length }}</p>
                   </button>
                 {% else %}
                   <button class="card col-4 ps-4">
@@ -67,7 +89,7 @@
                   </button>
                   <button class="card col-4 ms-3 ps-4">
                     <p class="mt-3 mb-0">팔로잉</p>
-                    <p class="fs-4 fw-bold">0</p>
+                    <p class="fs-4 fw-bold">{{ request.user.followings.all | length }}</p>
                   </button>
                 {% endif %}
               </div>
@@ -76,7 +98,7 @@
                   {% if request.user.is_seller %}
                     <form action="{% url 'products:create' %}" method="POST" class="w-100">
                       {% csrf_token %}
-                      <button class="card p-3 w-100 d-flex align-items-center">
+                      <button class="card col-6 p-3 w-100 d-flex align-items-center">
                         <p class="fs-4 fw-bold text-green mb-0" style="margin-top: 2px;">
                           상품등록
                         </p>
@@ -110,50 +132,52 @@
                 type="button"
                 class="list-group-item list-group-item-action"
               >
-                상품 관리
+                상품 관리(미구현)
               </button>
               <button
                 type="button"
                 class="list-group-item list-group-item-action"
               >
-                판매 관리
+                판매 관리(미구현)
               </button>
               <button
                 type="button"
                 class="list-group-item list-group-item-action"
               >
-                클레임/정산
+                클레임/정산(미구현)
               </button>
-              <button
+              <a
                 type="button"
                 class="list-group-item list-group-item-action"
+                href="{% url 'accounts:review' %}"
               >
                 리뷰
-              </button>
+              </a>
             {% else %}
               <button
               type="button"
               class="list-group-item list-group-item-action"
             >
-              주문 내역
+              주문 내역(미구현)
             </button>
             <button
               type="button"
               class="list-group-item list-group-item-action"
             >
-              위시리스트
+              위시리스트(미구현)
             </button>
-            <button
+            <a
               type="button"
               class="list-group-item list-group-item-action"
+              href="{% url 'accounts:review' %}"
             >
               상품 후기
-            </button>
+            </a>
             <button
               type="button"
               class="list-group-item list-group-item-action"
             >
-              상품 문의
+              상품 문의(미구현)
             </button>
             {% endif %}
           </div>
@@ -165,7 +189,7 @@
               data-bs-toggle="modal"
               data-bs-target="#updateModal"
             >
-              개인 정보 수정
+              개인 정보 수정(미구현)
             </button>
             <button
               type="button"
@@ -173,64 +197,13 @@
               data-bs-toggle="modal"
               data-bs-target="#passwordModal"
             >
-              계정 삭제
+              계정 삭제(미구현)
             </button>
           </div>
         </div>
         <!-- 탭 내용 -->
-        <div class="col-10 py-5 px-5 bg-light">
-          <div class="d-flex justify-content-between">
-            <h3 class="fw-bold">상품문의(갯수)</h3>
-            <select onchange="if(this.value) location.href=(this.value);">
-              <option value="#">답변 대기중</option>
-              <option value="#" >답변 완료</option>
-            </select>
-          </div>
-          <hr class="green-line mb-4" />
-          <!-- 상품 -->
-          {% for product in products %}
-            <div class="row">
-              <div class="card bg-light border-0">
-                <div class="d-flex justify-content-between mx-4">
-                  <p class="fs-5 mb-2">여기에 product 모델에 날짜가 필요함</p>
-                  <a class="text-decoration-none text-muted" href="{% url 'products:detail' product.pk %}">
-                    상품 상세보기 >
-                  </a>
-                </div>
-                <hr class="mt-0 mb-4" />
-                <div class="d-flex justify-content-between">
-                  <div class="d-flex mx-4 align-items-center">
-                    <img
-                      class="me-4"
-                      src="{{ product.produt_thum_img.url }}"
-                      alt="상품사진"
-                      style="height: 180px; width: 150px"
-                    />
-                    <div class="d-inline-flex flex-column align-content-center me-4">
-                      <p class="mb-2 text-muted">상품명</p>
-                      <p class="mb-2 text-muted">문의제목</p>
-                      <p class="mb-2 text-muted">문의자</p>
-                      <p class="mb-2 text-muted">문의내용</p>
-                    </div>
-                    {% comment %} 모든 상품에 대한 Question {% endcomment %}
-                    <div class="d-inline-flex flex-column align-content-center me-5">
-                      <p class="mb-2">[겨울간식] 야채호빵</p>
-                      <p class="mb-2">맛있나요?</p>
-                      <p class="mb-2">임선주</p>
-                      <p class="mb-2">얼마나 맛있나요</p>                    
-                    </div>
-                  </div>
-                  <div class="d-flex align-items-center">
-                    <button class="btn btn-outline-green me-4">답변하기</button>
-                  </div>
-                </div>
-              </div>
-            </div>
-            <hr class="lightgreen-line my-4">
-          {% endfor %}
-          <!-- 상품 -->
-          </div>
-        </div>
+        {% block content %}
+        {% endblock content %}
         <!-- 탭 내용-->
       </div>
     </div>

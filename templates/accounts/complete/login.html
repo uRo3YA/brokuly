@@ -28,9 +28,10 @@
           <!-- 로그인 및 회원가입 버튼 -->
           <div class="row mt-4 mb-5" style="padding: 0px 10px">
             <button type="submit" class="btn btn-green mb-3 py-2">로그인</button>
-            <button type="submit" class="btn btn-outline-green py-2">회원가입</button>
+            {% comment %} button 으로 하면 로그인 form 을 채워야해서 안됨 {% endcomment %}
+            <a type="button" href="{% url 'accounts:agreement' %}" class="btn btn-outline-green py-2">회원가입</a>
           </div>
-
+          
         </form>
       </div>
     </div>
