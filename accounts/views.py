@@ -113,7 +113,7 @@ def mypage(request):
 # 장바구니
 def cart(request):
     products = request.user.carts.all()
-
+    
     context = {
         "products": products,
     }
@@ -121,7 +121,7 @@ def cart(request):
     return render(request, "accounts/working/cart.html", context)
 
 
-# 장바구니 추가
+# 장바구니 상품 추가
 def add_cart(request, product_id):
     cart = request.user.carts
     product = Product.objects.get(id=product_id)
@@ -135,11 +135,12 @@ def add_cart(request, product_id):
     return redirect("accounts:cart")
 
 
+# 장바구니 상품 삭제
 def delete_cart(request, product_id):
     cart = request.user.carts
     product = Product.objects.get(id=product_id)
 
-    if product in cart:
+    if product in cart.all():
         cart.remove(product)
 
     return redirect("accounts:cart")
