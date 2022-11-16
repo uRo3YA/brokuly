@@ -1,0 +1,74 @@
+{% extends 'base.html' %}
+{% load static %}
+{% load humanize %}
+{% load django_bootstrap5 %}
+{% block body %}
+
+<div class="container mt-5">
+    {% if not products_list %}
+    <h3 class="text-center mb-5">{{q}}에 대한 검색 결과가 없습니다.</h3>
+    {% else %}
+    <!--여기는 검색어에 대한 결과 크게 출력-->
+    <h3 class="text-center mb-5">
+        {{q}}에 대한 {{products_list.count}}건의 검색 결과가 있습니다.</h3>
+    <div class="d-felx  row">
+        {% for products in products_list %}
+        <!-- 여기에 요소 출력 해야함 -->
+        <div class="card  col-3 border-0 pro-card" onclick="location.href='/products/{{products.pk}}/'" type="button">
+            {%if products.is_crawl%}
+            <img src="{{products.crawl_produt_detail_img}}" alt="상품 이미지" class="card-img-top" alt="상품 사진" width="275" height="354">
+            {%else%}
+            <img src="{{products.produt_thum_img.url}}" alt="상품 이미지" class="card-img-top" alt="상품 사진" width="275" height="354">
+            {%endif%}
+            <div class="card-cart-icon">
+                <svg xmlns="http://www.w3.org/2000/svg" onclick="location.href='#'" type="button" width="23" height="23" fill="currentColor" class="bi bi-cart mt-2" viewBox="0 0 16 16">
+                <path d="M0 1.5A.5.5 0 0 1 .5 1H2a.5.5 0 0 1 .485.379L2.89 3H14.5a.5.5 0 0 1 .491.592l-1.5 8A.5.5 0 0 1 13 12H4a.5.5 0 0 1-.491-.408L2.01 3.607 1.61 2H.5a.5.5 0 0 1-.5-.5zM3.102 4l1.313 7h8.17l1.313-7H3.102zM5 12a2 2 0 1 0 0 4 2 2 0 0 0 0-4zm7 0a2 2 0 1 0 0 4 2 2 0 0 0 0-4zm-7 1a1 1 0 1 1 0 2 1 1 0 0 1 0-2zm7 0a1 1 0 1 1 0 2 1 1 0 0 1 0-2z"/>
+                </svg>
+              </div>
+              <div class="card-body mt-2 p-0">
+              <p class="text-muted"><small>샛별배송</small></p>
+              <h6 class="card-title">{{products.title}}</h6>
+              <p class="card-text fw-bold">{{products.price|intcomma}} 원</p>
+              </div>
+          </div>
+          
+    {% endfor %}
+    {% if is_paginated %}
+    <!-- <ul class="pagination justify-content-center pagination-sm"> -->
+    <ul class="pagination justify-content-center">
+        {% if page_obj.has_previous %}
+        <li class="page-item">
+            <a class="page-link" href="?q={{ q }}&page={{ page_obj.previous_page_number }}"
+                tabindex="-1" style="font-size: 15px;">이전</a>
+        </li>
+        {% else %}
+        <li class="page-item disabled">
+            <a class="page-link" href="#" tabindex="-1" style="font-size: 15px;">이전</a>
+        </li>
+        {% endif %}
+
+        {% for page in page_range %}
+        <li class="page-item {% if page == page_obj.number %} activate {% endif %}">
+            <a class="page-link" href="?q={{ q }}&page={{ page }}" style="font-size: 15px;">{{ page }}</a>
+        </li>
+        {% endfor %}
+
+        {% if page_obj.has_next %}
+        <li class="page-item">
+            <a class="page-link"
+                href="?q={{ q }}&page={{ page_obj.next_page_number }}" style="font-size: 15px;">다음</a>
+        </li>
+        {% else %}
+        <li class="page-item disabled">
+            <a class="page-link" href="#" style="font-size: 15px;">다음</a>
+        </li>
+        {% endif %}
+    </ul>
+    {% endif %}
+</div>
+</div>
+{%endif%}
+</div>
+    
+{% endblock body%}
+<!--   -->   
