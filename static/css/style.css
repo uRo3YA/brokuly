@@ -817,3 +817,35 @@ html.dark a {
   margin-bottom: 10rem;
   padding: 0;
 }
+
+/* 상품 카드 규격 및 호버 적용 */
+.pro-card {
+  width: "275px";
+  height: "354px";
+  overflow: hidden;
+}
+.pro-card img {
+  /* transition: transform .3s; */
+  transition:all 0.4s ease-in-out;
+  position: relative;
+  width: "275px";
+  height: "354px";
+}
+.pro-card img:hover {
+  transform: scale(1.05); 
+  -webkit-transform: scale(1.05);
+}
+
+.card-cart-icon {
+  position: absolute;
+  border: none;
+  background-color: #076135c0;
+  width: 2.5rem;
+  height: 2.5rem;
+  border-radius: 50%;
+  right: 13px;
+  bottom: 130px;
+  text-transform: none;
+  color: #ffffff;
+  text-align: center;
+}
