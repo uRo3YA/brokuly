@@ -12,6 +12,7 @@ from django.db.models import Q
 from qnas.models import Question, Answer
 from qnas.forms import QuestionForm, AnswerForm
 from django.core.paginator import Paginator
+from django.views.generic import ListView
 
 # from .decorators import seller_required
 # Create your views here.
@@ -21,12 +22,13 @@ def index(request):
     # 입력 파라미터
     page = request.GET.get("page", "1")
     # 페이징
-    paginator_all = Paginator(products, 5)
+    paginator_all = Paginator(products, 8)
     page_obg_all = paginator_all.get_page(page)
 
     context = {
         "products": products,
         "products_all": page_obg_all,
+        "product_count": len(products),
     }
     return render(request, "products/index.html", context)
 
@@ -118,32 +120,68 @@ def delete(request, pk):
     return redirect("products:index")
 
 
-def search(request):
-    products = Product.objects.all().order_by("-id")
-    page = request.GET.get("page", "1")
-    search_keyword = request.POST.get("q", "")
-    if search_keyword:
-        products = products.filter(
+# def search(request):
+#     products = Product.objects.all().order_by("-id")
+#     page = request.GET.get("page", "1")
+#     search_keyword = request.POST.get("q", "")
+#     if search_keyword:
+#         products = products.filter(
+#             Q(title__icontains=search_keyword)
+#             | Q(description__icontains=search_keyword)
+#         )
+#         paginator_all = Paginator(products, 8)
+#         page_obg_all = paginator_all.get_page(page)
+#         context = {
+#             "products": products,
+#             "products_all": page_obg_all,
+#             "q": search_keyword,
+#             "search_count": len(products),
+#         }
+
+#         return render(
+#             request,
+#             "products/search.html",
+#             context,
+#         )
+
+#     else:
+#         return render(request, "products/search.html")
+class SearchView(ListView):
+    model = Product
+    context_object_name = "products_list"
+    template_name = "products/search_1.html"
+    paginate_by = 8
+
+    def get_queryset(self):
+        search_keyword = self.request.GET.get("q", "")
+        return Product.objects.filter(
             Q(title__icontains=search_keyword)
             | Q(description__icontains=search_keyword)
         )
-        paginator_all = Paginator(products, 5)
-        page_obg_all = paginator_all.get_page(page)
-        context = {
-            "products": products,
-            "products_all": page_obg_all,
-            "q": search_keyword,
-            "search_count": len(page_obg_all),
-        }
 
-        return render(
-            request,
-            "products/search.html",
-            context,
-        )
+    def get_context_data(self, **kwargs):
+        context = super().get_context_data(**kwargs)
+        paginator = context["paginator"]
+        page_numbers_range = 5
+        max_index = len(paginator.page_range)
 
-    else:
-        return render(request, "products/search.html")
+        page = self.request.GET.get("page")
+        current_page = int(page) if page else 1
+
+        start_index = int((current_page - 1) / page_numbers_range) * page_numbers_range
+        end_index = start_index + page_numbers_range
+        if end_index >= max_index:
+            end_index = max_index
+
+        page_range = paginator.page_range[start_index:end_index]
+        context["page_range"] = page_range
+
+        search_keyword = self.request.GET.get("q", "")
+
+        if len(search_keyword) > 1:
+            context["q"] = search_keyword
+
+        return context
 
 
 #############################################

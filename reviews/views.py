@@ -52,6 +52,8 @@ def review_create(request, pk):
                 postimage = ReviewImage()
                 postimage.image = image
                 postimage.review = new
+                postimage.user = request.user
+                postimage.product_id = info.pk
                 postimage.save()
             return redirect("products:detail", info.pk)
 

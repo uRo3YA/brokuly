@@ -4,55 +4,50 @@
 {% block body %}
 
 <div class="container">
-    <!--메인 페이지 레이아웃 필요-->
-    <a  href="{% url 'products:create' %}">상품 작성하기</a>
 
-    <div class="card">
-        {% for content in contents %}
-        <br>
-        <a href="/products/{{ content.id }}/">{{ content.title }}</a>
-
-        {% endfor %}
-        {% comment %}
-        <ul class="pagination justify-content-center">
-            <!-- 이전페이지 -->
-            {% if page_obj.has_previous %}
-              <li class="page-item">
-                <a class="page-link" href="?page={{ page_obj.previous_page_number }}">이전</a>
-              </li>
-            {% else %}
-              <li class="page-item disabled">
-                <a class="page-link" tabindex="-1" aria-disabled="true" href="#">이전</a>
-              </li>
-            {% endif %}
-            <!-- 페이지리스트 -->
-            {% for page_number in page_obj.paginator.page_range %}
-              {% if page_number == page_obj.number %}
-                <li class="page-item active" aria-current="page">
-                  <a class="page-link" href="?page={{ page_number }}">{{ page_number }}</a>
-                </li>
-              {% else %}
-                <li class="page-item">
-                  <a class="page-link" href="?page={{ page_number }}">{{ page_number }}</a>
-                </li>
-              {% endif %}
-            {% endfor %}
-            <!-- 다음페이지 -->
-            {% if page_obj.has_next %}
-              <li class="page-item">
-                <a class="page-link" href="?page={{ page_obj.next_page_number }}">다음</a>
-              </li>
-            {% else %}
-              <li class="page-item disabled">
-                <a class="page-link" tabindex="-1" aria-disabled="true" href="#">다음</a>
-              </li>
-            {% endif %}
-          </ul>
-          <!-- 페이징처리 끝 -->
-          {% endcomment %}
-        </div>
+    {% for products in products_all %}
+    <div><!-- 여기에 요소 출력 해야함 -->
+        <a href="{% url 'products:detail' products.pk %}" class="text-black text-decoration-none">{{ products.title }}</a>
     </div>
-   
+    {% endfor %}
+    <ul class="pagination justify-content-center">
+        <!-- 이전페이지 -->
+        {% if products_all.has_previous %}
+        <li class="page-item mx-0">
+            <a class="page-link" href="?page={{ products_all.previous_page_number }}">이전</a>
+        </li>
+        {% else %}
+        <li class="page-item disabled mx-0">
+            <a class="page-link" tabindex="-1" aria-disabled="true" href="#">이전</a>
+        </li>
+        {% endif %}
+        <!-- 페이지리스트 -->
+        {% for page_number in products_all.paginator.page_range %}
+        {% if page_number >= products_all.number|add:-3 and page_number <= products_all.number|add:3 %}
+        {% if page_number == products_all.number %}
+        <li class="page-item active mx-0" aria-current="page">
+            <a class="page-link" href="?page={{ page_number }}">{{ page_number }}</a>
+        </li>
+        {% else %}
+        <li class="page-item mx-0">
+            <a class="page-link" href="?page={{ page_number }}">{{ page_number }}</a>
+        </li>
+        {% endif %}
+        {% endif %}
+        {% endfor %}
+        <!-- 다음페이지 -->
+        {% if products_all.has_next %}
+        <li class="page-item mx-0">
+            <a class="page-link" href="?page={{ products_all.next_page_number }}">다음</a>
+        </li>
+        {% else %}
+        <li class="page-item disabled mx-0">
+            <a class="page-link" tabindex="-1" aria-disabled="true" href="#">다음</a>
+        </li>
+        {% endif %}
+    </ul>
+</div>
+
 
 
 
