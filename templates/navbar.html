@@ -46,10 +46,10 @@
                 <p class="logo text-green me-4 mb-1" style="margin-left: 1.5rem">BroKurly</p>
                 <p class="text-green fs-5 mb-0">브로컬리</p>
             </a>
-            <form class="nav-searchbar text-green" role="search" action="{% url 'products:search' %}" method="post" >
-                {% csrf_token %}
+            <form class="nav-searchbar text-green" id="searchForm" role="search" action="{% url 'products:search' %}" method="get" >
+                
                 <input class="form-control me-2" style="width: 24rem; height: 3.5rem;" type="search" placeholder="검색어를 입력해주세요" aria-label="Search"  name="q" value="{{q}}">
-                <a  type="submit">
+                <a  type="submit" id="btn_search">
                     <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="#008b47" class="bi bi-search mt-2 me-1" viewBox="0 0 16 16">
                         <path d="M11.742 10.344a6.5 6.5 0 1 0-1.397 1.398h-.001c.03.04.062.078.098.115l3.85 3.85a1 1 0 0 0 1.415-1.414l-3.85-3.85a1.007 1.007 0 0 0-.115-.1zM12 6.5a5.5 5.5 0 1 1-11 0 5.5 5.5 0 0 1 11 0z"/>
                     </svg>

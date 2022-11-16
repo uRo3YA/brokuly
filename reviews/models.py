@@ -72,5 +72,7 @@ class Comment(models.Model):
 # 단일 파일은 도저히 처리 불가능.
 # 모델을 새로 만듬.
 class ReviewImage(models.Model):
+    user = models.ForeignKey(settings.AUTH_USER_MODEL, on_delete=models.CASCADE)
+    product = models.ForeignKey("products.Product", on_delete=models.CASCADE)
     image = models.ImageField(upload_to="images/", null=True, blank=True)
     review = models.ForeignKey(Review, on_delete=models.CASCADE)
