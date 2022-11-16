@@ -118,7 +118,7 @@ def cart(request):
         "products": products,
     }
 
-    return render(request, "accounts/cart.html", context)
+    return render(request, "accounts/working/cart.html", context)
 
 
 # 장바구니 추가
@@ -132,7 +132,17 @@ def add_cart(request, product_id):
         cart.add(product)
 
     # must change this statement
-    return redirect("accounts:test")
+    return redirect("accounts:cart")
+
+
+def delete_cart(request, product_id):
+    cart = request.user.carts
+    product = Product.objects.get(id=product_id)
+
+    if product in cart:
+        cart.remove(product)
+
+    return redirect("accounts:cart")
 
 
 # 위시리스트 목록

@@ -17,6 +17,7 @@
       >
         <input type="hidden" name="cmd" value="order" />
         <div class="cartdiv row gx-6 justify-content-center" id="cart">
+          <!-- 상품 목록 위 탭의 시작 -->
           <div class="col-7 pe-4">
             <div class="d-flex align-items-center">
               <a
@@ -27,165 +28,92 @@
                 전체선택
               </a>
               <p class="text-muted mx-4 mb-0">|</p>
-              <a class="text-decoration-none text-dark" href="#" onclick=""
-                >선택한 상품 삭제</a
-              >
+              <a class="text-decoration-none text-dark" href="#" onclick="">
+                선택한 상품 삭제
+              </a>
             </div>
             <hr class="green-line" />
+            <!-- 상품 목록 위 탭의 끝 -->
             <div class="row">
-              <!-- 상품1 -->
-              <div class="card border-0">
-                <div class="d-flex justify-content-between">
-                  <!-- 상품 정보 -->
-                  <a href="#" class="text-decoration-none">
-                    <div class="d-flex mx-4 align-items-center">
-                      <div class="check me-3">
-                        <input
-                          type="checkbox"
-                          name="buy"
-                          value="260"
-                          onclick=""
-                          id="cartcheck"
+              <!-- 상품 목록 시작 -->
+              {% for product in products %}
+                <div class="card border-0">
+                  <div class="d-flex justify-content-between">
+                    <!-- 상품 정보 -->
+                    <a href="#" class="text-decoration-none">
+                      <div class="d-flex mx-4 align-items-center">
+                        <div class="check me-3">
+                          <input
+                            type="checkbox"
+                            name="buy"
+                            value="260"
+                            onclick=""
+                            id="cartcheck"
+                          />
+                          <label for="cartcheck"></label>
+                        </div>
+                        <img
+                          class="img me-4"
+                          src="{{ product.produt_thum_img.url }}"
+                          alt="상품사진"
+                          style="height: 10rem; width: 8rem"
                         />
-                        <label for="cartcheck"></label>
+                        <p class="pname m-0 text-dark">{{ product.title }}</p>
                       </div>
-                      <img
-                        class="img me-4"
-                        src="https://picsum.photos/1280/720"
-                        alt="상품사진"
-                        style="height: 10rem; width: 8rem"
-                      />
-                      <p class="pname m-0 text-dark">{{ 상품명 }}</p>
-                    </div>
-                  </a>
+                    </a>
 
-                  <!-- 수량 선택 -->
-                  <div class="num d-flex align-items-center">
-                    <div class="updown d-flex align-items-center">
-                      <span class="num-icon" onclick=""
-                        ><i class="bi bi-dash-circle"></i
-                      ></span>
-                      <input
-                        type="text"
-                        name="p_num1"
-                        id="p_num1"
-                        size="1"
-                        maxlength="4"
-                        class="p_num1 mx-2"
-                        value="2"
-                        onkeyup=""
-                      />
-                      <span class="num-icon" onclick=""
-                        ><i class="bi bi-plus-circle"></i
-                      ></span>
-                    </div>
-                  </div>
-                  <!-- 상품 가격, 삭제 -->
-                  <div class="d-flex">
-                    <div
-                      class="cartprice d-flex flex-column align-items-end me-3 justify-content-center"
-                    >
-                      <input
-                        type="hidden"
-                        name="p_price"
-                        id="p_price"
-                        class="p_price"
-                        value="20000"
-                      />
-                      <span class="my-0"> 20,000원 </span>
-                      <div class="fw-bold sum">합계 : 40,000원</div>
-                    </div>
-                    <div class="d-flex align-items-center">
-                      <button class="cartcmd btn btn-lg border-0 p-0 me-4">
-                        <a
-                          href="#"
-                          class="text-secondary bi bi-x-lg"
-                          onclick=""
-                        ></a>
-                      </button>
-                    </div>
-                  </div>
-                </div>
-                <hr class="my-4" />
-              </div>
-              <!-- 상품1 -->
-
-              <!-- 상품2 -->
-              <div class="card border-0">
-                <div class="d-flex justify-content-between">
-                  <!-- 상품 정보 -->
-                  <a href="#" class="text-decoration-none">
-                    <div class="d-flex mx-4 align-items-center">
-                      <div class="check me-3">
+                    <!-- 수량 선택 -->
+                    <div class="num d-flex align-items-center">
+                      <div class="updown d-flex align-items-center">
+                        <span class="num-icon" onclick=""
+                          ><i class="bi bi-dash-circle"></i
+                        ></span>
                         <input
-                          type="checkbox"
-                          name="buy"
-                          value="260"
-                          onclick=""
-                          id="cartcheck"
+                          type="text"
+                          name="p_num1"
+                          id="p_num1"
+                          size="1"
+                          maxlength="4"
+                          class="p_num1 mx-2"
+                          value="1"
+                          onkeyup=""
                         />
-                        <label for="cartcheck"></label>
+                        <span class="num-icon" onclick=""
+                          ><i class="bi bi-plus-circle"></i
+                        ></span>
                       </div>
-                      <img
-                        class="img me-4"
-                        src="https://picsum.photos/1280/720"
-                        alt="상품사진"
-                        style="height: 10rem; width: 8rem"
-                      />
-                      <p class="pname m-0 text-dark">{{ 상품명 }}</p>
                     </div>
-                  </a>
-
-                  <!-- 수량 선택 -->
-                  <div class="num d-flex align-items-center">
-                    <div class="updown d-flex align-items-center">
-                      <span class="num-icon" onclick=""
-                        ><i class="bi bi-dash-circle"></i
-                      ></span>
-                      <input
-                        type="text"
-                        name="p_num1"
-                        id="p_num1"
-                        size="1"
-                        maxlength="4"
-                        class="p_num1 mx-2"
-                        value="1"
-                        onkeyup=""
-                      />
-                      <span class="num-icon" onclick=""
-                        ><i class="bi bi-plus-circle"></i
-                      ></span>
+                    <!-- 상품 가격, 삭제 -->
+                    <div class="d-flex">
+                      <div
+                        class="cartprice d-flex flex-column align-items-end me-3 justify-content-center"
+                      >
+                        <input
+                          type="hidden"
+                          name="p_price"
+                          id="p_price"
+                          class="p_price"
+                          value="20000"
+                        />
+                        <span class="my-0"> {{ product.price }}원 </span>
+                        {% comment %} 밑에 위 개수랑 곱해져야한다. {% endcomment %}
+                        <div class="fw-bold sum">합계 : {{ product.price }}원</div>
+                      </div>
+                      <div class="d-flex align-items-center">
+                        <button class="cartcmd btn btn-lg border-0 p-0 me-4">
+                          <a
+                            href="#"
+                            class="text-secondary bi bi-x-lg"
+                            onclick=""
+                          ></a>
+                        </button>
+                      </div>
                     </div>
                   </div>
-                  <!-- 상품 가격, 삭제 -->
-                  <div class="d-flex">
-                    <div
-                      class="cartprice d-flex flex-column align-items-end me-3 justify-content-center"
-                    >
-                      <input
-                        type="hidden"
-                        name="p_price"
-                        id="p_price"
-                        class="p_price"
-                        value="20000"
-                      />
-                      <span class="my-0"> 17,9600원 </span>
-                      <div class="fw-bold sum">합계 : 17,960원</div>
-                    </div>
-                    <div class="d-flex align-items-center">
-                      <button class="cartcmd btn btn-lg border-0 p-0 me-4">
-                        <a
-                          href="#"
-                          class="text-secondary bi bi-x-lg"
-                          onclick=""
-                        ></a>
-                      </button>
-                    </div>
-                  </div>
+                  <hr class="my-4" />
                 </div>
-                <hr class="my-4" />
-              </div>
-              <!-- 상품2 -->
+              {% endfor %}
+              <!-- 상품 목록 끝 -->
             </div>
             <!-- 상품 row -->
           </div>
@@ -196,7 +124,7 @@
             <div class="row mb-3 border" style="margin: 0 11px">
               <div class="my-4 px-3">
                 <p><i class="bi bi-geo-alt mb-1"></i> 배송지</p>
-                <p>{{ 주소 }}</p>
+                <p>{{ request.user.address }}</p>
                 <div class="d-grid">
                   <button class="btn btn-outline-green mx-1">
                     배송지 변경
@@ -214,7 +142,7 @@
                     id="sum_p_num"
                     style="font-size: 20px"
                   >
-                    {{ 3 }}개
+                    {{ products | length }}개
                   </p>
                 </div>
                 <div
