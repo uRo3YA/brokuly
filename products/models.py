@@ -35,7 +35,7 @@ class Product(models.Model):
     produt_desc_img = ProcessedImageField(
         upload_to="images/",
         blank=True,
-        processors=[ResizeToFill(1010)],
+        processors=[ResizeToFill(1010, 1010)],
         format="JPEG",
         options={"quality": 80},
     )
