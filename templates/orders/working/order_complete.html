@@ -1,0 +1,33 @@
+{% extends 'base.html' %}
+
+{% load django_bootstrap5 %}
+{% load static %}
+{% load humanize %}
+
+{% block script %}
+
+{% endblock script %}
+
+{% block body %}
+{{ request.user }} 님의 주문이 완료되었습니다.
+<br>
+내일 아침에 만나요!
+<br>
+결제 금액 {{ order.total_price }}원
+<br>
+적립금 + {{ order.mileage }}원
+<br>
+주문상세보기
+<br>
+<!--구매 리스트 연습-->
+
+{% for product in product_list %}
+이름: {{ product.title }}
+<br>
+수량: {{ product.quantity }}
+<br>
+소계: {{ product.subtotal }}
+<br>
+{% endfor %}
+총계: {{ order.total_price }}
+{% endblock body %}

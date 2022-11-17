@@ -6,6 +6,7 @@
 
 {% block script %}
 <script src="https://code.jquery.com/jquery-3.6.1.slim.min.js" integrity="sha256-w8CvhFs7iHNVUtnSP0YKEg00p9Ih13rlL9zGqvLdePA=" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
 <script>
 
 // document ready 를 순수 JS handler 로 구현
@@ -38,10 +39,12 @@ function calc_expense(){
 
 // 장바구니 상품 수량 증가 로직
 function plus(event, current, price){
+  const sumPnum = document.querySelector('#sum_p_num > span')
   const counter_id = "p_num" + current;
   const counter = document.getElementById(counter_id);
   
   counter.value = parseInt(counter.value) + 1;
+  sumPnum.innerText = parseInt(sumPnum.innerText) + 1;
 
   const total_id = "p_price" + current;
   const p_price = document.getElementById(total_id);
@@ -55,19 +58,52 @@ function plus(event, current, price){
 
 // 장바구니 상품 수량 감소 로직
 function minus(event, current, price){
+  const sumPnum = document.querySelector('#sum_p_num > span')
   const counter_id = "p_num" + current;
   const counter = document.getElementById(counter_id);
   
-  if(parseInt(counter.value) !== 1)
+  if(parseInt(counter.value) !== 1){
     counter.value = parseInt(counter.value) - 1;
+    sumPnum.innerText = parseInt(sumPnum.innerText) - 1;
+  }
 
-  const total_id = "total" + current;
+  const total_id = "p_price" + current;
   const p_price = document.getElementById(total_id);
 
   total = parseInt(counter.value) * price;
   p_price.textContent = total.toLocaleString("en-US");
 
   calc_expense();
+}
+
+
+const goOrder = function (e) {
+  event.preventDefault()
+  const orderA = document.querySelector('#order-a')
+  const productList = document.querySelectorAll('#product-product')
+  let product_list = []
+
+  for (let i = 0 ; i < productList.length ; i++){
+    const productPrice = document.querySelector(`#p_price${i+1}`).innerText
+    const  productQuantity = document.querySelector(`#p_num${i+1}`).value
+    product_list.push(
+      {
+        'product_pk':productList[i].dataset.productId,
+        'product_quantity':productQuantity,
+        'product_subtotal':productPrice,
+      }
+    )
+  }
+  axios({
+          method: 'post',
+          url: `/orders/create/`,
+          headers : {'X-CSRFTOKEN' : '{{ csrf_token }}'},
+          data: product_list,
+        }).then(response => {
+          console.log(response.data.status)
+          console.log(response.data.order_pk)
+          window.location.href = `/orders/complete/${response.data.order_pk}`;
+        })
 }
 
 </script>
@@ -83,7 +119,7 @@ function minus(event, current, price){
         id="orderform"
         method="post"
         class="orderform"
-        action="/Page"
+        action="/orders/create"
         onsubmit=""
       >
         <input type="hidden" name="cmd" value="order" />
@@ -108,7 +144,7 @@ function minus(event, current, price){
             <div class="row" id="p_list">
               <!-- 상품 목록 시작 -->
               {% for product in products %}
-                <div class="card border-0">
+                <div class="card border-0" id="product-product" data-product-id="{{ product.pk }}"">
                   <div class="d-flex justify-content-between">
                     <!-- 상품 정보 -->
                     <a href="#" class="text-decoration-none">
@@ -123,12 +159,11 @@ function minus(event, current, price){
                           />
                           <label for="cartcheck"></label>
                         </div>
-                        <img
-                          class="img me-4"
-                          src="{{ product.produt_thum_img.url }}"
-                          alt="상품사진"
-                          style="height: 10rem; width: 8rem"
-                        />
+                        {%if product.is_crawl%}
+                        <img class="me-4" src="{{product.crawl_produt_detail_img}}" alt="상품 이미지"style="height: 10rem; width: 8rem">
+                        {%else%}
+                        <img class="me-4" src="{{product.produt_thum_img.url}}" alt="상품 이미지"style="height: 10rem; width: 8rem">
+                        {%endif%}
                         <p class="pname m-0 text-dark">{{ product.title }}</p>
                       </div>
                     </a>
@@ -161,7 +196,7 @@ function minus(event, current, price){
                       <div
                         class="cartprice d-flex flex-column align-items-end me-3 justify-content-center"
                       >
-                        <input
+                        <input id="product-quantity"
                           type="hidden"
                           name="p_price"
                           id="p_price"
@@ -200,7 +235,7 @@ function minus(event, current, price){
                 <p><i class="bi bi-geo-alt mb-1"></i> 배송지</p>
                 <p>{{ request.user.address }}</p>
                 <div class="d-grid">
-                  <button class="btn btn-outline-green mx-1">
+                  <button type="button" class="btn btn-outline-green mx-1">
                     배송지 변경(미구현)
                   </button>
                 </div>
@@ -216,7 +251,7 @@ function minus(event, current, price){
                     id="sum_p_num"
                     style="font-size: 20px"
                   >
-                    {{ products | length }}개
+                    <span>{{ products | length }}</span>개
                   </p>
                 </div>
                 <div
@@ -246,7 +281,7 @@ function minus(event, current, price){
               </div>
             </div>
             <!-- 주문버튼 -->
-            <a class="text-decoration-none" href="">
+            <a class="text-decoration-none" href="/orders/create/" id="order-a" onclick="goOrder()">
               <div class="d-grid" id="goorder" style="margin: 0 11px">
                 <button class="btn btn-green py-3">주문하기(미구현)</button>
               </div>
