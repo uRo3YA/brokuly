@@ -1,0 +1,65 @@
+{% extends 'accounts/working/mypage.html' %}
+{% load humanize %}
+{% load django_bootstrap5 %}
+{% load static %}
+
+{% block content %}
+<div class="col-10 py-5 px-5 bg-light">
+    <div class="d-flex justify-content-between">
+      <h3 class="fw-bold">상품 관리</h3>
+      <select onchange="if(this.value) location.href=(this.value);">
+        <option value="#">판매중</option>
+      </select>
+    </div>
+    <hr class="green-line mb-4" />
+    <!-- 상품 -->
+    {% for product in products %}
+      <div class="row">
+        <div class="card bg-light border-0">
+          <div class="d-flex justify-content-between mx-4">
+            <p class="fs-5 mb-2"></p>
+            <a class="text-decoration-none text-muted" href="{% url 'products:detail' product.pk %}">
+              상품 상세보기 >
+            </a>
+          </div>
+          <hr class="mt-0 mb-4" />
+          <div class="d-flex justify-content-between">
+            <div class="d-flex mx-4 align-items-center">
+              {%if product.is_crawl%}
+              <img class="me-4" src="{{product.crawl_produt_detail_img}}" alt="상품 이미지" style="height: 180px; width: 150px">
+              {%else%}
+              <img class="me-4" src="{{product.produt_thum_img.url}}" alt="상품 이미지" style="height: 180px; width: 150px">
+              {%endif%}
+              <div class="d-inline-flex flex-column align-content-center me-4">
+                <p class="mb-2 text-muted">상품명</p>
+                <p class="mb-2 text-muted">상품 가격</p>
+                <p class="mb-2 text-muted">배송 형태</p>
+                <p class="mb-2 text-muted">상품 재고</p>
+              </div>
+              {% comment %} 구매한 상품에 대한 review 목록 {% endcomment %}
+              <div class="d-inline-flex flex-column align-content-center me-5">
+                <p class="mb-2">{{ product.title }}</p>
+                <p class="mb-2">{{ product.price|intcomma }}원</p>
+                <p class="mb-2">{{ product.ship_type }}</p>
+                <p class="mb-2">{{ product.stock }}개</p>                    
+              </div>
+            </div>
+
+            <div class="d-flex align-items-center">
+                <div class="row">
+                    <div class="list-group ">
+                    <button class="btn btn-outline-green me-4 mt-1" onclick="location.href='/products/{{ product.pk }}/update/'">상품 정보수정</button>
+                    <button class="btn btn-danger me-4 mt-1" onclick="location.href='/products/{{ product.pk }}/delete/'">상품 삭제</button>
+                    </div>
+                </div>
+            </div>
+
+          </div>
+        </div>
+      </div>
+      <hr class="lightgreen-line my-4">
+    {% endfor %}
+    <!-- 상품 -->
+    </div>
+  </div>
+{% endblock content %}
