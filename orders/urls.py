@@ -4,5 +4,7 @@ from . import views
 app_name = 'orders'
 
 urlpatterns = [
-    # path('orders/<int:order_id>/상품목록?/create/', views.orders_create, name='create_order'),
+    path('create/', views.orders_create, name='create_order'),
+    path('complete/<int:pk>', views.orders_complete, name='create_complete'),
+    # path('detail/', views.orders_detail, name='detail_order'),
 ]
