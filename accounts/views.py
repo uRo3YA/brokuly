@@ -148,12 +148,12 @@ def delete_cart(request, product_id):
 
 # 위시리스트 목록
 def wishlist(request):
-    context = {"wishlist": request.user.wishlist}
+    context = {"wishlist": request.user.wishlist.all()}
 
-    return render(request, "accounts/wishlist.html", context)
+    return render(request, "accounts/working/mypage_wishlist.html", context)
 
 
-###위시리스트 추가
+# 위시리스트 추가
 def add_wishlist(request, product_id):
     user_wishlist = request.user.wishlist
     product = Product.objects.get(id=product_id)

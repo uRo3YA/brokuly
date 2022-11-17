@@ -1,0 +1,50 @@
+{% extends 'accounts/working/mypage.html' %}
+
+{% load humanize %}
+{% load django_bootstrap5 %}
+{% load static %}
+
+{% block content %}
+
+<!-- 탭 내용 -->
+<div class="col-10 py-5 px-5 bg-light">
+  <h3 class="fw-bold">위시리스트(갯수)</h3>
+  <hr class="green-line mt-4 mb-4" />
+  <div class="row">
+    <!-- 상품 -->
+    {% for product in wishlist %}
+      <div class="card bg-light border-0">
+        <div class="d-flex justify-content-between">
+          <div class="d-flex mx-4 align-items-center">
+            <img
+              class="me-4"
+              src="{{ product.produt_thum_img.url }}"
+              alt="상품사진"
+              style="height: 180px; width: 150px"
+            />
+
+            <div
+              class="d-inline-flex flex-column align-content-center me-5"
+            >
+              <p class="mb-2">{{ product.title }}</p>
+              <p class="mb-2">{{ product.price | intcomma }}원</p>
+            </div>
+          </div>
+          <div
+            class="d-inline-flex flex-column justify-content-center me-5"
+          >
+            <button class="btn btn-outline-grey px-4 mb-2">삭제(미구현)</button>
+            <button class="btn btn-outline-green px-4">
+              <i class="bi bi-cart2"></i> 담기(미구현)
+            </button>
+          </div>
+        </div>
+      </div>
+      <hr class="my-4" style="opacity: 10%" />
+    {% endfor %}
+    <!-- 상품 -->
+  </div>
+</div>
+<!-- 탭 내용-->
+
+{% endblock content %}
