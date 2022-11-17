@@ -2,7 +2,7 @@
 # Edit at https://www.toptal.com/developers/gitignore?templates=python,macos,django,windows
 
 images/
-
+memo/
 ### Django ###
 *.log
 *.pot
