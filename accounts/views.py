@@ -9,6 +9,7 @@ from django.http import JsonResponse
 import json
 from .models import User
 from qnas.models import Question
+from django.core.paginator import Paginator
 
 # 회원가입 약관
 def agreement(request):
@@ -113,7 +114,7 @@ def mypage(request):
 # 장바구니
 def cart(request):
     products = request.user.carts.all()
-    
+
     context = {
         "products": products,
     }
@@ -270,3 +271,21 @@ def id_check_naver(request):
 
 def naver_callback(request):
     return render(request, "accounts/complete/naver_callback.html")
+
+
+### 상품정보 관리
+def product_management(request):
+    if request.user.is_seller:
+        # 자신의 판매 상품 목록을 보여준다.
+        products = Product.objects.filter(user=request.user)
+        # 입력 파라미터
+        page = request.GET.get("page", "1")
+        # 페이징
+        paginator_all = Paginator(products, 5)
+        products = paginator_all.get_page(page)
+    else:
+        return redirect("accounts:mypage")
+
+    context = {"products": products}
+
+    return render(request, "accounts/working/mypage_product_management.html", context)

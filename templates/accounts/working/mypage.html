@@ -128,12 +128,13 @@ $("a").on("click", function(e){
         <div class="col-2 my-5">
           <div class="list-group">
             {% if request.user.is_seller %}
-              <button
+            <a
                 type="button"
                 class="list-group-item list-group-item-action"
-              >
-                상품 관리(미구현)
-              </button>
+                href="{% url 'accounts:product_management' %}"
+                 >
+                상품 관리
+                </a>
               <button
                 type="button"
                 class="list-group-item list-group-item-action"

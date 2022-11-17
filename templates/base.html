@@ -135,7 +135,7 @@
       integrity="sha384-OERcA2EqjJCMA+/3y+gxIOqMEjwtxJY7qPCqsdltbNJuaOe923+mo//f6V8Qbsw3"
       crossorigin="anonymous"
     ></script>
-
+    
     <!-- Top Btn -->
     <script>
       // get the btn
@@ -208,6 +208,19 @@
     </script>
     <!-- End Channel Plugin -->
 
+    <script>
+      // When the user scrolls down 20px from the top of the document, slide down the navbar
+      window.onscroll = function() {scrollFunction()};
+      
+      function scrollFunction() {
+          if (document.body.scrollTop > 100 || document.documentElement.scrollTop > 100) {
+          document.getElementById("scrollNav").style.top = "0";
+          } else {
+          document.getElementById("scrollNav").style.top = "-1000px";
+          }
+      }
+    </script>
+    
   {% block script %}{% endblock script %}
 
   </body>
