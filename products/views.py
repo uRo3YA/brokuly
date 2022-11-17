@@ -59,6 +59,16 @@ def create(request):
 def detail(request, pk):
     product = Product.objects.get(pk=pk)
     review = Review.objects.filter(product_id=product.pk)
+    product_score = 0
+    cnt = 0
+    add = 0
+    for g in review:
+        cnt += 1
+        add += len(g.grade)
+    if cnt == 0:
+        product_score = ""
+    else:
+        product_score = round(add / cnt, 1)
 
     # 일단 전체를 받아오고
     # 프론트 단에서 Review의 pk와
@@ -81,6 +91,7 @@ def detail(request, pk):
         "answer_form": answer_form,
         "review_image": review_image,
         "review_Form": review_Form,
+        "product_score": product_score,
     }
     return render(request, "products/complete/product_detail.html", context)
     # return render(request, "products/detail.html", context)

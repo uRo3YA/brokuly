@@ -189,7 +189,7 @@
       <div class="mx-1 border-0" onclick="location.href='/products/{{recent_review_image.product_id}}/'">
         <img src="{{recent_review_image.image.url}}" class="card-img-top main-review" alt="상품 사진">
         <div class="card-body">
-          <p class="card-title"></p>
+          <p class="card-title">@{{recent_review_image.user.name}}</p>
         </div>
       </div>
       {% empty %}
