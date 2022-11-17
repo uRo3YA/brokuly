@@ -54,11 +54,13 @@ footer {
 .btn-green {
   color: white;
   background-color: #008b47;
+  border: 2px solid #008b47;
 }
 
 .btn-green:hover {
   color: white;
   background-color: #006e39;
+  border: 2px solid #006e39;
 }
 
 .btn-outline-green {
