@@ -2,7 +2,12 @@
 {% load django_bootstrap5 %}
 {% load static %}
 
+{% block css %}
+<link rel="stylesheet" href="{% static 'css/style_2.css' %}" />
+{% endblock css %}
+
 {% block body %}
+
 
       <!-- 주문하기 페이지-->
       <div class="container my-5" style="padding: 0px 105px">
