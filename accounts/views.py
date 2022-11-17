@@ -113,7 +113,7 @@ def mypage(request):
 # 장바구니
 def cart(request):
     products = request.user.carts.all()
-    
+
     context = {
         "products": products,
     }
@@ -270,3 +270,17 @@ def id_check_naver(request):
 
 def naver_callback(request):
     return render(request, "accounts/complete/naver_callback.html")
+
+
+### 상품정보 관리
+def product_management(request):
+    if request.user.is_seller:
+        # 자신의 판매 상품 목록을 보여준다.
+        products = Product.objects.filter(user=request.user)
+
+    else:
+        return redirect("accounts:mypage")
+
+    context = {"products": products}
+
+    return render(request, "accounts/working/mypage_product_management.html", context)

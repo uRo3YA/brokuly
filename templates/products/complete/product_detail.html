@@ -198,7 +198,7 @@
               <h5 class="modal-title" id="staticBackdropLabel">상품 후기작성</h5>          
               <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
             </div>
-            <form action="{% url 'reviews:review_create' product.pk %}" method="POST">
+            <form action="{% url 'reviews:review_create' product.pk %}" method="POST"  enctype="multipart/form-data">
               {% csrf_token %}
             <div class="modal-body">
                 <hr>
@@ -210,7 +210,7 @@
                 {{product.title}}
                 <hr>
                 {% bootstrap_form review_Form %}
-            
+                <input multiple type="file" name="image" accept="image/*" id="id_image">
             </div>
             <div class="modal-footer">
               <button type="button" class="btn btn-outline-success" data-bs-dismiss="modal">취소</button>
@@ -250,18 +250,8 @@
 <div class="text-end m-1">
   <a href="{% url 'reviews:review_create' product.pk %}" class="btn btn-sm" id="detail_btn">리뷰 작성</a>
 </div>
-
-<div class="container">
-<div class="text-end m-1">
-    <button class="btn btn-sm" 
-        onclick="location.href='/products/{{ product.pk }}/update/'">수정</button>
-</div>
-<div class="text-end m-1">
-    <button  class="btn btn-sm" 
-        onclick="location.href='/products/{{ product.pk }}/delete/'">삭제</button>
-</div>
-</div>
 <!--여기까지 삭제 필요-->
+
 
 <!-- 문의 영역 -->
 <div id="bookmark_cm_inquiry" style="height: 100px; margin-top: -100px;"></div>
