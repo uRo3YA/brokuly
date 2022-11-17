@@ -18,6 +18,15 @@ class ReviewForm(forms.ModelForm):
         self.fields["grade"].widget.attrs.update(
             {"class": "form-control", "autofocus": False, "style": "width: 40%; "}
         )
+        self.fields["content"].label = "내용"
+        self.fields["content"].widget.attrs.update(
+            {
+                "placeholder": "후기를 작성해주세요.",
+                "class": "form-control",
+                "id": "form_content",
+                "autofocus": False,
+            }
+        )
         # self.fields["image"].label = "첨부 이미지"
         # self.fields["image"].widget.attrs.update(
         #     {"class": "form-control", "autofocus": False, "style": "width: 40%; "}

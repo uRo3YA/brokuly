@@ -3,6 +3,7 @@ from .forms import ProductForm
 from .models import Product
 from .models import Cart
 from reviews.models import Review, ReviewImage
+from reviews.forms import ReviewForm
 from accounts.models import User
 from django.contrib.auth import get_user_model
 from django.http import HttpResponse, JsonResponse
@@ -69,7 +70,7 @@ def detail(request, pk):
     answers = Answer.objects.all()
     question_form = QuestionForm()
     answer_form = AnswerForm()
-
+    review_Form = ReviewForm
     context = {
         "product": product,
         "reviews": review,
@@ -78,6 +79,7 @@ def detail(request, pk):
         "question_form": question_form,
         "answer_form": answer_form,
         "review_image": review_image,
+        "review_Form": review_Form,
     }
     return render(request, "products/complete/product_detail.html", context)
     # return render(request, "products/detail.html", context)

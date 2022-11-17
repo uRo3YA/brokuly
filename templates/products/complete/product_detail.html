@@ -178,12 +178,49 @@
       <img src="./main.assets/상품후기 이미지.png" alt=""/>
     </div>
     <div class="d-flex float-start mt-3">
-      <p class="mx-3">총 {{reviews.count}}개</p>
+      <p class="mx-3">총 {{reviews.count}}개
+        <div class="mx-3">
+            <!--리뷰 작성 모달 호출-->
+            <button type="button" class="btn btn-outline-success"   data-bs-toggle="modal" data-bs-target="#review-modal">
+                상품 리뷰 작성
+            </button>
+          </div>
+      </p> 
     </div>
     <br>
     <br>
     <hr> 
-
+    <!--여기부터 리뷰 작성 모달-->
+    <div class="modal fade" id="review-modal" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+        <div class="modal-dialog">
+          <div class="modal-content">
+            <div class="modal-header">
+              <h5 class="modal-title" id="staticBackdropLabel">상품 후기작성</h5>          
+              <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <form action="{% url 'reviews:review_create' product.pk %}" method="POST">
+              {% csrf_token %}
+            <div class="modal-body">
+                <hr>
+                {%if product.is_crawl%}
+                <img src="{{product.crawl_produt_thum_img}}" alt="상품 이미지"style="width:72px;">
+                {%else%}
+                <img src="{{product.produt_thum_img.url}}" alt="상품 이미지" style="width:72px;">
+                {%endif%}
+                {{product.title}}
+                <hr>
+                {% bootstrap_form review_Form %}
+            
+            </div>
+            <div class="modal-footer">
+              <button type="button" class="btn btn-outline-success" data-bs-dismiss="modal">취소</button>
+              <button type="submit" class="btn btn-success">등록</button>
+            </div>
+          </form>
+          </div>
+        </div>
+      </div>
+      <!--여기까지 리뷰 작성 모달-->
     <div class="container mt-5">
         {% for review in reviews %}
         <div class="row">
@@ -192,6 +229,7 @@
                     <button class="btn-grade">등급</button>
                     <h6 class="mb-0 pt-1">{{ review.user.name }}</h6>
                 </div>
+        
             </div>
             <div class="col-8"  onclick="location.href='/reviews/{{review.pk}}/'">
                 <h5 class="text-muted fw-bold">{{ review.title }}</h5>
@@ -203,11 +241,12 @@
                     {%endif%}
                 {% endfor %}
             </div>
+
         </div>
         <hr>
         {% endfor %}
 
-
+<!--여기부터는 삭제 필요-->
 <div class="text-end m-1">
   <a href="{% url 'reviews:review_create' product.pk %}" class="btn btn-sm" id="detail_btn">리뷰 작성</a>
 </div>
@@ -222,7 +261,7 @@
         onclick="location.href='/products/{{ product.pk }}/delete/'">삭제</button>
 </div>
 </div>
-
+<!--여기까지 삭제 필요-->
 
 <!-- 문의 영역 -->
 <div id="bookmark_cm_inquiry" style="height: 100px; margin-top: -100px;"></div>
@@ -298,7 +337,7 @@
                 <div class="col-6">
                   <div class="d-flex float-end">
                     <p class="text-center mx-5">{{ question.user.name }}</p>
-                    <p class="text-center mx-5">2022.11.14</p>
+                    <p class="text-center mx-5">{{ question.created_at|date:"y-m-d"   }}</p>
                     {%if question.is_answered == 1%}
                     <p class="text-center" style="margin-left: 3rem; color: #008b47;">답변완료</p>
                     {%else%}
