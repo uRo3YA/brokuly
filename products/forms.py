@@ -112,6 +112,15 @@ class ProductForm(forms.ModelForm):
                 "style": "width: 91%;",
             }
         )
+        self.fields["ship_type"].label = "배송 방식"
+        self.fields["ship_type"].widget.attrs.update(
+            {
+                "placeholder": "배송 방식을 선택해주세요",
+                "class": "form-control",
+                "id": "form_unit",
+                "style": "width: 91%;",
+            }
+        )
 
     class Meta:
         model = Product
@@ -127,4 +136,5 @@ class ProductForm(forms.ModelForm):
             "produt_detail_img",
             "produt_desc_img",
             "allergy",
+            "ship_type",
         ]

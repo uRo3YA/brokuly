@@ -23,7 +23,7 @@
                   <hr>
                   <p class="mx-1">판매자 {{product.user.name}}</p>
                   <hr>
-                  <p class="mx-1">판매단위 {{product.unit}}개</p>
+                  <p class="mx-1">판매단위 {{product.unit}}</p>
                   <hr>
                   <p class="mx-1">배송구분: {{product.ship_type}} </p>
                   <hr>
@@ -194,8 +194,9 @@
                 </div>
             </div>
             <div class="col-8"  onclick="location.href='/reviews/{{review.pk}}/'">
-                <h5 class="text-muted fw-bold">상품명 및 상품 제목 {{ review.title }}</h5>
-                <p class="text-muted">{{review.content}}Lorem ipsum dolor sit, amet consectetur adipisicing elit. Vitae, rerum beatae provident cum voluptatem optio ducimus a magni numquam odit sed eos error delectus, ullam voluptates praesentium odio quam velit.</p>
+                <h5 class="text-muted fw-bold">{{ review.title }}</h5>
+                <p class="text-muted">{{review.grade}}</p>
+                <p class="text-muted">{{review.content}}</p>
                 {% for image in review_image %}  
                     {% if image.review_id == review.pk %}
                         <img src="/media/{{image.image}}" style="width: 64px; height: 64px;">

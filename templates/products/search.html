@@ -1,62 +1,99 @@
 {% extends 'base.html' %}
 {% load static %}
+{% load humanize %}
 {% load django_bootstrap5 %}
 {% block body %}
-<div class="container">
+<div class="container mt-5">
     <!--추가로 해야 할 작업-->
     <!--product 메인과 같은 레이아웃으로 만들기-->
-{% if not products_all %}
-    {{q}}에 대한 검색 결과가 없습니다.
-{% else %}
-    <p><!--여기는 검색어에 대한 결과 크게 출력-->
-    {{q}}에 대한 {{search_count}}건 검색 결과가 있습니다
-    </p><!--여기서부터 메인과 같은 레이아웃으로 출력-->
-    <div class="container">
-
+    {% if not products_all %}
+    <h3 class="text-center mb-5">{{q}}에 대한 검색 결과가 없습니다.</h3>
+    {% else %}
+    <!--여기는 검색어에 대한 결과 크게 출력-->
+    <h3 class="text-center mb-5">
+    {{q}}에 대한 {{search_count}}건의 검색 결과가 있습니다.</h3>
+    <!--여기서부터 메인과 같은 레이아웃으로 출력-->
+    <div class="d-felx  row">
         {% for products in products_all %}
-        <div>
-            <a href="{% url 'products:detail' products.pk %}" class="text-black text-decoration-none">{{ products.title }}</a>
-        </div>
-        {% endfor %}
-        <ul class="pagination justify-content-center">
-            <!-- 이전페이지 -->
-            {% if products_all.has_previous %}
-            <li class="page-item mx-0">
-                <a class="page-link" href="?page={{ products_all.previous_page_number }}">이전</a>
-            </li>
-            {% else %}
-            <li class="page-item disabled mx-0">
-                <a class="page-link" tabindex="-1" aria-disabled="true" href="#">이전</a>
-            </li>
-            {% endif %}
-            <!-- 페이지리스트 -->
-            {% for page_number in products_all.paginator.page_range %}
-            {% if page_number >= products_all.number and page_number <= products_all.number%}
-            {% if page_number == products_all.number %}
-            <li class="page-item active mx-0" aria-current="page">
-                <a class="page-link" href="?page={{ page_number }}">{{ page_number }}</a>
-            </li>
-            {% else %}
-            <li class="page-item mx-0">
-                <a class="page-link" href="?page={{ page_number }}">{{ page_number }}</a>
-            </li>
-            {% endif %}
-            {% endif %}
-            {% endfor %}
-            <!-- 다음페이지 -->
-            {% if products_all.has_next %}
-            <li class="page-item mx-0">
-                <a class="page-link" href="?page={{ products_all.next_page_number }}">다음</a>
-            </li>
-            {% else %}
-            <li class="page-item disabled mx-0">
-                <a class="page-link" tabindex="-1" aria-disabled="true" href="#">다음</a>
-            </li>
-            {% endif %}
-        </ul>
-    </div>
-    
-    
-    {% endif %}
-    </div>
+         <div class="card  col-3 border-0 pro-card" onclick="location.href='#'" type="button">
+           {%if products.is_crawl%}
+           <img src="{{products.crawl_produt_detail_img}}" alt="상품 이미지" class="card-img-top" alt="상품 사진" width="275" height="354">
+           {%else%}
+           <img src="{{products.produt_thum_img.url}}" alt="상품 이미지" class="card-img-top" alt="상품 사진" width="275" height="354">
+           {%endif%}
+               
+             <div class="card-cart-icon">
+               <svg xmlns="http://www.w3.org/2000/svg" onclick="location.href='#'" type="button" width="23" height="23" fill="currentColor" class="bi bi-cart mt-2" viewBox="0 0 16 16">
+               <path d="M0 1.5A.5.5 0 0 1 .5 1H2a.5.5 0 0 1 .485.379L2.89 3H14.5a.5.5 0 0 1 .491.592l-1.5 8A.5.5 0 0 1 13 12H4a.5.5 0 0 1-.491-.408L2.01 3.607 1.61 2H.5a.5.5 0 0 1-.5-.5zM3.102 4l1.313 7h8.17l1.313-7H3.102zM5 12a2 2 0 1 0 0 4 2 2 0 0 0 0-4zm7 0a2 2 0 1 0 0 4 2 2 0 0 0 0-4zm-7 1a1 1 0 1 1 0 2 1 1 0 0 1 0-2zm7 0a1 1 0 1 1 0 2 1 1 0 0 1 0-2z"/>
+               </svg>
+             </div>
+             <div class="card-body mt-2 p-0">
+             <p class="text-muted"><small>샛별배송</small></p>
+             <h6 class="card-title">{{products.title}}</h6>
+             <p class="card-text fw-bold">{{products.price|intcomma}} 원</p>
+             </div>
+         </div>
+         {% endfor %}
+         
+         <!---여기까지 하나 -->
+       
+       <ul class="pagination justify-content-center">
+           <!-- 이전페이지 -->
+           {% if products_all.has_previous %}
+           <li class="page-item mx-0">
+               <a class="page-link" data-page="{{ products_all.previous_page_number }}" href="javascript:void(0)">이전</a>
+           </li>
+           {% else %}
+           <li class="page-item disabled mx-0">
+               <a class="page-link" tabindex="-1" aria-disabled="true" href="#">이전</a>
+           </li>
+           {% endif %}
+           <!-- 페이지리스트 -->
+           {% for page_number in products_all.paginator.page_range %}
+           {% if page_number >= products_all.number|add:-3 and page_number <= products_all.number|add:3 %}
+           {% if page_number == products_all.number %}
+           <li class="page-item active mx-0" aria-current="page">
+               <a class="page-link" data-page="{{ page_number }}"
+               href="javascript:void(0)">{{ page_number }}</a>
+           </li>
+           {% else %}
+           <li class="page-item mx-0">
+               <a class="page-link" data-page="{{ page_number }}"
+               href="javascript:void(0)">{{ page_number }}</a>
+           </li>
+           {% endif %}
+           {% endif %}
+           {% endfor %}
+           <!-- 다음페이지 -->
+           {% if products_all.has_next %}
+           <li class="page-item mx-0">
+               <a class="page-link" data-page="{{ products_all.next_page_number }}"
+               href="javascript:void(0)">다음</a>
+           </li>
+           {% else %}
+           <li class="page-item disabled mx-0">
+               <a class="page-link" tabindex="-1" aria-disabled="true" href="#">다음</a>
+           </li>
+           {% endif %}
+       </ul>
+     </div>
+     {%endif%}
+   
+
+</div>
+<script type='text/javascript'>
+    const page_elements = document.getElementsByClassName("page-link");
+    Array.from(page_elements).forEach(function(element) {
+        element.addEventListener('click', function() {
+            document.getElementById('page').value = this.dataset.page;
+            document.getElementById('searchForm').submit();
+        });
+    });
+    const btn_search = document.getElementById("btn_search");
+    btn_search.addEventListener('click', function() {
+        document.getElementById('q').value = document.getElementById('q').value;
+        document.getElementById('page').value = 1;  // 검색버튼을 클릭할 경우 1페이지부터 조회한다.
+        document.getElementById('searchForm').submit();
+    });
+    </script>
 {% endblock %}
