@@ -202,9 +202,13 @@
       <p class="mx-3">총 {{reviews.count}}개 | 평균 평점 {{product_score}}
         <div class="mx-3">
             <!--리뷰 작성 모달 호출-->
+            {% if request.user.is_authenticated %}
             <button type="button" class="btn btn-outline-success"   data-bs-toggle="modal" data-bs-target="#review-modal">
                 상품 리뷰 작성
             </button>
+            {%else%}
+
+            {%endif%}
           </div>
       </p> 
     </div>
@@ -267,11 +271,6 @@
         <hr>
         {% endfor %}
 
-<!--여기부터는 삭제 필요-->
-<div class="text-end m-1">
-  <a href="{% url 'reviews:review_create' product.pk %}" class="btn btn-sm" id="detail_btn">리뷰 작성</a>
-</div>
-<!--여기까지 삭제 필요-->
 
 
 <!-- 문의 영역 -->
@@ -285,9 +284,13 @@
             배송과 관련된 문의 사항이 있으시다면 마이페이지 내 1:1 문의에 남겨주세요.</p>
         </div> 
         <div class="col-4 pt-5">
+        {% if request.user.is_authenticated %}
         <button type="button" class="btn btn-outline-success" data-bs-toggle="modal" data-bs-target="#inquiry-modal">
             상품 문의하기
         </button>
+        {%else%}
+        
+        {%endif%}
       </div>
     </div>
   </div>

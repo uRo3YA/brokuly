@@ -15,7 +15,9 @@ from qnas.forms import QuestionForm, AnswerForm
 from django.core.paginator import Paginator
 from django.views.generic import ListView
 
-# from .decorators import seller_required
+from accounts.decorators import seller_required
+from django.contrib.auth.decorators import login_required
+
 # Create your views here.
 def index(request):
 
@@ -35,7 +37,7 @@ def index(request):
     return render(request, "products/complete/index.html", context)
 
 
-# @seller_required
+@seller_required
 def create(request):
     if request.method == "POST":
         Product_Form = ProductForm(request.POST, request.FILES)
@@ -97,7 +99,7 @@ def detail(request, pk):
     # return render(request, "products/detail.html", context)
 
 
-# @seller_required
+@seller_required
 def update(request, pk):
     info = Product.objects.get(pk=pk)
     if request.user == info.user:
@@ -122,16 +124,16 @@ def update(request, pk):
         return redirect("products:detail", info.pk)
 
 
-# @seller_required
+@seller_required
 def delete(request, pk):
-    # if request.user == info.user:
-    info = Product.objects.get(pk=pk)
-    info.delete()
-    # else:
-    #     messages.warning(request, '잘못된 접근입니다.')
-    #     return redirect('products:detail', info.pk)
-    # return redirect("products:index")
+    if request.user == info.user:
+        info = Product.objects.get(pk=pk)
+        info.delete()
+    else:
+        messages.warning(request, "잘못된 접근입니다.")
+        return redirect("products:detail", info.pk)
     return redirect("products:index")
+    # return redirect("products:index")
 
 
 # def search(request):
