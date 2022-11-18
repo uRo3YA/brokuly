@@ -1,0 +1,124 @@
+{% extends 'accounts/working/mypage.html' %}
+
+{% load django_bootstrap5 %}
+{% load static %}
+
+{% block content %}
+
+<div class="col-10 py-5 px-5 bg-light">
+    <div class="d-flex justify-content-between">
+      <h3 class="fw-bold">상품문의</h3>
+      <select onchange="if(this.value) location.href=(this.value);">
+        <option value="#">답변 대기중</option>
+        <option value="#" >답변 완료</option>
+      </select>
+    </div>
+    <hr class="green-line mb-4" />
+    <!-- 상품 -->
+    {% for question in questions %}
+      <div class="row">
+        <div class="card bg-light border-0">
+          <div class="d-flex justify-content-between mx-4">
+            <p class="fs-5 mb-2">{{question.created_at|date:"y-m-d" }}</p>
+            <a class="text-decoration-none text-muted" href="{% url 'products:detail' question.product.pk %}">
+              상품 상세보기 >
+            </a>
+          </div>
+          <hr class="mt-0 mb-4" />
+          <div class="d-flex justify-content-between">
+            <div class="d-flex mx-4 align-items-center">
+                {%if question.product.is_crawl%}
+                <img class="me-4" src="{{question.product.crawl_produt_detail_img}}" alt="상품 이미지" style="height: 180px; width: 150px">
+                {%else%}
+                <img class="me-4" src="{{question.product.produt_thum_img.url}}" alt="상품 이미지" style="height: 180px; width: 150px">
+                {%endif%}
+              <div class="d-inline-flex flex-column align-content-center me-4">
+                <p class="mb-2 text-muted">상품명</p>
+                <p class="mb-2 text-muted">문의제목</p>
+                <p class="mb-2 text-muted">문의자</p>
+                <p class="mb-2 text-muted">문의내용</p>
+              </div>
+              {% comment %} 모든 상품에 대한 Question {% endcomment %}
+              <div class="d-inline-flex flex-column align-content-center me-5">
+                <p class="mb-2">{{ question.product.title }}</p>
+                <p class="mb-2">{{ question.title }}</p>
+                <p class="mb-2">{{ question.user }}</p>
+                <p class="mb-2">{{ question.content }}</p>                    
+              </div>
+            </div>
+            <div class="d-flex align-items-center">
+                {%if question.is_answered == 1%}
+                <button  class=" btn btn-green me-4 ">답변완료</button>
+                {%else%}
+                <button id="question-{{ question.pk }}-answer-create" type="button" data-bs-toggle="modal" 
+                data-bs-target="#ansModal-{{ question.pk }}" data-question-id="{{ question.pk }}" onclick="getCreateAnswer(this.id);" 
+                class=" btn btn-outline-green me-4 ">답변하기</button>
+                {%endif%}
+
+              <div class="modal fade" id="ansModal-{{ question.pk }}" tabindex="-1" aria-labelledby="ansModalLabel" aria-hidden="true">
+                <div class="modal-dialog modal-lg">
+                    <div class="container modal-content">
+                        <div class="modal-header">
+                        <h1 class="modal-title fs-3" id="ansModalLabel">상품문의 답변</h1>
+                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                    </div>
+                <div class="modal-body">
+                    <div class="container mt-3 mx-3">
+                        <p class="fw-bold">{{ question.title }}</p>
+                    </div>
+                    <div class="container">
+                        <form action="/qnas/{{ question.pk }}/answer/create/?next={{ request.path }}" method="POST" id="question-{{ question.pk }}-answer-create-form" data-question-id="{{ question.pk }}" class="display-none">
+                            {% csrf_token %}
+                            <div class="container mt-3 mx-3">
+                                <p>{{ question.content}}</p>
+                            </div>
+                            <div class="row mb-3 mt-5">
+                                <div class="col-2">
+                                    <label for="message-text" class="col-form-label mx-3 fw-bold">답변</label>
+                                </div>
+                                <div class="col-10">
+                                   
+                                    <!-- <input class="form-control" id="message-text" rows="4" cols="50"/> -->
+                                    {% bootstrap_form answer_form %}
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="d-flex justify-content-center mt-5">
+                                <button type="button" class="btn btn-outline-green p-2 px-3 mx-2" data-bs-dismiss="modal">취소</button>
+                                <button type="submit" class="btn btn-green p-2 px-3">답변</button>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+          </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <hr class="lightgreen-line my-4">
+    {% endfor %}
+    <!-- 상품 -->
+    </div>
+  </div>
+
+  <script>
+      const getCreateAnswer = function (e) {
+    console.log(e)
+    const answerForm = document.querySelector(`#${e}-form`)
+    answerForm.classList.toggle('display-none');
+  }
+  const submitAnswer = function (e) {
+
+  }
+
+  function answerDelete(e){
+    event.preventDefault()
+    if (confirm("정말 삭제하시겠습니까?") == true){
+        window.location.href = `/qnas/answer/${event.target.dataset.answerId}/delete/?next={{ request.path }}`
+    }else{
+        return;
+    }
+  }
+  </script>
+{% endblock content %}

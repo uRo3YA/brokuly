@@ -21,4 +21,8 @@ urlpatterns = [
     path("id_check_naver/", views.id_check_naver, name="id_check_naver"),
     ##
     path("product_management/", views.product_management, name="product_management"),
+    ### 내 제품 문의사항 모아보기
+    path("question_management/", views.question_management, name="question_management"),
+    ### 내가 한 문의사항 모아보기myquestion
+    path("myquestion/", views.myquestion, name="myquestion"),
 ]

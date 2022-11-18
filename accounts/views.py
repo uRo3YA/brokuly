@@ -10,6 +10,8 @@ import json
 from .models import User
 from qnas.models import Question
 from django.core.paginator import Paginator
+from qnas.models import Question, Answer
+from qnas.forms import QuestionForm, AnswerForm
 
 # 회원가입 약관
 def agreement(request):
@@ -163,18 +165,20 @@ def add_wishlist(request, product_id):
         user_wishlist.add(product)
         is_liked = True
 
-    context = {
-        "isLiked": is_liked
-    }
+    context = {"isLiked": is_liked}
 
     return JsonResponse(context)
 
 
 # 리뷰 목록
 def review(request):
+    ###페이지 상단에 문의 갯수 표시용
+    questions = ""
     if request.user.is_seller:
         # 자신의 판매 상품 리뷰 목록을 보여준다.
         products = Product.objects.filter(user=request.user)
+        ###페이지 상단에 문의 갯수 표시용
+        questions = Question.objects.filter(product_id__in=products)
         reviews = []
         for product in products:
             reviews += product.review_set.all()
@@ -182,9 +186,7 @@ def review(request):
         # 자신이 작성한 리뷰 목록을 보여준다.
         reviews = Review.objects.filter(user=request.user)
 
-    context = {
-        "reviews": reviews,
-    }
+    context = {"reviews": reviews, "questions": questions}
 
     return render(request, "accounts/working/mypage_review.html", context)
 
@@ -291,3 +293,39 @@ def product_management(request):
     context = {"products": products}
 
     return render(request, "accounts/working/mypage_product_management.html", context)
+
+
+###주문자가 판매자에게 한 문의 모아보기
+def question_management(request):
+    answer_form = AnswerForm()
+    reviews = Review.objects.filter(user=request.user)
+    if request.user.is_seller:
+        # 자신의 판매 상품 목록을 보여준다.
+        products = Product.objects.filter(user=request.user)
+        questions = Question.objects.filter(product_id__in=products)
+        # 입력 파라미터
+        page = request.GET.get("page", "1")
+        # 페이징
+        paginator_all = Paginator(products, 5)
+        products = paginator_all.get_page(page)
+    else:
+        return redirect("accounts:mypage")
+
+    context = {
+        "products": products,
+        "questions": questions,
+        "answer_form": answer_form,
+        "reviews": reviews,
+    }
+
+    return render(request, "accounts/working/mypage_question_management.html", context)
+
+
+### 주문자 자신의 문의 모아 보기
+def myquestion(request):
+    questions = Question.objects.filter(user=request.user)
+    answers = Answer.objects.all()
+    reviews = Review.objects.filter(user=request.user)
+    print(len(reviews))
+    context = {"questions": questions, "answers": answers, "reviews": reviews}
+    return render(request, "accounts/working/mypage_question.html", context)
