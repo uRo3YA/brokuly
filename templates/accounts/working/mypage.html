@@ -91,10 +91,13 @@ $("a").on("click", function(e){
                     <p class="mt-3 mb-0">쿠폰 ></p>
                     <p class="fs-4 fw-bold text-green">0개</p>
                   </button>
-                  <button class="card col-4 ms-3 ps-4">
-                    <p class="mt-3 mb-0">팔로잉</p>
-                    <p class="fs-4 fw-bold">{{ request.user.followings.all | length }}</p>
-                  </button>
+                  <a
+                        type="button"
+                         class="card col-4 ms-3 ps-4  text-decoration-none text-dark"
+                         href="{% url 'accounts:followlist' %}">
+                    <p class="mt-3 mb-0">팔로잉 ></p>
+                    <p class="fs-4 fw-bold text-green">{{ request.user.followings.all | length }}</p>
+                  </a>
                 {% endif %}
               </div>
               <div>

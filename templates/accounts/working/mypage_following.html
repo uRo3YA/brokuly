@@ -1,0 +1,66 @@
+{% extends 'accounts/working/mypage.html' %}
+
+{% load django_bootstrap5 %}
+{% load static %}
+
+{% block content %}
+<!-- 팔로잉 페이지 -->
+<div class="col-10 py-5 px-5 bg-light" style="padding: 0px 105px">
+    <h3 class="ms-3">팔로우한 판매자
+      <span>
+        {{following.count}}
+      </span>
+    </h3>
+    <hr class="green-line" />
+    {%for p in product_%}
+        {%for seller in following%}
+            {%if p.key == seller.id%}
+            <!-- seller1 -->
+            <div class="container px-3 my-4">
+            <div class="d-flex justify-content-between">
+                <p class="fs-5">
+                <span class="fw-bold"> {{ seller.name }}</span>
+                의 최근 판매상품
+                </p>
+                <a type="button" href="{%url 'accounts:unfollow' seller.id%}" class="btn btn-outline-green rounded-pill" style="height: 35px; padding-top: 3px">
+                팔로우 취소
+                </a>
+               
+            </div>
+            <div id="carouselControls" class="carousel slide" data-interval="false">
+                <div class="carousel-inner">
+                <!-- carousel 1 -->
+                <div class="carousel-item active">
+                    <div class="card-group container mt-3">
+                        {%for product in products %}
+                            {%for val in p.val %}
+                            {%if val == product.id%}
+                            <div class="card mx-2 border-0 pro-card"  onclick="location.href='/products/{{product.pk}}/'">
+                                    {%if product.is_crawl%}
+                                    <img src="{{product.crawl_produt_detail_img}}" class="card-img-top" alt="상품 이미지">
+                                    {%else%}
+                                    <img src="{{product.produt_thum_img.url}}" class="card-img-top" alt="상품 이미지">
+                                    {%endif%}
+                            <div class="card-body">
+                                <h6 class="card-title">{{product.title}}</h6>
+                                <p class="card-text">{{product.price}}원</p>
+                            </div>
+                            </div>
+                            {%endif%}
+                            {%endfor%}     
+                        {%endfor%} 
+                </div>
+                </div>
+            <!-- carousel 2 -->
+
+
+            </div>
+        </div>
+        </div>
+        <hr />
+        {%endif%}
+
+    {%endfor%}
+    {%endfor%}
+  </div>
+{% endblock content %}
