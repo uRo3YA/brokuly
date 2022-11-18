@@ -141,6 +141,19 @@ def add_cart(request, product_id):
     return JsonResponse(context)
 
 
+# 장바구니 상품 추가 후 장바구니로 리다이렉트
+def add_cart_redirect(request, product_id):
+    cart = request.user.carts
+    product = Product.objects.get(id=product_id)
+
+    if product in cart.all():
+        cart.remove(product)
+    else:
+        cart.add(product)
+
+    return redirect("accounts:cart")
+
+
 # 위시리스트 목록
 def wishlist(request):
     context = {
