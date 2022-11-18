@@ -341,10 +341,11 @@
     </nav>
 
     <!-- 스크롤 Navbar -->
-    <nav id="scrollNav" class="navbar-expand-md nav-shadow pt-3">
-        <ul class="container navbar-nav justify-content-between">
+    <nav id="scrollNav" class="navbar navbar-expand-md justify-content-around nav-shadow" style="padding: 12px 155px 12px 180px;"> <!--   -->
+        <ul class="container navbar-nav align-itme" style="margin: 0px 0px;">
+
             <li class="nav-item dropdown">
-                <a class="nav-link black-lightgreen d-flex align-items-center pt-0" href="#" id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                <a class="nav-link black-lightgreen d-flex align-items-center py-0" href="#" id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                     <svg xmlns="http://www.w3.org/2000/svg" width="23" height="23" fill="currentColor" class="bi bi-list me-2" viewBox="0 0 16 16">
                         <path fill-rule="evenodd" d="M2.5 12a.5.5 0 0 1 .5-.5h10a.5.5 0 0 1 0 1H3a.5.5 0 0 1-.5-.5zm0-4a.5.5 0 0 1 .5-.5h10a.5.5 0 0 1 0 1H3a.5.5 0 0 1-.5-.5zm0-4a.5.5 0 0 1 .5-.5h10a.5.5 0 0 1 0 1H3a.5.5 0 0 1-.5-.5z"/>
                     </svg>
@@ -607,31 +608,31 @@
                     </li>
                 </ul>
             </li>
-            <li class="hvr-underline-from-center ms-5" style="padding-bottom: 3.5px;">
+            <li class="hvr-underline-from-center px-0 ms-5" style="padding-bottom: 3.5px;">
                 <a class="nav3-menu text-decoration-none active" href="#">신상품</a>
             </li>
-            <li class="hvr-underline-from-center" style="padding-bottom: 3.5px;">
+            <li class="hvr-underline-from-center px-0" style="padding-bottom: 3.5px;">
                 <a class="nav3-menu text-decoration-none active" href="#">베스트</a>
             </li>
-            <li class="hvr-underline-from-center" style="padding-bottom: 3.5px;">
+            <li class="hvr-underline-from-center px-0" style="padding-bottom: 3.5px;">
                 <a class="nav3-menu text-decoration-none active" href="#">알뜰쇼핑</a>
             </li>
-            <li class="hvr-underline-from-center" style="padding-bottom: 3.5px;">
+            <li class="hvr-underline-from-center px-0" style="padding-bottom: 3.5px;">
                 <a class="nav3-menu text-decoration-none active" href="#">특가/혜택</a>
             </li>
             
             <!-- 검색 -->
             <form class="scrollNav-searchbar text-green" id="searchForm" role="search" action="{% url 'products:search' %}" method="get" style="height: 40px;">
-                <input class="form-control me-2" style="width: 16rem; height: 33px;" type="search" placeholder="검색어를 입력해주세요" aria-label="Search"  name="q" value="{{q}}">
+                <input class="form-control ms-3" style="width: 16rem; height: 40px;" type="search" placeholder="검색어를 입력해주세요" aria-label="Search"  name="q" value="{{q}}">
                 <a  type="submit" id="btn_search">
-                    <svg xmlns="http://www.w3.org/2000/svg" width="17" height="17" fill="#008b47" class="bi bi-search mt-2 me-1" viewBox="0 0 16 16">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="17" height="17" fill="#008b47" class="bi bi-search" style="margin-top: 11px;" viewBox="0 0 16 16">
                         <path d="M11.742 10.344a6.5 6.5 0 1 0-1.397 1.398h-.001c.03.04.062.078.098.115l3.85 3.85a1 1 0 0 0 1.415-1.414l-3.85-3.85a1.007 1.007 0 0 0-.115-.1zM12 6.5a5.5 5.5 0 1 1-11 0 5.5 5.5 0 0 1 11 0z"/>
                     </svg>
                 </a>
             </form>
             <!-- 아이콘 -->
-            <ul class="d-flex" style="padding-right: 2.5rem;">
-                <li class="list-unstyled mx-2">
+            <ul class="d-flex align-items-center" style="padding-left: 0px; padding-right: 40px;">
+                <li class="list-unstyled mx-1" style="margin-top: 2.3px;">
                     <a href="#">
                         <svg xmlns="http://www.w3.org/2000/svg" width="25" height="23" fill="currentColor" class="bi bi-geo-alt black-green" viewBox="0 0 16 16">
                             <path d="M12.166 8.94c-.524 1.062-1.234 2.12-1.96 3.07A31.493 31.493 0 0 1 8 14.58a31.481 31.481 0 0 1-2.206-2.57c-.726-.95-1.436-2.008-1.96-3.07C3.304 7.867 3 6.862 3 6a5 5 0 0 1 10 0c0 .862-.305 1.867-.834 2.94zM8 16s6-5.686 6-10A6 6 0 0 0 2 6c0 4.314 6 10 6 10z"/>
@@ -639,14 +640,14 @@
                         </svg>                
                     </a>
                 </li>
-                <li class="list-unstyled mx-2" style="margin-top: 2.3px;">
+                <li class="list-unstyled mx-1" style="margin-top: 2.5px;">
                     <a href="{% url 'accounts:wishlist' %}">
                         <svg xmlns="http://www.w3.org/2000/svg" width="25" height="25" fill="currentColor" class="bi bi-heart black-green" viewBox="0 0 16 16">
                             <path d="m8 2.748-.717-.737C5.6.281 2.514.878 1.4 3.053c-.523 1.023-.641 2.5.314 4.385.92 1.815 2.834 3.989 6.286 6.357 3.452-2.368 5.365-4.542 6.286-6.357.955-1.886.838-3.362.314-4.385C13.486.878 10.4.28 8.717 2.01L8 2.748zM8 15C-7.333 4.868 3.279-3.04 7.824 1.143c.06.055.119.112.176.171a3.12 3.12 0 0 1 .176-.17C12.72-3.042 23.333 4.867 8 15z"/>
                         </svg>                
                     </a>
                 </li>
-                <li class="list-unstyled ms-2 mt-0">
+                <li class="list-unstyled ms-1 mt-0">
                     <a href="{% url 'accounts:cart' %}">
                         <svg xmlns="http://www.w3.org/2000/svg" width="25" height="27" fill="currentColor" class="bi bi-cart2 black-green" viewBox="0 0 16 16">
                             <path d="M0 2.5A.5.5 0 0 1 .5 2H2a.5.5 0 0 1 .485.379L2.89 4H14.5a.5.5 0 0 1 .485.621l-1.5 6A.5.5 0 0 1 13 11H4a.5.5 0 0 1-.485-.379L1.61 3H.5a.5.5 0 0 1-.5-.5zM3.14 5l1.25 5h8.22l1.25-5H3.14zM5 13a1 1 0 1 0 0 2 1 1 0 0 0 0-2zm-2 1a2 2 0 1 1 4 0 2 2 0 0 1-4 0zm9-1a1 1 0 1 0 0 2 1 1 0 0 0 0-2zm-2 1a2 2 0 1 1 4 0 2 2 0 0 1-4 0z"/>
