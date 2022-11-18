@@ -80,9 +80,7 @@ function minus(event, current, price){
 
 
 // 장바구니 상품 제거 비동기
-function delete_cart(event, product_id){
-  event.preventDefault();
-
+const del_cart_btn = function(product_id){
   axios({
     url: `/accounts/cart/add/${product_id}/`,
     headers: {
@@ -100,11 +98,11 @@ function delete_cart(event, product_id){
       const tag = document.getElementById("cart_product" + product_id);
       tag.parentNode.removeChild(tag);
     } 
-  })
-
+  });
+};
 
 const goOrder = function (e) {
-  event.preventDefault()
+  e.preventDefault()
   const orderA = document.querySelector('#order-a')
   const productList = document.querySelectorAll('#product-product')
   let product_list = []
@@ -138,200 +136,191 @@ const goOrder = function (e) {
 
 {% block body %}
 
-    <!-- 장바구니 -->
-    <div class="container">
-      <h3 class="text-center my-5">장바구니</h3>
-      <form
-        name="orderform"
-        id="orderform"
-        method="post"
-        class="orderform"
-        action="/orders/create"
-        onsubmit=""
-      >
-        <input type="hidden" name="cmd" value="order" />
-        <div class="cartdiv row gx-6 justify-content-center" id="cart">
-          <!-- 상품 목록 위 탭의 시작 -->
-          <div class="col-7 pe-4">
-            <div class="d-flex align-items-center">
-              <a
-                class="text-decoration-none text-dark d-flex align-items-center"
-                href="#"
-              >
-                <i class="bi bi-check-square text-muted fs-5 me-2"></i>
-                전체선택(미구현)
-              </a>
-              <p class="text-muted mx-4 mb-0">|</p>
-              <a class="text-decoration-none text-dark" href="#" onclick="">
-                선택한 상품 삭제(미구현)
-              </a>
-            </div>
-            <hr class="green-line" />
-            <!-- 상품 목록 위 탭의 끝 -->
-            <div class="row" id="p_list">
-              <!-- 상품 목록 시작 -->
-              {% for product in products %}
-                <div id="cart_product{{ product.pk }}" class="card border-0">
-                  <div class="d-flex justify-content-between">
-                    <!-- 상품 정보 -->
-                    <a href="#" class="text-decoration-none">
-                      <div class="d-flex mx-4 align-items-center">
-                        <div class="check me-3">
-                          <input
-                            type="checkbox"
-                            name="buy"
-                            value="260"
-                            onclick=""
-                            id="cartcheck"
-                          />
-                          <label for="cartcheck"></label>
-                        </div>
-                        {%if product.is_crawl%}
-                          <img 
-                            class="me-4" 
-                            src="{{ product.crawl_produt_detail_img }}" 
-                            alt="상품 이미지"
-                            style="height: 10rem; width: 8rem"
-                          >
-                        {%else%}
-                          <img 
-                            class="me-4" 
-                            src="{{ product.produt_thum_img.url }}" 
-                            alt="상품 이미지"
-                            style="height: 10rem; width: 8rem"
-                          >
-                        {%endif%}
-                        <p class="pname m-0 text-dark">{{ product.title }}</p>
-                      </div>
-                    </a>
-
-                    <!-- 수량 선택 -->
-                    <div class="num d-flex align-items-center">
-                      <div class="updown d-flex align-items-center">
-                        <span class="num-icon" id="minus" onclick="minus(event, {{ forloop.counter }}, {{ product.price }})">
-                          <i class="bi bi-dash-circle"></i>
-                        </span>
-                        <input
-                          type="text"
-                          style="width: 3rem;"
-                          class="text-center mx-2"
-                          name="p_num{{ forloop.counter }}"
-                          id="p_num{{ forloop.counter }}"
-                          size="1"
-                          maxlength="4"
-                          class="p_num{{ forloop.counter }} mx-2"
-                          value="1"
-                          onkeyup=""
-                        />
-                        <span class="num-icon" id="plus" onclick="plus(event, {{ forloop.counter }}, {{ product.price }})">
-                          <i class="bi bi-plus-circle"></i>
-                        </span>
-                      </div>
-                    </div>
-                    <!-- 상품 가격, 삭제 -->
-                    <div class="d-flex">
-                      <div
-                        class="cartprice d-flex flex-column align-items-end me-3 justify-content-center"
-                      >
-                        <input id="product-quantity"
-                          type="hidden"
-                          name="p_price"
-                          id="p_price"
-                          class="p_price"
-                          value="20000"
-                        />
-                        <span class="my-0"> {{ product.price | intcomma }}원 </span>
-                        {% comment %} 밑에 위 개수랑 곱해져야한다. 일단은 젤 처음은 해당 단위 가격을 표시했다. {% endcomment %}
-                        <div class="fw-bold sum">합계 : <span id="p_price{{ forloop.counter }}">{{ product.price | intcomma }}</span>원</div>
-                      </div>
-                      {% comment %} 삭제 {% endcomment %}
-                      <div class="d-flex align-items-center">
-                        <button class="cartcmd btn btn-lg border-0 p-0 me-4" onclick="delete_cart(this, {{ product.pk }})">
-                          <i class="text-secondary bi bi-x-lg"></i>
-                        </button>
-                      </div>
-                    </div>
-                  </div>
-                  <hr class="my-4" />
-                </div>
-              {% endfor %}
-              <!-- 상품 목록 끝 -->
-            </div>
-            <!-- 상품 row -->
-          </div>
-          <!-- 상품 col-7 -->
-
-          <!-- 주문하기 -->
-          <div class="col-3 p-0 ms-4">
-            <div class="row mb-3 border" style="margin: 0 11px">
-              <div class="my-4 px-3">
-                <p><i class="bi bi-geo-alt mb-1"></i> 배송지</p>
-                <p>{{ request.user.address }}</p>
-                <div class="d-grid">
-                  <button type="button" class="btn btn-outline-green mx-1">
-                    배송지 변경(미구현)
-                  </button>
-                </div>
-              </div>
-              <hr class="m-0" />
-              <div class="bg-light px-0 py-3">
-                <div
-                  class="d-flex justify-content-between align-items-center px-3"
-                >
-                  <p class="my-1">전체개수</p>
-                  <p
-                    class="sumcount my-1"
-                    id="sum_p_num"
-                    style="font-size: 20px"
-                  >
-                    <span>{{ products | length }}</span>개
-                  </p>
-                </div>
-                <div
-                  class="d-flex justify-content-between align-items-center px-3"
-                >
-                  <p class="my-1">상품금액</p>
-                  <p
-                    class="summoney my-1"
-                    style="font-size: 20px"
-                  >
-                    <span id="sum_p_price"></span>원
-                  </p>
-                </div>
-                <div
-                  class="d-flex justify-content-between align-items-center px-3"
-                >
-                  <p class="my-1">배송비</p>
-                  <p class="my-1" style="font-size: 20px">
-                    <span>
-                      {% if products %}
-                        2,500(미구현)원
-                      {% else %}
-                        0원
-                      {% endif %}
-                    </span>
-                  </p>
-                </div>
-                <hr />
-                <div
-                  class="d-flex justify-content-between align-items-center px-3"
-                >
-                  <p class="my-1">결제예정금액</p>
-                  <p class="my-1" style="font-size: 20px"><span id="total"></span>원</p>
-                </div>
-              </div>
-            </div>
-            <!-- 주문버튼 -->
-            <a class="text-decoration-none" href="/orders/create/" id="order-a" onclick="goOrder()">
-              <div class="d-grid" id="goorder" style="margin: 0 11px">
-                <button class="btn btn-green py-3">주문하기(미구현)</button>
-              </div>
+  <!-- 장바구니 -->
+  <div class="container">
+    <h3 class="text-center my-5">장바구니</h3>
+      <input type="hidden" name="cmd" value="order" />
+      <div class="cartdiv row gx-6 justify-content-center" id="cart">
+        <!-- 상품 목록 위 탭의 시작 -->
+        <div class="col-7 pe-4">
+          <div class="d-flex align-items-center">
+            <a
+              class="text-decoration-none text-dark d-flex align-items-center"
+              href="#"
+            >
+              <i class="bi bi-check-square text-muted fs-5 me-2"></i>
+              전체선택(미구현)
+            </a>
+            <p class="text-muted mx-4 mb-0">|</p>
+            <a class="text-decoration-none text-dark" href="#" onclick="">
+              선택한 상품 삭제(미구현)
             </a>
           </div>
-          <!-- 주문하기 col-3 -->
+          <hr class="green-line" />
+          <!-- 상품 목록 위 탭의 끝 -->
+          <div class="row" id="p_list">
+            <!-- 상품 목록 시작 -->
+            {% for product in products %}
+              <div id="cart_product{{ product.pk }}" class="card border-0">
+                <div class="d-flex justify-content-between">
+                  <!-- 상품 정보 -->
+                  <a href="#" class="text-decoration-none">
+                    <div class="d-flex mx-4 align-items-center">
+                      <div class="check me-3">
+                        <input
+                          type="checkbox"
+                          name="buy"
+                          value="260"
+                          onclick=""
+                          id="cartcheck"
+                        />
+                        <label for="cartcheck"></label>
+                      </div>
+                      {%if product.is_crawl%}
+                        <img 
+                          class="me-4" 
+                          src="{{ product.crawl_produt_detail_img }}" 
+                          alt="상품 이미지"
+                          style="height: 10rem; width: 8rem"
+                        >
+                      {%else%}
+                        <img 
+                          class="me-4" 
+                          src="{{ product.produt_thum_img.url }}" 
+                          alt="상품 이미지"
+                          style="height: 10rem; width: 8rem"
+                        >
+                      {%endif%}
+                      <p class="pname m-0 text-dark">{{ product.title }}</p>
+                    </div>
+                  </a>
+
+                  <!-- 수량 선택 -->
+                  <div class="num d-flex align-items-center">
+                    <div class="updown d-flex align-items-center">
+                      <span class="num-icon" id="minus" onclick="minus(event, {{ forloop.counter }}, {{ product.price }})">
+                        <i class="bi bi-dash-circle"></i>
+                      </span>
+                      <input
+                        type="text"
+                        style="width: 3rem;"
+                        class="text-center mx-2"
+                        name="p_num{{ forloop.counter }}"
+                        id="p_num{{ forloop.counter }}"
+                        size="1"
+                        maxlength="4"
+                        class="p_num{{ forloop.counter }} mx-2"
+                        value="1"
+                        onkeyup=""
+                      />
+                      <span class="num-icon" id="plus" onclick="plus(event, {{ forloop.counter }}, {{ product.price }})">
+                        <i class="bi bi-plus-circle"></i>
+                      </span>
+                    </div>
+                  </div>
+                  <!-- 상품 가격, 삭제 -->
+                  <div class="d-flex">
+                    <div
+                      class="cartprice d-flex flex-column align-items-end me-3 justify-content-center"
+                    >
+                      <input id="product-quantity"
+                        type="hidden"
+                        name="p_price"
+                        id="p_price"
+                        class="p_price"
+                        value="20000"
+                      />
+                      <span class="my-0"> {{ product.price | intcomma }}원 </span>
+                      {% comment %} 밑에 위 개수랑 곱해져야한다. 일단은 젤 처음은 해당 단위 가격을 표시했다. {% endcomment %}
+                      <div class="fw-bold sum">합계 : <span id="p_price{{ forloop.counter }}">{{ product.price | intcomma }}</span>원</div>
+                    </div>
+                    {% comment %} 삭제 {% endcomment %}
+                    <div class="d-flex align-items-center">
+                      <button id="del_cart_btn{{ product.pk }}" class="cartcmd btn btn-lg border-0 p-0 me-4" onclick="del_cart_btn({{ product.pk }})">
+                        <i class="text-secondary bi bi-x-lg"></i>
+                      </button>
+                    </div>
+                  </div>
+                </div>
+                <hr class="my-4" />
+              </div>
+            {% endfor %}
+            <!-- 상품 목록 끝 -->
+          </div>
+          <!-- 상품 row -->
         </div>
-      </form>
-    </div>
-    <!-- container -->
+        <!-- 상품 col-7 -->
+
+        <!-- 주문하기 -->
+        <div class="col-3 p-0 ms-4">
+          <div class="row mb-3 border" style="margin: 0 11px">
+            <div class="my-4 px-3">
+              <p><i class="bi bi-geo-alt mb-1"></i> 배송지</p>
+              <p>{{ request.user.address }}</p>
+              <div class="d-grid">
+                <button type="button" class="btn btn-outline-green mx-1">
+                  배송지 변경(미구현)
+                </button>
+              </div>
+            </div>
+            <hr class="m-0" />
+            <div class="bg-light px-0 py-3">
+              <div
+                class="d-flex justify-content-between align-items-center px-3"
+              >
+                <p class="my-1">전체개수</p>
+                <p
+                  class="sumcount my-1"
+                  id="sum_p_num"
+                  style="font-size: 20px"
+                >
+                  <span>{{ products | length }}</span>개
+                </p>
+              </div>
+              <div
+                class="d-flex justify-content-between align-items-center px-3"
+              >
+                <p class="my-1">상품금액</p>
+                <p
+                  class="summoney my-1"
+                  style="font-size: 20px"
+                >
+                  <span id="sum_p_price"></span>원
+                </p>
+              </div>
+              <div
+                class="d-flex justify-content-between align-items-center px-3"
+              >
+                <p class="my-1">배송비</p>
+                <p class="my-1" style="font-size: 20px">
+                  <span>
+                    {% if products %}
+                      2,500(미구현)원
+                    {% else %}
+                      0원
+                    {% endif %}
+                  </span>
+                </p>
+              </div>
+              <hr />
+              <div
+                class="d-flex justify-content-between align-items-center px-3"
+              >
+                <p class="my-1">결제예정금액</p>
+                <p class="my-1" style="font-size: 20px"><span id="total"></span>원</p>
+              </div>
+            </div>
+          </div>
+          <!-- 주문버튼 -->
+          <a class="text-decoration-none" href="/orders/create/" id="order-a" onclick="goOrder()">
+            <div class="d-grid" id="goorder" style="margin: 0 11px">
+              <button class="btn btn-green py-3">주문하기(미구현)</button>
+            </div>
+          </a>
+        </div>
+        <!-- 주문하기 col-3 -->
+      </div>
+  </div>
+  <!-- container -->
 
 {% endblock body %}

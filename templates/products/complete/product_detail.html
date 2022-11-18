@@ -27,7 +27,7 @@
                     </div>
                     <div class="col-3 ms-5">
                       <button type="button" class="btn-green" style="border-radius: 3rem;">Follow</button>
-                      <button type="button" class="btn mb-2" data-bs-container="body" data-bs-toggle="popover" data-bs-placement="right" data-bs-content="판매자를 팔로우하면 마이페이지에서 확인할 수 있습니다. 팔로우한 판매자의 판매 내역을 따로 확인할 수 있습니다.">
+                      <button type="button" id="help-follow" class="btn mb-2" data-bs-container="body" data-bs-toggle="popover" data-bs-placement="right" data-bs-content="판매자를 팔로우하면 마이페이지에서 확인할 수 있습니다. 팔로우한 판매자의 판매 내역을 따로 확인할 수 있습니다.">
                         <svg style="color: gray;" xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor" class="bi bi-question-circle-fill" viewBox="0 0 16 16">
                           <path d="M16 8A8 8 0 1 1 0 8a8 8 0 0 1 16 0zM5.496 6.033h.825c.138 0 .248-.113.266-.25.09-.656.54-1.134 1.342-1.134.686 0 1.314.343 1.314 1.168 0 .635-.374.927-.965 1.371-.673.489-1.206 1.06-1.168 1.987l.003.217a.25.25 0 0 0 .25.246h.811a.25.25 0 0 0 .25-.25v-.105c0-.718.273-.927 1.01-1.486.609-.463 1.244-.977 1.244-2.056 0-1.511-1.276-2.241-2.673-2.241-1.267 0-2.655.59-2.75 2.286a.237.237 0 0 0 .241.247zm2.325 6.443c.61 0 1.029-.394 1.029-.927 0-.552-.42-.94-1.029-.94-.584 0-1.009.388-1.009.94 0 .533.425.927 1.01.927z"/>
                         </svg>                     
@@ -86,10 +86,16 @@
                 </a>
               </div>
                     
-              <form action="{% url 'accounts:add_cart' product.pk%}" method="POST">      
-                {% csrf_token %} 
-                <button type="submit" class="btn btn-green p-2 px-5 mx-2"><strong>장바구니 담기</strong></button>
-            </form>
+              {% if request.user.is_authenticated and not request.user.is_seller %}
+                <form action="{% url 'accounts:add_cart_redirect' product.pk %}" method="POST">      
+                  {% csrf_token %} 
+                  {% if product not in request.user.carts.all %}
+                    <button type="submit" class="btn btn-green p-2 px-5 mx-2"><strong>장바구니 담기</strong></button>
+                  {% else %}
+                    <button type="submit" class="btn btn-secondary p-2 px-5 mx-2"><strong>장바구니 빼기</strong></button>
+                  {% endif %}
+                </form>
+              {% endif %}
             </div>
           </div>
             
@@ -603,4 +609,17 @@
             })
     })
 </script>
+
+<script src="https://code.jquery.com/jquery-3.6.1.slim.min.js" integrity="sha256-w8CvhFs7iHNVUtnSP0YKEg00p9Ih13rlL9zGqvLdePA=" crossorigin="anonymous"></script>
+<script>
+  // 팔로우 도움말 알림 창(Popover) 3초 뒤 사라짐
+  $(document).ready(function(){
+      $('[data-bs-toggle="popover"]').popover().click(function(){
+        setTimeout(function(){
+          $('[data-bs-toggle="popover"]').popover('hide')
+        }, 3000);
+      });   
+  });
+</script>
+
 {% endblock %}
