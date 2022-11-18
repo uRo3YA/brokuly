@@ -26,13 +26,13 @@
                   style="height: 80px; width: 80px"
                 />
                 <div>
-                  <p class="mb-2 ms-4 fs-5 fw-bold">User 님</p>
+                  <p class="mb-2 ms-4 fs-5 fw-bold">{{ request.user.name }} 님</p>
                   <div class="mb-0 ms-4">
                     <p class="mb-1">
-                      회원 등급
+                      구매자 등급
                       <span class="text-green fw-bold">대왕 브로컬리🥦</span>
                     </p>
-                    <p class="mb-0">email@email.com</p>
+                    <p class="mb-0">{{ request.user.email }}</p>
                   </div>
                 </div>
               </div>
