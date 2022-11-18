@@ -19,6 +19,14 @@ from django.contrib.auth import get_user_model
 from django.contrib import messages
 from collections import defaultdict
 
+from random import random
+from django.contrib.sites.shortcuts import get_current_site
+from django.template.loader import render_to_string
+from django.utils.http import urlsafe_base64_encode,urlsafe_base64_decode
+from django.utils.encoding import force_bytes
+from django.core.mail import EmailMessage
+from django.utils.encoding import force_bytes, force_text
+
 # 회원가입 약관
 def agreement(request):
     if request.method == "POST":
@@ -465,3 +473,35 @@ def unfollow(request, product_user_id):
 
     return redirect("accounts:followlist")
 
+def send_valid_number(request):
+    validnumber = round(random() * 10000)
+
+    current_site = get_current_site(request)
+    message = render_to_string('accounts/working/send_validnumber.html',{
+                'user': request.user,
+                'domain': current_site.domain,
+                'uid': urlsafe_base64_encode(force_bytes(request.user.pk)).encode().decode(),
+                'validnumber':validnumber,
+            })
+    mail_subject = "[Brokurly]이메일 인증번호입니다."
+    user_email = json.loads(request.body)['user_email']
+    email = EmailMessage(mail_subject, message, to=[user_email])
+    email.send()
+
+    context = {
+        'validnumber':validnumber,
+    }
+    return JsonResponse(context)
+
+def check_valid_number(request):
+    valid_number = json.loads(request.body)['valid_number']
+    input_number = json.loads(request.body)['input_number']
+    print(valid_number,input_number)
+    if valid_number == input_number:
+        check = True
+    else:
+        check = False
+    context = {
+        'check':check,
+    }
+    return JsonResponse(context)

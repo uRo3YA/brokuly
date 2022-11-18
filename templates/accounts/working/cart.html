@@ -104,7 +104,7 @@ const del_cart_btn = function(product_id){
 const goOrder = function (e) {
   e.preventDefault()
   const orderA = document.querySelector('#order-a')
-  const productList = document.querySelectorAll('#product-product')
+  const productList = document.querySelectorAll('.product-product')
   let product_list = []
 
   for (let i = 0 ; i < productList.length ; i++){
@@ -160,7 +160,7 @@ const goOrder = function (e) {
           <div class="row" id="p_list">
             <!-- 상품 목록 시작 -->
             {% for product in products %}
-              <div id="cart_product{{ product.pk }}" class="card border-0">
+              <div id="cart_product{{ product.pk }}" class="card border-0 product-product" data-product-id="{{ product.pk }}">
                 <div class="d-flex justify-content-between">
                   <!-- 상품 정보 -->
                   <a href="#" class="text-decoration-none">
