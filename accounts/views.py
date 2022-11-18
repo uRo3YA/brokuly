@@ -1,10 +1,10 @@
-from django.shortcuts import render, redirect
+from django.shortcuts import render, redirect, get_object_or_404
 from .forms import CustomUserCreationForm
 from django import forms
 from django.contrib.auth.forms import AuthenticationForm
 from django.contrib.auth import login as auth_login, logout as auth_logout, authenticate
 from products.models import Product
-from reviews.models import Review
+from reviews.models import Review, ReviewImage
 from django.http import JsonResponse
 import json
 from .models import User
@@ -15,6 +15,9 @@ from qnas.forms import QuestionForm, AnswerForm
 
 from accounts.decorators import seller_required
 from django.contrib.auth.decorators import login_required
+from django.contrib.auth import get_user_model
+from django.contrib import messages
+from collections import defaultdict
 
 # 회원가입 약관
 def agreement(request):
@@ -115,7 +118,7 @@ def mypage(request):
             "questions": questions,
         }
 
-    return render(request, "accounts/complete/mypage.html", context)
+    return render(request, "accounts/working/mypage.html", context)
 
 
 # 장바구니
@@ -172,7 +175,7 @@ def wishlist(request):
         "cart": request.user.carts.all(),
     }
 
-    return render(request, "accounts/complete/mypage_wishlist.html", context)
+    return render(request, "accounts/working/mypage_wishlist.html", context)
 
 
 # 위시리스트 상품 추가
@@ -203,14 +206,18 @@ def review(request):
         products = Product.objects.filter(user=request.user)
         ###페이지 상단에 문의 갯수 표시용
         questions = Question.objects.filter(product_id__in=products)
+        review_image = ReviewImage.objects.all()
         reviews = []
         for product in products:
             reviews += product.review_set.all()
     else:
         # 자신이 작성한 리뷰 목록을 보여준다.
         reviews = Review.objects.filter(user=request.user)
-
-    context = {"reviews": reviews, "questions": questions}
+        review_image = ReviewImage.objects.all()
+        # reviews_image = Review.objects.prefetch_related("reviewimage_set").filter(
+        #     review_id__in=reviews
+        # )
+    context = {"reviews": reviews, "questions": questions, "review_image": review_image}
 
     return render(request, "accounts/working/mypage_review.html", context)
 
@@ -356,3 +363,61 @@ def myquestion(request):
     print(len(reviews))
     context = {"questions": questions, "answers": answers, "reviews": reviews}
     return render(request, "accounts/working/mypage_question.html", context)
+
+
+### 상품 페이지에서 팔로잉(비동기)
+def follow(request, product_user_id):
+    # 프로필에 해당하는 유저를 로그인한 유저가!
+    # person = User.objects.get(pk=request.user.id)
+
+    user_followings = request.user.followings
+    product_user = User.objects.get(id=product_user_id)
+
+    if product_user in user_followings.all():
+        user_followings.remove(product_user)
+        isFollowed = False
+    else:
+        user_followings.add(product_user)
+        isFollowed = True
+
+    context = {"isFollowed": isFollowed}
+
+    return JsonResponse(context)
+
+
+def followlist(request):
+    following = get_user_model().objects.filter(following_user=request.user.pk)
+    print(following)
+    products = Product.objects.filter(user_id__in=following).order_by("-id")
+    product_list = defaultdict(list)
+    product_ = []
+    for seller in following:
+        for product in products:
+            if seller.id == product.user_id:
+                product_list[seller.id].append(product.id)
+    for key, val in product_list.items():
+        product_.append({"key": key, "val": val[:4]})
+
+    print(product_)
+    context = {
+        "products": products,
+        "following": following,
+        "product_list": product_list,
+        "product_": product_,
+    }
+    return render(request, "accounts/working/mypage_following.html", context)
+
+
+### 마이페이지에서 언팔로잉
+def unfollow(request, product_user_id):
+    user_followings = request.user.followings
+    product_user = User.objects.get(id=product_user_id)
+
+    if product_user in user_followings.all():
+        user_followings.remove(product_user)
+        isFollowed = False
+    else:
+        user_followings.add(product_user)
+        isFollowed = True
+
+    return redirect("accounts:followlist")
