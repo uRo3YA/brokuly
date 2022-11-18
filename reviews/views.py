@@ -7,6 +7,7 @@ from django.http import HttpResponse, JsonResponse
 import json
 from django.core.serializers.json import DjangoJSONEncoder
 from django.contrib import messages
+from django.contrib.auth.decorators import login_required
 
 # Create your views here.
 def index(request):
@@ -35,7 +36,7 @@ def detail(request, pk):
     return render(request, "reviews/detail.html", context)
 
 
-# @login_required
+@login_required
 def review_create(request, pk):
     info = Product.objects.get(pk=pk)
 
@@ -78,7 +79,7 @@ def review_detail(request, product_pk, review_pk):
     return render(request, "reviews/detail.html", context)
 
 
-# @login_required
+@login_required
 def delete(request, pk):
     info = Review.objects.get(pk=pk)
     pro_id = info.product_id
@@ -87,7 +88,7 @@ def delete(request, pk):
     return redirect("products:detail", pro_id)
 
 
-# @login_required
+@login_required
 def update(request, pk):
     review = get_object_or_404(Review, pk=pk)
     if request.user == review.user:
@@ -106,7 +107,7 @@ def update(request, pk):
         return redirect("reviews:detail", review.pk)
 
 
-# @login_required
+@login_required
 def comment_create(request, pk):
     print(request.POST)
     review = get_object_or_404(Review, pk=pk)
@@ -123,16 +124,16 @@ def comment_create(request, pk):
         return JsonResponse(context)
 
 
-# @login_required
+@login_required
 def comment_delete(request, pk, comment_pk):
     comment = Comment.objects.get(pk=comment_pk)
-    comment.delete()
-    # if comment.user == request.user:
-    #     comment.delete()
+    # comment.delete()
+    if comment.user == request.user:
+        comment.delete()
     return redirect("reviews:detail", pk)
 
 
-# @login_required
+@login_required
 def like(request, pk):
     review = get_object_or_404(Review, pk=pk)
     if request.user in review.like_users.all():

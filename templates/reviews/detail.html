@@ -2,98 +2,108 @@
 {% load django_bootstrap5 %}
 {% load static %}
 {% block body %} 
-<div class="container">
-여기는 리뷰 제목<br>
-{{review.title}} <br>
-여기는 평점 <br>
-{{review.grade}} <br>
-여기는 내용 <br>
-{{review.content}} <br>
-<br>
-여기는 이미지
-{% for image in review.reviewimage_set.all %}
-<div style="overflow:auto">
-    <img src="/media/{{image.image}}">
-    </div>
-    <br/>
-{% endfor %}
-<div class="d-flex justify-content-center" style="margin-bottom:-10px; margin-top: -6px;">
-    <div type="button" class="btn btn-outline-success">
-      {% if request.user.is_authenticated %}
-          {% if request.user in review.like_users.all %}
-            <i id="like-btn" data-review-id="{{ review.pk }}" class="bi bi-hand-thumbs-up-fill"></i>&nbsp;추천
-          {% else %}
-              <i id="like-btn" data-review-id="{{ review.pk }}" class="bi bi-hand-thumbs-up"></i>&nbsp;추천
-          {% endif %}
-        {% endif %}
-        <span id="like-count" style="margin-left: 5px;">&nbsp;{{ review.like_users.count }}</span>
-      </div>
-    </div>
-
-
-<div class="d-flex justify-content-end">
-    <div class="text-right" style="margin-top:-15px;">
-      {% if request.user.is_superuser %}
-      <button class="btn btn-sm" id="detail_btn" onclick="location.href='/reviews/{{ review.id }}/update/'">수정</button>
-      <button class="btn btn-sm" id="detail_btn" data-bs-toggle="modal" data-bs-target="#delete_modal">삭제</button>
-      <button class="btn btn-sm" id="detail_btn" onclick="location.href='/products/{{ review.product_id }}/'">목록으로</button>
-      {% else %}
-      
-        {% if request.user == review.user %}
-            <button class="btn btn-sm" id="detail_btn" onclick="location.href='/reviews/{{ review.id }}/update/'">수정</button>
-            <button class="btn btn-sm" id="detail_btn" data-bs-toggle="modal" data-bs-target="#delete_modal">삭제</button>
-            <button class="btn btn-sm" id="detail_btn" onclick="location.href='/products/{{ review.product_id }}/'">목록으로</button>
-          {% else %}
-            <button class="btn btn-sm" id="detail_btn" onclick="location.href='/products/{{ review.product_id }}/'">목록으로</button>
-          {% endif %}
-        {% endif %}
-    </div>
-  </div>
-
-   <!--댓글-->
-   <div class="card" style="width: 100%;">
-    <div class="card-header">
-        <div class="col-md-12">
-            {% if request.user.is_authenticated %}
-            <form id="comment-form" data-review-id="{{ review.pk }}">
-            {% csrf_token %}
-            {% bootstrap_form comment_form layout='floating'%}
-            {% bootstrap_button button_type="submit" id="detail_btn" content="댓글달기" %}
-            </form>
-            {%endif%}
-          <hr>
-          <div id="comments">
-                {% for comment in comments %} 
-                <div class="d-flex justify-content-between flex-column">
-                        <div class="d-flex  justify-content-between">
-                            <h6 class="link mx-4">
-                                <div class="title_link" >
-                                    {{ comment.user.username }}</div>
-                            </h6>
-                            <h6 class="link mx-4">
-                                여기는 댓글 생성시간
-                            </h6>
-                        </div>
-                        <p>
-                        <div class="d-flex  justify-content-between">
-                            <h6 class="mx-4 flex-fill">{{ comment.content }} </h6>
-                            <div class="commet-btn">
-                                <form action="{% url 'reviews:comment_delete' comment.review.pk comment.pk %}" method="POST">
-                                    {% csrf_token %}
-                                    <button class="float-end btn btn-dark  btn-sm ">DEL</button>
-                                </form>
-                            </div>
-                        </div>
-                    </p>
-                </div>
-              <hr>    
-               {% endfor %}
+<div class="container container mt-5">
+    <div class="card" style="width: 100%;">
+        <!--제목,분류,작성일-->
+        <div class="card-header">
+            <h3 class="text-muted fw-bold">{{ review.title }}</h3>
+            <p class="d-flex justify-content-end text-muted">{{review.created|date:"y-m-d"}}</p>
         </div>
+        <div class="card-body" style="min-height: 400px; color:black;">
+            <!--작성자, 조회수-->
+            <div>
+                <span><i class="fas fa-user-edit"></i>&nbsp;작성자 : {{ review.user.name }}</span>
+                <br>
+                <span><i class="fas fa-user-edit"></i>&nbsp;평점 : {{ review.grade }}</span>
+            </div>
+            <hr>
+            <!--내용-->
+            {% for image in review.reviewimage_set.all %}
+            <div style="overflow:auto">
+                <img src="/media/{{image.image}}">
+                </div>
+                <br/>
+            {% endfor %}
+            <div>
+              {{ review.content|safe}}
+            </div>
+            <br>
+            <div class="d-flex justify-content-center" style="margin-bottom:-10px; margin-top: -6px;">
+                <div type="button" class="btn btn-outline-success">
+                  {% if request.user.is_authenticated %}
+                      {% if request.user in review.like_users.all %}
+                        <i id="like-btn" data-review-id="{{ review.pk }}" class="bi bi-hand-thumbs-up-fill"></i>&nbsp;추천
+                      {% else %}
+                          <i id="like-btn" data-review-id="{{ review.pk }}" class="bi bi-hand-thumbs-up"></i>&nbsp;추천
+                      {% endif %}
+                      {%else%}
+                      <i id="like-btn" class="bi bi-hand-thumbs-up"></i>&nbsp;추천
+                    {% endif %}
+                    <span id="like-count" style="margin-left: 5px;">&nbsp;{{ review.like_users.count }}</span>
+                  </div>
+                </div>
+            <div class="d-flex justify-content-end">
+                <div class="text-right" style="margin-top:-15px;">
+                {% if request.user.is_superuser %}
+                <button class="btn btn-sm" id="detail_btn" onclick="location.href='/reviews/{{ review.id }}/update/'">수정</button>
+                <button class="btn btn-sm" id="detail_btn" data-bs-toggle="modal" data-bs-target="#delete_modal">삭제</button>
+                <button class="btn btn-sm" id="detail_btn" onclick="location.href='/products/{{ review.product_id }}/'">목록으로</button>
+                {% else %}
+                
+                    {% if request.user == review.user %}
+                        <button class="btn btn-sm" id="detail_btn" onclick="location.href='/reviews/{{ review.id }}/update/'">수정</button>
+                        <button class="btn btn-sm" id="detail_btn" data-bs-toggle="modal" data-bs-target="#delete_modal">삭제</button>
+                        <button class="btn btn-sm" id="detail_btn" onclick="location.href='/products/{{ review.product_id }}/'">목록으로</button>
+                    {% else %}
+                        <button class="btn btn-sm" id="detail_btn" onclick="location.href='/products/{{ review.product_id }}/'">목록으로</button>
+                    {% endif %}
+                {% endif %}
     </div>
-</div>
-</div>
-</div>
-</div>
+  </div>    
+            </div>
+            <div class="card" style="width: 100%;">
+                <div class="card-header">
+                    <div class="col-md-12">
+                        {% if request.user.is_authenticated %}
+                        <form id="comment-form" data-review-id="{{ review.pk }}">
+                        {% csrf_token %}
+                        {% bootstrap_form comment_form layout='floating'%}
+                        <button type="submit" class="btn btn-outline-success" >댓글달기</button>
+                        
+                        </form>
+                        {%endif%}
+                      <hr>
+                      <div id="comments">
+                            {% for comment in comments %} 
+                            <div class="d-flex justify-content-between flex-column">
+                                    <div class="d-flex  justify-content-between">
+                                        <h6 class="link mx-4">
+                                            <div class="title_link" >
+                                                {{ comment.user.username }}</div>
+                                        </h6>
+                                        <h6 class="link mx-4">
+                                            여기는 댓글 생성시간
+                                        </h6>
+                                    </div>
+                                    <p>
+                                    <div class="d-flex  justify-content-between">
+                                        <h6 class="mx-4 flex-fill">{{ comment.content }} </h6>
+                                        <div class="commet-btn">
+                                            <form action="{% url 'reviews:comment_delete' comment.review.pk comment.pk %}" method="POST">
+                                                {% csrf_token %}
+                                                <button class="float-end btn btn-dark  btn-sm ">DEL</button>
+                                            </form>
+                                        </div>
+                                    </div>
+                                </p>
+                            </div>
+                          <hr>    
+                           {% endfor %}
+                    </div>
+                </div>
+            </div>
+            </div>
+          </div>   
 
 </div>
 <div id="delete_modal" class="modal fade" tabindex="-1" role="dialog">

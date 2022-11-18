@@ -13,6 +13,9 @@ from django.core.paginator import Paginator
 from qnas.models import Question, Answer
 from qnas.forms import QuestionForm, AnswerForm
 
+from accounts.decorators import seller_required
+from django.contrib.auth.decorators import login_required
+
 # 회원가입 약관
 def agreement(request):
     if request.method == "POST":
@@ -73,6 +76,7 @@ def login(request):
 
 
 # 로그아웃
+@login_required
 def logout(request):
     auth_logout(request)
 
@@ -81,6 +85,7 @@ def logout(request):
 
 
 # 마이페이지
+@login_required
 def mypage(request):
     reviews = Review.objects.filter(user=request.user)
 
@@ -114,6 +119,7 @@ def mypage(request):
 
 
 # 장바구니
+@login_required
 def cart(request):
     products = request.user.carts.all()
 
@@ -125,6 +131,7 @@ def cart(request):
 
 
 # 장바구니 상품 추가
+@login_required
 def add_cart(request, product_id):
     cart = request.user.carts
     product = Product.objects.get(id=product_id)
@@ -144,6 +151,7 @@ def add_cart(request, product_id):
 
 
 # 장바구니 상품 추가 후 장바구니로 리다이렉트
+@login_required
 def add_cart_redirect(request, product_id):
     cart = request.user.carts
     product = Product.objects.get(id=product_id)
@@ -157,6 +165,7 @@ def add_cart_redirect(request, product_id):
 
 
 # 위시리스트 목록
+@login_required
 def wishlist(request):
     context = {
         "wishlist": request.user.wishlist.all(),
@@ -167,6 +176,7 @@ def wishlist(request):
 
 
 # 위시리스트 상품 추가
+@login_required
 def add_wishlist(request, product_id):
     user_wishlist = request.user.wishlist
     product = Product.objects.get(id=product_id)
@@ -184,6 +194,7 @@ def add_wishlist(request, product_id):
 
 
 # 리뷰 목록
+@login_required
 def review(request):
     ###페이지 상단에 문의 갯수 표시용
     questions = ""
@@ -291,6 +302,7 @@ def naver_callback(request):
 
 
 ### 상품정보 관리
+@seller_required
 def product_management(request):
     if request.user.is_seller:
         # 자신의 판매 상품 목록을 보여준다.
@@ -309,6 +321,7 @@ def product_management(request):
 
 
 ###주문자가 판매자에게 한 문의 모아보기
+@seller_required
 def question_management(request):
     answer_form = AnswerForm()
     reviews = Review.objects.filter(user=request.user)
@@ -335,6 +348,7 @@ def question_management(request):
 
 
 ### 주문자 자신의 문의 모아 보기
+@login_required
 def myquestion(request):
     questions = Question.objects.filter(user=request.user)
     answers = Answer.objects.all()
