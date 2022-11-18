@@ -1,8 +1,7 @@
 from django.shortcuts import render, redirect
 from .forms import CustomUserCreationForm, CustomUserChangeForm
-from django import forms
 from django.contrib.auth.forms import AuthenticationForm
-from django.contrib.auth import login as auth_login, logout as auth_logout, authenticate, update_session_auth_hash
+from django.contrib.auth import login as auth_login, logout as auth_logout, authenticate, update_session_auth_hash, get_user_model
 from products.models import Product
 from reviews.models import Review
 from django.http import JsonResponse
@@ -12,6 +11,7 @@ from qnas.models import Question
 from django.core.paginator import Paginator
 from qnas.models import Question, Answer
 from qnas.forms import QuestionForm, AnswerForm
+from django.contrib.auth.hashers import check_password
 
 from accounts.decorators import seller_required
 from django.contrib.auth.decorators import login_required
@@ -93,10 +93,7 @@ def mypage(request):
         # 상품문의, 새로 작성된 리뷰, 팔로워 수
         # 데이터가 필요하다.
         products = Product.objects.filter(user=request.user)
-        questions = []
-
-        for product in products:
-            questions += product.question_set.all()
+        questions = Question.objects.filter(product__in=products)
 
         context = {
             "products": products,
@@ -307,6 +304,7 @@ def product_management(request):
     if request.user.is_seller:
         # 자신의 판매 상품 목록을 보여준다.
         products = Product.objects.filter(user=request.user)
+        questions = Question.objects.filter(product_id__in=products)
         # 입력 파라미터
         page = request.GET.get("page", "1")
         # 페이징
@@ -315,7 +313,10 @@ def product_management(request):
     else:
         return redirect("accounts:mypage")
 
-    context = {"products": products}
+    context = {
+        "products": products,
+        "questions": questions,
+    }
 
     return render(request, "accounts/working/mypage_product_management.html", context)
 
@@ -379,9 +380,21 @@ def update(request):
         "form": form,
     }
 
-    return render(request, "accounts/working/update_profile.html", context)
+    return render(request, "accounts/complete/update_profile.html", context)
 
 
 # 회원 탈퇴
 def signout(request):
-    return render(request, "accounts/working/signout.html")
+    if request.method == "POST":
+        password = request.POST.get("checkPassword")
+
+        user = check_password(password, request.user.password)
+
+        if user:
+            request.user.delete()
+
+            return redirect("root")
+        else:
+            return redirect("accounts:signout")
+    else:
+        return render(request, "accounts/complete/signout.html")
