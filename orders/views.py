@@ -59,3 +59,9 @@ def orders_complete(request,pk):
         'product_list':product_list,
     }
     return render(request, 'orders/working/order_complete.html', context) 
+
+def orders_detail(request, pk):
+    context = {
+        'test':'test',
+    }
+    return render(request, 'orders/working/order_detail.html', context) 
