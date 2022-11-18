@@ -30,6 +30,7 @@ class Review(models.Model):
         settings.AUTH_USER_MODEL, related_name="like_revies"
     )
     product = models.ForeignKey("products.Product", on_delete=models.CASCADE)
+    created = models.DateTimeField(auto_now_add=True, verbose_name="작성일")
 
     class Meta:
         db_table = "리뷰"

@@ -1,0 +1,67 @@
+<div class="container cont-margin">
+    <div class="text-center mb-5">
+        <h3>지금 가장 핫한 상품들</h3>
+    </div>
+    <div id="carouselControls3" class="carousel slide" data-interval="false">
+        <div class="carousel-inner">
+            <div class="carousel-item active">
+                <div class="card-group container mt-3 ">
+                    {%for hot_item in md_pick %}
+                    <div class="card mx-2 border-0 pro-card"  onclick="location.href='/products/{{hot_item.pk}}/'">
+                        {%if hot_item.is_crawl%}
+                        <img src="{{hot_item.crawl_produt_detail_img}}" class="card-img-top" alt="상품 이미지">
+                        {%else%}
+                        <img src="{{hot_item.produt_thum_img.url}}" class="card-img-top" alt="상품 이미지">
+                        {%endif%}
+                        <!-- <img src="https://dummyimage.com/330x350/000/fff" class="card-img-top" alt="상품 사진"> -->
+                        <div class="card-body">
+                        <h6 class="card-title">{{hot_item.title}}</h6>
+                        <p class="card-text">{{hot_item.price}}원</p>
+                        </div>
+                    </div>
+                    {% empty %}
+                    <div class="card mx-2 border-0 pro-card">
+                        <img src="https://dummyimage.com/330x350/000/fff" class="card-img-top" alt="상품 사진">
+                        <div class="card-body">
+                        <h6 class="card-title">아직 등록된 상품이 없어요!</h6>
+                        <p class="card-text">COMING SOON</p>
+                        </div>
+                    </div>
+                    {%endfor%}
+                </div>
+            </div>
+            <div class="carousel-item active">
+                <div class="card-group container mt-3 ">
+                    {%for hot_item in md_pick_1 %}
+                    <div class="card mx-2 border-0 pro-card"  onclick="location.href='/products/{{hot_item.pk}}/'">
+                        {%if hot_item.is_crawl%}
+                        <img src="{{hot_item.crawl_produt_detail_img}}" class="card-img-top" alt="상품 이미지">
+                        {%else%}
+                        <img src="{{hot_item.produt_thum_img.url}}" class="card-img-top" alt="상품 이미지">
+                        {%endif%}
+                        <!-- <img src="https://dummyimage.com/330x350/000/fff" class="card-img-top" alt="상품 사진"> -->
+                        <div class="card-body">
+                        <h6 class="card-title">{{hot_item.title}}</h6>
+                        <p class="card-text">{{hot_item.price}}원</p>
+                        </div>
+                    </div>
+                    {% empty %}
+                    <div class="card mx-2 border-0 pro-card">
+                        <img src="https://dummyimage.com/330x350/000/fff" class="card-img-top" alt="상품 사진">
+                        <div class="card-body">
+                        <h6 class="card-title">아직 등록된 상품이 없어요!</h6>
+                        <p class="card-text">COMING SOON</p>
+                        </div>
+                    </div>
+                    {%endfor%}
+                </div>
+            </div>
+            <button class="carousel-prev" type="button" data-bs-target="#carouselControls3" data-bs-slide="prev">
+                <img src="{% static 'images/prev-icon.png' %}" class="carousel-prev-icon" width="3" height="3"/>
+              </button>
+              <button class="carousel-next" type="button" data-bs-target="#carouselControls3" data-bs-slide="next">
+                <img src="{% static 'images/next-icon.png' %}" class="carousel-next-icon" width="3" height="3"/>
+              </button>
+        </div>
+    </div>
+</div>

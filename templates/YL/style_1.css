@@ -308,3 +308,20 @@ footer {
   margin-bottom: 10rem;
   padding: 0;
 }
+
+.pro-card {
+  width: "275px";
+  height: "354px";
+  overflow: hidden;
+}
+.pro-card img {
+  /* transition: transform .3s; */
+  transition: all 0.4s ease-in-out;
+  position: relative;
+  width: "275px";
+  height: "354px";
+}
+.pro-card img:hover {
+  transform: scale(1.05);
+  -webkit-transform: scale(1.05);
+}

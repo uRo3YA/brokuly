@@ -93,6 +93,11 @@ footer {
   background-color: #59963f;
 }
 
+.btn-none {
+  background-color: white;
+  border: 0;
+}
+
 .btn-outline-gray {
   /* footer 전용 */
   background-color: white;
@@ -748,34 +753,34 @@ html.dark a {
 }
 
 /* 상품문의 아코디언 수정 */
-.accordion::after {
+.qna-accordion::after {
   border: #ffffff;
   background-color: #ffffff;
   color: #ffffff;
   outline: none;
 }
-.accordion-button {
+.qna-accordion-button {
   border: #ffffff;
   outline: none;
 }
-.accordion-button::after {
+.qna-accordion-button::after {
   border: #ffffff;
   background-color: #ffffff;
   background-image: none;
   outline: none;
 }
-.accordion-button:not(.collapsed) {
+.qna-accordion-button:not(.collapsed) {
   color: black;
   background-color: #ffffff;
   background-image: none;
 }
 
-.accordion-button:not(.collapsed)::after {
+.qna-accordion-button:not(.collapsed)::after {
   background-image: none;
   border: #ffffff;
 }
 
-.accordion-button:focus {
+.qna-accordion-button:focus {
   border-color: none;
   outline: none;
   box-shadow: none;
@@ -879,74 +884,89 @@ html.dark a {
   text-align: center;
 }
 
-/* 스크롤 Navbar */
-#scrollNav {
-  background-color: rgb(255, 255, 255);
-  position: fixed;
-  top: -50px;
-  width: 100%;
-  display: block;
-  z-index: 2;
-  
+/* 주문 페이지 */
+/* 결제수단 checkbox */
+#paywith-check {
+  display: none;
 }
 
-#scrollNav li {
-  color: #f2f2f2;
-  text-align: center;
-  padding-left: 10px;
-  padding-right: 10px;
-  text-decoration: none;
-  display: inline-block;
-  -webkit-transform: perspective(1px) translateZ(0);
-  transform: perspective(1px) translateZ(0);
-  position: relative;
-  overflow: hidden;
-  height: 2rem;
+#paywith-check + label:before {
+  color: #9b9b9b;
 }
 
-#scrollNav li:before {
-    content: "";
-    position: absolute;
-    z-index: -1;
-    left: 51%;
-    right: 51%;
-    bottom: 0;
-    background: #6bb64a;
-    -webkit-transition-property: left, right;
-    transition-property: left, right;
-    -webkit-transition-duration: 0.1s;
-    transition-duration: 0.1s;
-    -webkit-transition-timing-function: ease-out;
-    transition-timing-function: ease-out;
+#paywith-check:checked + label:before {
+  content: url("data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' width='20' height='20' fill='currentColor' class='bi bi-check-circle-fill' viewBox='0 0 16 16'><path d='M16 8A8 8 0 1 1 0 8a8 8 0 0 1 16 0zm-3.97-3.03a.75.75 0 0 0-1.08.022L7.477 9.417 5.384 7.323a.75.75 0 0 0-1.06 1.06L6.97 11.03a.75.75 0 0 0 1.079-.02l3.992-4.99a.75.75 0 0 0-.01-1.05z'/></svg>");
+  filter: invert(36%) sepia(14%) saturate(4938%) hue-rotate(116deg)
+    brightness(99%) contrast(101%);
 }
 
-#scrollNav li:hover::before,
-#scrollNav li:focus::before,
-#scrollNav li:active:before {
-    left: 0;
-    right: 0;
+/*아코디언 수정 */
+.order-accordion-header {
+  border-bottom: 2px solid black;
 }
 
-.scrollNav-searchbar {
-  position: relative;
+.order-header {
+  font-size: 20px;
+  padding: 10px 20px;
+  border-bottom: 2px solid black;
 }
 
-.scrollNav-searchbar input {
-  outline: none;
-  background-color: rgba(219, 219, 219, 0.521);
-  width: 200px;
-  border: none;
-  border-radius: 5px;
-  padding: 7px;
-  position: relative;
-  outline-color: #fff;
+/* checkbox custom */
+#agreeAll {
+  display: none;
 }
 
-.scrollNav-searchbar svg {
-  position: absolute;
-  top: 1px;
-  right: 20px;
-  margin: 0;
-  text-decoration: none;
-  color: gray;
+#agreeAll + label:before {
+  color: #9b9b9b;
+}
+
+#agreeAll:checked + label:before {
+  content: url("data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' width='20' height='20' fill='currentColor' class='bi bi-check-circle-fill' viewBox='0 0 16 16'><path d='M16 8A8 8 0 1 1 0 8a8 8 0 0 1 16 0zm-3.97-3.03a.75.75 0 0 0-1.08.022L7.477 9.417 5.384 7.323a.75.75 0 0 0-1.06 1.06L6.97 11.03a.75.75 0 0 0 1.079-.02l3.992-4.99a.75.75 0 0 0-.01-1.05z'/></svg>");
+  filter: invert(36%) sepia(14%) saturate(4938%) hue-rotate(116deg)
+    brightness(99%) contrast(101%);
+}
+
+#agree1 {
+  display: none;
+}
+
+#agree1 + label:before {
+  content: url("data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' width='20' height='20' fill='currentColor' style='padding-top: 3px;' class='bi bi-check2' viewBox='0 0 16 16'><path d='M13.854 3.646a.5.5 0 0 1 0 .708l-7 7a.5.5 0 0 1-.708 0l-3.5-3.5a.5.5 0 1 1 .708-.708L6.5 10.293l6.646-6.647a.5.5 0 0 1 .708 0z'/></svg>");
+  filter: invert(69%) sepia(0%) saturate(2%) hue-rotate(109deg) brightness(90%)
+    contrast(92%);
+}
+
+#agree1:checked + label:before {
+  filter: invert(36%) sepia(14%) saturate(4938%) hue-rotate(116deg)
+    brightness(99%) contrast(101%);
+}
+
+#agree2 {
+  display: none;
+}
+
+#agree2 + label:before {
+  content: url("data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' width='20' height='20' fill='currentColor' style='padding-top: 3px;' class='bi bi-check2' viewBox='0 0 16 16'><path d='M13.854 3.646a.5.5 0 0 1 0 .708l-7 7a.5.5 0 0 1-.708 0l-3.5-3.5a.5.5 0 1 1 .708-.708L6.5 10.293l6.646-6.647a.5.5 0 0 1 .708 0z'/></svg>");
+  filter: invert(69%) sepia(0%) saturate(2%) hue-rotate(109deg) brightness(90%)
+    contrast(92%);
+}
+
+#agree2:checked + label:before {
+  filter: invert(36%) sepia(14%) saturate(4938%) hue-rotate(116deg)
+    brightness(99%) contrast(101%);
+}
+
+#agree3 {
+  display: none;
+}
+
+#agree3 + label:before {
+  content: url("data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' width='20' height='20' fill='currentColor' style='padding-top: 3px;' class='bi bi-check2' viewBox='0 0 16 16'><path d='M13.854 3.646a.5.5 0 0 1 0 .708l-7 7a.5.5 0 0 1-.708 0l-3.5-3.5a.5.5 0 1 1 .708-.708L6.5 10.293l6.646-6.647a.5.5 0 0 1 .708 0z'/></svg>");
+  filter: invert(69%) sepia(0%) saturate(2%) hue-rotate(109deg) brightness(90%)
+    contrast(92%);
+}
+
+#agree3:checked + label:before {
+  filter: invert(36%) sepia(14%) saturate(4938%) hue-rotate(116deg)
+    brightness(99%) contrast(101%);
 }
