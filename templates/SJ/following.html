@@ -10,15 +10,16 @@
     <hr class="green-line" />
     <!-- seller1 -->
     <div class="container px-3 my-4">
-      <p class="fs-5">
-        <span class="fw-bold"> {{ seller1 }} </span>
-        의 상품
-      </p>
-      <div
-        id="carouselControls"
-        class="carousel slide"
-        data-interval="false"
-      >
+      <div class="d-flex justify-content-between">
+        <p class="fs-5">
+          <span class="fw-bold"> {{ seller1 }} </span>
+          의 상품
+        </p>
+        <button class="btn btn-outline-green rounded-pill" style="height: 35px; padding-top: 3px">
+          팔로우 취소
+        </button>
+      </div>
+      <div id="carouselControls" class="carousel slide" data-interval="false">
         <div class="carousel-inner">
           <!-- carousel 1 -->
           <div class="carousel-item active">
@@ -151,10 +152,15 @@
     <!-- seller1 -->
     <!-- seller2 -->
     <div class="container px-3 my-4">
-      <p class="fs-5">
-        <span class="fw-bold"> {{ seller2 }} </span>
-        의 상품
-      </p>
+      <div class="d-flex justify-content-between">
+        <p class="fs-5">
+          <span class="fw-bold"> {{ seller2 }} </span>
+          의 상품
+        </p>
+        <button class="btn btn-outline-green rounded-pill" style="height: 35px; padding-top: 3px">
+          팔로우 취소
+        </button>
+      </div>
       <div
         id="carouselControls"
         class="carousel slide"
