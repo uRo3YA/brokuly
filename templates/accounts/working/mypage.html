@@ -193,22 +193,20 @@ $("a").on("click", function(e){
           </div>
           <hr />
           <div class="list-group">
-            <button
+            <a
               type="button"
               class="list-group-item list-group-item-action border-top"
-              data-bs-toggle="modal"
-              data-bs-target="#updateModal"
+              href="{% url 'accounts:update' %}"
             >
-              개인 정보 수정(미구현)
-            </button>
-            <button
+              개인 정보 수정
+            </a>
+            <a
               type="button"
               class="list-group-item list-group-item-action border-top"
-              data-bs-toggle="modal"
-              data-bs-target="#passwordModal"
+              href="{% url 'accounts:signout' %}"
             >
               계정 삭제(미구현)
-            </button>
+            </a>
           </div>
         </div>
         <!-- 탭 내용 -->

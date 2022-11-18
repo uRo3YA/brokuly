@@ -119,16 +119,15 @@ const goOrder = function (e) {
     )
   }
   axios({
-          method: 'post',
-          url: `/orders/create/`,
+          method: 'POST',
+          url: '{% url 'orders:create_order' %}',
           headers : {'X-CSRFTOKEN' : '{{ csrf_token }}'},
           data: product_list,
-        }).then(response => {
+        }).then((response) => {
           console.log(response.data.status)
           console.log(response.data.order_pk)
           window.location.href = `/orders/complete/${response.data.order_pk}`;
-        })
-
+  }); 
 }
 
 </script>
@@ -314,7 +313,7 @@ const goOrder = function (e) {
             </div>
           </div>
           <!-- 주문버튼 -->
-          <a class="text-decoration-none" href="/orders/create/" id="order-a" onclick="goOrder()">
+          <a class="text-decoration-none" id="order-a" onclick="goOrder(event)">
             <div class="d-grid" id="goorder" style="margin: 0 11px">
               <button class="btn btn-green py-3">주문하기(미구현)</button>
             </div>

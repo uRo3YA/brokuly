@@ -1,8 +1,9 @@
-from django.shortcuts import render, redirect, get_object_or_404
-from .forms import CustomUserCreationForm
+from django.shortcuts import render, redirect,get_object_or_404
+from .forms import CustomUserCreationForm, CustomUserChangeForm
+
 from django import forms
 from django.contrib.auth.forms import AuthenticationForm
-from django.contrib.auth import login as auth_login, logout as auth_logout, authenticate
+from django.contrib.auth import login as auth_login, logout as auth_logout, authenticate, update_session_auth_hash
 from products.models import Product
 from reviews.models import Review, ReviewImage
 from django.http import JsonResponse
@@ -364,6 +365,35 @@ def myquestion(request):
     context = {"questions": questions, "answers": answers, "reviews": reviews}
     return render(request, "accounts/working/mypage_question.html", context)
 
+
+
+# 회원정보 수정
+def update(request):
+    if request.method == "POST":
+        form = CustomUserChangeForm(request.user, request.POST)
+
+        if form.is_valid():
+            form.save()
+            # 비밀번호가 변경되면 기존 세션과 회원 인증 정보가
+            # 일치하지 않게 되기 때문에 새로운 password hash 로 
+            # 세션을 업데이트 해주는 메소드이다.
+            update_session_auth_hash(request, form.user)
+            
+            return redirect("accounts:mypage")
+
+    else:
+        form = CustomUserChangeForm(request.user)
+
+    context = {
+        "form": form,
+    }
+
+    return render(request, "accounts/working/update_profile.html", context)
+
+
+# 회원 탈퇴
+def signout(request):
+    return render(request, "accounts/working/signout.html")
 
 ### 상품 페이지에서 팔로잉(비동기)
 def follow(request, product_user_id):
