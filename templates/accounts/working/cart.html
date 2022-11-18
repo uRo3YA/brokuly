@@ -219,7 +219,7 @@ const goOrder = function (e) {
                     </div>
                   </div>
                   <!-- 상품 가격, 삭제 -->
-                  <div class="d-flex">
+                  <div class="d-flex ms-5">
                     <div
                       class="cartprice d-flex flex-column align-items-end me-3 justify-content-center"
                     >
@@ -230,9 +230,11 @@ const goOrder = function (e) {
                         class="p_price"
                         value="20000"
                       />
-                      <span class="my-0"> {{ product.price | intcomma }}원 </span>
-                      {% comment %} 밑에 위 개수랑 곱해져야한다. 일단은 젤 처음은 해당 단위 가격을 표시했다. {% endcomment %}
-                      <div class="fw-bold sum">합계 : <span id="p_price{{ forloop.counter }}">{{ product.price | intcomma }}</span>원</div>
+                      <div>
+                        <div class="my-0 ms-5"> {{ product.price | intcomma }}원 </div>
+                        {% comment %} 밑에 위 개수랑 곱해져야한다. 일단은 젤 처음은 해당 단위 가격을 표시했다. {% endcomment %}
+                        <div class="fw-bold sum ms-5">합계 : <span id="p_price{{ forloop.counter }}">{{ product.price | intcomma }}</span>원</div>
+                      </div>
                     </div>
                     {% comment %} 삭제 {% endcomment %}
                     <div class="d-flex align-items-center">
