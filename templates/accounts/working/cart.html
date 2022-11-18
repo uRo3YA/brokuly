@@ -31,7 +31,9 @@ function calc_expense(){
   p_total.innerText = total.toLocaleString("en-US");
   
   target = document.getElementById("total");
-  total += 2500
+  if({{ products | length }} !== 0){
+    total += 2500
+  }
   target.innerText = total.toLocaleString("en-US");
 
 }
@@ -77,6 +79,30 @@ function minus(event, current, price){
 }
 
 
+// 장바구니 상품 제거 비동기
+function delete_cart(event, product_id){
+  event.preventDefault();
+
+  axios({
+    url: `/accounts/cart/add/${product_id}/`,
+    headers: {
+      "X-CSRFToken": "{{ csrf_token }}"
+    },
+    method: "POST",
+    data : {
+      "product_id": product_id
+    }
+  }).then((response) => {
+    const in_cart = response.data.in_cart;
+
+    // 장바구니에 상품 제거
+    if(in_cart === false){
+      const tag = document.getElementById("cart_product" + product_id);
+      tag.parentNode.removeChild(tag);
+    } 
+  })
+
+
 const goOrder = function (e) {
   event.preventDefault()
   const orderA = document.querySelector('#order-a')
@@ -104,6 +130,7 @@ const goOrder = function (e) {
           console.log(response.data.order_pk)
           window.location.href = `/orders/complete/${response.data.order_pk}`;
         })
+
 }
 
 </script>
@@ -144,7 +171,7 @@ const goOrder = function (e) {
             <div class="row" id="p_list">
               <!-- 상품 목록 시작 -->
               {% for product in products %}
-                <div class="card border-0" id="product-product" data-product-id="{{ product.pk }}"">
+                <div id="cart_product{{ product.pk }}" class="card border-0">
                   <div class="d-flex justify-content-between">
                     <!-- 상품 정보 -->
                     <a href="#" class="text-decoration-none">
@@ -160,9 +187,19 @@ const goOrder = function (e) {
                           <label for="cartcheck"></label>
                         </div>
                         {%if product.is_crawl%}
-                        <img class="me-4" src="{{product.crawl_produt_detail_img}}" alt="상품 이미지"style="height: 10rem; width: 8rem">
+                          <img 
+                            class="me-4" 
+                            src="{{ product.crawl_produt_detail_img }}" 
+                            alt="상품 이미지"
+                            style="height: 10rem; width: 8rem"
+                          >
                         {%else%}
-                        <img class="me-4" src="{{product.produt_thum_img.url}}" alt="상품 이미지"style="height: 10rem; width: 8rem">
+                          <img 
+                            class="me-4" 
+                            src="{{ product.produt_thum_img.url }}" 
+                            alt="상품 이미지"
+                            style="height: 10rem; width: 8rem"
+                          >
                         {%endif%}
                         <p class="pname m-0 text-dark">{{ product.title }}</p>
                       </div>
@@ -209,12 +246,8 @@ const goOrder = function (e) {
                       </div>
                       {% comment %} 삭제 {% endcomment %}
                       <div class="d-flex align-items-center">
-                        <button class="cartcmd btn btn-lg border-0 p-0 me-4">
-                          <a
-                            href="{% url 'accounts:delete_cart' product.pk %}"
-                            class="text-secondary bi bi-x-lg"
-                            onclick=""
-                          ></a>
+                        <button class="cartcmd btn btn-lg border-0 p-0 me-4" onclick="delete_cart(this, {{ product.pk }})">
+                          <i class="text-secondary bi bi-x-lg"></i>
                         </button>
                       </div>
                     </div>
@@ -269,7 +302,15 @@ const goOrder = function (e) {
                   class="d-flex justify-content-between align-items-center px-3"
                 >
                   <p class="my-1">배송비</p>
-                  <p class="my-1" style="font-size: 20px">2,500(미구현)원</p>
+                  <p class="my-1" style="font-size: 20px">
+                    <span>
+                      {% if products %}
+                        2,500(미구현)원
+                      {% else %}
+                        0원
+                      {% endif %}
+                    </span>
+                  </p>
                 </div>
                 <hr />
                 <div
