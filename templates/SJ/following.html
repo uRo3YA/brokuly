@@ -1,0 +1,294 @@
+{% extends 'base.html' %}
+{% load django_bootstrap5 %}
+{% load static %}
+
+{% block body %}
+
+  <!-- 팔로잉 페이지 -->
+  <div class="container my-5" style="padding: 0px 105px">
+    <h3 class="ms-3">팔로우한 판매자</h3>
+    <hr class="green-line" />
+    <!-- seller1 -->
+    <div class="container px-3 my-4">
+      <p class="fs-5">
+        <span class="fw-bold"> {{ seller1 }} </span>
+        의 상품
+      </p>
+      <div
+        id="carouselControls"
+        class="carousel slide"
+        data-interval="false"
+      >
+        <div class="carousel-inner">
+          <!-- carousel 1 -->
+          <div class="carousel-item active">
+            <div class="card-group container mt-3">
+              <div class="card mx-2 border-0 pro-card">
+                <img
+                  src="https://dummyimage.com/330x350/000/fff"
+                  class="card-img-top"
+                  alt="상품 사진"
+                />
+                <div class="card-body">
+                  <h6 class="card-title">상품명 및 상품제목</h6>
+                  <p class="card-text">21,000 원</p>
+                </div>
+              </div>
+              <div class="card mx-2 border-0 pro-card">
+                <img
+                  src="https://dummyimage.com/330x350/000/fff"
+                  class="card-img-top"
+                  alt="상품 사진"
+                />
+                <div class="card-body">
+                  <h6 class="card-title">상품명 및 상품제목</h6>
+                  <p class="card-text">21,000 원</p>
+                </div>
+              </div>
+              <div class="card mx-2 border-0 pro-card">
+                <img
+                  src="https://dummyimage.com/330x350/000/fff"
+                  class="card-img-top"
+                  alt="상품 사진"
+                />
+                <div class="card-body">
+                  <h6 class="card-title">상품명 및 상품제목</h6>
+                  <p class="card-text">21,000 원</p>
+                </div>
+              </div>
+              <div class="card mx-2 border-0 pro-card">
+                <img
+                  src="https://dummyimage.com/330x350/000/fff"
+                  class="card-img-top"
+                  alt="상품 사진"
+                />
+                <div class="card-body">
+                  <h6 class="card-title">상품명 및 상품제목</h6>
+                  <p class="card-text">21,000 원</p>
+                </div>
+              </div>
+            </div>
+          </div>
+          <!-- carousel 2 -->
+          <div class="carousel-item">
+            <div class="card-group container mt-3">
+              <div class="card mx-2 border-0 pro-card">
+                <img
+                  src="https://dummyimage.com/330x350/000/fff"
+                  class="card-img-top"
+                  alt="상품 사진"
+                />
+                <div class="card-body">
+                  <h6 class="card-title">상품명 및 상품제목</h6>
+                  <p class="card-text">21,000 원</p>
+                </div>
+              </div>
+              <div class="card mx-2 border-0 pro-card">
+                <img
+                  src="https://dummyimage.com/330x350/000/fff"
+                  class="card-img-top"
+                  alt="상품 사진"
+                />
+                <div class="card-body">
+                  <h6 class="card-title">상품명 및 상품제목</h6>
+                  <p class="card-text">21,000 원</p>
+                </div>
+              </div>
+              <div class="card mx-2 border-0 pro-card">
+                <img
+                  src="https://dummyimage.com/330x350/000/fff"
+                  class="card-img-top"
+                  alt="상품 사진"
+                />
+                <div class="card-body">
+                  <h6 class="card-title">상품명 및 상품제목</h6>
+                  <p class="card-text">21,000 원</p>
+                </div>
+              </div>
+              <div class="card mx-2 border-0 pro-card">
+                <img
+                  src="https://dummyimage.com/330x350/000/fff"
+                  class="card-img-top"
+                  alt="상품 사진"
+                />
+                <div class="card-body">
+                  <h6 class="card-title">상품명 및 상품제목</h6>
+                  <p class="card-text">21,000 원</p>
+                </div>
+              </div>
+            </div>
+          </div>
+          <button
+            class="carousel-prev"
+            type="button"
+            data-bs-target="#carouselControls"
+            data-bs-slide="prev"
+          >
+            <img
+              src="./YL.assets/prev-icon.png"
+              class="carousel-prev-icon"
+              width="3"
+              height="3"
+            />
+          </button>
+          <button
+            class="carousel-next"
+            type="button"
+            data-bs-target="#carouselControls"
+            data-bs-slide="next"
+          >
+            <img
+              src="./YL.assets/next-icon.png"
+              class="carousel-next-icon"
+              width="3"
+              height="3"
+            />
+          </button>
+        </div>
+      </div>
+    </div>
+    <hr />
+    <!-- seller1 -->
+    <!-- seller2 -->
+    <div class="container px-3 my-4">
+      <p class="fs-5">
+        <span class="fw-bold"> {{ seller2 }} </span>
+        의 상품
+      </p>
+      <div
+        id="carouselControls"
+        class="carousel slide"
+        data-interval="false"
+      >
+        <div class="carousel-inner">
+          <!-- carousel 1 -->
+          <div class="carousel-item active">
+            <div class="card-group container mt-3">
+              <div class="card mx-2 border-0 pro-card">
+                <img
+                  src="https://dummyimage.com/330x350/000/fff"
+                  class="card-img-top"
+                  alt="상품 사진"
+                />
+                <div class="card-body">
+                  <h6 class="card-title">상품명 및 상품제목</h6>
+                  <p class="card-text">21,000 원</p>
+                </div>
+              </div>
+              <div class="card mx-2 border-0 pro-card">
+                <img
+                  src="https://dummyimage.com/330x350/000/fff"
+                  class="card-img-top"
+                  alt="상품 사진"
+                />
+                <div class="card-body">
+                  <h6 class="card-title">상품명 및 상품제목</h6>
+                  <p class="card-text">21,000 원</p>
+                </div>
+              </div>
+              <div class="card mx-2 border-0 pro-card">
+                <img
+                  src="https://dummyimage.com/330x350/000/fff"
+                  class="card-img-top"
+                  alt="상품 사진"
+                />
+                <div class="card-body">
+                  <h6 class="card-title">상품명 및 상품제목</h6>
+                  <p class="card-text">21,000 원</p>
+                </div>
+              </div>
+              <div class="card mx-2 border-0 pro-card">
+                <img
+                  src="https://dummyimage.com/330x350/000/fff"
+                  class="card-img-top"
+                  alt="상품 사진"
+                />
+                <div class="card-body">
+                  <h6 class="card-title">상품명 및 상품제목</h6>
+                  <p class="card-text">21,000 원</p>
+                </div>
+              </div>
+            </div>
+          </div>
+          <!-- carousel 2 -->
+          <div class="carousel-item">
+            <div class="card-group container mt-3">
+              <div class="card mx-2 border-0 pro-card">
+                <img
+                  src="https://dummyimage.com/330x350/000/fff"
+                  class="card-img-top"
+                  alt="상품 사진"
+                />
+                <div class="card-body">
+                  <h6 class="card-title">상품명 및 상품제목</h6>
+                  <p class="card-text">21,000 원</p>
+                </div>
+              </div>
+              <div class="card mx-2 border-0 pro-card">
+                <img
+                  src="https://dummyimage.com/330x350/000/fff"
+                  class="card-img-top"
+                  alt="상품 사진"
+                />
+                <div class="card-body">
+                  <h6 class="card-title">상품명 및 상품제목</h6>
+                  <p class="card-text">21,000 원</p>
+                </div>
+              </div>
+              <div class="card mx-2 border-0 pro-card">
+                <img
+                  src="https://dummyimage.com/330x350/000/fff"
+                  class="card-img-top"
+                  alt="상품 사진"
+                />
+                <div class="card-body">
+                  <h6 class="card-title">상품명 및 상품제목</h6>
+                  <p class="card-text">21,000 원</p>
+                </div>
+              </div>
+              <div class="card mx-2 border-0 pro-card">
+                <img
+                  src="https://dummyimage.com/330x350/000/fff"
+                  class="card-img-top"
+                  alt="상품 사진"
+                />
+                <div class="card-body">
+                  <h6 class="card-title">상품명 및 상품제목</h6>
+                  <p class="card-text">21,000 원</p>
+                </div>
+              </div>
+            </div>
+          </div>
+          <button
+            class="carousel-prev"
+            type="button"
+            data-bs-target="#carouselControls"
+            data-bs-slide="prev"
+          >
+            <img
+              src="./YL.assets/prev-icon.png"
+              class="carousel-prev-icon"
+              width="3"
+              height="3"
+            />
+          </button>
+          <button
+            class="carousel-next"
+            type="button"
+            data-bs-target="#carouselControls"
+            data-bs-slide="next"
+          >
+            <img
+              src="./YL.assets/next-icon.png"
+              class="carousel-next-icon"
+              width="3"
+              height="3"
+            />
+          </button>
+        </div>
+      </div>
+    </div>
+    <!-- seller2 -->
+  </div>
+
+{% endblock %}
