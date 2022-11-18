@@ -26,7 +26,7 @@ from django.utils.http import urlsafe_base64_encode,urlsafe_base64_decode
 from django.utils.encoding import force_bytes
 from django.core.mail import EmailMessage
 from django.utils.encoding import force_bytes, force_text
-
+from orders.models import Order
 # 회원가입 약관
 def agreement(request):
     if request.method == "POST":
@@ -505,3 +505,17 @@ def check_valid_number(request):
         'check':check,
     }
     return JsonResponse(context)
+
+def orderlist(request):
+    # Order.objects.get(pk=1).delete()
+    # Order.objects.get(pk=2).delete()
+    orders = Order.objects.filter(user=request.user)
+    jsonDec = json.decoder.JSONDecoder()
+    
+    for order in orders:
+        order.products = Product.objects.get(pk=jsonDec.decode(order.products)[0]['product_pk'])
+        print(order.products)
+    context = {
+        'orders':orders,
+    }
+    return render(request, 'accounts/working/orderlist_buyer_mypage.html',context)
