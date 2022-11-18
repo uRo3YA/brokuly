@@ -128,42 +128,44 @@ def add_cart(request, product_id):
 
     if product in cart.all():
         cart.remove(product)
+        in_cart = False
     else:
         cart.add(product)
+        in_cart = True
 
-    # must change this statement
-    return redirect("accounts:cart")
+    context = {
+        "in_cart": in_cart,
+    }
 
-
-# 장바구니 상품 삭제
-def delete_cart(request, product_id):
-    cart = request.user.carts
-    product = Product.objects.get(id=product_id)
-
-    if product in cart.all():
-        cart.remove(product)
-
-    return redirect("accounts:cart")
+    return JsonResponse(context)
 
 
 # 위시리스트 목록
 def wishlist(request):
-    context = {"wishlist": request.user.wishlist.all()}
+    context = {
+        "wishlist": request.user.wishlist.all(),
+        "cart": request.user.carts.all(),
+    }
 
     return render(request, "accounts/working/mypage_wishlist.html", context)
 
 
-# 위시리스트 추가
+# 위시리스트 상품 추가
 def add_wishlist(request, product_id):
     user_wishlist = request.user.wishlist
     product = Product.objects.get(id=product_id)
+
     if product in user_wishlist.all():
         user_wishlist.remove(product)
         is_liked = False
     else:
         user_wishlist.add(product)
         is_liked = True
-    context = {"isLiked": is_liked}
+
+    context = {
+        "isLiked": is_liked
+    }
+
     return JsonResponse(context)
 
 

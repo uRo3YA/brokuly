@@ -27,12 +27,21 @@
           <hr class="mt-0 mb-4" />
           <div class="d-flex justify-content-between">
             <div class="d-flex mx-4 align-items-center">
-              <img
-                class="me-4"
-                src="{{ review.product.produt_thum_img.url }}"
-                alt="상품사진"
-                style="height: 180px; width: 150px"
-              />
+              {% if review.product.is_crawl %}
+                <img 
+                  class="me-4" 
+                  src="{{ review.product.crawl_produt_detail_img }}" 
+                  alt="상품 이미지" 
+                  style="height: 180px; width: 150px"
+                >
+              {% else %}
+                <img 
+                  class="me-4" 
+                  src="{{ review.product.produt_thum_img.url }}" 
+                  alt="상품 이미지" 
+                  style="height: 180px; width: 150px"
+                >
+              {% endif %}
               <div class="d-inline-flex flex-column align-content-center me-4">
                 <p class="mb-2 text-muted">상품명</p>
                 <p class="mb-2 text-muted">리뷰제목</p>

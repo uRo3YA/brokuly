@@ -6,6 +6,7 @@
 
 {% block script %}
 <script src="https://code.jquery.com/jquery-3.6.1.slim.min.js" integrity="sha256-w8CvhFs7iHNVUtnSP0YKEg00p9Ih13rlL9zGqvLdePA=" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
 <script>
 
 // document ready 를 순수 JS handler 로 구현
@@ -30,7 +31,9 @@ function calc_expense(){
   p_total.innerText = total.toLocaleString("en-US");
   
   target = document.getElementById("total");
-  total += 2500
+  if({{ products | length }} !== 0){
+    total += 2500
+  }
   target.innerText = total.toLocaleString("en-US");
 
 }
@@ -61,13 +64,37 @@ function minus(event, current, price){
   if(parseInt(counter.value) !== 1)
     counter.value = parseInt(counter.value) - 1;
 
-  const total_id = "total" + current;
+  const total_id = "p_price" + current;
   const p_price = document.getElementById(total_id);
 
   total = parseInt(counter.value) * price;
   p_price.textContent = total.toLocaleString("en-US");
 
   calc_expense();
+}
+
+// 장바구니 상품 제거 비동기
+function delete_cart(event, product_id){
+  event.preventDefault();
+
+  axios({
+    url: `/accounts/cart/add/${product_id}/`,
+    headers: {
+      "X-CSRFToken": "{{ csrf_token }}"
+    },
+    method: "POST",
+    data : {
+      "product_id": product_id
+    }
+  }).then((response) => {
+    const in_cart = response.data.in_cart;
+
+    // 장바구니에 상품 제거
+    if(in_cart === false){
+      const tag = document.getElementById("cart_product" + product_id);
+      tag.parentNode.removeChild(tag);
+    } 
+  })
 }
 
 </script>
@@ -108,7 +135,7 @@ function minus(event, current, price){
             <div class="row" id="p_list">
               <!-- 상품 목록 시작 -->
               {% for product in products %}
-                <div class="card border-0">
+                <div id="cart_product{{ product.pk }}" class="card border-0">
                   <div class="d-flex justify-content-between">
                     <!-- 상품 정보 -->
                     <a href="#" class="text-decoration-none">
@@ -123,12 +150,21 @@ function minus(event, current, price){
                           />
                           <label for="cartcheck"></label>
                         </div>
-                        <img
-                          class="img me-4"
-                          src="{{ product.produt_thum_img.url }}"
-                          alt="상품사진"
-                          style="height: 10rem; width: 8rem"
-                        />
+                        {%if product.is_crawl%}
+                          <img 
+                            class="me-4" 
+                            src="{{ product.crawl_produt_detail_img }}" 
+                            alt="상품 이미지"
+                            style="height: 10rem; width: 8rem"
+                          >
+                        {%else%}
+                          <img 
+                            class="me-4" 
+                            src="{{ product.produt_thum_img.url }}" 
+                            alt="상품 이미지"
+                            style="height: 10rem; width: 8rem"
+                          >
+                        {%endif%}
                         <p class="pname m-0 text-dark">{{ product.title }}</p>
                       </div>
                     </a>
@@ -174,12 +210,8 @@ function minus(event, current, price){
                       </div>
                       {% comment %} 삭제 {% endcomment %}
                       <div class="d-flex align-items-center">
-                        <button class="cartcmd btn btn-lg border-0 p-0 me-4">
-                          <a
-                            href="{% url 'accounts:delete_cart' product.pk %}"
-                            class="text-secondary bi bi-x-lg"
-                            onclick=""
-                          ></a>
+                        <button class="cartcmd btn btn-lg border-0 p-0 me-4" onclick="delete_cart(this, {{ product.pk }})">
+                          <i class="text-secondary bi bi-x-lg"></i>
                         </button>
                       </div>
                     </div>
@@ -234,7 +266,15 @@ function minus(event, current, price){
                   class="d-flex justify-content-between align-items-center px-3"
                 >
                   <p class="my-1">배송비</p>
-                  <p class="my-1" style="font-size: 20px">2,500(미구현)원</p>
+                  <p class="my-1" style="font-size: 20px">
+                    <span>
+                      {% if products %}
+                        2,500(미구현)원
+                      {% else %}
+                        0원
+                      {% endif %}
+                    </span>
+                  </p>
                 </div>
                 <hr />
                 <div
