@@ -1,0 +1,124 @@
+{% extends 'base.html' %}
+{% load django_bootstrap5 %}
+{% load static %}
+
+{% block body %}
+
+<div id="wrap">
+  <form action="" method="POST">
+    {% csrf_token %}
+    <div class="container mt-5 p-3 col-7">
+        <div class="row justify-content-between align-content-center">
+            <div class="col-4">
+                <h2 class="text-start mx-2">개인 정보 수정</h2>
+            </div>
+            <div class="col-3">
+              <p class="float-end mt-3 mb-0"><span style="color: orangered;">*</span>필수입력사항</p>
+            </div>
+        </div>
+        <hr class="green-line">
+        <div class="container p-5">
+            {% comment %} 아이디 {% endcomment %}
+            <div class="row mt-2 mb-3">
+                <div class="col-2 text-start">
+                    <p class="mt-2 mb-0">아이디<span style="color: orangered;">*</span></p>
+                </div>
+                <div class="col-7">
+                    <input 
+                      type="text" 
+                      class="form-control" 
+                      aria-label="Text input with dropdown button" 
+                      placeholder="{{ request.user.username }}" 
+                      style="width: 100%; height: 50px;"
+                      disabled
+                    >
+                </div>
+            </div>
+            {% comment %} 현재 비밀번호 {% endcomment %}
+            <div class="row mt-4 mb-3">
+                <div class="col-2 text-start">
+                    <p class="mt-2 mb-0">현재 비밀번호<span style="color: orangered;">*</span></p>
+                </div>
+                <div class="col-7">
+                    {{ form.old_password }}
+                </div>
+            </div>
+            {% comment %} 새 비밀번호 {% endcomment %}
+            <div class="row mt-4 mb-3">
+                <div class="col-2 text-start">
+                    <p class="mt-2 mb-0">새 비밀번호<span style="color: orangered;">*</span></p>
+                </div>
+                <div class="col-7">
+                    {{ form.new_password1 }}
+                </div>
+            </div>
+            {% comment %} 새 비밀번호 확인 {% endcomment %}
+            <div class="row mt-4 mb-3 ">
+                <div class="col-2 text-start">
+                    <p class="mt-2 mb-0">새 비밀번호 확인<span style="color: orangered;">*</span></p>
+                </div>
+                <div class="col-7">
+                    {{ form.new_password2 }}
+                </div>
+            </div>
+            {% comment %} 이름 {% endcomment %}
+            <div class="row mt-4 mb-3">
+                <div class="col-2 text-start">
+                    <p class="mt-2 mb-0">이름<span style="color: orangered;">*</span></p>
+                </div>
+                <div class="col-7">
+                    {{ form.name }}
+                </div>
+            </div>
+            {% comment %} 이메일 {% endcomment %}
+            <div class="row mt-4 mb-3 align-content-center">
+                <div class="col-2 text-start">
+                    <p class="mt-2 mb-0">이메일<span style="color: orangered;">*</span></p>
+                </div>
+                <div class="col-7">
+                    {{ form.email }}
+                </div>
+                <div class="col-3">
+                    <button type="button" class="btn btn-outline-green p-1 px-3 mx-2" data-bs-dismiss="modal">중복확인</button>
+                </div>
+            </div>
+            {% comment %} 주소 {% endcomment %}
+            <div class="row mt-4 mb-3 align-content-center">
+                <div class="col-2">
+                  <p class="mt-2 mb-0">주소<span style="color: orangered;">*</span></p>
+                </div>
+                <div class="col-7 search-bar">
+                  {{ form.address }}
+                  <a href="#">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="20" height="25" fill="currentColor" class="bi bi-search" viewBox="0 0 16 16">
+                      <path d="M11.742 10.344a6.5 6.5 0 1 0-1.397 1.398h-.001c.03.04.062.078.098.115l3.85 3.85a1 1 0 0 0 1.415-1.414l-3.85-3.85a1.007 1.007 0 0 0-.115-.1zM12 6.5a5.5 5.5 0 1 1-11 0 5.5 5.5 0 0 1 11 0z"/>
+                    </svg>
+                  </a>
+                </div>
+            </div>
+            {% comment %} 프로필 사진 {% endcomment %}
+            {% comment %} <div class="row mt-4 mb-3 align-content-center">
+                <div class="col-2 text-start">
+                    <p class="mt-2 mb-0">프로필사진</p>
+                </div>
+                <div class="col-7">
+                    <input type="text" class="form-control" aria-label="Text input with dropdown button" placeholder="사진첨부">
+                    </a>
+                </div>
+                <div class="col-3 float-end">
+                    <button type="button" class="btn btn-outline-green p-1 px-3 mx-2" data-bs-dismiss="modal">업로드</button>
+                </div>
+            </div> {% endcomment %}
+        </div>
+    </div>
+  
+    <!-- 등록 버튼 -->
+    <div class="d-flex justify-content-center mt-4">
+      <button type="submit" class="btn btn-outline-green p-3 px-5 mx-5" data-bs-dismiss="modal">취소</button>
+      <button type="submit" class="btn btn-green p-3 px-5 mx-5" data-bs-dismiss="modal">수정</button>
+    </div>
+  </form>
+
+</div>
+
+{% endblock body %}
