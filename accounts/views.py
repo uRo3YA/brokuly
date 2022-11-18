@@ -110,7 +110,7 @@ def mypage(request):
             "questions": questions,
         }
 
-    return render(request, "accounts/working/mypage.html", context)
+    return render(request, "accounts/complete/mypage.html", context)
 
 
 # 장바구니
@@ -163,7 +163,7 @@ def wishlist(request):
         "cart": request.user.carts.all(),
     }
 
-    return render(request, "accounts/working/mypage_wishlist.html", context)
+    return render(request, "accounts/complete/mypage_wishlist.html", context)
 
 
 # 위시리스트 상품 추가
