@@ -180,7 +180,7 @@
   
     const checkId = function () {
       const modalBody = document.querySelector('#modal-body-id')
-    
+      const userName = document.querySelector('#id_username').value
       axios({
               method: 'post',
               url: `/accounts/check_id/`,

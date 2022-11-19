@@ -67,7 +67,9 @@ def orders_detail(request, pk):
     return render(request, 'orders/working/order_detail.html', context)
 
 def go_order(request):
+    products = request.user.carts.all()
+
     context = {
-        'test':'test',
+        "products": products,
     }
     return render(request, 'orders/working/go_order.html', context)
