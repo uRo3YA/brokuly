@@ -21,7 +21,7 @@ def orders_create(request):
             #해당 유저의 장바구니에 들어있는 상품들을 삭제
             user.carts.remove(Product.objects.get(pk=product['product_pk']))
 
-        mileage= total_price//100
+        mileage= total_price//20
         Order.objects.create(
             user=request.user,
             products=json.dumps(product_list),
@@ -58,10 +58,16 @@ def orders_complete(request,pk):
         'order':order,
         'product_list':product_list,
     }
-    return render(request, 'orders/working/order_complete.html', context) 
+    return render(request, 'orders/working/order_complete.html', context)
 
 def orders_detail(request, pk):
     context = {
         'test':'test',
     }
-    return render(request, 'orders/working/order_detail.html', context) 
+    return render(request, 'orders/working/order_detail.html', context)
+
+def go_order(request):
+    context = {
+        'test':'test',
+    }
+    return render(request, 'orders/working/go_order.html', context)

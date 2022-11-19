@@ -2,6 +2,7 @@
 
 {% load django_bootstrap5 %}
 {% load static %}
+{% load humanize %}
 {% load mathfilters %}
 
 {% block body %}
@@ -167,7 +168,7 @@
                   {% endif %}
                   <p class="mb-2">{{ order.pk }}</p>
                   <p class="mb-2">카카오페이</p>
-                  <p class="mb-2">{{ order.total_price }}</p>
+                  <p class="mb-2">{{ order.total_price | intcomma }} 원</p>
                   <p class="mb-0">{{ order.total_quantity }}</p>
                   </div>
                 </div>
