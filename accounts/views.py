@@ -180,7 +180,7 @@ def wishlist(request):
         "cart": request.user.carts.all(),
     }
 
-    return render(request, "accounts/working/mypage_wishlist.html", context)
+    return render(request, "accounts/complete/mypage_wishlist.html", context)
 
 
 # 위시리스트 상품 추가
@@ -257,6 +257,19 @@ def check_id(request):
     user_id = jsonObject.get("user_id")
 
     if User.objects.filter(username=user_id):
+        is_exist = True
+    else:
+        is_exist = False
+
+    context = {"is_exist": is_exist}
+    return JsonResponse(context)
+
+# 이메일 중복체크
+def check_email(request):
+    jsonObject = json.loads(request.body)
+    user_email = jsonObject.get("user_email")
+
+    if User.objects.filter(email=user_email):
         is_exist = True
     else:
         is_exist = False

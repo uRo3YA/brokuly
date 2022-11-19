@@ -21,6 +21,7 @@ urlpatterns = [
     path("review/", views.review, name="review"),
     path("check/", views.check, name="check"),
     path("check_id/", views.check_id, name="check_id"),
+     path("check_email/", views.check_email, name="check_email"),
     path("check/update/", views.update, name="update"),
     path("login/naver_callback/", views.naver_callback, name="naver_callback"),
     path("id_check/", views.id_check, name="id_check"),

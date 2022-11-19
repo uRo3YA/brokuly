@@ -20,7 +20,7 @@ def orders_create(request):
             total_price += int(product['product_subtotal'].replace(',',''))
             #해당 유저의 장바구니에 들어있는 상품들을 삭제
             user.carts.remove(Product.objects.get(pk=product['product_pk']))
-
+        total_price += 2500
         mileage= total_price//20
         Order.objects.create(
             user=request.user,
