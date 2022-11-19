@@ -1,0 +1,481 @@
+{% extends 'base.html' %}
+{% load django_bootstrap5 %}
+{% load static %}
+
+{% block css %}
+<link rel="stylesheet" href="{% static 'css/style_2.css' %}" />
+{% endblock css %}
+
+{% block body %}
+
+
+      <!-- 주문하기 페이지-->
+      <div class="container my-5" style="padding: 0px 105px">
+        <h3 class="text-center my-5">주문서</h3>
+
+        <!-- 주문 상품 -->
+        <div class="mb-5">
+          <div class="accordion accordion-flush" id="accordionFlushExample">
+            <div class="accordion-item">
+              <h2 class="order-accordion-header" id="flush-headingOne">
+                <button
+                  class="accordion-button collapsed fs-5"
+                  type="button"
+                  data-bs-toggle="collapse"
+                  data-bs-target="#flush-collapseOne"
+                  aria-expanded="false"
+                  aria-controls="flush-collapseOne"
+                  style="padding-bottom: 14px"
+                >
+                  주문 상품
+                </button>
+              </h2>
+              <div
+                id="flush-collapseOne"
+                class="accordion-collapse collapse"
+                aria-labelledby="flush-headingOne"
+                data-bs-parent="#accordionFlushExample"
+              >
+                <div class="accordion-body">
+                  <!-- 상품1 -->
+                  <div class="d-flex align-items-center">
+                    <div class="col-8 d-flex mx-4 align-items-center">
+                      <img
+                        class="me-4"
+                        src="https://picsum.photos/1280/720"
+                        alt="상품사진"
+                        style="height: 180px; width: 150px"
+                      />
+
+                      <div
+                        class="d-inline-flex flex-column align-content-center me-5"
+                      >
+                        <p class="mb-2">[겨울간식] 야채호빵</p>
+                        <p class="mb-2">38,000원</p>
+                      </div>
+                    </div>
+                    <div class="col-2">3개</div>
+                    <div class="col-2">12,000원</div>
+                  </div>
+                  <!-- 상품2 -->
+                  <hr class="my-4" style="opacity: 10%" />
+                  <div class="d-flex align-items-center">
+                    <div class="col-8 d-flex mx-4 align-items-center">
+                      <img
+                        class="me-4"
+                        src="https://picsum.photos/1280/720"
+                        alt="상품사진"
+                        style="height: 180px; width: 150px"
+                      />
+
+                      <div
+                        class="d-inline-flex flex-column align-content-center me-5"
+                      >
+                        <p class="mb-2">[겨울간식] 야채호빵</p>
+                        <p class="mb-2">38,000원</p>
+                      </div>
+                    </div>
+                    <div class="col-2">3개</div>
+                    <div class="col-2">12,000원</div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="text-center py-3">상품 이름을 주문합니다.</div>
+        </div>
+        <!-- 주문자 정보 -->
+        <div class="mb-5">
+          <div class="order-header">주문자 정보</div>
+          <div class="row ms-2 my-4">
+            <div class="d-flex">
+              <p class="col-2">보내는 분</p>
+              <p class="col-10">{{ user.username }}</p>
+            </div>
+            <div class="d-flex">
+              <p class="col-2">이메일</p>
+              <div>
+                <p class="col-10 mb-2">{{ user.email }}</p>
+                <small class="text-muted"
+                  >이메일을 통해 주문처리과정을 보내드립니다.
+                  <br />
+                  정보 변경은 마이페이지>개인정보 수정 메뉴에서 가능합니다.
+                </small>
+              </div>
+            </div>
+          </div>
+        </div>
+        <!-- 배송 정보 -->
+        <!-- popover not working -->
+        <div class="mb-5">
+          <div class="order-header d-flex justify-content-between">
+            <div>배송 정보</div>
+            <button
+              class="btn-none d-flex align-items-center text-muted text-decoration-none"
+              style="font-size: 15px"
+              href="#"
+              data-toggle="popover"
+              title="Popover title"
+              data-content="Default popover"
+            >
+              <div class="me-1">배송지 변경 안내</div>
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                width="16"
+                height="16"
+                fill="currentColor"
+                class="bi bi-question-circle"
+                viewBox="0 0 16 16"
+              >
+                <path
+                  d="M8 15A7 7 0 1 1 8 1a7 7 0 0 1 0 14zm0 1A8 8 0 1 0 8 0a8 8 0 0 0 0 16z"
+                />
+                <path
+                  d="M5.255 5.786a.237.237 0 0 0 .241.247h.825c.138 0 .248-.113.266-.25.09-.656.54-1.134 1.342-1.134.686 0 1.314.343 1.314 1.168 0 .635-.374.927-.965 1.371-.673.489-1.206 1.06-1.168 1.987l.003.217a.25.25 0 0 0 .25.246h.811a.25.25 0 0 0 .25-.25v-.105c0-.718.273-.927 1.01-1.486.609-.463 1.244-.977 1.244-2.056 0-1.511-1.276-2.241-2.673-2.241-1.267 0-2.655.59-2.75 2.286zm1.557 5.763c0 .533.425.927 1.01.927.609 0 1.028-.394 1.028-.927 0-.552-.42-.94-1.029-.94-.584 0-1.009.388-1.009.94z"
+                />
+              </svg>
+            </button>
+          </div>
+          <div class="row ms-2 my-4">
+            <div class="d-flex">
+              <p class="col-2">배송지</p>
+              <p class="col-10">
+                <span
+                  class="badge rounded-pill text-muted mb-3"
+                  style="background-color: #eeeeee"
+                >
+                  기본 배송지
+                </span>
+                <br />
+                {{ user.address }}
+              </p>
+            </div>
+            <hr class="text-secondary opacity-25" />
+            <div class="d-flex">
+              <p class="col-2">상세 정보</p>
+              <div class="col-10">
+                {{ username }}
+                <p class="text-muted mt-2 mb-1">문 앞 | 자유 출입 가능</p>
+                <p class="text-muted m-0">배송완료 메시지 | 배송 직후</p>
+                <button class="btn btn-outline-grey mt-4">수정</button>
+              </div>
+            </div>
+          </div>
+        </div>
+        <!-- 결제금액 aside -->
+        <!-- 쿠폰/적립금 -->
+        <div class="d-flex mb-5">
+          <div class="col-8">
+            <div class="order-header">쿠폰 / 적립금</div>
+            <div class="row ms-2 my-4">
+              <div class="d-flex">
+                <p class="col-3">쿠폰 적용</p>
+                <!-- 쿠폰 적용 아코디언 -->
+                <div class="row col-9">
+                  <div class="flex-fill accordion" id="accordionExample">
+                    <div class="accordion-item mb-3">
+                      <h2 class="accordion-header" id="headingOne">
+                        <button
+                          class="accordion-button collapsed bg-light"
+                          type="button"
+                          data-bs-toggle="collapse"
+                          data-bs-target="#collapseOne"
+                          aria-expanded="false"
+                          aria-controls="collapseOne"
+                        >
+                          사용가능 쿠폰 0장 / 전체 0장
+                        </button>
+                      </h2>
+                      <div
+                        id="collapseOne"
+                        class="accordion-collapse collapse"
+                        aria-labelledby="headingOne"
+                        data-bs-parent="#accordionExample"
+                      >
+                        <div class="accordion-body">
+                          Placeholder content for this accordion, which is
+                          intended to demonstrate the
+                          <code>.accordion</code> class. This is the first
+                          item's accordion body.
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                  <a
+                    class="text-decoration-none text-green small"
+                    href="#"
+                    data-bs-toggle="modal"
+                    data-bs-target="#goKakaoModal"
+                  >
+                    쿠폰 사용 문의 (카카오톡) ></a
+                  >
+                  <!-- Modal -->
+                  <div
+                    class="modal fade"
+                    id="goKakaoModal"
+                    tabindex="-1"
+                    aria-labelledby="goKakaoModalLabel"
+                    aria-hidden="true"
+                  >
+                    <div
+                      class="modal-dialog modal-dialog-centered"
+                      style="width: 400px"
+                    >
+                      <div class="modal-content">
+                        <div class="modal-body text-center py-5">
+                          카카오톡으로 이동하시겠습니까?
+                        </div>
+                        <div
+                          class="modal-footer d-flex justify-content-around py-1"
+                        >
+                          <button
+                            type="button"
+                            class="btn btn-none text-green px-5"
+                            data-bs-dismiss="modal"
+                          >
+                            취소
+                          </button>
+                          <button
+                            type="button"
+                            class="btn btn-none text-green px-5"
+                          >
+                            확인
+                          </button>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <hr class="text-secondary opacity-25 mt-3" style="width: 98.5%" />
+              <div class="d-flex">
+                <p class="col-3">적립금 적용</p>
+                <div class="col-9">
+                  <div class="d-flex mb-2" style="height: 50px">
+                    <input
+                      type="text"
+                      class="form-control"
+                      placeholder="0"
+                      style="width: 200px"
+                    />
+                    <button
+                      type="button"
+                      class="btn btn-outline-secondary ms-2"
+                      disabled
+                    >
+                      모두사용
+                    </button>
+                  </div>
+                  <p class="text-muted mb-2">
+                    사용가능 적립금
+                    <span class="text-black fw-bold"> 0 </span>
+                    원
+                  </p>
+                  <small class="text-muted">적립금 내역:마이컬리>적립금 </small>
+                </div>
+              </div>
+            </div>
+          </div>
+          <!-- 결제 금액 aside -->
+          <div class="col-4 ms-3">
+            <p class="fs-5 mx-2 mb-3">결제 금액</p>
+            <div class="row mb-3 border" style="margin: 0 11px">
+              <div class="bg-light px-0 pt-3">
+                <div
+                  class="d-flex justify-content-between align-items-center px-3"
+                >
+                  <p class="my-1">주문금액</p>
+                  <p
+                    class="sumcount my-1"
+                    id="sum_p_num"
+                    style="font-size: 20px"
+                  >
+                    금액 합계원
+                  </p>
+                </div>
+                <div
+                  class="d-flex justify-content-between align-items-center px-3"
+                >
+                  <p class="my-1">배송비</p>
+                  <p class="my-1" style="font-size: 20px">배송비원</p>
+                </div>
+                <hr />
+                <div
+                  class="d-flex justify-content-between align-items-center px-3 mb-3"
+                >
+                  <p class="my-1">최종결제금액</p>
+                  <p class="fw-bold my-1" style="font-size: 20px">
+                    최종금액원
+                  </p>
+                </div>
+                <div class="d-flex justify-content-end px-3">
+                  <small class="small text-muted">
+                    <span
+                      class="badge rounded-pill text-black px-2"
+                      style="background-color: #f8cd24"
+                      >적립</span
+                    >
+                    구매 시 5,880원(5%)
+                  </small>
+                </div>
+                <hr class="mb-0" />
+                <div class="bg-white px-2">
+                  <p
+                    class="small text-center py-4 mb-0"
+                    style="font-size: 13.5px; letter-spacing: 0.4px"
+                  >
+                    20시까지 주문하면 내일 새벽에 배송받으실 수 있습니다.
+                  </p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <!-- 결제 수단 -->
+        <div class="col-8">
+          <div class="order-header d-flex justify-content-between">
+            <div>결제 수단</div>
+            <div class="d-flex align-items-center">
+              <input type="checkbox" id="paywith-check" />
+              <label for="paywith-check" class="bi-check-circle">
+                <span class="" style="font-size: 15px"
+                  >선택한 결제 수단을 다음에도 사용</span
+                >
+              </label>
+            </div>
+          </div>
+          <div class="row ms-2 my-4">
+            <div class="d-flex align-items-center pb-3">
+              <p class="col-3 mb-0">결제수단 선택</p>
+              <button class="col-5 btn btn-warning px-0">
+                카카오페이 버튼
+              </button>
+            </div>
+            <hr class="text-secondary opacity-25" style="width: 98.5%" />
+            <p class="text-muted small mb-0">
+              ※ 카카오페이, 토스, 네이버페이, 페이코 결제 시, 결제하신
+              수단으로만 환불되는 점 양해부탁드립니다.
+            </p>
+            <p class="text-muted small">
+              ※ 고객님은 안전거래를 위해 현금 등으로 결제시 저희 쇼핑몰에서
+              가입한 토스 페이먼츠의 구매안전(에스크로) 서비스를 이용하실 수
+              있습니다.
+            </p>
+          </div>
+        </div>
+        <!-- 개인정보 수집/제공 -->
+        <div class="mb-5">
+          <div class="order-header">개인정보 수집/제공</div>
+          <div class="row ms-2 my-4">
+            <div class="d-flex align-items-center py-1 fs-5">
+              <input
+                type="checkbox"
+                id="agreeAll"
+                onclick="toggleAllCheckbox(this);"
+                style="width: 20px; height: 20px"
+              />
+              <label for="agreeAll" class="bi-check-circle">
+                <span class="ms-2">결제 진행 필수 전체 동의</span>
+              </label>
+            </div>
+            <div class="d-flex align-items-center py-1">
+              <input
+                type="checkbox"
+                id="agree1"
+                onclick="checkAllCheckbox();"
+                style="width: 15px; height: 15px"
+              />
+              <label for="agree1">
+                <span class="ms-2">
+                  (필수) 개인정보 수집·이용 및 처리 동의
+                </span>
+              </label>
+            </div>
+            <div class="d-flex align-items-center py-1">
+              <input
+                type="checkbox"
+                id="agree2"
+                onclick="checkAllCheckbox();"
+                style="width: 15px; height: 15px"
+              />
+              <label for="agree2">
+                <span class="ms-2">(필수) 개인정보 제3자 제공 동의</span>
+              </label>
+            </div>
+            <div class="d-flex align-items-center py-1">
+              <input
+                type="checkbox"
+                id="agree3"
+                onclick="checkAllCheckbox();"
+                style="width: 15px; height: 15px"
+              />
+              <label for="agree3">
+                <span class="ms-2">
+                  (필수) 전자지급 결제대행 서비스 이용약관 동의
+                </span>
+              </label>
+            </div>
+          </div>
+          <hr class="text-secondary opacity-25" />
+          <p class="text-muted small mb-0">
+            ※ 브로컬리에서 판매되는 상품 중에는 브로컬리에 입점한 개별 판매자가
+            판매하는 마켓플레이스(오픈마켓) 상품이 포함되어 있습니다.
+          </p>
+          <p class="text-muted small" style="margin-left: 18.5px">
+            마켓플레이스(오픈마켓) 상품의 경우 컬리는 통신판매중개자로서
+            통신판매의 당사자가 아닙니다. 컬리는 해당 상품의 주문, 품질,
+            교환/환불 등 의무와 책임을 부담하지 않습니다.
+          </p>
+        </div>
+        <!-- 결제버튼 -->
+        <div class="row justify-content-center">
+          <button
+            type="button"
+            class="btn btn-green py-3 mb-4"
+            style="width: 300px"
+          >
+            {{ 최종금액 }}원 결제하기
+          </button>
+          <small class="text-center text-muted"
+            >[주문완료]상태일 경우에만 주문 취소 가능합니다.
+            <br />
+            미성년자가 결제 시 법정대리인이 그 거래를 취소할 수 있습니다.
+            <br />
+            배송 불가 시, 결제수단으로 환불됩니다. 일부 또는 전체 상품이 품절
+            등의 사유로 배송 되지 못할 경우, 신속하게 환불해 드리겠습니다.
+            <br />
+            카카오페이, 토스, 네이버페이, 페이코 결제 시, 결제하신 수단으로만
+            환불됩니다.
+          </small>
+        </div>
+      </div>
+      <!-- container-->
+    </div>
+
+    <!-- 개인정보 동의 -->
+    <script type="text/javascript">
+      function checkAllCheckbox() {
+        var agreeAllCheckbox = document.getElementById("agreeAll");
+        var e = document.querySelectorAll(
+          'input[type="checkbox"]:not(#agreeAll)'
+        );
+        for (var i = 0, len = e.length; i < len; ++i) {
+          if (!e[i].checked) {
+            agreeAllCheckbox.checked = false;
+            return;
+          }
+        }
+        agreeAllCheckbox.checked = true;
+      }
+
+      function toggleAllCheckbox(source) {
+        var e = document.querySelectorAll(
+          'input[type="checkbox"]:not(#agreeAll)'
+        );
+        for (var i = 0, len = e.length; i < len; ++i) {
+          e[i].checked = source.checked;
+        }
+      }
+    </script>
+
+{% endblock body %}

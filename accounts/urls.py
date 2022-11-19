@@ -38,4 +38,7 @@ urlpatterns = [
     path("followlist", views.followlist, name="followlist"),
     ### 언팔로잉 버튼
     path("unfollow/<int:product_user_id>/", views.unfollow, name="unfollow"),
+    path("orderlist/", views.orderlist, name="orderlist"),
+    path("send_valid_number/", views.send_valid_number, name="send_valid_number"),
+    path("check_valid_number/", views.check_valid_number, name="check_valid_number"),
 ]

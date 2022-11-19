@@ -162,12 +162,12 @@ $("a").on("click", function(e){
                 리뷰
               </a>
             {% else %}
-              <button
+            <a href="{% url 'accounts:orderlist' %}"
               type="button"
               class="list-group-item list-group-item-action"
             >
-              주문 내역(미구현)
-            </button>
+              주문 내역
+            </a>
             <a
               type="button"
               class="list-group-item list-group-item-action"
@@ -205,7 +205,7 @@ $("a").on("click", function(e){
               class="list-group-item list-group-item-action border-top"
               href="{% url 'accounts:signout' %}"
             >
-              계정 삭제(미구현)
+              계정 삭제
             </a>
           </div>
         </div>

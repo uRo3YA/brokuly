@@ -39,6 +39,7 @@ INSTALLED_APPS = [
     "reviews",
     "qnas",
     # Package
+    "mathfilters",
     "multiselectfield",
     "imagekit",
     "django_bootstrap5",
