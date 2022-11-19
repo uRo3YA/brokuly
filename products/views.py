@@ -1,7 +1,7 @@
 from django.shortcuts import render, redirect, get_object_or_404
 from .forms import ProductForm
 from .models import Product
-from .models import Cart
+
 from reviews.models import Review, ReviewImage
 from reviews.forms import ReviewForm
 from accounts.models import User
@@ -126,8 +126,8 @@ def update(request, pk):
 
 @seller_required
 def delete(request, pk):
+    info = Product.objects.get(pk=pk)
     if request.user == info.user:
-        info = Product.objects.get(pk=pk)
         info.delete()
     else:
         messages.warning(request, "잘못된 접근입니다.")

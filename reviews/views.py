@@ -115,7 +115,7 @@ def comment_create(request, pk):
     if comment_form.is_valid():
         comment = comment_form.save(commit=False)
         comment.review = review
-        # comment.user = request.user
+        comment.user = request.user
         comment.save()
         context = {
             "content": comment.content,

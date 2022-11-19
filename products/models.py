@@ -20,21 +20,18 @@ class Product(models.Model):
     weight = models.CharField(max_length=64)
     produt_thum_img = ProcessedImageField(
         upload_to="images/",
-        blank=True,
         processors=[ResizeToFill(550, 708)],
         format="JPEG",
         options={"quality": 80},
     )
     produt_detail_img = ProcessedImageField(
         upload_to="images/",
-        blank=True,
         processors=[ResizeToFill(1010, 671)],
         format="JPEG",
         options={"quality": 80},
     )
     produt_desc_img = ProcessedImageField(
         upload_to="images/",
-        blank=True,
         processors=[ResizeToFill(1010, 1010)],
         format="JPEG",
         options={"quality": 80},
@@ -56,28 +53,11 @@ class Product(models.Model):
             os.remove(os.path.join(settings.MEDIA_ROOT, self.produt_thum_img.path))
         if self.produt_desc_img:
             os.remove(os.path.join(settings.MEDIA_ROOT, self.produt_desc_img.path))
+        if self.produt_detail_img:
+            os.remove(os.path.join(settings.MEDIA_ROOT, self.produt_detail_img.path))
         super(Product, self).delete(*args, **kargs)
 
     class Meta:
         db_table = "상품"
         verbose_name = "상품"
         verbose_name_plural = "상품"
-
-
-# 일단 장바구니 구현 ->> 이동 필요, accunts앱으로?
-class Cart(models.Model):
-    user = models.ForeignKey(
-        settings.AUTH_USER_MODEL,
-        on_delete=models.CASCADE,
-    )
-    products = models.ForeignKey(
-        Product, on_delete=models.CASCADE, related_name="wish_product", blank=True
-    )
-    quantity = models.IntegerField(default=1)
-
-    def __str__(self):
-        return "{} // {}".format(self.user, self.products.name)
-
-    def sub_total(self):
-        # 템플릿에서 사용하는 변수로 장바구니에 담긴 각 상품의 합계
-        return self.products.price * self.quantity
