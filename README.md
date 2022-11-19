@@ -1,2 +1,181 @@
-# SPJT-02
-This repository is second result of practice of scrum.
+# Brokuly🥦
+
+> 이커머스 사이트 [ Brokuly🥦] project
+> 
+> ![logo.png](assets/9d4aadd340d3ad41028ddcbf41a645a7a24fb09a.png)
+
+## 🔖 Table of contents
+
+- [General info](#general-info)
+- [Requirements](#requirements)
+- [Modeling](#modeling)
+- [Technologies](#technologies)
+- [Features](#features)
+- [Reviews](#reviews)
+
+## 📜 General info
+
+- !!여기에 메인화면 사진 넣기!!
+- 개발기간 : 2022. 11. 09 - 2022. 11. 22
+- 팀원 :  
+  Front-end([김예린](https://github.com/ererink/), [임선주](https://github.com/snnzzoo/))
+  Back-end([이동근](https://github.com/qlghwp123), [이태극](https://github.com/uRo3YA), [최준우](<(https://github.com/wnsn8546)>))
+
+## 🧭Requirements
+
+- 1️⃣ 서비스에는 최소 20개의 콘텐츠 정보(여행지, 맛집, 영화, 상품)가 생성된 상태여야 합니다.
+- 2️⃣ 콘텐츠 정보 & 후기 공유 커뮤니티 서비스에 필요한 최소한의 CRUD를 구현해야 합니다.
+- 3️⃣ 회원 인증 기능을 구현하고, 권한에 따라 서비스 사용을 제한해야 합니다.
+- 4️⃣ 사용자는 콘텐츠 또는 후기에 좋아요를 남길 수 있어야합니다.
+- 5️⃣ 사용자간 팔로우를 할 수 있어야합니다.
+- 6️⃣ HTML / CSS / JavaScript를 활용해서 웹 사이트를 디자인합니다.
+- **7️⃣ 완성한 서비스는 배포해야하며 발표회에서는 배포된 서비스를 시연해야 합니다.**
+
+## 🗃️Modeling
+
+- ERD 모델
+  
+  > 여기에 ERD 사진(수정한거 넣기)
+
+## 💻Technologies
+
+### Technology stack
+
+<img src="https://img.shields.io/badge/github-181717?style=for-the-badge&logo=github&logoColor=white">
+<img src="https://img.shields.io/badge/Notion-000000?style=for-the-badge&logo=Notion&logoColor=white">
+<img src="https://img.shields.io/badge/Discord-5865F2?style=for-the-badge&logo=Discord&logoColor=white">
+
+<img src="https://img.shields.io/badge/Python-3776AB?style=for-the-badge&logo=Python&logoColor=white">
+<img src="https://img.shields.io/badge/Django-092E20?style=for-the-badge&logo=Django&logoColor=white">
+
+<img src="https://img.shields.io/badge/HTML5-E34F26?style=for-the-badge&logo=HTML5&logoColor=white">
+<img src="https://img.shields.io/badge/Javascript-F7DF1E?style=for-the-badge&logo=Javascript&logoColor=white">
+<img src="https://img.shields.io/badge/CSS3-1572B6?style=for-the-badge&logo=CSS3&logoColor=white">
+<img src="https://img.shields.io/badge/Axios-5A29E4?style=for-the-badge&logo=Axios&logoColor=white">
+
+<img src="https://img.shields.io/badge/Selenium-43B02A?style=for-the-badge&logo=Selenium&logoColor=white">
+<img src="https://img.shields.io/badge/Amazon AWS-232F3E?style=for-the-badge&logo=Amazon AWS&logoColor=white">
+
+## 🔍Features
+
+### 담당 역할
+
+#### 이동근
+
+- ⭐Team Leader⭐
+- Back-end(Accounts App)
+- 
+
+#### 김예린
+
+- Front-end
+- 
+
+#### 임선주
+
+- Front-end
+- 
+
+#### 이태극
+
+- Back-end (Products, Review App, Accounts 일부)
+- Crawling
+- Search
+
+#### 최준우
+
+- Back-end(Order,Qnas)
+- Social Login(Naver, KaKao)
+- 
+
+### 기능 소개
+
+### 각 앱 기능이 분리되지 않고 유기적으로 연결
+
+### Main Page
+
+> 여기에 Navbar 기능 소개 넣기
+
+> 여러섹션에서 각각의 조회기준을 통해 여러 객체 출력
+
+### Accounts APP
+
+- CRUD
+  
+  > 
+
+### Products APP
+
+- 데코레이터
+  
+  > 데코레이터 구성으로 유저 권한(판매자/구매자)에 따른 기능 접근 제한
+
+- CRUD
+  
+  > 상품 생성시 멀티셀렉트 필드를 이용한 다양한 옵션 선택 가능
+
+- 크롤링
+  
+  > 크롤링을 통한 기존 상품들 대량 등록
+
+- 페이지네이션
+  
+  > 으으음.... 여기는 뭐라적지...
+
+- 검색 기능
+  
+  > Q 모듈을 이용한 검색기능
+  > Listview를 이용한 페이지네이션
+
+- 판매자 팔로우 기능
+  
+  > 비동기 통신구현 Accounts 앱으로 연결
+  > 마이페이지의 팔로잉 목록에서 판매자의 최근 판매 상품 볼 수 있음
+
+- 위시리스트 기능
+  
+  > 비동기 통신으로 Accounts 앱으로 연결
+
+- 상품문의 기능
+  
+  > 상품별 상세 페이지에서 문의사항과 답변을 출력하며
+  > 기능은 Qnas앱으로 연결
+
+- 장바구니 기능
+  
+  > Orders 앱으로 연결
+
+### Reviews APP
+
+- CRUD
+  
+  > 상품 생성시 멀티셀렉트 필드를 이용한 다양한 옵션 선택 가능
+  > 리뷰 모델과 분리한 이미지 모델을 이용해 하나의 리뷰에 여러 이미지 삽입
+
+- 평점
+  
+  > 상품에 해당하는 리뷰 평점을 계산하여 상품 평점 반환
+
+- 추천
+  
+  > 비동기 통신으로 구현
+
+- 댓글
+  
+  > 비동기 통신으로 구현
+
+### Qnas APP
+
+### Orders APP
+
+## 💬Reviews
+
+- 이동근
+
+- 김예린
+
+- 임선주
+
+- 이태극
+
+- 최준우
