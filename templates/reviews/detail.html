@@ -79,10 +79,10 @@
                                     <div class="d-flex  justify-content-between">
                                         <h6 class="link mx-4">
                                             <div class="title_link" >
-                                                {{ comment.user.username }}</div>
+                                                {{ comment.user.name }}</div>
                                         </h6>
                                         <h6 class="link mx-4">
-                                            여기는 댓글 생성시간
+                                            {{comment.created|date:"y-m-d"}}
                                         </h6>
                                     </div>
                                     <p>
