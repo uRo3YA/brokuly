@@ -81,8 +81,10 @@
 #### 최준우
 
 -   Back-end(Order,Qnas)
--   Social Login(Naver, KaKao)
--
+-   Social Login(Naver, KaKao), Social Share(Facebook, Twitter, Naver, KaKao)
+-   KAKAO address search, map API, KAKAO pay API
+-   ID , Email duplicate check, Email verification number check
+-   Bug Fix
 
 ### 기능 소개
 
@@ -162,9 +164,16 @@
     > 비동기 통신으로 구현
 
 ### Qnas APP
-
+-   CRUD
+    
+    > 상품에 대한 구매자의 문의 작성, 조회, 수정, 삭제
+    > 문의에 대한 판매자의 답변 작성, 조회, 수정, 삭제
+    > 답변대기, 답변완료상태 표시
 ### Orders APP
-
+- 주문
+    
+    > 카트 -> 주문서 -> 주문완료의 흐름
+    > 카카오페이 API 를 활요한 결제 확인 테스트 구현.
 ## 💬Reviews
 
 -   이동근
