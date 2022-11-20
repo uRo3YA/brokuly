@@ -8,6 +8,8 @@ import requests
 # Create your views here.
 def orders_create(request):
     if request.method == "POST":
+        
+
         temp_product_list = json.loads(request.body)
         product_list = []
         total_quantity = 0
