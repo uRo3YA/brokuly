@@ -1,41 +1,45 @@
 # Brokuly🥦
 
 > 이커머스 사이트 [ Brokuly🥦] project
->
+> 
 > ![logo.png](assets/9d4aadd340d3ad41028ddcbf41a645a7a24fb09a.png)
 
 ## 🔖 Table of contents
 
--   [General info](#general-info)
--   [Requirements](#requirements)
--   [Modeling](#modeling)
--   [Technologies](#technologies)
--   [Features](#features)
--   [Reviews](#reviews)
+- [General info](#general-info)
+- [Requirements](#requirements)
+- [Modeling](#modeling)
+- [Technologies](#technologies)
+- [Features](#features)
+- [Reviews](#reviews)
 
 ## 📜 General info
 
--   !!여기에 메인화면 사진 넣기!!
--   개발기간 : 2022. 11. 09 - 2022. 11. 22
--   팀원 :  
-    Front-end([김예린](https://github.com/ererink/), [임선주](https://github.com/snnzzoo/))
-    Back-end([이동근](https://github.com/qlghwp123/), [이태극](https://github.com/uRo3YA/), [최준우](https://github.com/wnsn8546/))
+- !!여기에 메인화면 사진 넣기!!
+- 개발기간 : 2022. 11. 09 - 2022. 11. 22
+- 팀원 :  
+  Front-end([김예린](https://github.com/ererink/), [임선주](https://github.com/snnzzoo/))
+  Back-end([이동근](https://github.com/qlghwp123/), [이태극](https://github.com/uRo3YA/), [최준우](https://github.com/wnsn8546/))
 
 ## 🧭Requirements
 
--   1️⃣ 서비스에는 최소 20개의 콘텐츠 정보(여행지, 맛집, 영화, 상품)가 생성된 상태여야 합니다.
--   2️⃣ 콘텐츠 정보 & 후기 공유 커뮤니티 서비스에 필요한 최소한의 CRUD를 구현해야 합니다.
--   3️⃣ 회원 인증 기능을 구현하고, 권한에 따라 서비스 사용을 제한해야 합니다.
--   4️⃣ 사용자는 콘텐츠 또는 후기에 좋아요를 남길 수 있어야합니다.
--   5️⃣ 사용자간 팔로우를 할 수 있어야합니다.
--   6️⃣ HTML / CSS / JavaScript를 활용해서 웹 사이트를 디자인합니다.
--   **7️⃣ 완성한 서비스는 배포해야하며 발표회에서는 배포된 서비스를 시연해야 합니다.**
+- 1️⃣ 서비스에는 최소 20개의 콘텐츠 정보(여행지, 맛집, 영화, 상품)가 생성된 상태여야 합니다.
+- 2️⃣ 콘텐츠 정보 & 후기 공유 커뮤니티 서비스에 필요한 최소한의 CRUD를 구현해야 합니다.
+- 3️⃣ 회원 인증 기능을 구현하고, 권한에 따라 서비스 사용을 제한해야 합니다.
+- 4️⃣ 사용자는 콘텐츠 또는 후기에 좋아요를 남길 수 있어야합니다.
+- 5️⃣ 사용자간 팔로우를 할 수 있어야합니다.
+- 6️⃣ HTML / CSS / JavaScript를 활용해서 웹 사이트를 디자인합니다.
+- **7️⃣ 완성한 서비스는 배포해야하며 발표회에서는 배포된 서비스를 시연해야 합니다.**
 
 ## 🗃️Modeling
 
--   ERD 모델
+- ERD 모델
+  
+  > ![brokuly_20221120_221825.png](assets/44acdf0f19105dcc740be7e9619498ca38c07c7f.png)
 
-    > 여기에 ERD 사진(수정한거 넣기)
+- 와이어 프레임
+  
+  > ![Screenshot 2022-11-20 at 22.24.30.JPG](assets/57f934bf2a6c240800146820c4a25af9436a08cb.JPG)
 
 ## 💻Technologies
 
@@ -55,36 +59,36 @@
 
 #### 이동근
 
--   ⭐Team Leader⭐
--   Back-end(Accounts App)
--
+- ⭐Team Leader⭐
+- Back-end(Accounts App)
+- 
 
 #### 김예린
 
--   Front-end
--   메인 페이지, 상품 메인 페이지, 상품 상세 페이지 화면 구현
--   navbar 구현
--   회원가입 및 로그인, 회원탈퇴 페이지 화면 구현
+- Front-end
+- 메인 페이지, 상품 메인 페이지, 상품 상세 페이지 화면 구현
+- navbar 구현
+- 회원가입 및 로그인, 회원탈퇴 페이지 화면 구현
 
 #### 임선주
 
--   Front-end
--
+- Front-end
+- 
 
 #### 이태극
 
--   Back-end (Products, Review App, Accounts 일부)
--   Crawling
--   Search
--   Bug Fix
+- Back-end (Products, Review App, Accounts 일부)
+- Crawling
+- Search
+- Bug Fix
 
 #### 최준우
 
--   Back-end(Orders APP, Qnas APP)
--   Social Login(Naver, KaKao) API, Social Share(Facebook, Twitter, Naver, KaKao)API
--   KAKAO address search, map API, KAKAO pay API
--   ID , Email duplicate check, Email verification number check
--   Bug Fix
+- Back-end(Orders APP, Qnas APP)
+- Social Login(Naver, KaKao) API, Social Share(Facebook, Twitter, Naver, KaKao)API
+- KAKAO address search, map API, KAKAO pay API
+- ID , Email duplicate check, Email verification number check
+- Bug Fix
 
 ### 기능 소개
 
@@ -92,99 +96,115 @@
 
 ### Main Page
 
--   Navbar
-    > 여기에 네브바 소개글 넣기
--   Section
-    > 각각의 섹션에서 조회기준을 통해 여러 객체 출력
+- Navbar
+  
+  > 여기에 네브바 소개글 넣기
+
+- Section
+  
+  > 각각의 섹션에서 조회기준을 통해 여러 객체 출력
 
 ### Accounts APP
 
--   CRUD
-
-    >
+- CRUD
+  
+  > 
 
 ### Products APP
 
--   데코레이터
+- index 페이지
+  
+  > 호버로 제품별 이미지 효과 
 
-    > 데코레이터 구성으로 유저 권한(판매자/구매자)에 따른 기능 접근 제한
+- 상세 페이지
 
--   CRUD
+  > 상품 리뷰 작성은 모달 팝업으로 제작
+  > 상품 문의는 아코디언으로 확장
 
-    > 상품 생성시 멀티셀렉트 필드를 이용한 다양한 옵션 선택 가능
+- 데코레이터
+  
+  > 데코레이터 구성으로 유저 권한(판매자/구매자)에 따른 기능 접근 제한
 
--   크롤링
+- CRUD
+  
+  > 상품 생성시 멀티셀렉트 필드를 이용한 다양한 옵션 선택 가능
 
-    > 크롤링을 통한 기존 상품들 대량 등록
+- 크롤링
+  
+  > 크롤링을 통한 기존 상품들 대량 등록
 
--   페이지네이션
+- 페이지네이션
+  
+  > 페이징처리하여 상품별 출력 갯수 적절히 조절
 
-    > 페이징처리하여 상품별 출력 갯수 적절히 조절
+- 검색 기능
+  
+  > Q 모듈을 이용한 검색기능
+  > Listview를 이용한 페이지네이션
 
--   검색 기능
+- 판매자 팔로우 기능
+  
+  > 비동기 통신으로구현 Accounts 앱으로 연결
+  > 마이페이지의 팔로잉 목록에서 판매자의 최근 판매 상품 볼 수 있음
 
-    > Q 모듈을 이용한 검색기능
-    > Listview를 이용한 페이지네이션
+- 위시리스트 기능
+  
+  > 비동기 통신으로구현 Accounts 앱으로 연결
 
--   판매자 팔로우 기능
+- 상품문의 기능
+  
+  > 상품별 상세 페이지에서 문의사항과 답변을 출력하며
+  > 기능은 Qnas앱으로 연결
 
-    > 비동기 통신으로구현 Accounts 앱으로 연결
-    > 마이페이지의 팔로잉 목록에서 판매자의 최근 판매 상품 볼 수 있음
-
--   위시리스트 기능
-
-    > 비동기 통신으로구현 Accounts 앱으로 연결
-
--   상품문의 기능
-
-    > 상품별 상세 페이지에서 문의사항과 답변을 출력하며
-    > 기능은 Qnas앱으로 연결
-
--   장바구니 기능
-
-    > Orders 앱으로 연결
+- 장바구니 기능
+  
+  > Orders 앱으로 연결
 
 ### Reviews APP
 
--   CRUD
+- CRUD
+  
+  > 상품 생성시 멀티셀렉트 필드를 이용한 다양한 옵션 선택 가능
+  > 리뷰 모델과 분리한 이미지 모델을 이용해 하나의 리뷰에 여러 이미지 삽입
 
-    > 상품 생성시 멀티셀렉트 필드를 이용한 다양한 옵션 선택 가능
-    > 리뷰 모델과 분리한 이미지 모델을 이용해 하나의 리뷰에 여러 이미지 삽입
+- 평점
+  
+  > 상품에 해당하는 리뷰 평점을 계산하여 상품 평점 반환
 
--   평점
+- 추천
+  
+  > 비동기 통신으로 구현
 
-    > 상품에 해당하는 리뷰 평점을 계산하여 상품 평점 반환
-
--   추천
-
-    > 비동기 통신으로 구현
-
--   댓글
-
-    > 비동기 통신으로 구현
+- 댓글
+  
+  > 비동기 통신으로 구현
 
 ### Qnas APP
--   CRUD
-    
-    > 상품에 대한 구매자의 문의 작성, 조회, 수정, 삭제
 
-    > 문의에 대한 판매자의 답변 작성, 조회, 수정, 삭제
+- CRUD
+  
+  > 상품에 대한 구매자의 문의 작성, 조회, 수정, 삭제
+  
+  > 문의에 대한 판매자의 답변 작성, 조회, 수정, 삭제
+  
+  > 답변대기, 답변완료상태 표시
 
-    > 답변대기, 답변완료상태 표시
 ### Orders APP
+
 - 주문
+  
+  > 카트 -> 주문서 -> 주문완료의 흐름
+  
+  > 카카오페이 API 를 활요한 결제 확인 테스트 구현.
 
-    > 카트 -> 주문서 -> 주문완료의 흐름
-
-    > 카카오페이 API 를 활요한 결제 확인 테스트 구현.
 ## 💬Reviews
 
--   이동근
+- 이동근
 
--   김예린
+- 김예린
 
--   임선주
+- 임선주
 
--   이태극
+- 이태극
 
--   최준우
+- 최준우
