@@ -9,8 +9,9 @@
     <div class="d-flex justify-content-between">
       <h3 class="fw-bold">상품문의</h3>
       <select onchange="if(this.value) location.href=(this.value);">
-        <option value="#">답변 대기중</option>
-        <option value="#" >답변 완료</option>
+        <option value="recent" {% if so == 'recent' %}selected{% endif %} hidden >전체</option>
+        <option value="unanswer" {% if so == 'unanswer' %}selected{% endif %}>답변대기</option>
+        <option value="answered" {% if so == 'answered' %}selected{% endif %}>답변완료</option>
       </select>
     </div>
     <hr class="green-line mb-4" />
