@@ -10,13 +10,29 @@
 
 ## 🔖 Table of contents
 
-- [General info](#general-info)
-- [Requirements](#requirements)
-- [Modeling](#modeling)
-- [Technologies](#technologies)
-- [Features](#features)
-- [Reviews](#reviews)
-- [Scrum Records](#scrum-records)
+- [Brokuly🥦](#brokuly)
+  - [🔖 Table of contents](#-table-of-contents)
+  - [📜 General info](#-general-info)
+  - [🧭Requirements](#requirements)
+  - [🗃️Modeling](#️modeling)
+  - [💻Technologies](#technologies)
+    - [Technology stack](#technology-stack)
+  - [🔍Features](#features)
+    - [담당 역할](#담당-역할)
+      - [이동근](#이동근)
+      - [김예린](#김예린)
+      - [임선주](#임선주)
+      - [이태극](#이태극)
+      - [최준우](#최준우)
+    - [기능 소개](#기능-소개)
+    - [Main Page](#main-page)
+    - [Accounts APP](#accounts-app)
+    - [Products APP](#products-app)
+    - [Reviews APP](#reviews-app)
+    - [Qnas APP](#qnas-app)
+    - [Orders APP](#orders-app)
+  - [💬Reviews](#reviews)
+  - [Scrum Records](#scrum-records)
 
 
 
@@ -78,7 +94,7 @@
 
 * Infra
 
-  <img src="https://img.shields.io/badge/Amazon AWS-232F3E?style=for-the-badge&logo=Amazon AWS&logoColor=white"><img src="https://img.shields.io/badge/Ubuntu-E95420?style=for-the-badge&logo=ubuntu&logoColor=white"><img src="https://img.shields.io/badge/gunicorn-%298729.svg?style=for-the-badge&logo=gunicorn&logoColor=white"><img src="https://img.shields.io/badge/nginx-%23009639.svg?style=for-the-badge&logo=nginx&logoColor=white">
+  <img src="https://img.shields.io/badge/Amazon AWS-232F3E?style=for-the-badge&logo=Amazon AWS&logoColor=white"> <img src="https://img.shields.io/badge/Ubuntu-E95420?style=for-the-badge&logo=ubuntu&logoColor=white"> <img src="https://img.shields.io/badge/gunicorn-%298729.svg?style=for-the-badge&logo=gunicorn&logoColor=white"> <img src="https://img.shields.io/badge/nginx-%23009639.svg?style=for-the-badge&logo=nginx&logoColor=white">
 
 
 
