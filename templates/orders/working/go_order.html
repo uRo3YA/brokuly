@@ -74,7 +74,11 @@
               </div>
             </div>
           </div>
+        {% if order.total_quantity == 1 %}
+          <div class="text-center py-3">{{ product_list.0.product.title }} 상품을 주문합니다.</div>
+        {% else %}
           <div class="text-center py-3">{{ product_list.0.product.title }} 외 {{ order.total_quantity | sub:1 }} 개 상품을 주문합니다.</div>
+        {% endif %}
         </div>
         <!-- 주문자 정보 -->
         <div class="mb-5">

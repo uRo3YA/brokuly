@@ -14,3 +14,4 @@ class Order(models.Model):
     updated_at = models.DateTimeField(auto_now=True)
     mileage = models.IntegerField()
     status = models.IntegerField(default=0)
+    tid = models.TextField(null=True,blank=True)
