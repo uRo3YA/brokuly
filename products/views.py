@@ -19,9 +19,15 @@ from accounts.decorators import seller_required
 from django.contrib.auth.decorators import login_required
 
 # Create your views here.
-def index(request):
+def index(request, type):
+    so_type = type
+    if so_type == "hot":
+        products = Product.objects.all().order_by("-price")
+    elif so_type == "new":
+        products = Product.objects.all().order_by("-id")
+    else:
+        products = Product.objects.all()
 
-    products = Product.objects.all()
     # 입력 파라미터
     page = request.GET.get("page", "1")
     # 페이징

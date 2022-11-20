@@ -5,7 +5,7 @@ from qnas import views as qnas_views
 #
 app_name = "products"
 urlpatterns = [
-    path("", views.index, name="index"),
+    path("<str:type>", views.index, name="index"),
     path("create/", views.create, name="create"),
     path("<int:pk>/", views.detail, name="detail"),
     path("<int:pk>/update/", views.update, name="update"),
