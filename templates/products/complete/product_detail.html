@@ -370,13 +370,13 @@
           <div id="flush-collapseOne-{{question.pk}}" class="accordion-collapse collapse" aria-labelledby="flush-headingOne-{{question.pk}}" data-bs-parent="#accordionFlushExample">
                 <div class="accordion-body answer-form">
                     <div class="container d-flex mt-3">
-                        <img src="./main.assets/Q_icon.png" width="30rem" height="30rem">
+                        <img src="{% static 'images/Q_icon.png' %}" width="30rem" height="30rem">
                             <p class="ms-3 mt-3">{{ question.content}}</p>
                     </div>
                     {% for answer in answers %}
                     {% if answer.question_id == question.pk%}
                     <div class="container d-flex mt-5">
-                        <img src="./main.assets/A_icon.png" width="30rem" height="30rem">
+                        <img src="{% static 'images/A_icon.png' %}" width="30rem" height="30rem">
                         <p class="mx-3 mt-3">{{ answer.content }}</p>
                     </div>
                     {% endif %}
