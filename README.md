@@ -22,7 +22,7 @@
 
 ## 📜 General info
 
-- !!여기에 메인화면 사진 넣기!!
+- ![Untitled.png](assets/ee7adae9988bb42a593642e491a4d5d192d2b2ff.png)
 - 개발기간 : 2022. 11. 09 - 2022. 11. 22
 - 팀원 :  
   Front-end([김예린](https://github.com/ererink/), [임선주](https://github.com/snnzzoo/))
@@ -44,13 +44,13 @@
 
 ## 🗃️Modeling
 
-- ERD 모델
-  
-  > ![brokuly_20221120_221825.png](assets/44acdf0f19105dcc740be7e9619498ca38c07c7f.png)
+### ERD 모델
 
-- 와이어 프레임
-  
-  > ![Screenshot 2022-11-20 at 22.24.30.JPG](assets/57f934bf2a6c240800146820c4a25af9436a08cb.JPG)
+> ![brokuly_20221120_221825.png](assets/44acdf0f19105dcc740be7e9619498ca38c07c7f.png)
+
+### 와이어 프레임
+
+> ![Screenshot 2022-11-20 at 22.24.30.JPG](assets/57f934bf2a6c240800146820c4a25af9436a08cb.JPG)
 
 
 
@@ -121,7 +121,11 @@
 
 - Navbar
   
+
+  > ![Untitled (1).png](assets/56bf0f649a919283257a0a5de499fe3f470fe333.png)
+
   > 스크롤을 내리면 다른 Navbar 출력 
+
 
 - Section
   
@@ -183,10 +187,10 @@
 
 - index 페이지
   
-  > 호버로 제품별 이미지 효과 
+  > 호버로 제품별 이미지 효과
 
 - 상세 페이지
-
+  
   > 상품 리뷰 작성은 모달 팝업으로 제작
   > 상품 문의는 아코디언으로 확장
 
@@ -294,7 +298,9 @@
 - 임선주
   - 
 - 이태극
-  - 
+ 
+  > 왜 사람들이 Django에서 함수형 뷰를 안쓰고, 제네릭 뷰로 상속 받아서 쓰는지 알게되었습니다.<br> 특히 마이페이지 구현이나, 검색의 경우 이전 페이지에서 값들 불러온 상태에서 렌더링이 되야 하는데 <br>일반 함수형 뷰를 쓸 경우 context에 많은양을 집어넣어야 해서 다른 코드를 재활용하기 힘들었습니다.
+  
 - 최준우
   - 이전 프로젝트에서 하고 싶었던 다양한 API들을 사용해볼 수 있었던 기회였습니다.
   - 주문, 이메일 인증 등의 기능 흐름을 살펴보고 해당 기능을 구현할 수 있는 다양한 방법들을 찾아 볼 수 있었습니다.
@@ -309,3 +315,4 @@ main 브랜치의 경우
 
 develop 브랜치의 경우
 [스크럼 일지 바로가기!](https://github.com/qlghwp123/SPJT-02/tree/develop/scrum)
+
