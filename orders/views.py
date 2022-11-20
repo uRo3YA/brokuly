@@ -8,8 +8,9 @@ import requests
 # Create your views here.
 def orders_create(request):
     if request.method == "POST":
-        
-
+        orders = Order.objects.filter(user_id=request.user.pk, status=0)
+        for i in orders:
+            i.delete()
         temp_product_list = json.loads(request.body)
         product_list = []
         total_quantity = 0
