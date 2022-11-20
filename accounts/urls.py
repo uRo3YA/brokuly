@@ -21,7 +21,7 @@ urlpatterns = [
     path("review/", views.review, name="review"),
     path("check/", views.check, name="check"),
     path("check_id/", views.check_id, name="check_id"),
-     path("check_email/", views.check_email, name="check_email"),
+    path("check_email/", views.check_email, name="check_email"),
     path("check/update/", views.update, name="update"),
     path("login/naver_callback/", views.naver_callback, name="naver_callback"),
     path("id_check/", views.id_check, name="id_check"),
@@ -29,7 +29,11 @@ urlpatterns = [
     ##
     path("product_management/", views.product_management, name="product_management"),
     ### 내 제품 문의사항 모아보기
-    path("question_management/", views.question_management, name="question_management"),
+    path(
+        "question_management/<str:type>",
+        views.question_management,
+        name="question_management",
+    ),
     ### 내가 한 문의사항 모아보기myquestion
     path("myquestion/", views.myquestion, name="myquestion"),
     path("signout/", views.signout, name="signout"),
