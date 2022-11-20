@@ -13,3 +13,4 @@ class Order(models.Model):
     created_at = models.DateTimeField(auto_now_add=True)
     updated_at = models.DateTimeField(auto_now=True)
     mileage = models.IntegerField()
+    status = models.IntegerField(default=0)
