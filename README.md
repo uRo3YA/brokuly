@@ -8,21 +8,43 @@
 
 ## 🔖 Table of contents
 
-- [General info](#general-info)
-- [Requirements](#requirements)
-- [Modeling](#modeling)
-- [Technologies](#technologies)
-- [Features](#features)
-- [Reviews](#reviews)
-- [Scrum Record](#Scrum Record)
+- [Brokuly🥦](#brokuly)
+  - [🔖 Table of contents](#-table-of-contents)
+  - [📜 General info](#-general-info)
+  - [🧭Requirements](#requirements)
+  - [🗃️Modeling](#️modeling)
+  - [💻Technologies](#technologies)
+    - [Technology stack](#technology-stack)
+  - [🔍Features](#features)
+    - [담당 역할](#담당-역할)
+      - [이동근](#이동근)
+      - [김예린](#김예린)
+      - [임선주](#임선주)
+      - [이태극](#이태극)
+      - [최준우](#최준우)
+    - [기능 소개](#기능-소개)
+    - [Main Page](#main-page)
+    - [Accounts APP](#accounts-app)
+    - [Products APP](#products-app)
+    - [Reviews APP](#reviews-app)
+    - [Qnas APP](#qnas-app)
+    - [Orders APP](#orders-app)
+  - [💬Reviews](#reviews)
+  - [Scrum Records](#scrum-records)
 
 ## 📜 General info
 
-- ![Untitled.png](assets/ee7adae9988bb42a593642e491a4d5d192d2b2ff.png)
+- 메인화면 사진
+
+  ![Untitled.png](assets/ee7adae9988bb42a593642e491a4d5d192d2b2ff.png)
+
 - 개발기간 : 2022. 11. 09 - 2022. 11. 22
-- 팀원 :  
-  Front-end([김예린](https://github.com/ererink/), [임선주](https://github.com/snnzzoo/))
-  Back-end([이동근](https://github.com/qlghwp123/), [이태극](https://github.com/uRo3YA/), [최준우](https://github.com/wnsn8546/))
+
+- 팀원 
+  
+  - Front-end([김예린](https://github.com/ererink/), [임선주](https://github.com/snnzzoo/))
+  - Back-end([이동근](https://github.com/qlghwp123/), [이태극](https://github.com/uRo3YA/), [최준우](https://github.com/wnsn8546/))
+  
 
 ## 🧭Requirements
 
@@ -36,13 +58,13 @@
 
 ## 🗃️Modeling
 
-### ERD 모델
+- ERD 모델
+  
+  > ![brokuly_20221120_221825.png](assets/44acdf0f19105dcc740be7e9619498ca38c07c7f.png)
 
-> ![brokuly_20221120_221825.png](assets/44acdf0f19105dcc740be7e9619498ca38c07c7f.png)
-
-### 와이어 프레임
-
-> ![Screenshot 2022-11-20 at 22.24.30.JPG](assets/57f934bf2a6c240800146820c4a25af9436a08cb.JPG)
+- 와이어 프레임
+  
+  > ![Screenshot 2022-11-20 at 22.24.30.JPG](assets/57f934bf2a6c240800146820c4a25af9436a08cb.JPG)
 
 ## 💻Technologies
 
@@ -60,9 +82,11 @@
   
   <img src="https://img.shields.io/badge/HTML5-E34F26?style=for-the-badge&logo=HTML5&logoColor=white"> <img src="https://img.shields.io/badge/Javascript-F7DF1E?style=for-the-badge&logo=Javascript&logoColor=white"> <img src="https://img.shields.io/badge/CSS3-1572B6?style=for-the-badge&logo=CSS3&logoColor=white"> <img src="https://img.shields.io/badge/Axios-5A29E4?style=for-the-badge&logo=Axios&logoColor=white">
 
-- Infra
-  
-  <img src="https://img.shields.io/badge/Amazon AWS-232F3E?style=for-the-badge&logo=Amazon AWS&logoColor=white">![Ubuntu](https://img.shields.io/badge/Ubuntu-E95420?style=for-the-badge&logo=ubuntu&logoColor=white)![Gunicorn](https://img.shields.io/badge/gunicorn-%298729.svg?style=for-the-badge&logo=gunicorn&logoColor=white)![Nginx](https://img.shields.io/badge/nginx-%23009639.svg?style=for-the-badge&logo=nginx&logoColor=white)
+
+* Infra
+
+  <img src="https://img.shields.io/badge/Amazon AWS-232F3E?style=for-the-badge&logo=Amazon AWS&logoColor=white"> <img src="https://img.shields.io/badge/Ubuntu-E95420?style=for-the-badge&logo=ubuntu&logoColor=white"> <img src="https://img.shields.io/badge/gunicorn-%298729.svg?style=for-the-badge&logo=gunicorn&logoColor=white"> <img src="https://img.shields.io/badge/nginx-%23009639.svg?style=for-the-badge&logo=nginx&logoColor=white">
+
 
 ## 🔍Features
 
@@ -85,7 +109,7 @@
 #### 임선주
 
 - Front-end
-- 
+- 수행했던 작업들 작성
 
 #### 이태극
 
@@ -108,13 +132,14 @@
 ### Main Page
 
 - Navbar
-
-> ![Untitled (1).png](assets/56bf0f649a919283257a0a5de499fe3f470fe333.png)
-
-> 스크롤을 내리면 다른 Navbar 출력
-
-- Section
   
+  > ![Untitled (1).png](assets/56bf0f649a919283257a0a5de499fe3f470fe333.png)
+
+  > 스크롤을 내리면 다른 Navbar 출력 
+
+  
+- Section
+
   > 각각의 섹션에서 조회기준을 통해 여러 객체 출력
 
 ### Accounts APP
@@ -172,10 +197,10 @@
 
 - index 페이지
   
-  > 호버로 제품별 이미지 효과
+  > 호버로 제품별 이미지 효과 
 
 - 상세 페이지
-  
+
   > 상품 리뷰 작성은 모달 팝업으로 제작
   > 상품 문의는 아코디언으로 확장
 
@@ -279,6 +304,7 @@
   - 힘들었지만 정말 값진 시간을 얻은거 같습니다.
 
 - 김예린
+
   
   - 여기에 후기 작성
 
@@ -294,16 +320,22 @@
     - 특히 마이페이지 구현이나, 검색의 경우 이전 페이지에서 값들 불러온 상태에서 렌더링이 되야 하는데 일반 함수형 뷰를 쓸 경우 context에 많은양을 집어넣어야 해서 다른 코드를 재활용하기 힘들었습니다.
   - 쿼리 조회의 경우 분명 더 간결한 조회 조건이 있을것인데 상당히 복잡하게 짜서 출력관련해서 제가 다시 봐도 이해하기 어려웠습니다.
 
+
 - 최준우
   
   - 이전 프로젝트에서 하고 싶었던 다양한 API들을 사용해볼 수 있었던 기회였습니다.
   - 주문, 이메일 인증 등의 기능 흐름을 살펴보고 해당 기능을 구현할 수 있는 다양한 방법들을 찾아 볼 수 있었습니다.
   - 다음 프로젝트에서는 이번 프로젝트의 경험을 바탕으로 DRF 등을 활용하여 직접 API서버도 구축 해봐야겠다는 생각이 들었습니다. 감사합니다.
 
-## Scrum Record
 
-main 브랜치의 경우
-[스크럼 일지 바로가기!](https://github.com/qlghwp123/SPJT-02/tree/main/scrum)
 
-develop 브랜치의 경우
-[스크럼 일지 바로가기!](https://github.com/qlghwp123/SPJT-02/tree/develop/scrum)
+
+## Scrum Records
+
+* develop 브랜치가 존재하는 경우, develop 브랜치 스크럼 일지를 사용해주시길 바랍니다.
+* main 브랜치의 경우
+  * [스크럼 일지 바로가기!](https://github.com/qlghwp123/SPJT-02/tree/main/scrum)
+
+* develop 브랜치의 경우
+  * [스크럼 일지 바로가기!](https://github.com/qlghwp123/SPJT-02/tree/develop/scrum)
+
