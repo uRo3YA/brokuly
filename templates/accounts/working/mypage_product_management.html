@@ -80,7 +80,7 @@
         </li>
         {% else %}
         <li class="page-item mx-0">
-            <a class="page-link" href="?page={{ page_number }}">{{ page_number }}</a>
+            <a class="page-link" href="?page={{ page_number }}" style="color: #008b47">{{ page_number }}</a>
         </li>
         {% endif %}
         {% endif %}
@@ -88,11 +88,11 @@
         <!-- 다음페이지 -->
         {% if products.has_next %}
         <li class="page-item mx-0">
-            <a class="page-link" href="?page={{ products.next_page_number }}">다음</a>
+            <a class="page-link" href="?page={{ products.next_page_number }}" style="color: #008b47">다음</a>
         </li>
         {% else %}
         <li class="page-item disabled mx-0">
-            <a class="page-link" tabindex="-1" aria-disabled="true" href="#">다음</a>
+            <a class="page-link" tabindex="-1" aria-disabled="true" href="#" style="color: #008b47">다음</a>
         </li>
         {% endif %}
     </ul>
