@@ -522,7 +522,7 @@ def check_valid_number(request):
 def orderlist(request):
     # Order.objects.get(pk=1).delete()
     # Order.objects.get(pk=2).delete()
-    orders = Order.objects.filter(user=request.user)
+    orders = Order.objects.filter(user=request.user) & Order.objects.exclude(status=0)
     jsonDec = json.decoder.JSONDecoder()
     
     for order in orders:

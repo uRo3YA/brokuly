@@ -120,13 +120,13 @@ const goOrder = function (e) {
   }
   axios({
           method: 'POST',
+          // url: '{% url 'orders:create_order' %}',
           url: '{% url 'orders:create_order' %}',
           headers : {'X-CSRFTOKEN' : '{{ csrf_token }}'},
           data: product_list,
         }).then((response) => {
-          console.log(response.data.status)
-          console.log(response.data.order_pk)
-          window.location.href = `/orders/complete/${response.data.order_pk}`;
+          // window.location.href = `/orders/complete/${response.data.order_pk}`;
+          window.location.href = `/orders/go_order/${response.data.order_pk}`;
   }); 
 }
 

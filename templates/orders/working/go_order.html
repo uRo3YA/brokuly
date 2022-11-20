@@ -1,7 +1,8 @@
 {% extends 'base.html' %}
 {% load django_bootstrap5 %}
 {% load static %}
-
+{% load mathfilters %}
+{% load humanize %}
 {% block css %}
 <link rel="stylesheet" href="{% static 'css/style_2.css' %}" />
 {% endblock css %}
@@ -19,7 +20,7 @@
             <div class="accordion-item">
               <h2 class="order-accordion-header" id="flush-headingOne">
                 <button
-                  class="accordion-button collapsed fs-5"
+                  class="d-flex justify-content-between accordion-button collapsed fs-5"
                   type="button"
                   data-bs-toggle="collapse"
                   data-bs-target="#flush-collapseOne"
@@ -27,7 +28,7 @@
                   aria-controls="flush-collapseOne"
                   style="padding-bottom: 14px"
                 >
-                  주문 상품
+                  <div>주문 상품</div><div><img class="mx-3"style="width:25px;height:25px;" src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQuLBwDcErnEePyOMrQVcG4KcI81ClIiLCf2g&usqp=CAU" alt=""></div>
                 </button>
               </h2>
               <div
@@ -38,51 +39,42 @@
               >
                 <div class="accordion-body">
                   <!-- 상품1 -->
+                  {% for product in product_list%}
                   <div class="d-flex align-items-center">
                     <div class="col-8 d-flex mx-4 align-items-center">
-                      <img
-                        class="me-4"
-                        src="https://picsum.photos/1280/720"
-                        alt="상품사진"
-                        style="height: 180px; width: 150px"
-                      />
+                      {%if product.product.is_crawl%}
+                        <img 
+                          class="me-4" 
+                          src="{{ product.product.crawl_produt_detail_img }}" 
+                          alt="상품 사진"
+                          style="height: 10rem; width: 8rem"
+                        >
+                      {%else%}
+                        <img 
+                          class="me-4" 
+                          src="{{ product.product.produt_thum_img.url }}" 
+                          alt="상품 사진"
+                          style="height: 10rem; width: 8rem"
+                        >
+                      {%endif%}
 
                       <div
                         class="d-inline-flex flex-column align-content-center me-5"
                       >
-                        <p class="mb-2">[겨울간식] 야채호빵</p>
-                        <p class="mb-2">38,000원</p>
+                        <p class="mb-2">{{ product.product.title }}</p>
+                        <p class="mb-2">{{ product.subtotal | intcomma }}원</p>
                       </div>
                     </div>
-                    <div class="col-2">3개</div>
-                    <div class="col-2">12,000원</div>
+                    <div class="col-2">{{ product.quantity }}개</div>
+                    <div class="col-2">{{ product.product.price | intcomma }}원</div>
                   </div>
-                  <!-- 상품2 -->
                   <hr class="my-4" style="opacity: 10%" />
-                  <div class="d-flex align-items-center">
-                    <div class="col-8 d-flex mx-4 align-items-center">
-                      <img
-                        class="me-4"
-                        src="https://picsum.photos/1280/720"
-                        alt="상품사진"
-                        style="height: 180px; width: 150px"
-                      />
-
-                      <div
-                        class="d-inline-flex flex-column align-content-center me-5"
-                      >
-                        <p class="mb-2">[겨울간식] 야채호빵</p>
-                        <p class="mb-2">38,000원</p>
-                      </div>
-                    </div>
-                    <div class="col-2">3개</div>
-                    <div class="col-2">12,000원</div>
-                  </div>
+                  {% endfor %}
                 </div>
               </div>
             </div>
           </div>
-          <div class="text-center py-3">상품 이름을 주문합니다.</div>
+          <div class="text-center py-3">{{ product_list.0.product.title }} 외 {{ order.total_quantity | sub:1 }} 개 상품을 주문합니다.</div>
         </div>
         <!-- 주문자 정보 -->
         <div class="mb-5">
@@ -290,14 +282,14 @@
                     id="sum_p_num"
                     style="font-size: 20px"
                   >
-                    금액 합계원
+                    금액 {{ order.total_price | sub:2500 | intcomma }}원
                   </p>
                 </div>
                 <div
                   class="d-flex justify-content-between align-items-center px-3"
                 >
                   <p class="my-1">배송비</p>
-                  <p class="my-1" style="font-size: 20px">배송비원</p>
+                  <p class="my-1" style="font-size: 20px">{{ order.shipping_price | intcomma }}원</p>
                 </div>
                 <hr />
                 <div
@@ -305,7 +297,7 @@
                 >
                   <p class="my-1">최종결제금액</p>
                   <p class="fw-bold my-1" style="font-size: 20px">
-                    최종금액원
+                    {{ order.total_price | intcomma }}원
                   </p>
                 </div>
                 <div class="d-flex justify-content-end px-3">
@@ -315,7 +307,7 @@
                       style="background-color: #f8cd24"
                       >적립</span
                     >
-                    구매 시 5,880원(5%)
+                    구매 시 {{ order.mileage | intcomma }}원(5%)
                   </small>
                 </div>
                 <hr class="mb-0" />
@@ -348,7 +340,7 @@
             <div class="d-flex align-items-center pb-3">
               <p class="col-3 mb-0">결제수단 선택</p>
               <button class="col-5 btn btn-warning px-0">
-                카카오페이 버튼
+                카카오페이
               </button>
             </div>
             <hr class="text-secondary opacity-25" style="width: 98.5%" />
@@ -429,13 +421,16 @@
         </div>
         <!-- 결제버튼 -->
         <div class="row justify-content-center">
-          <button
-            type="button"
-            class="btn btn-green py-3 mb-4"
-            style="width: 300px"
-          >
-            {{ 최종금액 }}원 결제하기
-          </button>
+          <form action="/orders/pay/{{ order.pk }}/" method="post" class="col-12 text-center">
+            {% csrf_token %}
+            <button
+              type="submit"
+              class="btn btn-green py-3 mb-4"
+              style="width: 300px"
+            >
+            {{ order.total_price | intcomma }}원 결제하기
+            </button>
+          </form>
           <small class="text-center text-muted"
             >[주문완료]상태일 경우에만 주문 취소 가능합니다.
             <br />
@@ -447,11 +442,15 @@
             카카오페이, 토스, 네이버페이, 페이코 결제 시, 결제하신 수단으로만
             환불됩니다.
           </small>
+          
         </div>
       </div>
       <!-- container-->
     </div>
+  
 
+<script src="https://code.jquery.com/jquery-3.6.1.slim.min.js" integrity="sha256-w8CvhFs7iHNVUtnSP0YKEg00p9Ih13rlL9zGqvLdePA=" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
     <!-- 개인정보 동의 -->
     <script type="text/javascript">
       function checkAllCheckbox() {
@@ -477,5 +476,41 @@
         }
       }
     </script>
+<script>
+  const pay = function (e) {
+  // e.preventDefault()
+  // const orderA = document.querySelector('#order-a')
+  // const productList = document.querySelectorAll('.product-product')
+  // let product_list = []
 
+  // for (let i = 0 ; i < productList.length ; i++){
+  //   const productPrice = document.querySelector(`#p_price${i+1}`).innerText
+  //   const  productQuantity = document.querySelector(`#p_num${i+1}`).value
+  //   product_list.push(
+  //     {
+  //       'product_pk':productList[i].dataset.productId,
+  //       'product_quantity':productQuantity,
+  //       'product_subtotal':productPrice,
+  //     }
+  //   )
+  // }
+  axios({
+          method: 'POST',
+          // url: '{% url 'orders:create_order' %}',
+          url: '{% url 'orders:pay' order.pk %}',
+          headers : {'X-CSRFTOKEN' : '{{ csrf_token }}'},
+          data: {
+            'order_pk':'{{ order.pk }}',
+            'item_name':'{{ product_list.0.product.title }} 외 {{ order.total_quantity | sub:1 }} 개',
+            'quantity':'{{ order.total_quantity }}',
+            'total_amount':'{{ order.total_price }}',
+          },
+        }).then((response) => {
+          // // window.location.href = `/orders/complete/${response.data.order_pk}`;
+          // window.location.href = `/orders/go_order/${response.data.order_pk}`;
+          console.log("성공")
+  }); 
+}
+
+</script>
 {% endblock body %}
