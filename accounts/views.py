@@ -154,6 +154,17 @@ def cart(request):
 def add_cart(request, product_id):
     cart = request.user.carts
     product = Product.objects.get(id=product_id)
+    cart_list = []
+    # for c in cart:
+    #     product = Product.objects.get(pk=c.product_id)
+    #     cart_list.append(
+    #         {
+    #             'user_id':request.user.pk,
+    #             'product_pk':product.pk,
+                
+    #         }
+    #     )
+    print(cart_list)
 
     if product in cart.all():
         cart.remove(product)
@@ -519,7 +530,7 @@ def send_valid_number(request):
 
     current_site = get_current_site(request)
     message = render_to_string(
-        "accounts/send_validnumber.html",
+        "accounts/working/send_validnumber.html",
         {
             "user": request.user,
             "domain": current_site.domain,

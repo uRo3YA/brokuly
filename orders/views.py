@@ -20,7 +20,7 @@ def orders_create(request):
         for product in temp_product_list:
             product_list.append(product)
             total_quantity += int(product['product_quantity'])
-            total_price += int(product['product_subtotal'].replace(',',''))
+            total_price += int(product['product_subtotal'])
             #해당 유저의 장바구니에 들어있는 상품들을 삭제
             # user.carts.remove(Product.objects.get(pk=product['product_pk']))
         total_price += 2500
