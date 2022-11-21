@@ -107,9 +107,9 @@ def pay(request, pk):
             "quantity": order.total_quantity,                # 구매 물품 수량
             "total_amount": order.total_price,        # 구매 물품 가격
             "tax_free_amount": "0",         # 구매 물품 비과세
-            "approval_url": f"http://localhost:8000/orders/success/{order.pk}/",
-            "cancel_url": f"http://localhost:8000/orders/cancel/{order.pk}/",
-            "fail_url": f"http://localhost:8000/orders/fail/{order.pk}/",
+            "approval_url": f"http://brokurly.shop/orders/success/{order.pk}/",
+            "cancel_url": f"http://brokurly.shop/orders/cancel/{order.pk}/",
+            "fail_url": f"http://brokurly.shop/orders/fail/{order.pk}/",
         }
         
         res = requests.post(URL, headers=headers, params=params)
