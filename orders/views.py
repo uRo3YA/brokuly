@@ -8,6 +8,9 @@ import requests
 # Create your views here.
 def orders_create(request):
     if request.method == "POST":
+        orders = Order.objects.filter(user_id=request.user.pk, status=0)
+        for i in orders:
+            i.delete()
         temp_product_list = json.loads(request.body)
         product_list = []
         total_quantity = 0
@@ -110,7 +113,9 @@ def pay(request, pk):
         }
         
         res = requests.post(URL, headers=headers, params=params)
-        request.session['tid'] = res.json()['tid']      # 결제 승인시 사용할 tid를 세션에 저장
+        # request.session['tid'] = res.json()['tid']      # 결제 승인시 사용할 tid를 세션에 저장
+        order.tid = res.json()['tid']      # 결제 승인시 사용할 tid를 DB에 저장
+        order.save()
         next_url = res.json()['next_redirect_pc_url']   # 결제 페이지로 넘어갈 url을 저장
         return redirect(next_url)
 
@@ -118,6 +123,8 @@ def pay(request, pk):
         print("get")
 
 def success(request, pk):
+    order = Order.objects.get(pk=pk)
+
     URL = 'https://kapi.kakao.com/v1/payment/approve'
     headers = {
         "Authorization": "KakaoAK " + "5b0c96a50fea84174b8ae3bd9d33b084",
@@ -125,12 +132,13 @@ def success(request, pk):
     }
     params = {
         "cid": "TC0ONETIME",    # 테스트용 코드
-        "tid": request.session['tid'],  # 결제 요청시 세션에 저장한 tid
+        # "tid": request.session['tid'],  # 결제 요청시 세션에 저장한 tid
+        "tid": order.tid,  # 결제 요청시 세션에 저장한 tid
         "partner_order_id": pk,     # 주문번호
         "partner_user_id": request.user.username,    # 유저 아이디
         "pg_token": request.GET.get("pg_token"),     # 쿼리 스트링으로 받은 pg토큰
     }
-    order = Order.objects.get(pk=pk)
+    
     order.status = 1
     order.save()
 

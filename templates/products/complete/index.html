@@ -8,7 +8,14 @@
     <!-- 네브바 메뉴별 전체상품 목록 조회 -->
     
     <div class="container my-5">
-        <h3 class="text-center mb-5">전체상품</h3>
+        {% if request.resolver_match.kwargs.type == 'hot' %}
+        <h3 class="text-center mb-5">베스트</h3>
+        {% elif request.resolver_match.kwargs.type == 'new' %}
+        <h3 class="text-center mb-5">신상품</h3>
+        {% else %}
+        <h3 class="text-center mb-5">알뜰쇼핑</h3>
+        {%endif%}
+        <h3 class="text-center mb-5"></h3>
         <!-- 카드목록 위 작은 카테고리 정렬 -->
         <div class="container d-flex justify-content-between px-5">
             <div class="float-start">
@@ -53,11 +60,11 @@
                 <!-- 이전페이지 -->
                 {% if products_all.has_previous %}
                 <li class="page-item mx-0">
-                    <a class="page-link" href="?page={{ products_all.previous_page_number }}">이전</a>
+                    <a class="page-link" href="?page={{ products_all.previous_page_number }}" style="color: #008b47">이전</a>
                 </li>
                 {% else %}
                 <li class="page-item disabled mx-0">
-                    <a class="page-link" tabindex="-1" aria-disabled="true" href="#">이전</a>
+                    <a class="page-link" tabindex="-1" aria-disabled="true" href="#" style="color: #008b47">이전</a>
                 </li>
                 {% endif %}
                 <!-- 페이지리스트 -->
@@ -65,11 +72,11 @@
                 {% if page_number >= products_all.number|add:-3 and page_number <= products_all.number|add:3 %}
                 {% if page_number == products_all.number %}
                 <li class="page-item active mx-0" aria-current="page">
-                    <a class="page-link" href="?page={{ page_number }}">{{ page_number }}</a>
+                    <a class="page-link" href="?page={{ page_number }}" >{{ page_number }}</a>
                 </li>
                 {% else %}
                 <li class="page-item mx-0">
-                    <a class="page-link" href="?page={{ page_number }}">{{ page_number }}</a>
+                    <a class="page-link" href="?page={{ page_number }}" style="color: #008b47">{{ page_number }}</a>
                 </li>
                 {% endif %}
                 {% endif %}
@@ -77,11 +84,11 @@
                 <!-- 다음페이지 -->
                 {% if products_all.has_next %}
                 <li class="page-item mx-0">
-                    <a class="page-link" href="?page={{ products_all.next_page_number }}">다음</a>
+                    <a class="page-link" href="?page={{ products_all.next_page_number }}" style="color: #008b47">다음</a>
                 </li>
                 {% else %}
                 <li class="page-item disabled mx-0">
-                    <a class="page-link" tabindex="-1" aria-disabled="true" href="#">다음</a>
+                    <a class="page-link" tabindex="-1" aria-disabled="true" href="#" style="color: #008b47">다음</a>
                 </li>
                 {% endif %}
             </ul>

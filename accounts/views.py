@@ -1,7 +1,13 @@
-from django.shortcuts import render, redirect,get_object_or_404
+from django.shortcuts import render, redirect, get_object_or_404
 from .forms import CustomUserCreationForm, CustomUserChangeForm
 from django.contrib.auth.forms import AuthenticationForm
-from django.contrib.auth import login as auth_login, logout as auth_logout, authenticate, update_session_auth_hash, get_user_model
+from django.contrib.auth import (
+    login as auth_login,
+    logout as auth_logout,
+    authenticate,
+    update_session_auth_hash,
+    get_user_model,
+)
 from products.models import Product
 from reviews.models import Review, ReviewImage
 from django.http import JsonResponse
@@ -22,11 +28,12 @@ from collections import defaultdict
 from random import random
 from django.contrib.sites.shortcuts import get_current_site
 from django.template.loader import render_to_string
-from django.utils.http import urlsafe_base64_encode,urlsafe_base64_decode
+from django.utils.http import urlsafe_base64_encode, urlsafe_base64_decode
 from django.utils.encoding import force_bytes
 from django.core.mail import EmailMessage
 from django.utils.encoding import force_bytes, force_text
 from orders.models import Order
+
 # 회원가입 약관
 def agreement(request):
     if request.method == "POST":
@@ -264,6 +271,7 @@ def check_id(request):
     context = {"is_exist": is_exist}
     return JsonResponse(context)
 
+
 # 이메일 중복체크
 def check_email(request):
     jsonObject = json.loads(request.body)
@@ -351,13 +359,28 @@ def product_management(request):
 
 ###주문자가 판매자에게 한 문의 모아보기
 @seller_required
-def question_management(request):
+def question_management(request, type):
+    # so = request.GET.get("so", "recent")  # 정렬기준
+    # 정렬
+    # print(so)
     answer_form = AnswerForm()
     reviews = Review.objects.filter(user=request.user)
     if request.user.is_seller:
         # 자신의 판매 상품 목록을 보여준다.
         products = Product.objects.filter(user=request.user)
-        questions = Question.objects.filter(product_id__in=products)
+        so = type
+        if so == "unanswer":
+            questions = Question.objects.filter(
+                product_id__in=products
+            ) & Question.objects.filter(is_answered=0)
+        elif so == "answered":
+
+            questions = Question.objects.filter(
+                product_id__in=products
+            ) & Question.objects.filter(is_answered=1)
+        else:  # recent
+            questions = Question.objects.filter(product_id__in=products)
+
         # 입력 파라미터
         page = request.GET.get("page", "1")
         # 페이징
@@ -387,7 +410,6 @@ def myquestion(request):
     return render(request, "accounts/working/mypage_question.html", context)
 
 
-
 # 회원정보 수정
 def update(request):
     if request.method == "POST":
@@ -396,10 +418,10 @@ def update(request):
         if form.is_valid():
             form.save()
             # 비밀번호가 변경되면 기존 세션과 회원 인증 정보가
-            # 일치하지 않게 되기 때문에 새로운 password hash 로 
+            # 일치하지 않게 되기 때문에 새로운 password hash 로
             # 세션을 업데이트 해주는 메소드이다.
             update_session_auth_hash(request, form.user)
-            
+
             return redirect("accounts:mypage")
 
     else:
@@ -486,49 +508,59 @@ def unfollow(request, product_user_id):
 
     return redirect("accounts:followlist")
 
+
 def send_valid_number(request):
     validnumber = round(random() * 10000)
 
     current_site = get_current_site(request)
-    message = render_to_string('accounts/working/send_validnumber.html',{
-                'user': request.user,
-                'domain': current_site.domain,
-                'uid': urlsafe_base64_encode(force_bytes(request.user.pk)).encode().decode(),
-                'validnumber':validnumber,
-            })
+    message = render_to_string(
+        "accounts/working/send_validnumber.html",
+        {
+            "user": request.user,
+            "domain": current_site.domain,
+            "uid": urlsafe_base64_encode(force_bytes(request.user.pk))
+            .encode()
+            .decode(),
+            "validnumber": validnumber,
+        },
+    )
     mail_subject = "[Brokurly]이메일 인증번호입니다."
-    user_email = json.loads(request.body)['user_email']
+    user_email = json.loads(request.body)["user_email"]
     email = EmailMessage(mail_subject, message, to=[user_email])
     email.send()
 
     context = {
-        'validnumber':validnumber,
+        "validnumber": validnumber,
     }
     return JsonResponse(context)
 
+
 def check_valid_number(request):
-    valid_number = json.loads(request.body)['valid_number']
-    input_number = json.loads(request.body)['input_number']
-    print(valid_number,input_number)
+    valid_number = json.loads(request.body)["valid_number"]
+    input_number = json.loads(request.body)["input_number"]
+    print(valid_number, input_number)
     if valid_number == input_number:
         check = True
     else:
         check = False
     context = {
-        'check':check,
+        "check": check,
     }
     return JsonResponse(context)
+
 
 def orderlist(request):
     # Order.objects.get(pk=1).delete()
     # Order.objects.get(pk=2).delete()
     orders = Order.objects.filter(user=request.user) & Order.objects.exclude(status=0)
     jsonDec = json.decoder.JSONDecoder()
-    
+
     for order in orders:
-        order.products = Product.objects.get(pk=jsonDec.decode(order.products)[0]['product_pk'])
+        order.products = Product.objects.get(
+            pk=jsonDec.decode(order.products)[0]["product_pk"]
+        )
         print(order.products)
     context = {
-        'orders':orders,
+        "orders": orders,
     }
-    return render(request, 'accounts/working/orderlist_buyer_mypage.html',context)
+    return render(request, "accounts/working/orderlist_buyer_mypage.html", context)
