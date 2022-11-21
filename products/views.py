@@ -52,7 +52,7 @@ def create(request):
             product.user = request.user
             product.save()
 
-            return redirect("products:index")
+            return redirect("products:index", "new")
 
     else:
         Product_Form = ProductForm()
@@ -138,7 +138,7 @@ def delete(request, pk):
     else:
         messages.warning(request, "잘못된 접근입니다.")
         return redirect("products:detail", info.pk)
-    return redirect("products:index")
+    return redirect("products:index", "new")
     # return redirect("products:index")
 
 
