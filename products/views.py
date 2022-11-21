@@ -40,7 +40,7 @@ def index(request, type):
         "product_count": len(products),
     }
     # return render(request, "products/index.html", context)
-    return render(request, "products/complete/index.html", context)
+    return render(request, "products/index.html", context)
 
 
 @seller_required
@@ -64,7 +64,7 @@ def create(request):
         "Product_Form": Product_Form,
     }
 
-    return render(request, "products/complete/enroll_ product.html", context=context)
+    return render(request, "products/enroll_ product.html", context=context)
 
 
 def detail(request, pk):
@@ -104,7 +104,7 @@ def detail(request, pk):
         "review_Form": review_Form,
         "product_score": product_score,
     }
-    return render(request, "products/complete/product_detail.html", context)
+    return render(request, "products/product_detail.html", context)
     # return render(request, "products/detail.html", context)
 
 
@@ -129,7 +129,7 @@ def update(request, pk):
         context = {
             "Product_Form": Product_Form,
         }
-        return render(request, "products/complete/enroll_ product.html", context)
+        return render(request, "products/enroll_ product.html", context)
     else:
         messages.warning(request, "잘못된 접근입니다.")
         return redirect("products:detail", info.pk)
@@ -177,7 +177,7 @@ class SearchView(ListView):
     model = Product
     context_object_name = "products_list"
     # template_name = "products/search_1.html"
-    template_name = "products/complete/search.html"
+    template_name = "products/search.html"
     paginate_by = 8
 
     def get_queryset(self):
@@ -227,7 +227,7 @@ def sale_item(request):
         "product_count": len(products),
     }
     # return render(request, "products/index.html", context)
-    return render(request, "products/complete/index.html", context)
+    return render(request, "products/index.html", context)
 
 
 #############################################

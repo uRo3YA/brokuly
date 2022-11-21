@@ -47,7 +47,7 @@ def agreement(request):
         return redirect("accounts:signup", is_seller)
 
     else:
-        return render(request, "accounts/complete/agreement.html")
+        return render(request, "accounts/agreement.html")
 
 
 # 회원가입
@@ -69,7 +69,7 @@ def signup(request, is_seller):
         "is_seller": is_seller,
     }
 
-    return render(request, "accounts/complete/signup.html", context)
+    return render(request, "accounts/signup.html", context)
 
 
 # 로그인
@@ -94,7 +94,7 @@ def login(request):
         "form": form,
     }
 
-    return render(request, "accounts/complete/login.html", context)
+    return render(request, "accounts/login.html", context)
 
 
 # 로그아웃
@@ -134,7 +134,7 @@ def mypage(request):
             "questions": questions,
         }
 
-    return render(request, "accounts/working/mypage.html", context)
+    return render(request, "accounts/mypage.html", context)
 
 
 # 장바구니
@@ -146,7 +146,7 @@ def cart(request):
         "products": products,
     }
 
-    return render(request, "accounts/working/cart.html", context)
+    return render(request, "accounts/cart.html", context)
 
 
 # 장바구니 상품 추가
@@ -192,7 +192,7 @@ def wishlist(request):
         "cart": request.user.carts.all(),
     }
 
-    return render(request, "accounts/complete/mypage_wishlist.html", context)
+    return render(request, "accounts/mypage_wishlist.html", context)
 
 
 # 위시리스트 상품 추가
@@ -236,7 +236,7 @@ def review(request):
         # )
     context = {"reviews": reviews, "questions": questions, "review_image": review_image}
 
-    return render(request, "accounts/working/mypage_review.html", context)
+    return render(request, "accounts/mypage_review.html", context)
 
 
 # 개인정보 수정 확인(미완성)
@@ -336,7 +336,7 @@ def id_check_naver(request):
 
 
 def naver_callback(request):
-    return render(request, "accounts/complete/naver_callback.html")
+    return render(request, "accounts/naver_callback.html")
 
 
 ### 상품정보 관리
@@ -359,7 +359,7 @@ def product_management(request):
         "questions": questions,
     }
 
-    return render(request, "accounts/working/mypage_product_management.html", context)
+    return render(request, "accounts/mypage_product_management.html", context)
 
 
 ###주문자가 판매자에게 한 문의 모아보기
@@ -401,7 +401,7 @@ def question_management(request, type):
         "reviews": reviews,
     }
 
-    return render(request, "accounts/working/mypage_question_management.html", context)
+    return render(request, "accounts/mypage_question_management.html", context)
 
 
 ### 주문자 자신의 문의 모아 보기
@@ -412,7 +412,7 @@ def myquestion(request):
     reviews = Review.objects.filter(user=request.user)
     print(len(reviews))
     context = {"questions": questions, "answers": answers, "reviews": reviews}
-    return render(request, "accounts/working/mypage_question.html", context)
+    return render(request, "accounts/mypage_question.html", context)
 
 
 # 회원정보 수정
@@ -436,7 +436,7 @@ def update(request):
         "form": form,
     }
 
-    return render(request, "accounts/complete/update_profile.html", context)
+    return render(request, "accounts/update_profile.html", context)
 
 
 # 회원 탈퇴
@@ -453,7 +453,7 @@ def signout(request):
         else:
             return redirect("accounts:signout")
     else:
-        return render(request, "accounts/complete/signout.html")
+        return render(request, "accounts/signout.html")
 
 
 ### 상품 페이지에서 팔로잉(비동기)
@@ -496,7 +496,7 @@ def followlist(request):
         "product_list": product_list,
         "product_": product_,
     }
-    return render(request, "accounts/working/mypage_following.html", context)
+    return render(request, "accounts/mypage_following.html", context)
 
 
 ### 마이페이지에서 언팔로잉
@@ -568,4 +568,4 @@ def orderlist(request):
     context = {
         "orders": orders,
     }
-    return render(request, "accounts/working/orderlist_buyer_mypage.html", context)
+    return render(request, "accounts/orderlist_buyer_mypage.html", context)

@@ -61,13 +61,13 @@ def orders_complete(request,pk):
         'order':order,
         'product_list':product_list,
     }
-    return render(request, 'orders/working/order_complete.html', context)
+    return render(request, 'orders/order_complete.html', context)
 
 def orders_detail(request, pk):
     context = {
         'test':'test',
     }
-    return render(request, 'orders/working/order_detail.html', context)
+    return render(request, 'orders/order_detail.html', context)
 
 def go_order(request, pk):
     order = Order.objects.get(pk=pk)
@@ -86,7 +86,7 @@ def go_order(request, pk):
         'order':order,
         'product_list':product_list,
     }
-    return render(request, 'orders/working/go_order.html', context)
+    return render(request, 'orders/go_order.html', context)
 
 def pay(request, pk):
     if request.method == "POST":
@@ -157,10 +157,10 @@ def success(request, pk):
         # 'amount': amount,
     }
     # return render(request, 'orders/working/success.html', context)
-    return render(request, 'orders/working/order_complete.html', context)
+    return render(request, 'orders/order_complete.html', context)
 
 def cancel(request):
-    return render(request, 'orders/working/cancel.html')
+    return render(request, 'orders/cancel.html')
 
 def fail(request):
-    return render(request, 'orders/working/fail.html')
+    return render(request, 'orders/fail.html')
