@@ -15,18 +15,66 @@ document.addEventListener("DOMContentLoaded", function(){
 });
 
 
-// 상품 금액 및 총 금액 계산 로직
+// // 상품 금액 및 총 금액 계산 로직
+// function calc_expense(){
+//   const length = document.querySelector("#p_list").children.length;
+//   let cnt = 1;
+//   let total = 0;
+
+//   for(let i = 1; i <= length; i++){
+//     p_price =  document.getElementById("p_price" + i).textContent
+
+//     total += parseInt(p_price.replace(',', ''));
+//   }
+  
+//   p_total = document.getElementById("sum_p_price");
+//   p_total.innerText = total.toLocaleString("en-US");
+  
+//   target = document.getElementById("total");
+//   if({{ products | length }} !== 0){
+//     total += 2500
+//   }
+//   target.innerText = total.toLocaleString("en-US");
+
+// }
+
+// 체크박스 용 상품 금액 및 총 금액 계산 로직
 function calc_expense(){
   const length = document.querySelector("#p_list").children.length;
+  const productList = document.querySelectorAll('.product-product')
+  const priceList = document.querySelectorAll('.p_price')
+  const checkList = document.querySelectorAll('.checkbox')
+  const quantityList = document.querySelectorAll('.p_num')
+  const sumPnum = document.querySelector('#sum_p_num > span')
+  const spriceList = document.querySelectorAll('.s_price')
   let cnt = 1;
   let total = 0;
+  let sumQuantity = 0
+  // for(let i = 1; i <= length; i++){
+  for(let i = 0; i < productList.length; i++){
+    // console.log(productList[i])
+    // console.log(priceList[i].textContent)
+    // p_price = productList[i].querySelector('.p_price')
+    // console.log(p_price)
+    p_price = priceList[i].textContent
+    cartCheck = checkList[i]
+    p_quantity = quantityList[i].value
+    spriceList[i].textContent = (parseInt(p_price.replace(',', '')) * parseInt(p_quantity)).toLocaleString("en-US");
+    // console.log(p_price)
+    // console.log(cartCheck)
+    // console.log(p_quantity)
+    // p_price =  document.getElementById("p_price" + i).textContent
+    // cartCheck = document.getElementById("cartcheck" + i)
+    // p_quantity = document.getElementById("p_num" + i).value
 
-  for(let i = 1; i <= length; i++){
-    p_price =  document.getElementById("p_price" + i).textContent
-
-    total += parseInt(p_price.replace(',', ''));
+    if (cartCheck.checked){
+      total += parseInt(p_price.replace(',', '')) * parseInt(p_quantity);
+      sumQuantity += parseInt(p_quantity);
+      console.log(total)
+    }
+    
   }
-  
+  sumPnum.innerText = parseInt(sumQuantity);
   p_total = document.getElementById("sum_p_price");
   p_total.innerText = total.toLocaleString("en-US");
   
@@ -38,15 +86,20 @@ function calc_expense(){
 
 }
 
+function calCheckBox(e){
+  const sumPnum = document.querySelector('#sum_p_num > span')
+  sumPnum.innerText = parseInt(sumPnum.innerText);
+  calc_expense()
+}
 
 // 장바구니 상품 수량 증가 로직
 function plus(event, current, price){
-  const sumPnum = document.querySelector('#sum_p_num > span')
+  // const sumPnum = document.querySelector('#sum_p_num > span')
   const counter_id = "p_num" + current;
   const counter = document.getElementById(counter_id);
   
   counter.value = parseInt(counter.value) + 1;
-  sumPnum.innerText = parseInt(sumPnum.innerText) + 1;
+  // sumPnum.innerText = parseInt(sumPnum.innerText) + 1;
 
   const total_id = "p_price" + current;
   const p_price = document.getElementById(total_id);
@@ -60,13 +113,13 @@ function plus(event, current, price){
 
 // 장바구니 상품 수량 감소 로직
 function minus(event, current, price){
-  const sumPnum = document.querySelector('#sum_p_num > span')
+  // const sumPnum = document.querySelector('#sum_p_num > span')
   const counter_id = "p_num" + current;
   const counter = document.getElementById(counter_id);
   
   if(parseInt(counter.value) !== 1){
     counter.value = parseInt(counter.value) - 1;
-    sumPnum.innerText = parseInt(sumPnum.innerText) - 1;
+    // sumPnum.innerText = parseInt(sumPnum.innerText) - 1;
   }
 
   const total_id = "p_price" + current;
@@ -93,6 +146,7 @@ const del_cart_btn = function(product_id){
   }).then((response) => {
     const in_cart = response.data.in_cart;
 
+
     // 장바구니에 상품 제거
     if(in_cart === false){
       const tag = document.getElementById("cart_product" + product_id);
@@ -101,22 +155,61 @@ const del_cart_btn = function(product_id){
   });
 };
 
+// 선택한 상품 제거
+const selectDel = function (e) {
+  const allCheckBox = document.querySelectorAll('[type=checkbox]')
+  for (let i = 0; i < allCheckBox.length; i ++){
+    // console.log(allCheckBox[i])
+    // console.log(allCheckBox[i].checked)
+    // console.log(allCheckBox[i].dataset.productId)
+    console.log(777)
+      if(allCheckBox[i].checked == true){
+        del_cart_btn(allCheckBox[i].dataset.productId);
+      }
+    }
+    calc_expense()
+}
+
+// 전체 선택 체크, 체크해제 시
+const selectWhole = function (e) {
+  const wholeSelect = document.querySelector('#whole-select')
+  
+  if (wholeSelect.checked == true){
+    const allCheckBox = document.querySelectorAll('[type=checkbox]')
+    for (let i = 0; i < allCheckBox.length; i ++){
+      allCheckBox[i].checked = true;
+    }
+    calc_expense()
+  }else{
+    const allCheckBox = document.querySelectorAll('[type=checkbox]')
+    for (let i = 0; i < allCheckBox.length; i ++){
+      allCheckBox[i].checked = false;
+    }
+    calc_expense()
+  }
+}
+
 const goOrder = function (e) {
   e.preventDefault()
   const orderA = document.querySelector('#order-a')
   const productList = document.querySelectorAll('.product-product')
+  const checkList = document.querySelectorAll('.checkbox')
+  const priceList = document.querySelectorAll('.p_price')
+  const quantityList = document.querySelectorAll('.p_num')
   let product_list = []
 
   for (let i = 0 ; i < productList.length ; i++){
-    const productPrice = document.querySelector(`#p_price${i+1}`).innerText
-    const  productQuantity = document.querySelector(`#p_num${i+1}`).value
-    product_list.push(
+    // const productPrice = document.querySelector(`#p_price${i+1}`).innerText
+    // const  productQuantity = document.querySelector(`#p_num${i+1}`).value
+    if(checkList[i].checked){
+      product_list.push(
       {
         'product_pk':productList[i].dataset.productId,
-        'product_quantity':productQuantity,
-        'product_subtotal':productPrice,
+        'product_quantity':quantityList[i].value,
+        'product_subtotal':parseInt(priceList[i].textContent.replace(',', '')) * parseInt(quantityList[i].value)
       }
     )
+  }
   }
   axios({
           method: 'POST',
@@ -147,11 +240,20 @@ const goOrder = function (e) {
               class="text-decoration-none text-dark d-flex align-items-center"
               href="#"
             >
-              <i class="bi bi-check-square text-muted fs-5 me-2"></i>
+            <div class="check me-3">
+            <input id="whole-select"
+              type="checkbox"
+              name="buy"
+              value="260"
+              onclick="selectWhole();"
+              id="cartcheck"
+            />
+            <label for="cartcheck"></label>
+          </div><!--<i class="bi bi-check-square text-muted fs-5 me-2"></i> -->
               전체선택
             </a>
             <p class="text-muted mx-4 mb-0">|</p>
-            <a class="text-decoration-none text-dark" href="#" onclick="">
+            <a class="text-decoration-none text-dark" href="#" onclick="selectDel()">
               선택한 상품 삭제
             </a>
           </div>
@@ -170,8 +272,8 @@ const goOrder = function (e) {
                           type="checkbox"
                           name="buy"
                           value="260"
-                          onclick=""
-                          id="cartcheck"
+                          onclick="calCheckBox(this)"
+                          id="cartcheck{{ forloop.counter }}" data-check-id="{{ forloop.counter }}" data-product-id="{{product.pk }}" class="checkbox"
                         />
                         <label for="cartcheck"></label>
                       </div>
@@ -203,14 +305,14 @@ const goOrder = function (e) {
                       <input
                         type="text"
                         style="width: 3rem;"
-                        class="text-center mx-2"
+                        class="text-center mx-2 p_num"
                         name="p_num{{ forloop.counter }}"
                         id="p_num{{ forloop.counter }}"
                         size="1"
                         maxlength="4"
                         class="p_num{{ forloop.counter }} mx-2"
                         value="1"
-                        onkeyup=""
+                        onkeyup="calc_expense();" data-quantity-id="{{ forloop.counter }}"
                       />
                       <span class="num-icon" id="plus" onclick="plus(event, {{ forloop.counter }}, {{ product.price }})">
                         <i class="bi bi-plus-circle"></i>
@@ -226,13 +328,13 @@ const goOrder = function (e) {
                         type="hidden"
                         name="p_price"
                         id="p_price"
-                        class="p_price"
+                        
                         value="20000"
                       />
                       <div>
-                        <div class="my-0 ms-5"> {{ product.price | intcomma }}원 </div>
+                        <div class="my-0 ms-5 p_price"> {{ product.price | intcomma }}원 </div>
                         {% comment %} 밑에 위 개수랑 곱해져야한다. 일단은 젤 처음은 해당 단위 가격을 표시했다. {% endcomment %}
-                        <div class="fw-bold sum ms-5">합계 : <span id="p_price{{ forloop.counter }}">{{ product.price | intcomma }}</span>원</div>
+                        <div class="fw-bold sum ms-5">합계 : <span id="p_price{{ forloop.counter }}" class="s_price">{{ product.price | intcomma }}</span>원</div>
                       </div>
                     </div>
                     {% comment %} 삭제 {% endcomment %}
@@ -275,7 +377,7 @@ const goOrder = function (e) {
                   id="sum_p_num"
                   style="font-size: 20px"
                 >
-                  <span>{{ products | length }}</span>개
+                  <span>0</span>개
                 </p>
               </div>
               <div
