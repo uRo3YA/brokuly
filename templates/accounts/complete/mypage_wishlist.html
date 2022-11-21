@@ -46,18 +46,31 @@ function add_cart(product_id){
     const in_cart = response.data.in_cart;
     const btn = document.getElementById("add_cart_btn" + product_id);
     const btn_text = document.getElementById("add_cart_btn_text" + product_id);
+    const cartLength = response.data.cart_length;
 
     // 장바구니에 상품 추가
     if(in_cart === true){
       btn.classList.remove("btn-outline-green");
       btn.classList.add("btn-outline-secondary");
       btn_text.innerText = " 장바구니에서 빼기";
+
+      const cartCount1 = document.querySelector('#cart-count-1')
+      const cartCount2 = document.querySelector('#cart-count-2')
+
+      cartCount1.innerText = cartLength
+      cartCount2.innerText = cartLength
     }
     // 장바구니 상품 제거
     else{
       btn.classList.remove("btn-outline-secondary");
       btn.classList.add("btn-outline-green");
       btn_text.innerText = " 담기";
+
+      const cartCount1 = document.querySelector('#cart-count-1')
+      const cartCount2 = document.querySelector('#cart-count-2')
+
+      cartCount1.innerText = cartLength
+      cartCount2.innerText = cartLength
     }
   })
 }
