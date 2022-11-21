@@ -22,4 +22,5 @@ urlpatterns = [
         qnas_views.question_create,
         name="question_create",
     ),
+    path("sale_item/", views.sale_item, name="sale_item"),
 ]

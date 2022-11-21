@@ -12,10 +12,12 @@
         <h3 class="text-center mb-5">베스트</h3>
         {% elif request.resolver_match.kwargs.type == 'new' %}
         <h3 class="text-center mb-5">신상품</h3>
-        {% else %}
+        {% elif request.resolver_match.kwargs.type == 'sale'%}
         <h3 class="text-center mb-5">알뜰쇼핑</h3>
         {%endif%}
-        <h3 class="text-center mb-5"></h3>
+        {% if request.resolver_match.url_name == 'sale_item' %}
+        <h3 class="text-center mb-5">특가상품</h3>
+        {%endif%}
         <!-- 카드목록 위 작은 카테고리 정렬 -->
         <div class="container d-flex justify-content-between px-5">
             <div class="float-start">
