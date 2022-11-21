@@ -164,6 +164,7 @@ def add_cart(request, product_id):
 
     context = {
         "in_cart": in_cart,
+        "cart_length": cart.count(),
     }
 
     return JsonResponse(context)
