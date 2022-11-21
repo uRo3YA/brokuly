@@ -20,7 +20,7 @@
           <p class="float-start"><span style="color: orangered; margin-right: 5px;">*</span>필수입력사항</p>
       </div>
       <hr class="green-line m-0">
-      <form action="" method="POST">
+      <form action="" method="POST" id="form-signup">
         {% csrf_token %}
         <div class="container px-3">
           <!-- 아이디 -->
@@ -79,7 +79,7 @@
         <hr class="green-line mt-4">
         <!-- 가입하기 버튼 -->
         <div class="d-flex align-items-center justify-content-center mt-5">
-          <button type="submit" class="btn btn-green" style="padding: 18px 120px;">
+          <button type="submit" class="btn btn-green" style="padding: 18px 120px;" onclick="checkSignup();">
             가입하기
           </button>
         </div>
@@ -130,6 +130,8 @@
   <script src="//dapi.kakao.com/v2/maps/sdk.js?appkey=f120b1818e7d400b80e5bf358936933a&libraries=services"></script>
   <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
   <script>
+    let idChecked = 0;
+    let emailChecked = 0;
     //주소 카카오 API
     var mapContainer = document.getElementById('map'), // 지도를 표시할 div
             mapOption = {
@@ -193,6 +195,7 @@
               }
               else if (response.data.is_exist === false) {
                 modalBody.innerText = "사용가능한 아이디입니다."
+                idChecked = 1;
               }
               else {
                 modalBody.innerText = "이미 존재하는 아이디입니다."
@@ -244,12 +247,25 @@
               if (response.data.check==true) {
                 emailResult.innerText = "확인되었습니다. 가입을 진행해주세요."
                 check2.classList.add('display-none')
+                emailChecked = 1;
               }else{
                 emailResult.innerText = "번호가 틀렸습니다. 다시 입력해주세요."
               }
             })
     }
 
+    const checkSignup = function (e) {
+      event.preventDefault();
+      const formSignup = document.querySelector('#form-signup') 
+    
+    console.log(idChecked, emailChecked)
+    if(idChecked === 1 && emailChecked === 1){
+      formSignup.submit();
+    }else if(idChecked === 1){
+      alert("이메일 인증을 진행해주세요!")
+    }else{
+      alert("아이디 중복확인을 진행해주세요!")
+    }
+  }
   </script>
-
 {% endblock %}
