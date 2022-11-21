@@ -2,7 +2,7 @@
 
 {% load django_bootstrap5 %}
 {% load static %}
-
+{% load humanize %}
 {% block content %}
 <!-- 팔로잉 페이지 -->
 <div class="col-10 py-5 px-5 bg-light" style="padding: 0px 105px">
@@ -43,7 +43,7 @@
                                     {%endif%}
                             <div class="card-body">
                                 <h6 class="card-title">{{product.title}}</h6>
-                                <p class="card-text">{{product.price}}원</p>
+                                <p class="card-text">{{product.price|intcomma}}원</p>
                             </div>
                             </div>
                             {%endif%}
