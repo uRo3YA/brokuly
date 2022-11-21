@@ -50,6 +50,9 @@ def create(request):
         if Product_Form.is_valid():
             product = Product_Form.save(commit=False)
             product.user = request.user
+            product.price = product.price - (
+                (product.price * product.sales_rate) // 100
+            )
             product.save()
 
             return redirect("products:index", "new")
@@ -113,6 +116,8 @@ def update(request, pk):
             Product_Form = ProductForm(request.POST, request.FILES, instance=info)
 
             if Product_Form.is_valid():
+
+                info.price = info.price - ((info.price * info.sales_rate) // 100)
                 info.save()
                 Product_Form.save()
 
@@ -205,6 +210,24 @@ class SearchView(ListView):
             context["q"] = search_keyword
 
         return context
+
+
+def sale_item(request):
+    products = Product.objects.all().order_by("-sales_rate")
+
+    # 입력 파라미터
+    page = request.GET.get("page", "1")
+    # 페이징
+    paginator_all = Paginator(products, 8)
+    page_obg_all = paginator_all.get_page(page)
+
+    context = {
+        "products": products,
+        "products_all": page_obg_all,
+        "product_count": len(products),
+    }
+    # return render(request, "products/index.html", context)
+    return render(request, "products/complete/index.html", context)
 
 
 #############################################

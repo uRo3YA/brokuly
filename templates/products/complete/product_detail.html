@@ -187,7 +187,7 @@
                     {%if product.is_crawl%}
                     <img src="{{product.crawl_produt_desc_img}}" alt="상품 이미지">
                     {%else%}
-                    <img src="" alt="상품 성분표 이미지"/>
+                    <img src="{{product.produt_desc_img.url}}"alt="상품 성분표 이미지"/>
                     {%endif%}
             </div>
         </div>
