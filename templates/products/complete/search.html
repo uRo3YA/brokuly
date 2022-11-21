@@ -97,13 +97,18 @@ function add_cart(event, product_id){
     }).then((response) => {
         const in_cart = response.data.in_cart;
         const btn = document.getElementById("add_cart_btn" + product_id);
-
+        const cartLength = response.data.cart_length;
         // 장바구니에 상품 추가
         if(in_cart === true){
             btn.classList.remove("bi-cart");
             btn.classList.add("bi-cart-fill");
 
             btn.firstElementChild.setAttribute("d", "M0 1.5A.5.5 0 0 1 .5 1H2a.5.5 0 0 1 .485.379L2.89 3H14.5a.5.5 0 0 1 .491.592l-1.5 8A.5.5 0 0 1 13 12H4a.5.5 0 0 1-.491-.408L2.01 3.607 1.61 2H.5a.5.5 0 0 1-.5-.5zM5 12a2 2 0 1 0 0 4 2 2 0 0 0 0-4zm7 0a2 2 0 1 0 0 4 2 2 0 0 0 0-4zm-7 1a1 1 0 1 1 0 2 1 1 0 0 1 0-2zm7 0a1 1 0 1 1 0 2 1 1 0 0 1 0-2z");
+            const cartCount1 = document.querySelector('#cart-count-1')
+            const cartCount2 = document.querySelector('#cart-count-2')
+
+            cartCount1.innerText = cartLength
+            cartCount2.innerText = cartLength
         }
         // 장바구니 상품 제거
         else{
@@ -111,6 +116,11 @@ function add_cart(event, product_id){
             btn.classList.add("bi-cart");
 
             btn.firstElementChild.setAttribute("d", "M0 1.5A.5.5 0 0 1 .5 1H2a.5.5 0 0 1 .485.379L2.89 3H14.5a.5.5 0 0 1 .491.592l-1.5 8A.5.5 0 0 1 13 12H4a.5.5 0 0 1-.491-.408L2.01 3.607 1.61 2H.5a.5.5 0 0 1-.5-.5zM3.102 4l1.313 7h8.17l1.313-7H3.102zM5 12a2 2 0 1 0 0 4 2 2 0 0 0 0-4zm7 0a2 2 0 1 0 0 4 2 2 0 0 0 0-4zm-7 1a1 1 0 1 1 0 2 1 1 0 0 1 0-2zm7 0a1 1 0 1 1 0 2 1 1 0 0 1 0-2z");
+            const cartCount1 = document.querySelector('#cart-count-1')
+            const cartCount2 = document.querySelector('#cart-count-2')
+
+            cartCount1.innerText = cartLength
+            cartCount2.innerText = cartLength
         }
     })
 }
