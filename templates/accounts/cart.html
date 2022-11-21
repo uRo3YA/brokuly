@@ -52,17 +52,11 @@ function calc_expense(){
   let sumQuantity = 0
   // for(let i = 1; i <= length; i++){
   for(let i = 0; i < productList.length; i++){
-    // console.log(productList[i])
-    // console.log(priceList[i].textContent)
     // p_price = productList[i].querySelector('.p_price')
-    // console.log(p_price)
     p_price = priceList[i].textContent
     cartCheck = checkList[i]
     p_quantity = quantityList[i].value
     spriceList[i].textContent = (parseInt(p_price.replace(',', '')) * parseInt(p_quantity)).toLocaleString("en-US");
-    // console.log(p_price)
-    // console.log(cartCheck)
-    // console.log(p_quantity)
     // p_price =  document.getElementById("p_price" + i).textContent
     // cartCheck = document.getElementById("cartcheck" + i)
     // p_quantity = document.getElementById("p_num" + i).value
@@ -70,7 +64,6 @@ function calc_expense(){
     if (cartCheck.checked){
       total += parseInt(p_price.replace(',', '')) * parseInt(p_quantity);
       sumQuantity += parseInt(p_quantity);
-      console.log(total)
     }
     
   }
@@ -152,6 +145,13 @@ const del_cart_btn = function(product_id){
       const tag = document.getElementById("cart_product" + product_id);
       tag.parentNode.removeChild(tag);
     } 
+
+    const cartLength = response.data.cart_length;
+    const cartCount1 = document.querySelector('#cart-count-1')
+    const cartCount2 = document.querySelector('#cart-count-2')
+
+    cartCount1.innerText = cartLength
+    cartCount2.innerText = cartLength
   });
 };
 
@@ -159,10 +159,6 @@ const del_cart_btn = function(product_id){
 const selectDel = function (e) {
   const allCheckBox = document.querySelectorAll('[type=checkbox]')
   for (let i = 0; i < allCheckBox.length; i ++){
-    // console.log(allCheckBox[i])
-    // console.log(allCheckBox[i].checked)
-    // console.log(allCheckBox[i].dataset.productId)
-    console.log(777)
       if(allCheckBox[i].checked == true){
         del_cart_btn(allCheckBox[i].dataset.productId);
       }
