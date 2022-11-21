@@ -757,6 +757,7 @@ html.dark a {
 .accordion-button {
   border: #ffffff;
   outline: none;
+  overflow-anchor: none;
 }
 .accordion-button::after {
   border: #ffffff;
@@ -773,6 +774,7 @@ html.dark a {
 .accordion-button:not(.collapsed)::after {
   background-image: none;
   border: #ffffff;
+  transform: rotate(-180deg);
 }
 
 .accordion-button:focus {
