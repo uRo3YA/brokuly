@@ -1,7 +1,7 @@
 {% extends 'base.html' %}
 {% load static %}
 {% load django_bootstrap5 %}
-
+{% load humanize %}
 {% block body %}
 
   <!-- carousel -->
@@ -46,7 +46,7 @@
                             <!-- <img src="https://dummyimage.com/330x350/000/fff" class="card-img-top" alt="상품 사진"> -->
                             <div class="card-body">
                             <h6 class="card-title">{{hot_item.title}}</h6>
-                            <p class="card-text">{{hot_item.price}}원</p>
+                            <p class="card-text">{{hot_item.price|intcomma}}원</p>
                             </div>
                         </div>
                         {% empty %}
@@ -72,7 +72,7 @@
                             <!-- <img src="https://dummyimage.com/330x350/000/fff" class="card-img-top" alt="상품 사진"> -->
                             <div class="card-body">
                             <h6 class="card-title">{{hot_item.title}}</h6>
-                            <p class="card-text">{{hot_item.price}}원</p>
+                            <p class="card-text">{{hot_item.price|intcomma}}원</p>
                             </div>
                         </div>
                         {% empty %}
@@ -118,7 +118,7 @@
                         <!-- <img src="https://dummyimage.com/330x350/000/fff" class="card-img-top" alt="상품 사진"> -->
                         <div class="card-body">
                           <h6 class="card-title">{{sale_item.title}}</h6>
-                          <p class="card-text">{{sale_item.price}}원</p>
+                          <p class="card-text">{{sale_item.price|intcomma}}원</p>
                         </div>
                       </div>
                       {% empty %}
@@ -144,7 +144,7 @@
                         <!-- <img src="https://dummyimage.com/330x350/000/fff" class="card-img-top" alt="상품 사진"> -->
                         <div class="card-body">
                           <h6 class="card-title">{{sale_item.title}}</h6>
-                          <p class="card-text">{{sale_item.price}}원</p>
+                          <p class="card-text">{{sale_item.price|intcomma}}원</p>
                         </div>
                       </div>
                       {% empty %}
@@ -216,7 +216,7 @@
                           <!-- <img src="https://dummyimage.com/330x350/000/fff" class="card-img-top" alt="상품 사진"> -->
                           <div class="card-body">
                           <h6 class="card-title">{{hot_item.title}}</h6>
-                          <p class="card-text">{{hot_item.price}}원</p>
+                          <p class="card-text">{{hot_item.price|intcomma}}원</p>
                           </div>
                       </div>
                       {% empty %}
@@ -242,7 +242,7 @@
                           <!-- <img src="https://dummyimage.com/330x350/000/fff" class="card-img-top" alt="상품 사진"> -->
                           <div class="card-body">
                           <h6 class="card-title">{{hot_item.title}}</h6>
-                          <p class="card-text">{{hot_item.price}}원</p>
+                          <p class="card-text">{{hot_item.price|intcomma}}원</p>
                           </div>
                       </div>
                       {% empty %}
@@ -284,7 +284,7 @@
                         <!-- <img src="https://dummyimage.com/330x350/000/fff" class="card-img-top" alt="상품 사진"> -->
                         <div class="card-body">
                           <h6 class="card-title">{{sale_item.title}}</h6>
-                          <p class="card-text">{{sale_item.price}}원</p>
+                          <p class="card-text">{{sale_item.price|intcomma}}원</p>
                         </div>
                       </div>
                       {% empty %}
@@ -310,7 +310,7 @@
                         <!-- <img src="https://dummyimage.com/330x350/000/fff" class="card-img-top" alt="상품 사진"> -->
                         <div class="card-body">
                           <h6 class="card-title">{{sale_item.title}}</h6>
-                          <p class="card-text">{{sale_item.price}}원</p>
+                          <p class="card-text">{{sale_item.price|intcomma}}원</p>
                         </div>
                       </div>
                       {% empty %}
