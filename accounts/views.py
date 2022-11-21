@@ -86,6 +86,10 @@ def login(request):
     else:
         form = AuthenticationForm(request)
 
+        # update placeholder in login form(AuthenticationForm)
+        form.fields['username'].widget.attrs.update({'placeholder': '아이디를 입력해주세요.'})
+        form.fields['password'].widget.attrs.update({'placeholder': '비밀번호를 입력해주세요.'})
+
     context = {
         "form": form,
     }
