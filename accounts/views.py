@@ -519,7 +519,7 @@ def send_valid_number(request):
 
     current_site = get_current_site(request)
     message = render_to_string(
-        "accounts/working/send_validnumber.html",
+        "accounts/send_validnumber.html",
         {
             "user": request.user,
             "domain": current_site.domain,
