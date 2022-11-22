@@ -1,0 +1,657 @@
+{% extends 'base.html' %}
+{% load static %}
+{% load humanize %}
+{% block script %}
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.min.css" />
+<script type="text/javascript" src="{% static 'js/10-11.js' %}"></script> 
+{% endblock script %}
+{% load django_bootstrap5 %}
+{% block body %}
+        <!-- 상품 이미지 및 상품명 -->
+        <div class="container text-center mt-5">
+            <div class="row justify-content-center">
+              <div class="col-6">
+                {%if product.is_crawl%}
+                <img src="{{product.crawl_produt_detail_img}}" alt="상품 이미지">
+                {%else%}
+                <img src="{{product.produt_thum_img.url}}" alt="상품 이미지">
+                {%endif%}
+              </div>
+              <div class="col-6 text-start mx-7">
+                  <h3 class="mx-1">{{product.title}}</h3>
+                  <h3 class="mx-1"><span class="fw-bold" style="color: #fbcd24"> {{product.sales_rate}}% </span>{{product.price|intcomma}}원</h3>
+                  <hr>
+                  <div class="row align-items-center">
+                    <div class="col-6 text-start mt-3">
+                      <p class="mx-1">판매자: {{product.user.name}}</p>
+                    </div>
+                    <div class="col-3 ms-5 m">
+                        
+                        {% if request.user in product.user.followings.all %}
+                        <button type="button"  id="follow-btn" data-user-id="{{ product.user.pk }}"  class="btn-outline-green" style="border-radius: 3rem;">UnFollow</button>
+                        {%else%}
+                        <button type="button" id="follow-btn" data-user-id="{{ product.user.pk }}" class="btn-green" style="border-radius: 3rem;">Follow</button>
+                        {%endif%}
+                     
+                        <button type="button" id="help-follow" class="btn mb-2" data-bs-container="body" data-bs-toggle="popover" data-bs-placement="right" data-bs-content="판매자를 팔로우하면 마이페이지에서 확인할 수 있습니다. 팔로우한 판매자의 판매 내역을 따로 확인할 수 있습니다.">
+                        <svg style="color: gray;" xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor" class="bi bi-question-circle-fill" viewBox="0 0 16 16">
+                          <path d="M16 8A8 8 0 1 1 0 8a8 8 0 0 1 16 0zM5.496 6.033h.825c.138 0 .248-.113.266-.25.09-.656.54-1.134 1.342-1.134.686 0 1.314.343 1.314 1.168 0 .635-.374.927-.965 1.371-.673.489-1.206 1.06-1.168 1.987l.003.217a.25.25 0 0 0 .25.246h.811a.25.25 0 0 0 .25-.25v-.105c0-.718.273-.927 1.01-1.486.609-.463 1.244-.977 1.244-2.056 0-1.511-1.276-2.241-2.673-2.241-1.267 0-2.655.59-2.75 2.286a.237.237 0 0 0 .241.247zm2.325 6.443c.61 0 1.029-.394 1.029-.927 0-.552-.42-.94-1.029-.94-.584 0-1.009.388-1.009.94 0 .533.425.927 1.01.927z"/>
+                        </svg>                     
+                      </button>
+                    </div>
+                  </div>
+                  <hr>
+                  <p class="mx-1">판매단위: {{product.unit}}</p>
+                  <hr>
+                  <p class="mx-1">배송구분: {{product.ship_type}} </p>
+                  <hr>
+                  <p class="mx-1">원산지: 상세 이미지 별도</p>
+                  <hr>
+                  <p class="mx-1">알레르기정보 -{%for i in product.allergy%}
+                    {{i}} 
+                    {%endfor%}</p>
+                  <hr>
+                  <p class="mx-1">재고 {{product.stock}}</p>
+                  <hr>
+              </div>
+          </div>
+        </div>
+        <!-- 버튼들 -->
+
+        <div class="container p-5">
+            <div class="d-flex align-items-center float-end">
+              <div class="container detail-icon mx-3 text-center">
+                    
+                    {% if request.user.is_authenticated %}
+                    {% csrf_token %}
+                        {% if product in request.user.wishlist.all %}
+
+                            <svg id="wish-btn" data-product-id="{{ product.pk }}" xmlns="http://www.w3.org/2000/svg" width="30" height="30" fill="currentColor" class="bi bi-suit-heart-fill mt-2" viewBox="0 0 16 16" style="color: #006e39;" >
+                                <path id="wish-img" data-product-id="{{ product.pk }}" d="M4 1c2.21 0 4 1.755 4 3.92C8 2.755 9.79 1 12 1s4 1.755 4 3.92c0 3.263-3.234 4.414-7.608 9.608a.513.513 0 0 1-.784 0C3.234 9.334 0 8.183 0 4.92 0 2.755 1.79 1 4 1z"/>
+                            </svg> 
+                        {% else %}
+                            <svg id="wish-btn"  data-product-id="{{ product.pk }}" xmlns="http://www.w3.org/2000/svg" width="30" height="30" fill="currentColor" class="bi bi-suit-heart mt-2" viewBox="0 0 16 16" style="color: #006e39;">
+                                <path id="wish-img" data-product-id="{{ product.pk }}" d="m8 6.236-.894-1.789c-.222-.443-.607-1.08-1.152-1.595C5.418 2.345 4.776 2 4 2 2.324 2 1 3.326 1 4.92c0 1.211.554 2.066 1.868 3.37.337.334.721.695 1.146 1.093C5.122 10.423 6.5 11.717 8 13.447c1.5-1.73 2.878-3.024 3.986-4.064.425-.398.81-.76 1.146-1.093C14.446 6.986 15 6.131 15 4.92 15 3.326 13.676 2 12 2c-.777 0-1.418.345-1.954.852-.545.515-.93 1.152-1.152 1.595L8 6.236zm.392 8.292a.513.513 0 0 1-.784 0c-1.601-1.902-3.05-3.262-4.243-4.381C1.3 8.208 0 6.989 0 4.92 0 2.755 1.79 1 4 1c1.6 0 2.719 1.05 3.404 2.008.26.365.458.716.596.992a7.55 7.55 0 0 1 .596-.992C9.281 2.049 10.4 1 12 1c2.21 0 4 1.755 4 3.92 0 2.069-1.3 3.288-3.365 5.227-1.193 1.12-2.642 2.48-4.243 4.38z"/>
+                            </svg> 
+                        {% endif %}
+                    {% else %}
+                    <svg id="wish-btn"  data-product-id="{{ product.pk }}" xmlns="http://www.w3.org/2000/svg" width="30" height="30" fill="currentColor" class="bi bi-suit-heart mt-2" viewBox="0 0 16 16" style="color: #006e39;">
+                        <path id="wish-img" data-product-id="{{ product.pk }}" onclick="addwishlist(this)" d="m8 6.236-.894-1.789c-.222-.443-.607-1.08-1.152-1.595C5.418 2.345 4.776 2 4 2 2.324 2 1 3.326 1 4.92c0 1.211.554 2.066 1.868 3.37.337.334.721.695 1.146 1.093C5.122 10.423 6.5 11.717 8 13.447c1.5-1.73 2.878-3.024 3.986-4.064.425-.398.81-.76 1.146-1.093C14.446 6.986 15 6.131 15 4.92 15 3.326 13.676 2 12 2c-.777 0-1.418.345-1.954.852-.545.515-.93 1.152-1.152 1.595L8 6.236zm.392 8.292a.513.513 0 0 1-.784 0c-1.601-1.902-3.05-3.262-4.243-4.381C1.3 8.208 0 6.989 0 4.92 0 2.755 1.79 1 4 1c1.6 0 2.719 1.05 3.404 2.008.26.365.458.716.596.992a7.55 7.55 0 0 1 .596-.992C9.281 2.049 10.4 1 12 1c2.21 0 4 1.755 4 3.92 0 2.069-1.3 3.288-3.365 5.227-1.193 1.12-2.642 2.48-4.243 4.38z"/>
+                    </svg> 
+                    {% endif %}
+                
+              </div>
+
+
+
+              <div class="container detail-icon mx-3 text-center">
+                <a class="text-decoration-none" href="#">
+                  <svg xmlns="http://www.w3.org/2000/svg" width="30" height="30" fill="currentColor" class="bi bi-bell mt-2" viewBox="0 0 16 16" style="color: #006e39;">
+                    <path d="M8 16a2 2 0 0 0 2-2H6a2 2 0 0 0 2 2zM8 1.918l-.797.161A4.002 4.002 0 0 0 4 6c0 .628-.134 2.197-.459 3.742-.16.767-.376 1.566-.663 2.258h10.244c-.287-.692-.502-1.49-.663-2.258C12.134 8.197 12 6.628 12 6a4.002 4.002 0 0 0-3.203-3.92L8 1.917zM14.22 12c.223.447.481.801.78 1H1c.299-.199.557-.553.78-1C2.68 10.2 3 6.88 3 6c0-2.42 1.72-4.44 4.005-4.901a1 1 0 1 1 1.99 0A5.002 5.002 0 0 1 13 6c0 .88.32 4.2 1.22 6z"/>
+                  </svg>
+                </a>
+              </div>
+                    
+              {% if request.user.is_authenticated and not request.user.is_seller %}
+                <form action="{% url 'accounts:add_cart_redirect' product.pk %}" method="POST">      
+                  {% csrf_token %} 
+                  {% if product not in request.user.carts.all %}
+                    <button type="submit" class="btn btn-green p-2 px-5 mx-2"><strong>장바구니 담기</strong></button>
+                  {% else %}
+                    <button type="submit" class="btn btn-secondary p-2 px-5 mx-2"><strong>장바구니 빼기</strong></button>
+                  {% endif %}
+                </form>
+              {% endif %}
+            </div>
+          </div>
+            
+        
+        
+
+          <!--소셜 공유버튼 영역-->
+  <div class="d-flex float-end mx-5">
+    <span class="sociallink ml-1">
+        <a href="javascript:sendLinkFacebook()" title="페이스북으로 공유">
+          <img src="https://windybay.net/static/images/facebook.png" width=36 alt="Facebook">
+        </a>
+      </span>
+      <span class="sociallink ml-1">
+        <a href="javascript:sendLinkTwitter()" title="트위터로 공유">
+          <img src="https://windybay.net/static/images/twitter.png" width=36 alt="Twitter">
+        </a>
+      </span>
+      <span class="sociallink ml-1">
+        <a href="javascript:sendLinkNaver()" title="네이버로 공유">
+          <img src="https://windybay.net/static/images/naver.png" width=36 alt="Naver">
+        </a>
+      </span>
+      <span class="sociallink ml-1">
+        <a id="kakaotalk-sharing-btn" href="javascript:;" title="카카오톡으로 공유">
+          <img src="https://windybay.net/static/images//kakaotalk.png" width=36 alt="Kakaotalk">
+        </a>
+      </span>
+  </div>
+
+  <!--탭 테스트  -->
+  <div >
+  <div class="detail_tab">
+    <ul class="tab_list" style=" list-style:none;">
+      <li class="tab_item item01" id="bookmark_product_information_item">
+        <a href="#bookmark_product_information">
+          <h3 class="tab_txt">상품 상세정보</h3>
+        </a>
+      </li>
+      <li class="tab_item item02" id="bookmark_cm_opinion_item">
+        <a href="#bookmark_cm_opinion">
+          <h3 class="tab_txt">상품리뷰</h3>
+          <strong class="num_c" id="productOpinionTabCount"></strong>
+        </a>
+      </li>
+      <li class="tab_item item02" id="bookmark_cm_inquiry_item">
+        <a href="#bookmark_cm_inquiry">
+          <h3 class="tab_txt">문의하기</h3>
+          <strong class="num_c" id="productInquiryTabCount"></strong>
+        </a>
+      </li>
+    </ul>
+  </div>
+</div>
+<!--// detail_tab_area -->
+  <!-- 하단 상품 이미지 및 설명 -->
+  <div id="bookmark_product_information" style="height: 100px; margin-top: -100px;"></div>
+  <div class="d-flex justify-content-center flex-column">
+      <div>
+      <p class="text-center">
+        {%if product.is_crawl%}
+        <img src="{{product.crawl_produt_thum_img}}" alt="상품 이미지">
+        {%else%}
+        <img  src="{{product.produt_detail_img.url}}" alt="상품 상세 이미지" />
+        {%endif%}
+        
+      </p>
+        <br>
+      <h3 class="text-center">{{product.title}}</h3>
+      <br>
+      
+      <div class="row d-flex justify-content-center">
+          <div class="col-6">
+            <p class="text-center">
+            <div class="d-flex align-items-center text-center">
+                {{product.description|linebreaksbr}}
+            </div>
+            </div>
+            <br>
+            </p>
+            <div class="col-6">
+                <div class="d-flex justify-content-center text-center">
+                    {%if product.is_crawl%}
+                    <img src="{{product.crawl_produt_desc_img}}" alt="상품 이미지">
+                    {%else%}
+                    <img src="{{product.produt_desc_img.url}}"alt="상품 성분표 이미지"/>
+                    {%endif%}
+            </div>
+        </div>
+        </div>
+    </div>
+  </div>
+
+
+  <!-- 리뷰 영역 -->
+  <div id="bookmark_cm_opinion" style="height: 100px; margin-top: -100px;"></div>
+  <!-- 하단 상품 후기 -->
+  <div class="container pt-5 pb-5">
+    <h2 class="text-center">고객님들의 후기</h2>
+    <div class="d-flex justify-content-center mt-5 mb-3">
+      
+    </div>
+    <div class="d-flex float-start mt-3">
+      <p class="mx-3">총 {{reviews.count}}개 | 평균 평점 {{product_score}}
+        <div class="mx-3">
+            <!--리뷰 작성 모달 호출-->
+            {% if request.user.is_authenticated %}
+            <button type="button" class="btn btn-outline-success"   data-bs-toggle="modal" data-bs-target="#review-modal">
+                상품 리뷰 작성
+            </button>
+            {%else%}
+
+            {%endif%}
+          </div>
+      </p> 
+    </div>
+    <br>
+    <br>
+    <hr> 
+    <!--여기부터 리뷰 작성 모달-->
+    <div class="modal fade" id="review-modal" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+        <div class="modal-dialog">
+          <div class="modal-content">
+            <div class="modal-header">
+              <h5 class="modal-title" id="staticBackdropLabel">상품 후기작성</h5>          
+              <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <form action="{% url 'reviews:review_create' product.pk %}" method="POST"  enctype="multipart/form-data">
+              {% csrf_token %}
+            <div class="modal-body">
+                <hr>
+                {%if product.is_crawl%}
+                <img src="{{product.crawl_produt_thum_img}}" alt="상품 이미지"style="width:72px;">
+                {%else%}
+                <img src="{{product.produt_thum_img.url}}" alt="상품 이미지" style="width:72px;">
+                {%endif%}
+                {{product.title}}
+                <hr>
+                {% bootstrap_form review_Form %}
+                <input multiple type="file" name="image" accept="image/*" id="id_image">
+            </div>
+            <div class="modal-footer">
+              <button type="button" class="btn btn-outline-success" data-bs-dismiss="modal">취소</button>
+              <button type="submit" class="btn btn-success">등록</button>
+            </div>
+          </form>
+          </div>
+        </div>
+      </div>
+      <!--여기까지 리뷰 작성 모달-->
+    <div class="container mt-5">
+        {% for review in reviews %}
+        <div class="row">
+            <div class="col-2">
+                <div class="d-flex align-content-center">
+                    <button class="btn-grade">등급</button>
+                    <h6 class="mb-0 pt-1">{{ review.user.name }}</h6>
+                </div>
+        
+            </div>
+            <div class="col-8"  onclick="location.href='/reviews/{{review.pk}}/'">
+                <h5 class="text-muted fw-bold">{{ review.title }}</h5>
+                <p class="text-muted">{{review.grade}}</p>
+                <p class="text-muted">{{review.content}}</p>
+                {% for image in review_image %}  
+                    {% if image.review_id == review.pk %}
+                        <img src="/media/{{image.image}}" style="width: 64px; height: 64px;">
+                    {%endif%}
+                {% endfor %}
+            </div>
+
+        </div>
+        <hr>
+        {% endfor %}
+
+
+
+<!-- 문의 영역 -->
+<div id="bookmark_cm_inquiry" style="height: 100px; margin-top: -100px;"></div>
+<!-- 하단 상품 후기 -->
+<div class="container mt-5 pt-5">
+    <div class="row justify-content-between">
+        <div class="col-6">
+            <h2 class="text-start">상품문의</h2>
+            <p class="text-muted">해당 상품에 대한 문의를 남겨주세요!<br>
+            배송과 관련된 문의 사항이 있으시다면 마이페이지 내 1:1 문의에 남겨주세요.</p>
+        </div> 
+        <div class="col-4 pt-5">
+        {% if request.user.is_authenticated %}
+        <button type="button" class="btn btn-outline-success" data-bs-toggle="modal" data-bs-target="#inquiry-modal">
+            상품 문의하기
+        </button>
+        {%else%}
+        
+        {%endif%}
+      </div>
+    </div>
+  </div>
+
+  <!-- Modal -->
+  <div class="modal fade" id="inquiry-modal" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="staticBackdropLabel">상품 문의하기</h5>          
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <form action="qnas/question/create/" method="POST">
+          {% csrf_token %}
+        <div class="modal-body">
+            <hr>
+            {%if product.is_crawl%}
+            <img src="{{product.crawl_produt_thum_img}}" alt="상품 이미지"style="width:72px;">
+            {%else%}
+            <img src="{{product.produt_thum_img.url}}" alt="상품 이미지" style="width:72px;">
+            {%endif%}
+            {{product.title}}
+            <hr>
+            {% bootstrap_form question_form %}
+            <!-- <i class="bi bi-check-circle"></i><i class="bi bi-check-circle-fill"></i>비밀글로 문의하기 -->
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-outline-success" data-bs-dismiss="modal">취소</button>
+          <button type="submit" class="btn btn-success">등록</button>
+        </div>
+      </form>
+      </div>
+    </div>
+  </div>
+  <hr class="green-line">
+  <div class="container mt-3 p-1">
+    <div class="row">
+      <div class="col-6">
+        <p class="text-center">제목</p>
+      </div>
+      <div class="col-6 ">
+        <div class="d-flex float-end">
+          <p class="text-center" style="margin-right: 3rem;">작성자</p>
+          <p class="text-center" style="margin-right: 3rem; margin-left: 5rem;">작성일</p>
+          <p class="text-center mx-5">답변상태</p>
+        </div>
+      </div>
+    </div>
+    <hr>
+    <div class="container accordion accordion-flush row" id="accordionFlushExample">
+        {% for question in questions %}
+        <div class="accordion-item">
+          <h2 class="accordion-header d-flex align-content-center" id="flush-headingOne-{{question.pk}}">
+              <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#flush-collapseOne-{{question.pk}}" aria-expanded="false" aria-controls="flush-collapseOne-{{question.pk}}">
+                <div class="col-6 ">
+                    {{ question.title }}
+                </div>
+                <div class="col-6">
+                  <div class="d-flex float-end">
+                    <p class="text-center mx-5">{{ question.user.name }}</p>
+                    <p class="text-center mx-5">{{ question.created_at|date:"y-m-d"   }}</p>
+                    {%if question.is_answered == 1%}
+                    <p class="text-center" style="margin-left: 3rem; color: #008b47;">답변완료</p>
+                    {%else%}
+                    <p class="text-center" style="margin-left: 3rem; color: #797979;">답변대기</p>
+                    {%endif%}
+                  </div>
+                </div>
+              </button>
+          </h2>
+          <div id="flush-collapseOne-{{question.pk}}" class="accordion-collapse collapse" aria-labelledby="flush-headingOne-{{question.pk}}" data-bs-parent="#accordionFlushExample">
+                <div class="accordion-body answer-form">
+                    <div class="container d-flex mt-3">
+                        <img src="{% static 'images/Q_icon.png' %}" width="30rem" height="30rem">
+                            <p class="ms-3 mt-3">{{ question.content}}</p>
+                    </div>
+                    {% for answer in answers %}
+                    {% if answer.question_id == question.pk%}
+                    <div class="container d-flex mt-5">
+                        <img src="{% static 'images/A_icon.png' %}" width="30rem" height="30rem">
+                        <p class="mx-3 mt-3">{{ answer.content }}</p>
+                    </div>
+                    {% endif %}
+                    {% endfor %}
+                </div>
+                <!-- 버튼 -->
+            <div class="d-felx float-end mb-3">
+                <!-- 상품문의 답변 모달 -->
+                {% if product.user_id == request.user.pk %}
+                <button id="question-{{ question.pk }}-answer-create" type="button" class="btn btn-green" data-bs-toggle="modal" data-bs-target="#ansModal-{{ question.pk }}" data-question-id="{{ question.pk }}" onclick="getCreateAnswer(this.id);">답변</button>
+                {%endif%}
+                <div class="modal fade" id="ansModal-{{ question.pk }}" tabindex="-1" aria-labelledby="ansModalLabel" aria-hidden="true">
+                    <div class="modal-dialog modal-lg">
+                        <div class="container modal-content">
+                            <div class="modal-header">
+                            <h1 class="modal-title fs-3" id="ansModalLabel">상품문의 답변</h1>
+                            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                        </div>
+                    <div class="modal-body">
+                        <div class="container mt-3 mx-3">
+                            <p class="fw-bold">{{ question.title }}</p>
+                        </div>
+                        <div class="container">
+                            <form action="/qnas/{{ question.pk }}/answer/create/?next={{ request.path }}" method="POST" id="question-{{ question.pk }}-answer-create-form" data-question-id="{{ question.pk }}" class="display-none">
+                                {% csrf_token %}
+                                <div class="container mt-3 mx-3">
+                                    <p>{{ question.content}}</p>
+                                </div>
+                                <div class="row mb-3 mt-5">
+                                    <div class="col-2">
+                                        <label for="message-text" class="col-form-label mx-3 fw-bold">답변</label>
+                                    </div>
+                                    <div class="col-10">
+                                        <!-- <input class="form-control" id="message-text" rows="4" cols="50"/> -->
+                                        {% bootstrap_form answer_form %}
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="d-flex justify-content-center mt-5">
+                                    <button type="button" class="btn btn-outline-green p-2 px-3 mx-2" data-bs-dismiss="modal">취소</button>
+                                    <button type="submit" class="btn btn-green p-2 px-3">답변</button>
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+              </div>
+              {% if question.user.pk == request.user.pk %}
+              <a href="/qnas/{{ question.pk }}/update/?next={{ request.path }}"><button type="button" class="btn btn-outline-green" data-question-id="{{ question.pk }}">수정</button></a>
+              <button type="button" class="btn btn-danger" data-question-id="{{ question.pk }}" onclick="questionDelete()">삭제</button>
+              {% endif %}
+            </div>                  
+            </div>
+
+          </div>
+          {% endfor %}
+        </div>
+    
+
+<!-- UpdateModal -->
+<div class="modal fade" id="update-modal" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="staticBackdropLabel">문의 수정하기</h5>          
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <form action="qnas/question/create/" method="POST">
+        {% csrf_token %}
+      <div class="modal-body">
+          <hr>
+          {%if product.is_crawl%}
+          <img src="{{product.crawl_produt_thum_img}}" alt="상품 이미지"style="width:72px;">
+          {%else%}
+          <img src="{{product.produt_thum_img.url}}" alt="상품 이미지" style="width:72px;">
+          {%endif%}
+          <span id="product-title">{{product.title}}</span>
+          <hr>
+          {% bootstrap_form question_form %}
+          <i class="bi bi-check-circle"></i><i class="bi bi-check-circle-fill"></i>비밀글로 문의하기
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-outline-success" data-bs-dismiss="modal">취소</button>
+        <button type="submit" class="btn btn-success">등록</button>
+      </div>
+    </form>
+    </div>
+  </div>
+</div>
+</div>
+</div>
+</div>
+<!--자바스크립트-->
+<script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+<script>
+  function sendLinkFacebook(){
+    var facebook_share_url = "https://www.facebook.com/sharer/sharer.php?u={{ request.build_absolute_uri }}";
+    window.open(facebook_share_url,
+                'Share on Facebook',
+                'scrollbars=no, width=500, height=500');
+  }
+  function sendLinkTwitter(){
+      var twitter_share_text="{{ post.title }}";
+      var twitter_share_url="{{ request.build_absolute_uri }}";
+      window.open("https://twitter.com/share?text="+twitter_share_text+"&url="+twitter_share_url,
+                  'Share on Twitter',
+                  'scrollbars=no, width=500, height=500');
+  }
+  
+  function sendLinkNaver() {
+      var url = encodeURI(encodeURIComponent(window.location.href));
+      var title = encodeURI("{{ product.title }}");
+      var shareURL = "https://share.naver.com/web/shareView?url=" + url + "&title=" + title;
+      window.open(shareURL, 'Share on Naver', 'scrollbars=no, width=500, height=500');
+  }
+
+
+  function questionDelete(e){
+    event.preventDefault()
+    if (confirm("정말 삭제하시겠습니까?") == true){
+        window.location.href = `/qnas/${event.target.dataset.questionId}/delete/?next={{ request.path }}`
+    }else{
+        return;
+    }
+  }
+
+  const getCreateAnswer = function (e) {
+    console.log(e)
+    const answerForm = document.querySelector(`#${e}-form`)
+    answerForm.classList.toggle('display-none');
+  }
+  const submitAnswer = function (e) {
+
+  }
+
+  function answerDelete(e){
+    event.preventDefault()
+    if (confirm("정말 삭제하시겠습니까?") == true){
+        window.location.href = `/qnas/answer/${event.target.dataset.answerId}/delete/?next={{ request.path }}`
+    }else{
+        return;
+    }
+  }
+
+</script>
+
+<!--카카오 공유 버튼-->
+<script src="https://t1.kakaocdn.net/kakao_js_sdk/2.0.1/kakao.min.js"
+  integrity="sha384-eKjgHJ9+vwU/FCSUG3nV1RKFolUXLsc6nLQ2R1tD0t4YFPCvRmkcF8saIfOZNWf/" crossorigin="anonymous"></script>
+<script>
+  Kakao.init('f120b1818e7d400b80e5bf358936933a'); // 사용하려는 앱의 JavaScript 키 입력
+</script>
+
+<script>
+  Kakao.Share.createDefaultButton({
+    container: '#kakaotalk-sharing-btn',
+    objectType: 'feed',
+    content: {
+      title: '#{{ product.title }}',
+      description: '#Brokurly #브로컬리 #신선식품 #인기상품 #샛별배송',
+      imageUrl:
+        'https://ifh.cc/g/3bDOYg.png',
+      link: {
+        mobileWebUrl: window.location.href,
+        webUrl: window.location.href,
+      },
+    },
+    social: {
+      likeCount: 286,
+      commentCount: 45,
+      sharedCount: 845,
+    },
+    buttons: [
+      {
+        title: '웹으로 보기',
+        link: {
+          mobileWebUrl: window.location.href,
+          webUrl: window.location.href,
+        },
+      },
+      {
+        title: '앱으로 보기',
+        link: {
+          mobileWebUrl: window.location.href,
+          webUrl: window.location.href,
+        },
+      },
+    ],
+  });
+</script>
+<!-- <script>
+    const addwishlist=function(e){
+        console.log(event.target.dataset.productId)
+        console.log(event.target)
+        console.log(event)
+        console.log(e.id)
+    }
+
+    
+</script> -->
+<script>
+    const followBtn = document.querySelector('#follow-btn')
+
+    followBtn.addEventListener('click', function (event) {
+        console.log(event.target.dataset)
+        console.log(event.target.dataset.userId)
+        axios({
+            method: 'get',
+            url: `/accounts/follow/${event.target.dataset.userId}/`
+        })
+            .then(response => {
+                console.log(response.data)
+                if (response.data.isFollowed === true) {
+                    event.target.classList.remove('btn-green')
+                    followBtn.innerText = 'Unfollow'
+                    event.target.classList.add('btn-outline-green')
+                } else {
+                    event.target.classList.remove('btn-outline-green')
+                    followBtn.innerText = 'Follow'
+                    event.target.classList.add('btn-green')
+                }
+            })
+    })
+
+</script>
+
+ <script>
+    // (1) 위시리스트 버튼
+    const likeBtn = document.querySelector('#wish-btn')
+    const wishTag = document.querySelector("#wish-img")
+    // axios.defaults.xsrfCookieName = 'csrftoken';
+    // axios.defaults.xsrfHeaderName = 'X-CSRFToken';
+    // (2) 위시리스트 버튼을 클릭하면, 함수 실행
+    likeBtn.addEventListener('click', function (event) {
+        // 서버로 비동기 요청을 하고 싶음
+        
+        console.log(event.target.dataset)
+        
+        console.log(event.target.dataset.productId)
+        axios({
+            method: 'post',
+            headers : {
+                    'X-CSRFTOKEN' : '{{ csrf_token }}'
+                },
+            url: `/accounts/wishlist/add/${event.target.dataset.productId}/`
+        })
+            .then(response => {
+                console.log(response)
+                console.log(response.data)
+                // event.target.classList.toggle('bi-heart')
+                // event.target.classList.toggle('bi-heart-fill')
+                if (response.data.isLiked === true) {
+                    event.target.classList.remove('bi-suit-heart')
+                    event.target.classList.add('bi-suit-heart-fill')
+                    wishTag.setAttribute("d","M4 1c2.21 0 4 1.755 4 3.92C8 2.755 9.79 1 12 1s4 1.755 4 3.92c0 3.263-3.234 4.414-7.608 9.608a.513.513 0 0 1-.784 0C3.234 9.334 0 8.183 0 4.92 0 2.755 1.79 1 4 1z")
+                } else {
+                    event.target.classList.remove('bi-suit-heart-fill')
+                    event.target.classList.add('bi-suit-heart')
+                    wishTag.setAttribute("d","m8 6.236-.894-1.789c-.222-.443-.607-1.08-1.152-1.595C5.418 2.345 4.776 2 4 2 2.324 2 1 3.326 1 4.92c0 1.211.554 2.066 1.868 3.37.337.334.721.695 1.146 1.093C5.122 10.423 6.5 11.717 8 13.447c1.5-1.73 2.878-3.024 3.986-4.064.425-.398.81-.76 1.146-1.093C14.446 6.986 15 6.131 15 4.92 15 3.326 13.676 2 12 2c-.777 0-1.418.345-1.954.852-.545.515-.93 1.152-1.152 1.595L8 6.236zm.392 8.292a.513.513 0 0 1-.784 0c-1.601-1.902-3.05-3.262-4.243-4.381C1.3 8.208 0 6.989 0 4.92 0 2.755 1.79 1 4 1c1.6 0 2.719 1.05 3.404 2.008.26.365.458.716.596.992a7.55 7.55 0 0 1 .596-.992C9.281 2.049 10.4 1 12 1c2.21 0 4 1.755 4 3.92 0 2.069-1.3 3.288-3.365 5.227-1.193 1.12-2.642 2.48-4.243 4.38z")
+                }
+                // const likeCount = document.querySelector('#wish-count')
+                // likeCount.innerText = response.data.likeCount
+            })
+    })
+</script>
+
+<script src="https://code.jquery.com/jquery-3.6.1.slim.min.js" integrity="sha256-w8CvhFs7iHNVUtnSP0YKEg00p9Ih13rlL9zGqvLdePA=" crossorigin="anonymous"></script>
+<script>
+  // 팔로우 도움말 알림 창(Popover) 3초 뒤 사라짐
+  $(document).ready(function(){
+      $('[data-bs-toggle="popover"]').popover().click(function(){
+        setTimeout(function(){
+          $('[data-bs-toggle="popover"]').popover('hide')
+        }, 3000);
+      });   
+  });
+</script>
+{% endblock %}

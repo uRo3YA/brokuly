@@ -1,0 +1,176 @@
+{% extends 'base.html' %}
+{% load django_bootstrap5 %}
+{% load static %}
+
+{% block body %}
+
+  <div id="wrap">
+
+    <!-- 로그인 폼-->
+    <div class="container">
+      <h3 class="fw-bold text-center my-5">로그인</h3>
+      <div class="row justify-content-center">
+        <form action="" method="POST" style="width: 350px;">
+          {% csrf_token %}
+          <div class="login-input mb-3">
+              {{ form.username }}
+          </div>
+          <div class="login-input">
+              {{ form.password }}
+          </div>
+          <!-- 아이디/비번 찾기 -->
+          <div class="d-flex justify-content-end my-3">
+              <a class="float-end text-decoration-none small" href="#" style="color: black;">아이디 찾기</a>
+              <p class="mx-2 my-0 small">|</p>
+              <a class="float-start text-decoration-none small" href="#" style="color: black;">비밀번호 찾기 </a>
+          </div>
+      
+          <!-- 로그인 및 회원가입 버튼 -->
+          <div class="row align-items-center mt-4" style="padding: 0px 10px;">
+            <button type="submit" class="btn btn-green mb-3 py-3">로그인</button>
+            <a href="{% url 'accounts:agreement' %}" type="button" class="btn btn-outline-green py-3 mb-4">회원가입</a>
+          </div>
+          <div class="row justify-content-center mb-5">
+            <a id="naverIdLogin_loginButton" href="javascript:void(0)" class="text-decoration-none p-0 mb-3" style="width: 222px; height:49px;">
+              <img src="http://lab.anybuild.co.kr/API/naver/img/naver_g_c_login.PNG" style="width: 222px; height:49px;">
+            </a>
+            <a id="kakao-login-btn" class="p-0" style="width: 222px; height:49px;"></a>
+            <div id="result"></div>
+          </div>
+          
+        </form>
+      </div>
+    </div>
+  </div>
+  
+
+  <!--자바스크립트-->
+  <script type="text/javascript" src="https://static.nid.naver.com/js/naverLogin_implicit-1.0.3.js" charset="utf-8"></script>
+  <script type="text/javascript" src="http://code.jquery.com/jquery-1.11.3.min.js"></script>
+  <script src="https://developers.kakao.com/sdk/js/kakao.min.js"></script>
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+  <script type="text/javascript" src="https://static.nid.naver.com/js/naverLogin_implicit-1.0.3.js" charset="utf-8"></script>
+  <script type="text/javascript" src="http://code.jquery.com/jquery-1.11.3.min.js"></script>
+  <script src="https://developers.kakao.com/sdk/js/kakao.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+  <script type="text/javascript">
+    function unlinkApp() {
+      Kakao.API.request({
+        url: '/v1/user/unlink',
+        success: function(res) {
+          alert('success: ' + JSON.stringify(res))
+        },
+        fail: function(err) {
+          alert('fail: ' + JSON.stringify(err))
+        },
+      })
+    }
+  </script>
+  <script type="text/javascript">
+    Kakao.init('f120b1818e7d400b80e5bf358936933a');
+    console.log(Kakao.isInitialized());
+     
+    Kakao.Auth.createLoginButton({
+      container: '#kakao-login-btn',
+      success: function(authObj) {
+        Kakao.API.request({
+          url: '/v2/user/me',
+          success: function(result) {
+            $('#result').append(result);
+            id = result.id
+            connected_at = result.connected_at
+            kakao_account = result.kakao_account
+            console.log(kakao_account)
+            $('#result').append(kakao_account);
+  
+            resultdiv="<h2>로그인 성공 !!"
+            resultdiv += '<h4>id: '+id+'<h4>'
+            resultdiv += '<h4>connected_at: '+connected_at+'<h4>'
+            profile_image = "";
+            email ="";
+            gender = "";
+            nickname = "";
+            if(typeof kakao_account != 'undefined'){
+              email = kakao_account.email;
+              profile_image = kakao_account.profile.thumbnail_image_url;
+              gender = kakao_account.gender;
+              nickname = kakao_account.profile.nickname;
+            }
+
+            const csrftoken = document.querySelector('[name=csrfmiddlewaretoken]').value
+            axios({
+              method: 'post',
+              url: `/accounts/id_check/`,
+              headers: {'X-CSRFToken': csrftoken},
+              data: {'username': id, 'email': email, 'profile_image': profile_image, 'nickname': nickname,}
+              }).then(response => {
+                window.location.replace("/");
+              })
+          },
+          fail: function(error) {
+            alert(
+              'login success, but failed to request user information: ' +
+                JSON.stringify(error)
+            )
+          },
+        })
+      },
+      fail: function(err) {
+        alert('failed to login: ' + JSON.stringify(err))
+      },
+    })
+  </script>
+  <script src="https://static.nid.naver.com/js/naveridlogin_js_sdk_2.0.2.js" charset="utf-8"></script>
+  <script>
+  // http://127.0.0.1:8000/accounts/login
+  
+  var naverLogin = new naver.LoginWithNaverId(
+    {
+      clientId: "IKTj6dJebYsENJ_O0JLk", //내 애플리케이션 정보에 cliendId를 입력해줍니다.
+      callbackUrl: "http://127.0.0.1:8000/accounts/login/naver_callback/", // 내 애플리케이션 API설정의 Callback URL 을 입력해줍니다.
+      isPopup: false,
+      // loginButton: {color: "green", type: 3, height: 60}
+      callbackHandle: true,
+    }
+  );	
+
+  naverLogin.init();
+
+  window.addEventListener('load', function () {
+  naverLogin.getLoginStatus(function (status) {
+    if (status) {
+      var email = naverLogin.user.getEmail(); // 필수로 설정할 값
+        
+      console.log(naverLogin.user); 
+        
+            if( email == undefined || email == null) {
+        alert("이메일은 필수정보입니다. 정보제공을 동의해주세요.");
+        naverLogin.reprompt();
+        return;
+      }
+    } else {
+      console.log("callback 처리에 실패하였습니다.");
+    }
+  });
+  });
+
+
+  var testPopUp;
+  function openPopUp() {
+    testPopUp= window.open("https://nid.naver.com/nidlogin.logout", "_blank", "toolbar=yes,scrollbars=yes,resizable=yes,width=1,height=1");
+  }
+  function closePopUp(){
+    testPopUp.close();
+  }
+
+  function naverLogout() {
+  openPopUp();
+  setTimeout(function() {
+    closePopUp();
+    }, 1000);
+
+
+  }
+</script>
+
+{% endblock %}

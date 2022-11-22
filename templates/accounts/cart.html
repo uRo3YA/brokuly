@@ -1,0 +1,425 @@
+{% extends 'base.html' %}
+
+{% load django_bootstrap5 %}
+{% load static %}
+{% load humanize %}
+
+{% block script %}
+<script src="https://code.jquery.com/jquery-3.6.1.slim.min.js" integrity="sha256-w8CvhFs7iHNVUtnSP0YKEg00p9Ih13rlL9zGqvLdePA=" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+<script>
+
+// document ready 를 순수 JS handler 로 구현
+document.addEventListener("DOMContentLoaded", function(){
+  calc_expense();
+});
+
+
+// // 상품 금액 및 총 금액 계산 로직
+// function calc_expense(){
+//   const length = document.querySelector("#p_list").children.length;
+//   let cnt = 1;
+//   let total = 0;
+
+//   for(let i = 1; i <= length; i++){
+//     p_price =  document.getElementById("p_price" + i).textContent
+
+//     total += parseInt(p_price.replace(',', ''));
+//   }
+  
+//   p_total = document.getElementById("sum_p_price");
+//   p_total.innerText = total.toLocaleString("en-US");
+  
+//   target = document.getElementById("total");
+//   if({{ products | length }} !== 0){
+//     total += 2500
+//   }
+//   target.innerText = total.toLocaleString("en-US");
+
+// }
+
+// 체크박스 용 상품 금액 및 총 금액 계산 로직
+function calc_expense(){
+  const length = document.querySelector("#p_list").children.length;
+  const productList = document.querySelectorAll('.product-product')
+  const priceList = document.querySelectorAll('.p_price')
+  const checkList = document.querySelectorAll('.checkbox')
+  const quantityList = document.querySelectorAll('.p_num')
+  const sumPnum = document.querySelector('#sum_p_num > span')
+  const spriceList = document.querySelectorAll('.s_price')
+  let cnt = 1;
+  let total = 0;
+  let sumQuantity = 0
+  // for(let i = 1; i <= length; i++){
+  for(let i = 0; i < productList.length; i++){
+    // p_price = productList[i].querySelector('.p_price')
+    p_price = priceList[i].textContent
+    cartCheck = checkList[i]
+    p_quantity = quantityList[i].value
+    spriceList[i].textContent = (parseInt(p_price.replace(',', '')) * parseInt(p_quantity)).toLocaleString("en-US");
+    // p_price =  document.getElementById("p_price" + i).textContent
+    // cartCheck = document.getElementById("cartcheck" + i)
+    // p_quantity = document.getElementById("p_num" + i).value
+
+    if (cartCheck.checked){
+      total += parseInt(p_price.replace(',', '')) * parseInt(p_quantity);
+      sumQuantity += parseInt(p_quantity);
+    }
+    
+  }
+  sumPnum.innerText = parseInt(sumQuantity);
+  p_total = document.getElementById("sum_p_price");
+  p_total.innerText = total.toLocaleString("en-US");
+  
+  target = document.getElementById("total");
+  if({{ products | length }} !== 0){
+    total += 2500
+  }
+  target.innerText = total.toLocaleString("en-US");
+
+}
+
+function calCheckBox(e){
+  const sumPnum = document.querySelector('#sum_p_num > span')
+  sumPnum.innerText = parseInt(sumPnum.innerText);
+  calc_expense()
+}
+
+// 장바구니 상품 수량 증가 로직
+function plus(event, current, price){
+  // const sumPnum = document.querySelector('#sum_p_num > span')
+  const counter_id = "p_num" + current;
+  const counter = document.getElementById(counter_id);
+  
+  counter.value = parseInt(counter.value) + 1;
+  // sumPnum.innerText = parseInt(sumPnum.innerText) + 1;
+
+  const total_id = "p_price" + current;
+  const p_price = document.getElementById(total_id);
+
+  total = parseInt(counter.value) * price;
+  p_price.textContent = total.toLocaleString("en-US");
+
+  calc_expense();
+}
+
+
+// 장바구니 상품 수량 감소 로직
+function minus(event, current, price){
+  // const sumPnum = document.querySelector('#sum_p_num > span')
+  const counter_id = "p_num" + current;
+  const counter = document.getElementById(counter_id);
+  
+  if(parseInt(counter.value) !== 1){
+    counter.value = parseInt(counter.value) - 1;
+    // sumPnum.innerText = parseInt(sumPnum.innerText) - 1;
+  }
+
+  const total_id = "p_price" + current;
+  const p_price = document.getElementById(total_id);
+
+  total = parseInt(counter.value) * price;
+  p_price.textContent = total.toLocaleString("en-US");
+
+  calc_expense();
+}
+
+
+// 장바구니 상품 제거 비동기
+const del_cart_btn = function(product_id){
+  axios({
+    url: `/accounts/cart/add/${product_id}/`,
+    headers: {
+      "X-CSRFToken": "{{ csrf_token }}"
+    },
+    method: "POST",
+    data : {
+      "product_id": product_id
+    }
+  }).then((response) => {
+    const in_cart = response.data.in_cart;
+
+
+    // 장바구니에 상품 제거
+    if(in_cart === false){
+      const tag = document.getElementById("cart_product" + product_id);
+      tag.parentNode.removeChild(tag);
+    } 
+
+    const cartLength = response.data.cart_length;
+    const cartCount1 = document.querySelector('#cart-count-1')
+    const cartCount2 = document.querySelector('#cart-count-2')
+
+    cartCount1.innerText = cartLength
+    cartCount2.innerText = cartLength
+  });
+};
+
+// 선택한 상품 제거
+const selectDel = function (e) {
+  const allCheckBox = document.querySelectorAll('[type=checkbox]')
+  for (let i = 0; i < allCheckBox.length; i ++){
+      if(allCheckBox[i].checked == true){
+        del_cart_btn(allCheckBox[i].dataset.productId);
+      }
+    }
+    calc_expense()
+}
+
+// 전체 선택 체크, 체크해제 시
+const selectWhole = function (e) {
+  const wholeSelect = document.querySelector('#whole-select')
+  
+  if (wholeSelect.checked == true){
+    const allCheckBox = document.querySelectorAll('[type=checkbox]')
+    for (let i = 0; i < allCheckBox.length; i ++){
+      allCheckBox[i].checked = true;
+    }
+    calc_expense()
+  }else{
+    const allCheckBox = document.querySelectorAll('[type=checkbox]')
+    for (let i = 0; i < allCheckBox.length; i ++){
+      allCheckBox[i].checked = false;
+    }
+    calc_expense()
+  }
+}
+
+const goOrder = function (e) {
+  e.preventDefault()
+  const orderA = document.querySelector('#order-a')
+  const productList = document.querySelectorAll('.product-product')
+  const checkList = document.querySelectorAll('.checkbox')
+  const priceList = document.querySelectorAll('.p_price')
+  const quantityList = document.querySelectorAll('.p_num')
+  let product_list = []
+
+  for (let i = 0 ; i < productList.length ; i++){
+    // const productPrice = document.querySelector(`#p_price${i+1}`).innerText
+    // const  productQuantity = document.querySelector(`#p_num${i+1}`).value
+    if(checkList[i].checked){
+      product_list.push(
+      {
+        'product_pk':productList[i].dataset.productId,
+        'product_quantity':quantityList[i].value,
+        'product_subtotal':parseInt(priceList[i].textContent.replace(',', '')) * parseInt(quantityList[i].value)
+      }
+    )
+  }
+  }
+  axios({
+          method: 'POST',
+          // url: '{% url 'orders:create_order' %}',
+          url: '{% url 'orders:create_order' %}',
+          headers : {'X-CSRFTOKEN' : '{{ csrf_token }}'},
+          data: product_list,
+        }).then((response) => {
+          // window.location.href = `/orders/complete/${response.data.order_pk}`;
+          window.location.href = `/orders/go_order/${response.data.order_pk}`;
+  }); 
+}
+
+</script>
+{% endblock script %}
+
+{% block body %}
+
+  <!-- 장바구니 -->
+  <div class="container">
+    <h3 class="text-center my-5">장바구니</h3>
+      <input type="hidden" name="cmd" value="order" />
+      <div class="cartdiv row gx-6 justify-content-center" id="cart">
+        <!-- 상품 목록 위 탭의 시작 -->
+        <div class="col-7 pe-4">
+          <div class="d-flex align-items-center">
+            <a
+              class="text-decoration-none text-dark d-flex align-items-center"
+              href="#"
+            >
+            <div class="check me-3">
+            <input id="whole-select"
+              type="checkbox"
+              name="buy"
+              value="260"
+              onclick="selectWhole();"
+              id="cartcheck"
+            />
+            <label for="cartcheck"></label>
+          </div><!--<i class="bi bi-check-square text-muted fs-5 me-2"></i> -->
+              전체선택
+            </a>
+            <p class="text-muted mx-4 mb-0">|</p>
+            <a class="text-decoration-none text-dark" href="#" onclick="selectDel()">
+              선택한 상품 삭제
+            </a>
+          </div>
+          <hr class="green-line" />
+          <!-- 상품 목록 위 탭의 끝 -->
+          <div class="row" id="p_list">
+            <!-- 상품 목록 시작 -->
+            {% for product in products %}
+              <div id="cart_product{{ product.pk }}" class="card border-0 product-product" data-product-id="{{ product.pk }}">
+                <div class="d-flex justify-content-between">
+                  <!-- 상품 정보 -->
+                  <a href="#" class="text-decoration-none">
+                    <div class="d-flex mx-4 align-items-center">
+                      <div class="check me-3">
+                        <input
+                          type="checkbox"
+                          name="buy"
+                          value="260"
+                          onclick="calCheckBox(this)"
+                          id="cartcheck{{ forloop.counter }}" data-check-id="{{ forloop.counter }}" data-product-id="{{product.pk }}" class="checkbox"
+                        />
+                        <label for="cartcheck"></label>
+                      </div>
+                      {%if product.is_crawl%}
+                        <img 
+                          class="me-4" 
+                          src="{{ product.crawl_produt_detail_img }}" 
+                          alt="상품 이미지"
+                          style="height: 10rem; width: 8rem"
+                        >
+                      {%else%}
+                        <img 
+                          class="me-4" 
+                          src="{{ product.produt_thum_img.url }}" 
+                          alt="상품 이미지"
+                          style="height: 10rem; width: 8rem"
+                        >
+                      {%endif%}
+                      <p class="pname m-0 text-dark">{{ product.title }}</p>
+                    </div>
+                  </a>
+
+                  <!-- 수량 선택 -->
+                  <div class="num d-flex align-items-center">
+                    <div class="updown d-flex align-items-center">
+                      <span class="num-icon" id="minus" onclick="minus(event, {{ forloop.counter }}, {{ product.price }})">
+                        <i class="bi bi-dash-circle"></i>
+                      </span>
+                      <input
+                        type="text"
+                        style="width: 3rem;"
+                        class="text-center mx-2 p_num"
+                        name="p_num{{ forloop.counter }}"
+                        id="p_num{{ forloop.counter }}"
+                        size="1"
+                        maxlength="4"
+                        class="p_num{{ forloop.counter }} mx-2"
+                        value="1"
+                        onkeyup="calc_expense();" data-quantity-id="{{ forloop.counter }}"
+                      />
+                      <span class="num-icon" id="plus" onclick="plus(event, {{ forloop.counter }}, {{ product.price }})">
+                        <i class="bi bi-plus-circle"></i>
+                      </span>
+                    </div>
+                  </div>
+                  <!-- 상품 가격, 삭제 -->
+                  <div class="d-flex ms-5">
+                    <div
+                      class="cartprice d-flex flex-column align-items-end me-3 justify-content-center"
+                    >
+                      <input id="product-quantity"
+                        type="hidden"
+                        name="p_price"
+                        id="p_price"
+                        
+                        value="20000"
+                      />
+                      <div>
+                        <div class="my-0 ms-5 p_price"> {{ product.price | intcomma }}원 </div>
+                        {% comment %} 밑에 위 개수랑 곱해져야한다. 일단은 젤 처음은 해당 단위 가격을 표시했다. {% endcomment %}
+                        <div class="fw-bold sum ms-5">합계 : <span id="p_price{{ forloop.counter }}" class="s_price">{{ product.price | intcomma }}</span>원</div>
+                      </div>
+                    </div>
+                    {% comment %} 삭제 {% endcomment %}
+                    <div class="d-flex align-items-center">
+                      <button id="del_cart_btn{{ product.pk }}" class="cartcmd btn btn-lg border-0 p-0 me-4" onclick="del_cart_btn({{ product.pk }})">
+                        <i class="text-secondary bi bi-x-lg"></i>
+                      </button>
+                    </div>
+                  </div>
+                </div>
+                <hr class="my-4" />
+              </div>
+            {% endfor %}
+            <!-- 상품 목록 끝 -->
+          </div>
+          <!-- 상품 row -->
+        </div>
+        <!-- 상품 col-7 -->
+
+        <!-- 주문하기 -->
+        <div class="col-3 p-0 ms-4">
+          <div class="row mb-3 border" style="margin: 0 11px">
+            <div class="my-4 px-3">
+              <p><i class="bi bi-geo-alt mb-1"></i> 배송지</p>
+              <p>{{ request.user.address }}</p>
+              <div class="d-grid">
+                <button type="button" class="btn btn-outline-green mx-1">
+                  배송지 변경
+                </button>
+              </div>
+            </div>
+            <hr class="m-0" />
+            <div class="bg-light px-0 py-3">
+              <div
+                class="d-flex justify-content-between align-items-center px-3"
+              >
+                <p class="my-1">전체개수</p>
+                <p
+                  class="sumcount my-1"
+                  id="sum_p_num"
+                  style="font-size: 20px"
+                >
+                  <span>0</span>개
+                </p>
+              </div>
+              <div
+                class="d-flex justify-content-between align-items-center px-3"
+              >
+                <p class="my-1">상품금액</p>
+                <p
+                  class="summoney my-1"
+                  style="font-size: 20px"
+                >
+                  <span id="sum_p_price"></span>원
+                </p>
+              </div>
+              <div
+                class="d-flex justify-content-between align-items-center px-3"
+              >
+                <p class="my-1">배송비</p>
+                <p class="my-1" style="font-size: 20px">
+                  <span>
+                    {% if products %}
+                      2,500원
+                    {% else %}
+                      0원
+                    {% endif %}
+                  </span>
+                </p>
+              </div>
+              <hr />
+              <div
+                class="d-flex justify-content-between align-items-center px-3"
+              >
+                <p class="my-1">결제예정금액</p>
+                <p class="my-1" style="font-size: 20px"><span id="total"></span>원</p>
+              </div>
+            </div>
+          </div>
+          <!-- 주문버튼 -->
+          <a class="text-decoration-none" id="order-a" onclick="goOrder(event)">
+            <div class="d-grid" id="goorder" style="margin: 0 11px">
+              <button class="btn btn-green py-3">주문하기</button>
+            </div>
+          </a>
+        </div>
+        <!-- 주문하기 col-3 -->
+      </div>
+  </div>
+  <!-- container -->
+
+{% endblock body %}

@@ -1,0 +1,22 @@
+{% extends 'base.html' %}
+{% load static %}
+{% load django_bootstrap5 %}
+{% block body %}
+<div class="container">
+    {% if request.resolver_match.url_name == 'review_create' %}
+    <h2> 상품 후기 작성하기 </h2>
+    {% else %}
+    <h1> 상품 후기 수정하기 </h1>
+    {% endif %}
+
+    <form action="" method="POST" enctype="multipart/form-data">
+      {% csrf_token %}
+      {% bootstrap_form review_form %}
+      
+      <input multiple type="file" name="image" accept="image/*" id="id_image">
+      <div class="text-center">
+        <button class="btn btn-primary btn-xl text-uppercase" >작성 완료</button>
+      </div>
+    </form>
+</div>
+{% endblock %}

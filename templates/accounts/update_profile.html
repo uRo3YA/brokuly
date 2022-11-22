@@ -1,0 +1,217 @@
+{% extends 'base.html' %}
+{% load django_bootstrap5 %}
+{% load static %}
+
+{% block body %}
+
+<div id="wrap">
+  <form action="" method="POST">
+    {% csrf_token %}
+    <div class="container mt-5 p-3 col-7">
+        <div class="row justify-content-between align-content-center">
+            <div class="col-4">
+                <h2 class="text-start mx-2">개인 정보 수정</h2>
+            </div>
+            <div class="col-3">
+              <p class="float-end mt-3 mb-0"><span style="color: orangered;">*</span>필수입력사항</p>
+            </div>
+        </div>
+        <hr class="green-line">
+        <div class="container p-5">
+            {% comment %} 아이디 {% endcomment %}
+            <div class="row mt-2 mb-3">
+                <div class="col-2 text-start">
+                    <p class="mt-2 mb-0">아이디<span style="color: orangered;">*</span></p>
+                </div>
+                <div class="col-7">
+                    <input 
+                      type="text" 
+                      class="form-control" 
+                      aria-label="Text input with dropdown button" 
+                      placeholder="{{ request.user.username }}" 
+                      style="width: 100%; height: 50px;"
+                      disabled
+                    >
+                </div>
+            </div>
+            {% comment %} 현재 비밀번호 {% endcomment %}
+            <div class="row mt-4 mb-3">
+                <div class="col-2 text-start">
+                    <p class="mt-2 mb-0">현재 비밀번호<span style="color: orangered;">*</span></p>
+                </div>
+                <div class="col-7">
+                    {{ form.old_password }}
+                </div>
+            </div>
+            {% comment %} 새 비밀번호 {% endcomment %}
+            <div class="row mt-4 mb-3">
+                <div class="col-2 text-start">
+                    <p class="mt-2 mb-0">새 비밀번호<span style="color: orangered;">*</span></p>
+                </div>
+                <div class="col-7">
+                    {{ form.new_password1 }}
+                </div>
+            </div>
+            {% comment %} 새 비밀번호 확인 {% endcomment %}
+            <div class="row mt-4 mb-3 ">
+                <div class="col-2 text-start">
+                    <p class="mt-2 mb-0">새 비밀번호 확인<span style="color: orangered;">*</span></p>
+                </div>
+                <div class="col-7">
+                    {{ form.new_password2 }}
+                </div>
+            </div>
+            {% comment %} 이름 {% endcomment %}
+            <div class="row mt-4 mb-3">
+                <div class="col-2 text-start">
+                    <p class="mt-2 mb-0">이름<span style="color: orangered;">*</span></p>
+                </div>
+                <div class="col-7">
+                    {{ form.name }}
+                </div>
+            </div>
+            {% comment %} 이메일 {% endcomment %}
+            <div class="row mt-4 mb-3 align-content-center">
+                <div class="col-2 text-start">
+                    <p class="mt-2 mb-0">이메일<span style="color: orangered;">*</span></p>
+                </div>
+                <div class="col-7">
+                    {{ form.email }}
+                </div>
+                <div class="col-3">
+                    <button type="button" class="btn btn-outline-green p-1 px-3 mx-2" data-bs-toggle="modal" data-bs-target="#emailCheckModal" onclick="emailCheck();">중복확인</button>
+                </div>
+            </div>
+            {% comment %} 주소 {% endcomment %}
+            <div class="row mt-4 mb-3 align-content-center">
+                <div class="col-2">
+                  <p class="mt-2 mb-0">주소<span style="color: orangered;">*</span></p>
+                </div>
+                <div class="col-7 search-bar">
+                  {{ form.address }}
+                  <a style="cursor: pointer;">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="20" height="25" fill="currentColor" class="bi bi-search" viewBox="0 0 16 16" id="address-search" onclick="DaumPostcode()">
+                      <path d="M11.742 10.344a6.5 6.5 0 1 0-1.397 1.398h-.001c.03.04.062.078.098.115l3.85 3.85a1 1 0 0 0 1.415-1.414l-3.85-3.85a1.007 1.007 0 0 0-.115-.1zM12 6.5a5.5 5.5 0 1 1-11 0 5.5 5.5 0 0 1 11 0z"/>
+                    </svg>
+                  </a>
+                </div>
+            </div>
+            {% comment %} 프로필 사진 {% endcomment %}
+            {% comment %} <div class="row mt-4 mb-3 align-content-center">
+                <div class="col-2 text-start">
+                    <p class="mt-2 mb-0">프로필사진</p>
+                </div>
+                <div class="col-7">
+                    <input type="text" class="form-control" aria-label="Text input with dropdown button" placeholder="사진첨부">
+                    </a>
+                </div>
+                <div class="col-3 float-end">
+                    <button type="button" class="btn btn-outline-green p-1 px-3 mx-2" data-bs-dismiss="modal">업로드</button>
+                </div>
+            </div> {% endcomment %}
+
+            <!--지도-->
+            <div id="map" style="width:300px;height:300px;margin-top:10px;display:none;margin:auto;"></div>
+        
+            <!-- 등록 버튼 -->
+            <div class="d-flex justify-content-center mt-4">
+            <button type="submit" class="btn btn-outline-green p-3 px-5 mx-5" data-bs-dismiss="modal" onClick="history.go(-1)">취소</button>
+            <button type="submit" class="btn btn-green p-3 px-5 mx-5" data-bs-dismiss="modal">수정</button>
+            </div>
+        </div>
+    </div>
+  </form>
+
+</div>
+
+<!--이메일 중복체크 모달-->
+<div class="modal fade" id="emailCheckModal" tabindex="-1" aria-labelledby="emailCheckModal" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered d-flex justify-content-center">
+      <div class="modal-content" style="width: 330px; height: 170px;">
+        <div class="modal-body" id="modal-body-email" style="padding: 50px 40px 30px; font-size: 16px; text-align: center; letter-spacing: -0.5px;">
+        </div>
+        <div class="modal-footer d-flex justify-content-center p-0">
+          <button type="button" data-bs-dismiss="modal" class="btn text-green px-5">확인</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+<!--자바스크립트-->
+<script src="//t1.daumcdn.net/mapjsapi/bundle/postcode/prod/postcode.v2.js"></script>
+<script src="//dapi.kakao.com/v2/maps/sdk.js?appkey=f120b1818e7d400b80e5bf358936933a&libraries=services"></script>
+<script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+<script>
+  //주소 카카오 API
+
+var mapContainer = document.getElementById('map'), // 지도를 표시할 div
+        mapOption = {
+            center: new daum.maps.LatLng(37.537187, 127.005476), // 지도의 중심좌표
+            level: 5 // 지도의 확대 레벨
+        };
+
+    //지도를 미리 생성
+    var map = new daum.maps.Map(mapContainer, mapOption);
+    //주소-좌표 변환 객체를 생성
+    var geocoder = new daum.maps.services.Geocoder();
+    //마커를 미리 생성
+    var marker = new daum.maps.Marker({
+        position: new daum.maps.LatLng(37.537187, 127.005476),
+        map: map
+    });
+
+function DaumPostcode() {
+
+        new daum.Postcode({
+            oncomplete: function(data) {
+                var addr = data.address; // 최종 주소 변수
+
+                // 주소 정보를 해당 필드에 넣는다.
+                let test = document.getElementById("id_address").value = addr;
+
+                // 주소로 상세 정보를 검색
+                geocoder.addressSearch(data.address, function(results, status) {
+                    // 정상적으로 검색이 완료됐으면
+                    if (status === daum.maps.services.Status.OK) {
+
+                        var result = results[0]; //첫번째 결과의 값을 활용
+
+                        // 해당 주소에 대한 좌표를 받아서
+                        var coords = new daum.maps.LatLng(result.y, result.x);
+                        // 지도를 보여준다.
+                        mapContainer.style.display = "block";
+                        map.relayout();
+                        // 지도 중심을 변경한다.
+                        map.setCenter(coords);
+                        // 마커를 결과값으로 받은 위치로 옮긴다.
+                        marker.setPosition(coords)
+                    }
+                });
+            }
+        }).open();
+    }  
+
+const emailCheck = function () {
+const modalBody = document.querySelector('#modal-body-email')
+const userEmail = document.querySelector('#id_email').value
+axios({
+        method: 'post',
+        url: `/accounts/check_email/`,
+        headers: {'X-CSRFToken': '{{ csrf_token }}'},
+        data: {'user_email': userEmail}
+        }).then(response =>{
+
+        if(userEmail.length === 0) {
+            modalBody.innerText = "이메일을 입력해주세요."
+        }
+        else if (response.data.is_exist === false) {
+            modalBody.innerText = "사용가능한 이메일입니다."
+        }
+        else {
+            modalBody.innerText = "이미 존재하는 이메일입니다."
+        }
+        })
+        console.log(modalBody.innerText)
+}
+</script>
+{% endblock body %}

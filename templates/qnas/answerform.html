@@ -1,0 +1,15 @@
+{% extends 'base.html' %}
+{% load django_bootstrap5 %}
+{% load static %}
+{% block body %}
+
+  <h1>
+    문의 답글 수정하기
+  </h1>
+  <form method="POST" enctype="multipart/form-data" style="width:800px;">
+    {% csrf_token %}
+    {% bootstrap_form answer_update_form %}
+    <input class="btn btn btn-primary" type="submit" value="작성 완료">
+    <a class="btn btn-outline-primary" onClick="history.go(-1)">뒤로</a>
+  </form>
+{% endblock %}

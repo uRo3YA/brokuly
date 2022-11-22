@@ -1,0 +1,554 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <!-- CSS only -->
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-Zenh87qX5JnK2Jl0vWa8Ck2rdkQ2Bzep5IDxbcnCeuOxjzrPF/et3URy9Bv1WTRi"
+      crossorigin="anonymous"
+    />
+    <link rel="stylesheet" href="style_1.css" />
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.9.1/font/bootstrap-icons.css"/>
+    <link href="css/custom.css" rel="stylesheet">
+
+    <title>Detail of Product</title>
+    <style>
+      body {
+        font-family: "Noto Sans KR", sans-serif;
+      }
+    </style>
+  </head>
+  <body>
+    <!-- Navbar -->
+    <!-- 최상단 Navbar -->
+    <nav class="navbar navbar-expand-lg p-0">
+        <div class="container d-felx justify-content-end">
+            <div class="navbar-nav">
+              <a class="nav-link active mx-3 small" aria-current="page" href="#"><small>회원가입</small></a>
+              <a class="nav-link active mx-3 small" href="#"><small>로그인</small></a>
+              <a class="nav-link active mx-3 small" href="#"><small>고객센터</small></a>
+            </div>
+        </div>
+    </nav>
+    <!-- 중간 Navbar -->
+    <nav class="navbar navbar-expand-lg p-0">
+        <div class="container d-flex justify-content-center">
+            <img src="./main.assets/logo.png">
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <form class="d-flex nav-searchbar" role="search">
+              <input class="form-control me-2" type="search" placeholder="검색어를 입력해주세요" aria-label="Search">
+              <a href="#">
+                  <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor" class="bi bi-search" viewBox="0 0 16 16">
+                  <path d="M11.742 10.344a6.5 6.5 0 1 0-1.397 1.398h-.001c.03.04.062.078.098.115l3.85 3.85a1 1 0 0 0 1.415-1.414l-3.85-3.85a1.007 1.007 0 0 0-.115-.1zM12 6.5a5.5 5.5 0 1 1-11 0 5.5 5.5 0 0 1 11 0z"/>
+                </svg>
+                </a>
+          </form>
+            <span class="mx-5"></span>
+            <ul class="navbar-nav">
+                <li class="nav-item mx-3">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="25" height="25" fill="currentColor" class="bi bi-geo-alt" viewBox="0 0 16 16">
+                        <path d="M12.166 8.94c-.524 1.062-1.234 2.12-1.96 3.07A31.493 31.493 0 0 1 8 14.58a31.481 31.481 0 0 1-2.206-2.57c-.726-.95-1.436-2.008-1.96-3.07C3.304 7.867 3 6.862 3 6a5 5 0 0 1 10 0c0 .862-.305 1.867-.834 2.94zM8 16s6-5.686 6-10A6 6 0 0 0 2 6c0 4.314 6 10 6 10z"/>
+                        <path d="M8 8a2 2 0 1 1 0-4 2 2 0 0 1 0 4zm0 1a3 3 0 1 0 0-6 3 3 0 0 0 0 6z"/>
+                      </svg>                
+                </li>
+                <li class="nav-item mx-3">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="25" height="25" fill="currentColor" class="bi bi-heart" viewBox="0 0 16 16">
+                        <path d="m8 2.748-.717-.737C5.6.281 2.514.878 1.4 3.053c-.523 1.023-.641 2.5.314 4.385.92 1.815 2.834 3.989 6.286 6.357 3.452-2.368 5.365-4.542 6.286-6.357.955-1.886.838-3.362.314-4.385C13.486.878 10.4.28 8.717 2.01L8 2.748zM8 15C-7.333 4.868 3.279-3.04 7.824 1.143c.06.055.119.112.176.171a3.12 3.12 0 0 1 .176-.17C12.72-3.042 23.333 4.867 8 15z"/>
+                    </svg>                
+                </li>
+                <li class="nav-item mx-3">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="25" height="25" fill="currentColor" class="bi bi-cart" viewBox="0 0 16 16">
+                        <path d="M0 1.5A.5.5 0 0 1 .5 1H2a.5.5 0 0 1 .485.379L2.89 3H14.5a.5.5 0 0 1 .491.592l-1.5 8A.5.5 0 0 1 13 12H4a.5.5 0 0 1-.491-.408L2.01 3.607 1.61 2H.5a.5.5 0 0 1-.5-.5zM3.102 4l1.313 7h8.17l1.313-7H3.102zM5 12a2 2 0 1 0 0 4 2 2 0 0 0 0-4zm7 0a2 2 0 1 0 0 4 2 2 0 0 0 0-4zm-7 1a1 1 0 1 1 0 2 1 1 0 0 1 0-2zm7 0a1 1 0 1 1 0 2 1 1 0 0 1 0-2z"/>
+                    </svg>                
+                </li>
+            </ul>
+        </div>
+    </nav>  
+    <!-- 하단 Navbar -->
+    <nav class="navbar nav-shadow">
+        <div class="container container d-flex justify-content-evenly">
+            <li class="nav-item dropdown m-0 list-unstyled">
+                <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                <svg xmlns="http://www.w3.org/2000/svg" width="25" height="20" fill="currentColor" class="bi bi-list" viewBox="0 0 16 16">
+                    <path fill-rule="evenodd" d="M2.5 12a.5.5 0 0 1 .5-.5h10a.5.5 0 0 1 0 1H3a.5.5 0 0 1-.5-.5zm0-4a.5.5 0 0 1 .5-.5h10a.5.5 0 0 1 0 1H3a.5.5 0 0 1-.5-.5zm0-4a.5.5 0 0 1 .5-.5h10a.5.5 0 0 1 0 1H3a.5.5 0 0 1-.5-.5z"/>
+                </svg>
+                카테고리
+                </a>
+                <ul class="dropdown-menu">
+                <li><a class="dropdown-item" href="#">Action</a></li>
+                <li><a class="dropdown-item" href="#">Another action</a></li>
+                <li><hr class="dropdown-divider"></li>
+                <li><a class="dropdown-item" href="#">Something else here</a></li>
+                </ul>
+            </li>
+            <li class="nav-item list-unstyled nav-menu">
+                <a class="nav-link active" href="#">신상품</a>
+            </li>
+            <li class="nav-item list-unstyled nav-menu">
+                <a class="nav-link active" href="#">베스트</a>
+            </li>
+            <li class="nav-item list-unstyled nav-menu">
+                <a class="nav-link active" href="#">알뜰쇼핑</a>
+            </li>
+            <li class="nav-item list-unstyled nav-menu">
+                <a class="nav-link active" href="#">특가/혜택</a>
+            </li>
+        </div>
+    </nav>
+
+    <div id="wrap">
+
+        <!-- 상품 이미지 및 상품명 -->
+        <div class="container text-center mt-5">
+            <div class="row justify-content-center">
+              <div class="col-4">
+                  <img src="./main.assets/상품이미지.png" alt="상품 이미지">
+              </div>
+              <div class="col-4 text-start mx-5">
+                  <h3 class="mx-1">[아우프글렛]크로플 3개입</h3>
+                  <h3 class="mx-1"><span class="fw-bold" style="color: #fbcd24">30% </span>21,000원</h3>
+                  <hr>
+                  <p class="mx-1">판매 판매자명</p>
+                  <hr>
+                  <p class="mx-1">상품설명</p>
+                  <hr>
+                  <p class="mx-1">상품설명</p>
+                  <hr>
+                  <p class="mx-1">상품설명</p>
+              </div>
+          </div>
+        </div>
+
+        <!-- 버튼들 -->
+        <div class="container p-5">
+          <div class="d-flex align-items-center float-end">
+            <div class="container detail-icon mx-3 text-center">
+              <a class="text-decoration-none" href="#">
+              <svg xmlns="http://www.w3.org/2000/svg" width="30" height="30" fill="currentColor" class="bi bi-suit-heart mt-2" viewBox="0 0 16 16" style="color: #006e39;">
+                <path d="m8 6.236-.894-1.789c-.222-.443-.607-1.08-1.152-1.595C5.418 2.345 4.776 2 4 2 2.324 2 1 3.326 1 4.92c0 1.211.554 2.066 1.868 3.37.337.334.721.695 1.146 1.093C5.122 10.423 6.5 11.717 8 13.447c1.5-1.73 2.878-3.024 3.986-4.064.425-.398.81-.76 1.146-1.093C14.446 6.986 15 6.131 15 4.92 15 3.326 13.676 2 12 2c-.777 0-1.418.345-1.954.852-.545.515-.93 1.152-1.152 1.595L8 6.236zm.392 8.292a.513.513 0 0 1-.784 0c-1.601-1.902-3.05-3.262-4.243-4.381C1.3 8.208 0 6.989 0 4.92 0 2.755 1.79 1 4 1c1.6 0 2.719 1.05 3.404 2.008.26.365.458.716.596.992a7.55 7.55 0 0 1 .596-.992C9.281 2.049 10.4 1 12 1c2.21 0 4 1.755 4 3.92 0 2.069-1.3 3.288-3.365 5.227-1.193 1.12-2.642 2.48-4.243 4.38z"/>
+              </svg> 
+            </a> 
+            </div>
+            <div class="container detail-icon mx-3 text-center">
+              <a class="text-decoration-none" href="#">
+                <svg xmlns="http://www.w3.org/2000/svg" width="30" height="30" fill="currentColor" class="bi bi-bell mt-2" viewBox="0 0 16 16" style="color: #006e39;">
+                  <path d="M8 16a2 2 0 0 0 2-2H6a2 2 0 0 0 2 2zM8 1.918l-.797.161A4.002 4.002 0 0 0 4 6c0 .628-.134 2.197-.459 3.742-.16.767-.376 1.566-.663 2.258h10.244c-.287-.692-.502-1.49-.663-2.258C12.134 8.197 12 6.628 12 6a4.002 4.002 0 0 0-3.203-3.92L8 1.917zM14.22 12c.223.447.481.801.78 1H1c.299-.199.557-.553.78-1C2.68 10.2 3 6.88 3 6c0-2.42 1.72-4.44 4.005-4.901a1 1 0 1 1 1.99 0A5.002 5.002 0 0 1 13 6c0 .88.32 4.2 1.22 6z"/>
+                </svg>
+              </a>
+            </div>
+                  
+            <button type="button" class="btn btn-green p-2 px-5 mx-2"><strong>위시리스트에 담기</strong></button>
+          </div>
+        </div>
+        
+
+        <!-- 하단 상품 이미지 및 설명 -->
+        <div class="container mt-5 pt-5 pb-5">
+          <div class="d-flex justify-content-center mt-5">
+              <img src="./main.assets/상품 상세 이미지.png" alt="상품 상세 이미지"/>
+          </div>    
+          <h3 class="text-center mt-5">[아우프글렛]크로플 3개입</h3>
+          <br>
+          <p class="text-center">
+              Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+          </p>
+          <h4 class="text-center mt-5 mx-1 pt-5">상품 성분표</h4>
+          <div class="d-flex justify-content-center mt-3 mb-5">
+            <img src="https://dummyimage.com/600x200/000/fff" alt="상품 성분표"/>
+          </div>
+        </div>
+        
+
+        <!-- 하단 상품 후기 -->
+        <div class="container pt-5 pb-5">
+          <h2 class="text-center">고객님들의 후기</h2>
+          <div class="d-flex justify-content-center mt-5 mb-3">
+            <img src="./main.assets/상품후기 이미지.png" alt=""/>
+          </div>
+          <div class="d-flex float-start mt-3">
+            <p class="mx-3">총 5개</p>
+          </div>
+          <br>
+          <br>
+          <hr> 
+
+          <div class="container mt-5">
+            <div class="row">
+              <div class="col-2">
+                <div class="d-flex align-content-center">
+                  <button class="btn-grade">등급</button>
+                  <h6 class="mb-0 pt-1">이동근</h6>
+                </div>
+              </div>
+              <div class="col-8">
+                <h5 class="text-muted fw-bold">상품명 및 상품 제목</h5>
+                <p class="text-muted">Lorem ipsum dolor sit, amet consectetur adipisicing elit. Vitae, rerum beatae provident cum voluptatem optio ducimus a magni numquam odit sed eos error delectus, ullam voluptates praesentium odio quam velit.</p>
+                <img src="./main.assets/상품후기 이미지 2.png">
+              </div>
+            </div>
+          </div>
+          <hr>
+          <div class="container mt-5">
+            <div class="row">
+              <div class="col-2">
+                <div class="d-flex align-content-center">
+                  <button class="btn-grade">등급</button>
+                  <h6 class="mb-0 pt-1">최준우</h6>
+                </div>
+              </div>
+              <div class="col-8">
+                <h5 class="text-muted fw-bold">상품명 및 상품 제목</h5>
+                <p class="text-muted">Lorem ipsum dolor sit amet consectetur adipisicing elit. Maxime fugiat praesentium, aspernatur in magni nostrum error sunt voluptatum sed velit dolor tenetur incidunt itaque? Quibusdam labore sed perspiciatis, ratione ullam nam veniam perferendis, tempora beatae minima, asperiores ea quod earum? Voluptatem laboriosam necessitatibus labore sed quo nihil id ipsam quae dolores magni repellendus, aut explicabo, quibusdam provident tempore. Voluptatibus, soluta!</p>
+                <img src="./main.assets/상품후기 이미지 2.png">
+              </div>
+            </div>
+          </div>
+        </div>
+
+
+      <!-- 상품문의 -->
+        <div class="container mt-5 pt-5">
+          <div class="row justify-content-between">
+            <div class="col-6">
+              <h2 class="text-start">상품문의</h2>
+              <p class="text-muted">해당 상품에 대한 문의를 남겨주세요!<br>
+              배송과 관련된 문의 사항이 있으시다면 마이페이지 내 1:1 문의에 남겨주세요.</p>
+            </div>
+            <div class="col-4 pt-5">
+             <button class="btn btn-outline-green p-2 px-5 float-end" type="button" data-bs-toggle="modal" data-bs-target="#askModal" data-bs-whatever="@mdo">상품문의하기</button>
+             <!-- 상품문의 모달 -->
+             <div class="modal fade" id="askModal" tabindex="-1" aria-labelledby="askModalLabel" aria-hidden="true">
+              <div class="modal-dialog modal-lg">
+                <div class="container modal-content">
+                  <div class="modal-header">
+                    <h1 class="modal-title fs-3" id="askModalLabel">상품 문의하기</h1>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                  </div>
+                  <div class="modal-body">
+                    <div class="row">
+                      <div class="col-3">
+                        <img src="./main.assets/상품이미지.png" width="150" height="180" class="mx-2" alt="상품이미지"/>
+                      </div>
+                      <div class="col-7">
+                        <p class="text-start mt-5">[아우프글렛]크로플 3개입</p>
+                      </div>
+                    </div>
+                    <div class="container">
+                        <form>
+                          <div class="row mb-3 mt-5">
+                            <div class="col-1">
+                              <label for="recipient-name" class="col-form-label">제목</label>
+                            </div>
+                            <div class="col-11">
+                              <input type="text" class="form-control" id="recipient-name">
+                            </div>
+                          </div>
+                          <div class="row mb-3">
+                            <div class="col-1">
+                              <label for="message-text" class="col-form-label">내용</label>
+                            </div>
+                            <div class="col-11">
+                              <textarea class="form-control" id="message-text" rows="4" cols="50"></textarea>
+                            </div>
+                          </div>
+                        </form>
+                    </div>
+                    <div class="d-flex justify-content-center">
+                      <button type="button" class="btn btn-outline-green p-2 px-5 mx-2" data-bs-dismiss="modal">취소</button>
+                      <button type="button" class="btn btn-green p-2 px-5">등록</button>
+                    </div>
+                 </div>
+               </div>
+             </div>
+            </div>
+          </div> 
+        </div>
+        <hr class="green-line">
+        <div class="container mt-3 p-1">
+          <div class="row">
+            <div class="col-6">
+              <p class="text-center">제목</p>
+            </div>
+            <div class="col-6 ">
+              <div class="d-flex float-end">
+                <p class="text-center" style="margin-right: 3rem;">작성자</p>
+                <p class="text-center" style="margin-right: 3rem; margin-left: 5rem;">작성일</p>
+                <p class="text-center mx-5">답변상태</p>
+              </div>
+            </div>
+          </div>
+          <hr>
+          <!-- 상품문의(아코디언) -->
+          <div class="container accordion accordion-flush row" id="accordionFlushExample">
+            <div class="accordion-item">
+              <h2 class="accordion-header d-flex align-content-center" id="flush-headingOne">
+                  <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#flush-collapseOne" aria-expanded="false" aria-controls="flush-collapseOne">
+                    <div class="col-6 ">
+                      오후 11시 이후 주문 배송 시간 문의 드립니다. 
+                    </div>
+                    <div class="col-6">
+                      <div class="d-flex float-end">
+                        <p class="text-center mx-5">임선주</p>
+                        <p class="text-center mx-5">2022.11.14</p>
+                        <p class="text-center" style="margin-left: 3rem; color: #008b47;">답변완료</p>
+                      </div>
+                    </div>
+                  </button>
+              </h2>
+              <div id="flush-collapseOne" class="accordion-collapse collapse" aria-labelledby="flush-headingOne" data-bs-parent="#accordionFlushExample">
+                <div class="accordion-body answer-form">
+                  <div class="container d-flex mt-3">
+                    <img src="./main.assets/Q_icon.png" width="30rem" height="30rem">
+                    <p class="ms-3 mt-3">내일 아침에 사용해야 하는데 가능할까요?</p>
+                  </div>
+                  <div class="container d-flex mt-5">
+                    <img src="./main.assets/A_icon.png" width="30rem" height="30rem">
+                    <p class="mx-3 mt-3">안녕하세요, 고객님. 8시 이후에 상품을 받아보실 수 있습니다. 이 점 양해 부탁드립니다. 감사합니다.</p>
+                  </div>
+                </div>
+                <!-- 버튼 -->
+                <div class="d-felx float-end mb-3">
+                  <!-- 상품문의 답변 모달 -->
+                  <button class="btn btn-green" type="button" data-bs-toggle="modal" data-bs-target="#ansModal" data-bs-whatever="@mdo">답변</button>
+                  <div class="modal fade" id="ansModal" tabindex="-1" aria-labelledby="ansModalLabel" aria-hidden="true">
+                    <div class="modal-dialog modal-lg">
+                      <div class="container modal-content">
+                        <div class="modal-header">
+                          <h1 class="modal-title fs-3" id="ansModalLabel">상품문의 답변</h1>
+                          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                        </div>
+                        <div class="modal-body">
+                          <div class="container mt-3 mx-3">
+                            <p class="fw-bold">오후 11시 이후 주문 배송 시간 문의 드립니다.</p>
+                          </div>
+                          <div class="container">
+                              <form>
+                                <div class="container mt-3 mx-3">
+                                  <p>내일 아침에 사용해야 하는데 가능할까요?</p>
+                                </div>
+                                <div class="row mb-3 mt-5">
+                                  <div class="col-2">
+                                    <label for="message-text" class="col-form-label mx-3 fw-bold">답변</label>
+                                  </div>
+                                  <div class="col-10">
+                                    <input class="form-control" id="message-text" rows="4" cols="50"/>
+                                  </div>
+                                </div>
+                              </form>
+                          </div>
+                          <div class="d-flex justify-content-center mt-5">
+                            <button type="button" class="btn btn-outline-green p-2 px-3 mx-2" data-bs-dismiss="modal">취소</button>
+                            <button type="button" class="btn btn-green p-2 px-3">답변</button>
+                          </div>
+                       </div>
+                     </div>
+                   </div>
+                  </div>
+                  <button class="btn btn-outline-green" type="button">수정</button>
+                  <button class="btn btn-danger" type="button">삭제</button>
+                </div>                
+              </div>
+            </div>
+            <div class="accordion-item">
+              <h2 class="accordion-header" id="flush-headingTwo">
+                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#flush-collapseTwo" aria-expanded="false" aria-controls="flush-collapseTwo">
+                  <div class="col-6 ">
+                    상품 배송 관련하여 문의드립니다.
+                  </div>
+                  <div class="col-6">
+                    <div class="d-flex float-end">
+                      <p class="text-center mx-5">김예린</p>
+                      <p class="text-center mx-5">2022.11.14</p>
+                      <p class="text-center" style="margin-left: 3rem; color: #797979;">답변대기</p>
+                    </div>
+                  </div>
+                </button>
+              </h2>
+              <div id="flush-collapseTwo" class="accordion-collapse collapse" aria-labelledby="flush-headingTwo" data-bs-parent="#accordionFlushExample">
+                <div class="accordion-body answer-form">
+                  <div class="container d-flex mt-3">
+                    <img src="./main.assets/Q_icon.png" width="30rem" height="30rem">
+                    <p class="ms-3 mt-3">왜 안오는거져?!</p>
+                  </div>
+                </div>
+                <div class="d-felx float-end mb-3">
+                  <button class="btn btn-green" type="button">답변</button>
+                  <button class="btn btn-outline-green" type="button">수정</button>
+                  <button class="btn btn-danger" type="button">삭제</button>
+                </div> 
+              </div>
+            </div>
+            <div class="accordion-item">
+              <h2 class="accordion-header" id="flush-headingThree">
+                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#flush-collapseThree" aria-expanded="false" aria-controls="flush-collapseThree">
+                  <div class="col-6 ">
+                    상한거 아닌가요?
+                  </div>
+                  <div class="col-6">
+                    <div class="d-flex float-end">
+                      <p class="text-center mx-5">이태극</p>
+                      <p class="text-center mx-5">2022.11.14</p>
+                      <p class="text-center" style="margin-left: 3rem; color: #008b47;">답변완료</p>
+                    </div>
+                  </div>
+                </button>
+              </h2>
+              <div id="flush-collapseThree" class="accordion-collapse collapse" aria-labelledby="flush-headingThree" data-bs-parent="#accordionFlushExample">
+                <div class="accordion-body answer-form">
+                  <div class="container d-flex mt-3">
+                    <img src="./main.assets/Q_icon.png" width="30rem" height="30rem">
+                    <p class="ms-3 mt-3">의심스러워요!</p>
+                  </div>
+                  <div class="container d-flex mt-5">
+                    <img src="./main.assets/A_icon.png" width="30rem" height="30rem">
+                    <p class="mx-3 mt-3">안녕하세요, 고객님. 의심하지 마세요.</p>
+                  </div>
+                </div>
+                <div class="d-felx float-end mb-3">
+                  <button class="btn btn-green" type="button">답변</button>
+                  <button class="btn btn-outline-green" type="button">수정</button>
+                  <button class="btn btn-danger" type="button">삭제</button>
+                </div> 
+              </div>
+            </div>
+          </div>
+        </div>
+
+
+
+      <!-- Top 버튼 -->
+      <div
+        class="d-flex justify-content-end mb-4 me-4 fixed-bottom"
+        style="z-index: 2"
+      >
+        <button onclick="topFunction()" class="topBtn" title="Go to top">
+          <i class="bi bi-arrow-up fs-2"></i>
+        </button>
+      </div>
+      <!-- footer -->
+      <footer class="d-flex flex-column">
+        <hr />
+        <div class="d-flex justify-content-around pt-3">
+          <!-- 문의상담 -->
+          <div class="">
+            <h5>고객행복센터</h5>
+            <p class="mb-4">
+              <span class="fw-bolder fs-2"> 1234-5678 </span>
+              <span>월~토요일 오전 7시-오후 6시</span>
+            </p>
+            <div class="d-flex align-items-center my-3">
+              <button class="btn-outline-gray">카카오톡 문의</button>
+              <p class="ms-3 my-1 text-muted">
+                월~금요일 | 오전 9시 - 오후 6시
+              </p>
+            </div>
+            <div class="d-flex align-items-center my-3">
+              <button class="btn-outline-gray" style="padding: 10px 41px">
+                1:1 문의
+              </button>
+              <p class="ms-3 my-1 text-muted">
+                365일
+                <br />
+                순차적으로 답변드리겠습니다.
+              </p>
+            </div>
+            <div class="d-flex align-items-center my-3">
+              <button class="btn-outline-gray">대량주문 문의</button>
+              <p class="ms-3 my-1 text-muted">
+                월~금요일 | 오전 9시 - 오후 6시
+              </p>
+            </div>
+          </div>
+          <!-- 팀 소개 -->
+          <div class="me-5">
+            <ul class="list-unstyled d-flex">
+              <li>브로컬리</li>
+              <a
+                class="ms-3 text-decoration-none text-dark"
+                href="https://www.notion.so/hphk-edu/14f9d654b58b4cf48953db6d0a96efe4"
+                >프로젝트기획</a
+              >
+            </ul>
+            <!-- 깃헙아이콘 -->
+            <div class="d-flex">
+              <a href="https://github.com/ererink" target="_blank">
+                <button class="btn p-0 m-0 border-0">
+                  <i class="bi bi-github fs-2"></i>
+                  <p class="m-auto">김예린</p>
+                </button>
+              </a>
+              <a href="https://github.com/qlghwp123" target="_blank">
+                <button class="btn p-0 ms-2 border-0">
+                  <i class="bi bi-github fs-2"></i>
+                  <p class="m-auto">이동근</p>
+                </button>
+              </a>
+              <a href="https://github.com/uRo3YA" target="_blank">
+                <button class="btn p-0 ms-2 border-0">
+                  <i class="bi bi-github fs-2"></i>
+                  <p class="m-auto">이태극</p>
+                </button>
+              </a>
+              <a href="https://github.com/snnzzoo" target="_blank">
+                <button class="btn p-0 ms-2 border-0">
+                  <i class="bi bi-github fs-2"></i>
+                  <p class="m-auto">임선주</p>
+                </button>
+              </a>
+              <a href="https://github.com/wnsn8546" target="_blank">
+                <button class="btn p-0 ms-2 border-0">
+                  <i class="bi bi-github fs-2"></i>
+                  <p class="m-auto">최준우</p>
+                </button>
+              </a>
+            </div>
+          </div>
+        </div>
+        <!-- Copyright -->
+        <hr class="mb-0" />
+        <div class="bg-light text-center py-4">
+          © 2022. BroKurly All rights reserved
+        </div>
+      </footer>
+    </div>
+    <!-- JavaScript Bundle with Popper -->
+    <script
+      src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/js/bootstrap.bundle.min.js"
+      integrity="sha384-OERcA2EqjJCMA+/3y+gxIOqMEjwtxJY7qPCqsdltbNJuaOe923+mo//f6V8Qbsw3"
+      crossorigin="anonymous"
+    ></script>
+    <!-- Top Btn -->
+    <script>
+      // get the btn
+      let myBtn = document.getElementById("myBtn");
+
+      // When the user scrolls down 30px from the top of the doc, show the btn
+      window.onscroll = function () {
+        scrollFunction();
+      };
+
+      function scrollFunction() {
+        if (
+          document.body.scrollTop > 30 ||
+          document.documentElement.scrollTop > 30
+        ) {
+          mtBtn.style.display = "block";
+        } else {
+          myBtn.style.display = "none";
+        }
+      }
+
+      // When the user clicks on the btn, scroll to the top of the doc
+      function topFunction() {
+        document.body.scrollTop = 0; // for Safari
+        document.documentElement.scrollTop = 0; // for Chrome, Firefox, IE and Opera
+      }
+    </script>
+  </body>
+</html>

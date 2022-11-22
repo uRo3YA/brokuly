@@ -1,0 +1,251 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <!-- CSS only -->
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-Zenh87qX5JnK2Jl0vWa8Ck2rdkQ2Bzep5IDxbcnCeuOxjzrPF/et3URy9Bv1WTRi"
+      crossorigin="anonymous"
+    />
+    <link rel="stylesheet" href="/YL/style_1.css" />
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.9.1/font/bootstrap-icons.css"
+    />
+    <title>회원가입 이용약관</title>
+    <style>
+      body {
+        font-family: "Noto Sans KR", sans-serif;
+      }
+    </style>
+  </head>
+  <body>
+    <!-- Navbar -->
+    <!-- 최상단 Navbar -->
+    <nav class="navbar navbar-expand-lg p-0">
+        <div class="container d-felx justify-content-end">
+            <div class="navbar-nav">
+              <a class="nav-link active mx-3 small" aria-current="page" href="#"><small>회원가입</small></a>
+              <a class="nav-link active mx-3 small" href="#"><small>로그인</small></a>
+              <a class="nav-link active mx-3 small" href="#"><small>고객센터</small></a>
+            </div>
+        </div>
+    </nav>
+    <!-- 중간 Navbar -->
+    <nav class="navbar navbar-expand-lg p-0">
+        <div class="container d-flex justify-content-center">
+            <img src="./main.assets/logo.png">
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <form class="d-flex nav-searchbar" role="search">
+              <input class="form-control me-2" type="search" placeholder="검색어를 입력해주세요" aria-label="Search">
+              <a href="#">
+                  <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor" class="bi bi-search" viewBox="0 0 16 16">
+                  <path d="M11.742 10.344a6.5 6.5 0 1 0-1.397 1.398h-.001c.03.04.062.078.098.115l3.85 3.85a1 1 0 0 0 1.415-1.414l-3.85-3.85a1.007 1.007 0 0 0-.115-.1zM12 6.5a5.5 5.5 0 1 1-11 0 5.5 5.5 0 0 1 11 0z"/>
+                </svg>
+                </a>
+          </form>
+            <span class="mx-5"></span>
+            <ul class="navbar-nav">
+                <li class="nav-item mx-3">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="25" height="25" fill="currentColor" class="bi bi-geo-alt" viewBox="0 0 16 16">
+                        <path d="M12.166 8.94c-.524 1.062-1.234 2.12-1.96 3.07A31.493 31.493 0 0 1 8 14.58a31.481 31.481 0 0 1-2.206-2.57c-.726-.95-1.436-2.008-1.96-3.07C3.304 7.867 3 6.862 3 6a5 5 0 0 1 10 0c0 .862-.305 1.867-.834 2.94zM8 16s6-5.686 6-10A6 6 0 0 0 2 6c0 4.314 6 10 6 10z"/>
+                        <path d="M8 8a2 2 0 1 1 0-4 2 2 0 0 1 0 4zm0 1a3 3 0 1 0 0-6 3 3 0 0 0 0 6z"/>
+                      </svg>                
+                </li>
+                <li class="nav-item mx-3">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="25" height="25" fill="currentColor" class="bi bi-heart" viewBox="0 0 16 16">
+                        <path d="m8 2.748-.717-.737C5.6.281 2.514.878 1.4 3.053c-.523 1.023-.641 2.5.314 4.385.92 1.815 2.834 3.989 6.286 6.357 3.452-2.368 5.365-4.542 6.286-6.357.955-1.886.838-3.362.314-4.385C13.486.878 10.4.28 8.717 2.01L8 2.748zM8 15C-7.333 4.868 3.279-3.04 7.824 1.143c.06.055.119.112.176.171a3.12 3.12 0 0 1 .176-.17C12.72-3.042 23.333 4.867 8 15z"/>
+                    </svg>                
+                </li>
+                <li class="nav-item mx-3">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="25" height="25" fill="currentColor" class="bi bi-cart" viewBox="0 0 16 16">
+                        <path d="M0 1.5A.5.5 0 0 1 .5 1H2a.5.5 0 0 1 .485.379L2.89 3H14.5a.5.5 0 0 1 .491.592l-1.5 8A.5.5 0 0 1 13 12H4a.5.5 0 0 1-.491-.408L2.01 3.607 1.61 2H.5a.5.5 0 0 1-.5-.5zM3.102 4l1.313 7h8.17l1.313-7H3.102zM5 12a2 2 0 1 0 0 4 2 2 0 0 0 0-4zm7 0a2 2 0 1 0 0 4 2 2 0 0 0 0-4zm-7 1a1 1 0 1 1 0 2 1 1 0 0 1 0-2zm7 0a1 1 0 1 1 0 2 1 1 0 0 1 0-2z"/>
+                    </svg>                
+                </li>
+            </ul>
+        </div>
+    </nav>  
+    <!-- 하단 Navbar -->
+    <nav class="navbar nav-shadow">
+        <div class="container d-flex justify-content-evenly">
+            <li class="nav-item dropdown m-0 list-unstyled">
+                <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                <svg xmlns="http://www.w3.org/2000/svg" width="25" height="20" fill="currentColor" class="bi bi-list" viewBox="0 0 16 16">
+                    <path fill-rule="evenodd" d="M2.5 12a.5.5 0 0 1 .5-.5h10a.5.5 0 0 1 0 1H3a.5.5 0 0 1-.5-.5zm0-4a.5.5 0 0 1 .5-.5h10a.5.5 0 0 1 0 1H3a.5.5 0 0 1-.5-.5zm0-4a.5.5 0 0 1 .5-.5h10a.5.5 0 0 1 0 1H3a.5.5 0 0 1-.5-.5z"/>
+                </svg>
+                카테고리
+                </a>
+                <ul class="dropdown-menu">
+                <li><a class="dropdown-item" href="#">Action</a></li>
+                <li><a class="dropdown-item" href="#">Another action</a></li>
+                <li><hr class="dropdown-divider"></li>
+                <li><a class="dropdown-item" href="#">Something else here</a></li>
+                </ul>
+            </li>
+            <li class="nav-item list-unstyled nav-menu">
+                <a class="nav-link active" href="#">신상품</a>
+            </li>
+            <li class="nav-item list-unstyled nav-menu">
+                <a class="nav-link active" href="#">베스트</a>
+            </li>
+            <li class="nav-item list-unstyled nav-menu">
+                <a class="nav-link active" href="#">알뜰쇼핑</a>
+            </li>
+            <li class="nav-item list-unstyled nav-menu">
+                <a class="nav-link active" href="#">특가/혜택</a>
+            </li>
+        </div>
+    </nav>
+    <div id="wrap">
+      <!-- 회원가입 이용약관 -->
+      <div class="container signin-border">
+        <div class="container p-5">
+          <h1 class="text-center mb-5">회원가입 이용약관</h1>
+          <p class="text-muted">제1장 총 칙<br>
+            제1조(목적)<br> 이 약관은 베스트문구(이하 "회사"라 한다)의 회원약관에 동의한 모든 회원 및 비회원들을 대상으로 하며, "회사"가 운영하는 인터넷쇼핑몰(이하 "몰"이라 한다)에서 제공하는 인터넷 관련 서비스(이하 "서비스"라 한다)를 이용함에 있어 인터넷쇼핑몰과 이용자의 권리의무 및 책임사항을 규정함을 목적으로 합니다</p>
+          <p class="text-muted">제2조(정의)<br> 1.몰 : "회사"가 재화 또는 용역을 이용자에게 제공하기 위하여 컴퓨터등 정보통신설비를 이용하여 재화 또는 용역을 거래할 수 있도록 설정한 가상의 영업장 혹은 인터넷쇼핑몰을 운영하는 사업자 2.이용자 : "몰"에 접속하여 이 약관에 따라 "몰"이 제공하는 서비스를 받는 회원 및 비회원 3.회원 : "몰"의 회원약관에 동의하여 "회사"에 개인정보를 제공하여 이용계약을 체결한 모든 회원을 지칭하며, "몰"의 정보를 지속적으로 제공받으며, "몰"이 제공하는 서비스를 계속적으로 이용할 수 있는 자 4.비회원 : 회원에 가입하지 않고 "몰"이 제공하는 서비스를 이용하는 자 5.아이디(ID) : 회원의 식별과 서비스 이용을 위하여 회원이 정하고 "회사"가 승인하는 문자 또는 숫자의 조합 6.비밀번호 : 회원이 부여받은 아이디(ID)와 일치되는 회원임을 확인하고 회원의 비밀보호를 위해 회원 자신이 정한 문자 또는 숫자의 조합 7.해지 : "회사" 또는 회원이 서비스 개통 후 이용계약을 해약하는 것 </p>
+          <p class="text-muted">제3조 (약관의 명시와 개정)<br>1. "회사"는 이 약관의 내용과 상호, 영업소 소재지, 대표자의 성명, 사업자등록번호, 연락처(전화, 팩스, 전자우편 주소 등) 등을 이용자가 알 수 있도록 "몰"의 초기 서비스화면(전면)에 게시합니다. 2.이 약관은 "회사"가 제공하는 화면에 게시하거나 기타의 방법으로 이용고객 또는 회원에게 공지하고 회원이 이에 동의함으로써 효력을 발생합니다. 3."회사"는 전자거래기본법, 전자서명법, 정보통신망이용촉진및정보보호등에관한법률, 방문판매등에 관한 법률, 소비자보호법 등 관련법을 위배하지 않는 범위에서 이 약관을 개정할 수 있습니다. 4."회사"가 약관을 개정할 경우에는 적용일자 및 개정사유를 명시하여 현행약관과 함께 몰의 초기화면에 공지함으로써 그 공지 후 7일이 경과한 날로부터 효력을 발생합니다. 5. 약관을 개정할 경우에는 그 개정약관은 그 적용일자 이후에 체결되는 계약에만 적용되고 그 이전에 이미 체결된 계약에 대해서는 개정전의 약관조항이 그대로 적용됨을 원칙으로 합니다. 다만, 개정약관의 적용를 원하는 회원의 동의절차의 편의를 위하여 이미 계약을 체결한 이용자가 동조 제 4항의 공지에도 불구하고 개정약관 조항의 적용을 받지 않기를 원한다는 이의를 표시하지 않은 경우에는 동조 2항의 동의한 것으로 간주되며 정약관이 적용됩니다. 6.이 약관에서 정하지 아니한 사항과 이 약관의 해석에 관하여는 정부가 제정한 전자거래소비자보호지침 및 관계법령 또는 상관례에 따릅니다.</p>
+        </div>
+      </div>
+      <div class="d-flex justify-content-center mt-5">
+        <button type="button" class="btn btn-green p-2 px-5 mx-5" data-bs-dismiss="modal">일반 회원가입</button>
+        <button type="button" class="btn btn-lightgreen p-2 px-5 mx-5">판매자 회원가입</button>
+      </div>
+
+      <!-- Footer -->
+      <!-- Top 버튼 -->
+      <div
+        class="d-flex justify-content-end mb-4 me-4 fixed-bottom"
+        style="z-index: 2"
+      >
+        <button onclick="topFunction()" class="topBtn" title="Go to top">
+          <i class="bi bi-arrow-up fs-2"></i>
+        </button>
+      </div>
+      <!-- footer -->
+      <footer class="d-flex flex-column">
+        <hr />
+        <div class="d-flex justify-content-around mx-5 pt-3">
+          <!-- 문의상담 -->
+          <div class="">
+            <h5>고객행복센터</h5>
+            <p class="mb-4">
+              <span class="fw-bolder fs-2"> 1234-5678 </span>
+              <span>월~토요일 오전 7시-오후 6시</span>
+            </p>
+            <div class="d-flex align-items-center my-3">
+              <button class="btn-outline-gray">카카오톡 문의</button>
+              <p class="ms-3 my-1 text-muted">
+                월~금요일 | 오전 9시 - 오후 6시
+              </p>
+            </div>
+            <div class="d-flex align-items-center my-3">
+              <button class="btn-outline-gray" style="padding: 10px 41px">
+                1:1 문의
+              </button>
+              <p class="ms-3 my-1 text-muted">
+                365일
+                <br />
+                순차적으로 답변드리겠습니다.
+              </p>
+            </div>
+            <div class="d-flex align-items-center my-3">
+              <button class="btn-outline-gray">대량주문 문의</button>
+              <p class="ms-3 my-1 text-muted">
+                월~금요일 | 오전 9시 - 오후 6시
+              </p>
+            </div>
+          </div>
+          <!-- 팀 소개 -->
+          <div class="me-5">
+            <ul class="list-unstyled d-flex">
+              <li>브로컬리</li>
+              <a
+                class="ms-3 text-decoration-none text-dark"
+                href="https://www.notion.so/hphk-edu/14f9d654b58b4cf48953db6d0a96efe4"
+                >프로젝트기획</a
+              >
+            </ul>
+            <!-- 깃헙아이콘 -->
+            <div class="d-flex">
+              <a href="https://github.com/ererink" target="_blank">
+                <button class="btn p-0 m-0 border-0">
+                  <i class="bi bi-github fs-2"></i>
+                  <p class="m-auto">김예린</p>
+                </button>
+              </a>
+              <a href="https://github.com/qlghwp123" target="_blank">
+                <button class="btn p-0 ms-2 border-0">
+                  <i class="bi bi-github fs-2"></i>
+                  <p class="m-auto">이동근</p>
+                </button>
+              </a>
+              <a href="https://github.com/uRo3YA" target="_blank">
+                <button class="btn p-0 ms-2 border-0">
+                  <i class="bi bi-github fs-2"></i>
+                  <p class="m-auto">이태극</p>
+                </button>
+              </a>
+              <a href="https://github.com/snnzzoo" target="_blank">
+                <button class="btn p-0 ms-2 border-0">
+                  <i class="bi bi-github fs-2"></i>
+                  <p class="m-auto">임선주</p>
+                </button>
+              </a>
+              <a href="https://github.com/wnsn8546" target="_blank">
+                <button class="btn p-0 ms-2 border-0">
+                  <i class="bi bi-github fs-2"></i>
+                  <p class="m-auto">최준우</p>
+                </button>
+              </a>
+            </div>
+          </div>
+        </div>
+        <!-- Copyright -->
+        <hr class="mb-0" />
+        <div class="bg-light text-center py-4">
+          © 2022. BroKurly All rights reserved
+        </div>
+      </footer>
+    </div>
+    <!-- JavaScript Bundle with Popper -->
+    <script
+      src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/js/bootstrap.bundle.min.js"
+      integrity="sha384-OERcA2EqjJCMA+/3y+gxIOqMEjwtxJY7qPCqsdltbNJuaOe923+mo//f6V8Qbsw3"
+      crossorigin="anonymous"
+    ></script>
+    <!-- Top Btn -->
+    <script>
+      // get the btn
+      let myBtn = document.getElementById("myBtn");
+
+      // When the user scrolls down 30px from the top of the doc, show the btn
+      window.onscroll = function () {
+        scrollFunction();
+      };
+
+      function scrollFunction() {
+        if (
+          document.body.scrollTop > 30 ||
+          document.documentElement.scrollTop > 30
+        ) {
+          mtBtn.style.display = "block";
+        } else {
+          myBtn.style.display = "none";
+        }
+      }
+
+      // When the user clicks on the btn, scroll to the top of the doc
+      function topFunction() {
+        document.body.scrollTop = 0; // for Safari
+        document.documentElement.scrollTop = 0; // for Chrome, Firefox, IE and Opera
+      }
+    </script>
+  </body>
+</html>

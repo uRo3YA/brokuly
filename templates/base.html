@@ -1,0 +1,229 @@
+{% load django_bootstrap5 %}
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <!-- CSS only -->
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-Zenh87qX5JnK2Jl0vWa8Ck2rdkQ2Bzep5IDxbcnCeuOxjzrPF/et3URy9Bv1WTRi"
+      crossorigin="anonymous"
+    />
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="crossorigin">
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@400;700&display=swap" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Kaushan+Script&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="{% static 'css/style.css' %}" />
+    <link rel="shortcut icon" href="{% static 'images/favicon.ico' %}">
+    <link href="{% static 'css/hover.css' %}" rel="stylesheet" media="all">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.9.1/font/bootstrap-icons.css"/>
+    {% block css %}{% endblock css %}
+    <title>브로컬리🥦</title>
+  </head>
+
+  <body>
+    <!-- Navbar -->
+    {% include "./navbar.html" %}
+
+    <!-- 콘텐츠 -->
+    <div id="wrapper">
+      {% block body %}{% endblock body %}
+    </div>
+    
+    <!-- FOOTER -->
+
+    <!-- Top 버튼 -->
+    <div class="d-flex justify-content-end mb-4 me-4 fixed-bottom" style="z-index: 2">
+      <button onclick="topFunction()" class="topBtn" title="Go to top">
+        <i class="bi bi-arrow-up fs-2"></i>
+      </button>
+    </div>
+    <!-- footer -->
+    <footer class="d-flex flex-column">
+      <hr />
+      <div class="d-flex justify-content-between pt-3" style="margin: 0 13rem; z-index: 1;">
+        <!-- 문의상담 -->
+        <div>
+          <h5>고객행복센터</h5>
+          <p class="mb-4">
+            <span class="fw-bolder fs-2"> 1234-5678 </span>
+            <span>월~토요일 오전 7시-오후 6시</span>
+          </p>
+          <div class="d-flex align-items-center my-3">
+            <button class="btn-outline-gray">카카오톡 문의</button>
+            <p class="ms-3 my-1 text-muted">
+              월~금요일 | 오전 9시 - 오후 6시
+            </p>
+          </div>
+          <div class="d-flex align-items-center my-3">
+            <button class="btn-outline-gray" style="padding: 10px 41px">
+              1:1 문의
+            </button>
+            <p class="ms-3 my-1 text-muted">
+              365일
+              <br />
+              순차적으로 답변드리겠습니다.
+            </p>
+          </div>
+          <div class="d-flex align-items-center my-3">
+            <button class="btn-outline-gray">대량주문 문의</button>
+            <p class="ms-3 my-1 text-muted">
+              월~금요일 | 오전 9시 - 오후 6시
+            </p>
+          </div>
+        </div>
+        <!-- 팀 소개 -->
+        <div>
+          <ul class="list-unstyled d-flex">
+            <li>팀 브로컬리</li>
+            <a
+              class="ms-4 text-decoration-none text-dark"
+              href="https://www.notion.so/hphk-edu/14f9d654b58b4cf48953db6d0a96efe4" target="_blank"
+              >프로젝트 기획문서</a
+            >
+          </ul>
+          <!-- 깃헙아이콘 -->
+          <div class="d-flex">
+            <a href="https://github.com/ererink" target="_blank">
+              <button class="black-green btn p-0 m-0 border-0">
+                <i class="bi bi-github fs-2"></i>
+                <p class="m-auto">김예린</p>
+              </button>
+            </a>
+            <a href="https://github.com/qlghwp123" target="_blank">
+              <button class="black-green btn p-0 ms-2 border-0">
+                <i class="bi bi-github fs-2"></i>
+                <p class="m-auto">이동근</p>
+              </button>
+            </a>
+            <a href="https://github.com/uRo3YA" target="_blank">
+              <button class="black-green btn p-0 ms-2 border-0">
+                <i class="bi bi-github fs-2"></i>
+                <p class="m-auto">이태극</p>
+              </button>
+            </a>
+            <a href="https://github.com/snnzzoo" target="_blank">
+              <button class="black-green btn p-0 ms-2 border-0">
+                <i class="bi bi-github fs-2"></i>
+                <p class="m-auto">임선주</p>
+              </button>
+            </a>
+            <a href="https://github.com/wnsn8546" target="_blank">
+              <button class="black-green btn p-0 ms-2 border-0">
+                <i class="bi bi-github fs-2"></i>
+                <p class="m-auto">최준우</p>
+              </button>
+            </a>
+          </div>
+        </div>
+      </div>
+      <!-- Copyright -->
+      <hr class="mb-0" />
+      <div class="bg-light text-center py-4">
+        © 2022. Team BroKurly All rights reserved
+      </div>
+    </footer>
+
+    <!-- JavaScript Bundle with Popper -->
+    <script
+      src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/js/bootstrap.bundle.min.js"
+      integrity="sha384-OERcA2EqjJCMA+/3y+gxIOqMEjwtxJY7qPCqsdltbNJuaOe923+mo//f6V8Qbsw3"
+      crossorigin="anonymous"
+    ></script>
+    
+    <!-- Top Btn -->
+    <script>
+      // get the btn
+      let myBtn = document.getElementById("myBtn");
+
+      // When the user scrolls down 30px from the top of the doc, show the btn
+      window.onscroll = function () {
+        scrollFunction();
+      };
+
+      function scrollFunction() {
+        if (
+          document.body.scrollTop > 30 ||
+          document.documentElement.scrollTop > 30
+        ) {
+          mtBtn.style.display = "block";
+        } else {
+          myBtn.style.display = "none";
+        }
+      }
+
+      // When the user clicks on the btn, scroll to the top of the doc
+      function topFunction() {
+        document.body.scrollTop = 0; // for Safari
+        document.documentElement.scrollTop = 0; // for Chrome, Firefox, IE and Opera
+      }
+    </script>
+
+      
+    <!-- Channel Plugin Scripts -->
+    <script>
+      (function() {
+        var w = window;
+        if (w.ChannelIO) {
+          return (window.console.error || window.console.log || function(){})('ChannelIO script included twice.');
+        }
+        var ch = function() {
+          ch.c(arguments);
+        };
+        ch.q = [];
+        ch.c = function(args) {
+          ch.q.push(args);
+        };
+        w.ChannelIO = ch;
+        function l() {
+          if (w.ChannelIOInitialized) {
+            return;
+          }
+          w.ChannelIOInitialized = true;
+          var s = document.createElement('script');
+          s.type = 'text/javascript';
+          s.async = true;
+          s.src = 'https://cdn.channel.io/plugin/ch-plugin-web.js';
+          s.charset = 'UTF-8';
+          var x = document.getElementsByTagName('script')[0];
+          x.parentNode.insertBefore(s, x);
+        }
+        if (document.readyState === 'complete') {
+          l();
+        } else if (window.attachEvent) {
+          window.attachEvent('onload', l);
+        } else {
+          window.addEventListener('DOMContentLoaded', l, false);
+          window.addEventListener('load', l, false);
+        }
+      })();
+      ChannelIO('boot', {
+        "pluginKey": "92519c89-a20d-44ed-b5c1-306765c5a868"
+      });
+    </script>
+    <!-- End Channel Plugin -->
+
+    <!-- Navbar Scroll -->
+    <script>
+      // When the user scrolls down 20px from the top of the document, slide down the navbar
+      window.onscroll = function() {scrollFunction()};
+      
+      function scrollFunction() {
+          if (document.body.scrollTop > 100 || document.documentElement.scrollTop > 100) {
+          document.getElementById("scrollNav").style.top = "0";
+          } else {
+          document.getElementById("scrollNav").style.top = "-1000px";
+          }
+      }
+    </script>
+    
+  {% block script %}{% endblock script %}
+
+  </body>
+</html>

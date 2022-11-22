@@ -15,13 +15,17 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import path, include
+from django.conf.urls.static import static
+from django.conf import settings
+from . import views
 
 urlpatterns = [
-    path('admin/', admin.site.urls),
-    
-    path('accounts/', include('accounts.urls')),
-    path('orders/', include('orders.urls')),
-    path('products/', include('products.urls')),
-    path('qnas/', include('qnas.urls')),
-    path('reviews/', include('reviews.urls')),
+    path("admin/", admin.site.urls),
+    path("", views.root, name="root"),
+    path("accounts/", include("accounts.urls")),
+    path("orders/", include("orders.urls")),
+    path("products/", include("products.urls")),
+    path("qnas/", include("qnas.urls")),
+    path("reviews/", include("reviews.urls")),
 ]
+urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)

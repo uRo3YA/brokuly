@@ -1,0 +1,219 @@
+{% extends 'base.html' %}
+{% load django_bootstrap5 %}
+{% load static %}
+
+{% comment %} 
+누르면 옆에 메뉴 active 클래스 추가하게끔 만드는거 미완성 
+{% endcomment %}
+{% block script %}
+<!-- jQuery CDN -->
+<script src="https://code.jquery.com/jquery-3.6.1.slim.min.js" integrity="sha256-w8CvhFs7iHNVUtnSP0YKEg00p9Ih13rlL9zGqvLdePA=" crossorigin="anonymous"></script>
+<script>
+
+$("a").on("click", function(e){
+    $("a").removeClass("active");
+    $("e.target").addClass("active");
+});
+
+</script>
+{% endblock script %}
+
+{% block body %}
+
+    <!-- 판매자 상품문의 -->
+    <hr class="m-0" />
+
+    <!-- 프로필 -->
+    <div class="bg-light">
+      <div class="container pt-5 pb-4">
+        <div class="row">
+          <div class="col-sm-5">
+            <div class="card">
+              <div
+                class="d-flex align-items-center mx-4 my-4"
+                style="height: 136px"
+              >
+                <img
+                  class="rounded-pill"
+                  src="https://picsum.photos/1280/720"
+                  alt=""
+                  style="height: 80px; width: 80px"
+                />
+                <div>
+                  <p class="mb-2 ms-4 fs-5 fw-bold">{{ request.user.name }} 님</p>
+                  <div class="mb-0 ms-4">
+                    <p class="mb-1">
+                      {% if request.user.is_seller %}
+                        판매자 등급
+                      {% else %}
+                        구매자 등급
+                      {% endif %}
+                      <span class="text-green fw-bold">대왕 브로컬리🥦</span>
+                    </p>
+                    <p class="mb-0">{{ request.user.email }}</p>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="col-sm-7">
+            <div class="">
+              <div class="d-flex">
+                {% if request.user.is_seller %}
+                  {% comment %} 링크 추가 해야함 {% endcomment %}
+                  <a 
+                    type="button" 
+                    class="card col-4 ms-3 ps-4 text-decoration-none text-dark"
+                    href="{% url 'accounts:question_management' 'recent'%}"
+                  >
+                    <p class="mt-3 mb-0">상품문의 ></p>
+                    <p class="fs-4 fw-bold text-green">{{ questions | length }}개</p>
+                </a>
+                  {% comment %} 링크 추가 해야함 {% endcomment %}
+                  <a 
+                    type="button" 
+                    class="card col-4 ms-3 ps-4 text-decoration-none text-dark"
+                    href="{% url 'accounts:review' %}"
+                  >
+                    <p class="mt-3 mb-0">작성된 리뷰 ></p>
+                    <p class="fs-4 fw-bold text-green">{{ reviews | length }}개</p>
+                  </a>
+                  <button class="card col-4 ms-3 ps-4">
+                    <p class="mt-3 mb-0 text-decoration-none text-dark">팔로워</p>
+                    <p class="fs-4 fw-bold  text-green">{{ request.user.following_user.all | length }}명</p>
+                  </button>
+                {% else %}
+                  <button class="card col-4 ps-4">
+                    <p class="mt-3 mb-0">적립금 ></p>
+                    <p class="fs-4 fw-bold text-green">0원</p>
+                  </button>
+                  <button class="card col-4 ms-3 ps-4">
+                    <p class="mt-3 mb-0">쿠폰 ></p>
+                    <p class="fs-4 fw-bold text-green">0개</p>
+                  </button>
+                  <a
+                        type="button"
+                         class="card col-4 ms-3 ps-4  text-decoration-none text-dark"
+                         href="{% url 'accounts:followlist' %}">
+                    <p class="mt-3 mb-0">팔로잉 ></p>
+                    <p class="fs-4 fw-bold text-green">{{ request.user.followings.all | length }}명</p>
+                  </a>
+                {% endif %}
+              </div>
+              <div>
+                <div class="d-flex justify-content-between my-3">
+                  {% if request.user.is_seller %}
+                    <form action="{% url 'products:create' %}" method="POST" class="w-100">
+                      {% csrf_token %}
+                      <button class="card col-6 p-3 w-100 d-flex align-items-center">
+                        <p class="fs-4 fw-bold text-green mb-0" style="margin-top: 2px;">
+                          상품등록
+                        </p>
+                      </button>
+                    </form>
+                  {% else %}
+                    <button class="card col-6 p-4">컬리 그린 박스 ></button>
+                  {% endif %}
+                  <button class="card col-6 p-4" style="margin-left: 32px">
+                    컬리패스 >
+                  </button>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <!-- container -->
+    </div>
+
+    <hr class="my-0" />
+
+    <!-- 내역 -->
+    <div class="container bg-white">
+      <div class="row mx-atuo mb-3 py-3">
+        <!-- 탭 목록 -->
+        <div class="col-2 my-5">
+          <div class="list-group">
+            {% if request.user.is_seller %}
+            <a
+                type="button"
+                class="list-group-item list-group-item-action"
+                href="{% url 'accounts:product_management' %}"
+                 >
+                상품 관리
+                </a>
+              <button
+                type="button"
+                class="list-group-item list-group-item-action"
+              >
+                판매 관리
+              </button>
+              <button
+                type="button"
+                class="list-group-item list-group-item-action"
+              >
+                클레임/정산
+              </button>
+              <a
+                type="button"
+                class="list-group-item list-group-item-action"
+                href="{% url 'accounts:review' %}"
+              >
+                리뷰
+              </a>
+            {% else %}
+            <a href="{% url 'accounts:orderlist' %}"
+              type="button"
+              class="list-group-item list-group-item-action"
+            >
+              주문 내역
+            </a>
+            <a
+              type="button"
+              class="list-group-item list-group-item-action"
+              href="{% url 'accounts:wishlist' %}"
+            >
+              위시리스트
+            </a>
+            <a
+              type="button"
+              class="list-group-item list-group-item-action"
+              href="{% url 'accounts:review' %}"
+            >
+              상품 후기
+            </a>
+            <a
+              type="button"
+              class="list-group-item list-group-item-action"
+              href="{% url 'accounts:myquestion' %}"
+            >
+              상품 문의
+            </a>
+            {% endif %}
+          </div>
+          <hr />
+          <div class="list-group">
+            <a
+              type="button"
+              class="list-group-item list-group-item-action border-top"
+              href="{% url 'accounts:update' %}"
+            >
+              개인 정보 수정
+            </a>
+            <a
+              type="button"
+              class="list-group-item list-group-item-action border-top"
+              href="{% url 'accounts:signout' %}"
+            >
+              계정 삭제
+            </a>
+          </div>
+        </div>
+        <!-- 탭 내용 -->
+        {% block content %}
+        {% endblock content %}
+        <!-- 탭 내용-->
+      </div>
+    </div>
+
+{% endblock body %}
