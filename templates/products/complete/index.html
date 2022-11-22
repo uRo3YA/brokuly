@@ -34,7 +34,7 @@
         <!-- 카드들 -->
         <div class="d-felx row">
             {% for products in products_all %}
-            <div class="card  col-3 border-0 pro-card" onclick="location.href='/products/{{products.pk}}/'" type="button">
+            <div class="card  col-3 border-0 pro-card mt-3" onclick="location.href='/products/{{products.pk}}/'" type="button">
                 {%if products.is_crawl%}
                 <img src="{{products.crawl_produt_detail_img}}" alt="상품 이미지" class="card-img-top" alt="상품 사진" width="275" height="354">
                 {%else%}
@@ -56,7 +56,7 @@
               
             <!---여기까지 하나 -->
             
-            <ul class="pagination justify-content-center">
+            <ul class="pagination justify-content-center mt-5">
                 <!-- 이전페이지 -->
                 {% if products_all.has_previous %}
                 <li class="page-item mx-0">
