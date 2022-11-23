@@ -6,7 +6,7 @@ from selenium.webdriver.common.by import By
 #### 크롤링 실행전
 #### 마이그레이트 한 뒤 판매자 유저 id(pk=1) 반드시 생성!!!
 import time
-
+import json
 import os
 import django
 
@@ -14,10 +14,18 @@ os.environ.setdefault("DJANGO_SETTINGS_MODULE", "pjt.settings")
 django.setup()
 from products.models import Product
 
+
+def toJson(mnet_dict):
+    with open("products.json", "w", encoding="utf-8") as file:
+        json.dump(mnet_dict, file, ensure_ascii=False, indent="\t")
+
+
+# python manage.py loaddata products.json
+
 # 크롬드라이버 가져오기
 driver = webdriver.Chrome("chromedriver.exe")
 # 마켓컬리 베스트 상품 페이지
-url = "https://www.kurly.com/goods-list?category=029"
+url = "https://www.kurly.com/collections/market-best?page=2"
 driver.get(url)
 driver.implicitly_wait(time_to_wait=5)
 
@@ -122,6 +130,25 @@ for i in range(len(elements) - 2):
                 "weight": weight,
                 "loc": loc,
             }
+            # {
+            #     "model": "products.Product",
+            #     "fields": {
+            #         "item_name": item_name,
+            #         "sales_price": sales_price,
+            #         "ori_img": ori_img,
+            #         "detail_img": detail_img,
+            #         "description": description,
+            #         "produt_detail_img": produt_detail_img,
+            #         "produt_thum_img": produt_thum_img,
+            #         "produt_desc_img": produt_desc_img,
+            #         "shiping_type": shiping_type,
+            #         "user_id": 1,
+            #         "package_type": pack_type,
+            #         "unit": unit,
+            #         "weight": weight,
+            #         "loc": loc,
+            #     },
+            # }
         )
         # 확인
         # print(item_list[-1])
@@ -142,38 +169,70 @@ for i in range(len(elements) - 2):
 
 # 작업 완료 후 드라이버 종료
 driver.close()
+# toJson(item_list)
 print(error)
 
 
 def add_data():
     result = []
-
+    out = []
     # 자료 수집 함수 실행
     for data in item_list:
         tmp = data
         # 만들어진 dic를 리스트에 저장
         result.append(tmp)
+
     # print(result)
     # DB에 저장
     for item in result:
-
-        Product(
-            title=(item["item_name"]),
-            price=item["sales_price"],
-            unit=item["unit"],
-            weight=item["weight"],
-            crawl_produt_thum_img=(item["produt_detail_img"]),
-            crawl_produt_detail_img=(item["produt_thum_img"]),
-            crawl_produt_desc_img=(item["produt_desc_img"]),
-            description=(item["description"]),
-            stock=1000,
-            sales_rate=1,
-            user_id=1,
-            ship_type=item["shiping_type"],
-            is_crawl=True,
-            allergy="",
-        ).save()
-
+        a = 0
+        # Product(
+        #     title=(item["item_name"]),
+        #     price=item["sales_price"],
+        #     unit=item["unit"],
+        #     weight=item["weight"],
+        #     crawl_produt_thum_img=(item["produt_detail_img"]),
+        #     crawl_produt_detail_img=(item["produt_thum_img"]),
+        #     crawl_produt_desc_img=(item["produt_desc_img"]),
+        #     description=(item["description"]),
+        #     stock=1000,
+        #     sales_rate=1,
+        #     user_id=1,
+        #     ship_type=item["shiping_type"],
+        #     is_crawl=True,
+        #     allergy="",
+        # ).save()
+        out.append(
+            {
+                "model": "products.Product",
+                "fields": {
+                    "title": (item["item_name"]),
+                    "price": item["sales_price"],
+                    "unit": item["unit"],
+                    "weight": item["weight"],
+                    "crawl_produt_thum_img": (item["produt_detail_img"]),
+                    "crawl_produt_detail_img": (item["produt_thum_img"]),
+                    "crawl_produt_desc_img": (item["produt_desc_img"]),
+                    "description": (item["description"]),
+                    "stock": 1000,
+                    "sales_rate": 1,
+                    "is_crawl": True,
+                    "sales_rate": 1,
+                    "ship_type": item["shiping_type"],
+                    "allergy": "",
+                    "user_id": 1,
+                    # "ori_img": ori_img,
+                    # "detail_img": detail_img,
+                    # "produt_detail_img": produt_detail_img,
+                    # "produt_thum_img": produt_thum_img,
+                    # "produt_desc_img": produt_desc_img,
+                    # "user_id": 1,
+                    # "package_type": pack_type,
+                    # "loc": loc,
+                },
+            }
+        )
+    toJson(out)
     return result
 
 

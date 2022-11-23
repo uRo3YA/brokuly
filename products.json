@@ -1,0 +1,1674 @@
+[
+	{
+		"model": "products.Product",
+		"fields": {
+			"title": "[일상味소] 다짐육 200g (냉장)",
+			"price": 7740,
+			"unit": "1팩",
+			"weight": "200g",
+			"crawl_produt_thum_img": "https://img-cf.kurly.com/shop/data/goodsview/20220310/gv10000287833_1.jpg",
+			"crawl_produt_detail_img": "https://img-cf.kurly.com/cdn-cgi/image/width=676,format=auto/shop/data/goods/1646906524635l0.jpg",
+			"crawl_produt_desc_img": "https://img-cf.kurly.com/shop/data/goodsview/20221122/gv00000454909_1.jpg",
+			"description": "담백하게 즐기는 다짐 소고기\n[일상味소] 다짐육\n컬리는 고민했습니다. '국내산 소고기를 특별한 날이 아닌 일상에서도, 합리적인 가격으로 즐길 순 없을까?' 그 해답을 위해 컬리는 직접 기획한 상품, '일상味소' 육우를 선보입니다. 그중에서도 담백한 설깃, 설도, 목심 부위를 곱게 다진 상품을 소개할게요. 볶음밥, 함박 스테이크, 미트볼 등 다진 소고기가 필요한 모든 요리에 간편하게 사용해 보세요. 조리 시간은 줄어들고 담백한 맛은 배가 될 거예요.",
+			"stock": 1000,
+			"sales_rate": 1,
+			"is_crawl": true,
+			"ship_type": "샛별배송",
+			"allergy": "",
+			"user_id": 1
+		}
+	},
+	{
+		"model": "products.Product",
+		"fields": {
+			"title": "냉동 블루베리 1kg (칠레산)",
+			"price": 9180,
+			"unit": "1팩",
+			"weight": "1kg",
+			"crawl_produt_thum_img": "https://img-cf.kurly.com/shop/data/goodsview/20210226/gv30000161476_1.jpg",
+			"crawl_produt_detail_img": "https://img-cf.kurly.com/cdn-cgi/image/width=676,format=auto/shop/data/goods/1653035681281l0.jpeg",
+			"crawl_produt_desc_img": "https://img-cf.kurly.com/shop/data/goodsview/20220617/gv30000328131_1.jpg",
+			"description": "언제든지 즐기는 보랏빛 과육\n냉동 블루베리\n상큼한 맛이 좋은 블루베리는 다채로운 활용도를 자랑하지만, 생과는 보관이 까다롭고 표면이 연약해 쉽게 물러지곤 하는데요. 이럴 때 유용한 것이 바로, 맛과 형태를 고스란히 간직한 냉동 블루베리랍니다. 깨끗이 세척한 블루베리를 급랭해 담아냈기에, 과일 고유의 맛과 영양을 손쉽게 즐길 수 있어요. 냉동실 한 켠에 넣어두고 필요할 때마다 꺼내 사용하세요. 플레인 요거트 또는 우유와 함께 갈아 스무디로, 팬에 넣고 조려 콩포트로 만들어도 좋을 거예요.",
+			"stock": 1000,
+			"sales_rate": 1,
+			"is_crawl": true,
+			"ship_type": "샛별배송",
+			"allergy": "",
+			"user_id": 1
+		}
+	},
+	{
+		"model": "products.Product",
+		"fields": {
+			"title": "[그릭데이] 그릭요거트 시그니처 450g",
+			"price": 11700,
+			"unit": "1개",
+			"weight": "450g",
+			"crawl_produt_thum_img": "https://img-cf.kurly.com/shop/data/goodsview/20220620/gv30000328485_1.jpg",
+			"crawl_produt_detail_img": "https://img-cf.kurly.com/cdn-cgi/image/width=676,format=auto/shop/data/goods/1655708537238l0.jpg",
+			"crawl_produt_desc_img": "https://img-cf.kurly.com/shop/data/goodsview/20220620/gv30000328493_1.jpg",
+			"description": "꾸덕한 질감과 진한 고소함\n[그릭데이]\n그릭요거트 시그니처\n그리스 전통 공법으로 만든 그릭데이 요거트에는 섬세한 노력과 정성이 깃들어 있어요. 세균수 기준 1A 등급 국내산 원유에 그릭데이 자체 개발 유산균을 첨가해 발효한 뒤, 오랜 시간 유당과 수분을 제거하는 과정을 거쳐 완성되죠. 그중에서도 그릭요거트 시그니처는 유청 제거율을 높여 크림치즈처럼 꾸덕하고 단단한 질감을 지닌 요거트인데요. 자체 노하우로 시큼한 맛은 줄이고, 생우유의 진한 풍미를 살려 만들었어요. 높은 단백질과 적은 당 함량을 자랑한답니다. 넉넉한 대용량 제품으로 준비했으니 아쉬움 없이 즐기기에도 참 좋을 거예요.",
+			"stock": 1000,
+			"sales_rate": 1,
+			"is_crawl": true,
+			"ship_type": "샛별배송",
+			"allergy": "",
+			"user_id": 1
+		}
+	},
+	{
+		"model": "products.Product",
+		"fields": {
+			"title": "[제주 삼다수] 생수 (2L X 6개)",
+			"price": 5980,
+			"unit": "1박스 / 1인당 2개까지 구매가능",
+			"weight": "2L X 6개입",
+			"crawl_produt_thum_img": "https://img-cf.kurly.com/shop/data/goodsview/20210909/gv20000225267_1.jpg",
+			"crawl_produt_detail_img": "https://img-cf.kurly.com/cdn-cgi/image/width=676,format=auto/shop/data/goods/1631177552968l0.jpg",
+			"crawl_produt_desc_img": "https://img-cf.kurly.com/shop/data/goodsview/20210909/gv30000225431_1.jpg",
+			"description": "순수한 화산암반수\n[제주 삼다수] 생수\n매일 마시는 물, 부담 없이 구비하고 싶다면 제주 삼다수를 만나보세요. 제주 한라산의 수많은 천연 화산층을 통과하며 만들어진 순수한 화산 암반수를 취수했어요. 깔끔한 목넘김과 부드러운 청량감으로 많은 사랑을 받고 있지요. 2L의 대용량 상품이라 찬장에 두고 매일 마시기에도 좋을 거예요. 넉넉히 구비해 두고 하루의 수분을 보충해 보세요.",
+			"stock": 1000,
+			"sales_rate": 1,
+			"is_crawl": true,
+			"ship_type": "샛별배송",
+			"allergy": "",
+			"user_id": 1
+		}
+	},
+	{
+		"model": "products.Product",
+		"fields": {
+			"title": "[앤쿡] 어린이 한우 사골 곰국",
+			"price": 15900,
+			"unit": "1박스",
+			"weight": "200g*8개입",
+			"crawl_produt_thum_img": "https://img-cf.kurly.com/shop/data/goodsview/20210907/gv30000224310_1.jpg",
+			"crawl_produt_detail_img": "https://img-cf.kurly.com/cdn-cgi/image/width=676,format=auto/shop/data/goods/1653036594968l0.jpeg",
+			"crawl_produt_desc_img": "https://img-cf.kurly.com/shop/data/goodsview/20210907/gv30000224309_1.jpg",
+			"description": "뚝딱 완성되는 영양 만점 국물 요리\n[앤쿡] 어린이\n한우 사골 곰국\n우리 아이를 위한 따끈한 국물 요리, 앤쿡의 어린이 한우 사골 곰국을 추천할게요. 오직 무항생제 한우의 사골과 뼈를 사용해 푹 고아 만든 뽀얀 국물만을 정직하게 담았는데요. 순하면서도 구수한 풍미라 아이들의 입맛에도 제격이랍니다. 따로 재료를 준비할 필요 없이 따뜻하게 데워주면 완성이니 더할 나위 없이 간편하고요. 한번 먹기에 딱 좋은 양으로 소분돼 있어, 남길 걱정 없이 보관하고 사용할 수 있지요. 한김 식힌 뒤 밥을 훌훌 말아주거나 떡국, 만둣국 등의 기본 육수로도 활용해 보세요.",
+			"stock": 1000,
+			"sales_rate": 1,
+			"is_crawl": true,
+			"ship_type": "샛별배송",
+			"allergy": "",
+			"user_id": 1
+		}
+	},
+	{
+		"model": "products.Product",
+		"fields": {
+			"title": "[마니커] IQF 닭가슴살 2kg (냉동)",
+			"price": 13990,
+			"unit": "1팩",
+			"weight": "2kg",
+			"crawl_produt_thum_img": "https://img-cf.kurly.com/shop/data/goodsview/20211022/gv10000236289_1.jpg",
+			"crawl_produt_detail_img": "https://img-cf.kurly.com/cdn-cgi/image/width=676,format=auto/shop/data/goods/1653038178246l0.jpeg",
+			"crawl_produt_desc_img": "https://img-cf.kurly.com/shop/data/goodsview/20211022/gv20000236291_1.jpg",
+			"description": "넉넉하게 구비하는 깨끗한 닭가슴살\n[마니커] IQF 닭가슴살\n우리 식탁에 깨끗하고 신선한 닭고기를 전하는 마니커에서 합리적인 가격의 대용량 닭고기를 선보입니다. IQF 공법*을 사용해 닭고기 본연의 촉촉한 육질과 육즙을 보존하고요. 한 덩이씩 깔끔하게 꺼내 쓸 수 있는 편리함도 갖췄답니다. 이번에는 식단 조절 시 빼놓을 수 없는 닭가슴살을 2kg 대용량으로 준비했어요. 시즈닝이 첨가되어 있지 않은 깨끗한 닭가슴살이라, 다양한 요리에 활용하기 좋을 거예요.\n\n*IQF(Individual Quick Freezing) 공법 : 신선한 닭고기를 단기간 개별 급속 냉동하여 식품의 선도를 유지하는 방법",
+			"stock": 1000,
+			"sales_rate": 1,
+			"is_crawl": true,
+			"ship_type": "샛별배송",
+			"allergy": "",
+			"user_id": 1
+		}
+	},
+	{
+		"model": "products.Product",
+		"fields": {
+			"title": "[Kim's Butcher] 미국산 우삼겹 돌돌말이 500g (냉동)",
+			"price": 7425,
+			"unit": "1팩",
+			"weight": "500g",
+			"crawl_produt_thum_img": "https://img-cf.kurly.com/shop/data/goodsview/20220325/gv30000294907_1.jpg",
+			"crawl_produt_detail_img": "https://img-cf.kurly.com/cdn-cgi/image/width=676,format=auto/shop/data/goods/1653037091448l0.jpeg",
+			"crawl_produt_desc_img": "https://img-cf.kurly.com/shop/data/goodsview/20220801/gv30000394910_1.jpg",
+			"description": "얇게 썰어 맛보는 고소한 풍미\n[Kim's Butcher]\n미국산 우삼겹 구이용\n알맞게 구운 소고기는 언제 먹어도 참 만족스러운 음식이죠. 부담 없이 즐길 수 있도록, Kim's butcher가 깐깐하게 선택하고 선보이는 소고기를 만나보세요. 우삼겹은 양지 앞쪽에 위치한 부위로, 살코기와 지방이 층을 이루어 삼겹양지로도 불리는데요. 얇게 정형한 우삼겹은 야들야들하면서도 쫄깃한 식감을 지녀 구이용으로 사랑받고 있어요. 이번에는 샤브샤브나 요리의 토핑 등으로 다채롭게 활용하기 좋은 500g 용량으로 준비했어요. 지방의 고소한 풍미를 간편하게 누려보세요.",
+			"stock": 1000,
+			"sales_rate": 1,
+			"is_crawl": true,
+			"ship_type": "샛별배송",
+			"allergy": "",
+			"user_id": 1
+		}
+	},
+	{
+		"model": "products.Product",
+		"fields": {
+			"title": "[Dole] 스위티오 파인애플 슬라이스 540g",
+			"price": 7895,
+			"unit": "1팩",
+			"weight": "540g",
+			"crawl_produt_thum_img": "https://img-cf.kurly.com/shop/data/goodsview/20190402/gv10000046403_1.jpg",
+			"crawl_produt_detail_img": "https://img-cf.kurly.com/cdn-cgi/image/width=676,format=auto/shop/data/goods/1653038544220l0.jpeg",
+			"crawl_produt_desc_img": "https://img-cf.kurly.com/shop/data/goodsview/20190402/gv00000046409_1.jpg",
+			"description": "파인애플이 머금은 풍부한 과즙\n[Dole]\n스위티오 파인애플 슬라이스\n대표적인 열대과일로 손꼽히는 파인애플은 겉껍질이 단단한 탓에 손질이 까다로운 과일 중 하나에 속해요. 때문에 파인애플을 주로 통조림으로 즐겨 찾으셨을 텐데요. 파인애플, 하면 떠오르는 글로벌 과일 브랜드 Dole이 선보이는 파인애플은 번거로운 손질 없이도 간편하게 즐길 수 있는 제품이에요. 필리핀에서 재배한 파인애플을 꼼꼼하게 선별한 뒤 체계적이고 철저한 관리 시스템을 통해 위생적으로 손질하고 가공했지요. 파인애플 과육과 과즙을 최대한 머금기 위해 파인애플을 통으로 썰어 용기에 담아 보내 드립니다. Dole의 파인애플을 달콤한 디저트로, 또는 요리에 활용해 다채롭게 즐겨보세요.",
+			"stock": 1000,
+			"sales_rate": 1,
+			"is_crawl": true,
+			"ship_type": "샛별배송",
+			"allergy": "",
+			"user_id": 1
+		}
+	},
+	{
+		"model": "products.Product",
+		"fields": {
+			"title": "[KF365] 대추방울토마토 750g",
+			"price": 7500,
+			"unit": "1팩",
+			"weight": "750g",
+			"crawl_produt_thum_img": "https://img-cf.kurly.com/shop/data/goodsview/20201230/gv40000147968_1.jpg",
+			"crawl_produt_detail_img": "https://img-cf.kurly.com/cdn-cgi/image/width=676,format=auto/shop/data/goods/1637937073806l0.jpg",
+			"crawl_produt_desc_img": "https://img-cf.kurly.com/shop/data/goodsview/20220801/gv30000395054_1.jpg",
+			"description": "톡톡 씹히는 한 입 토마토\n대추방울토마토\n붉게 영근 대추방울토마토는 대추처럼 살짝 길쭉한 생김새와 단단한 과육을 지녔는데요. 씹을수록 톡톡 터지는 과즙은 금세 입안을 싱그럽게 채워줍니다. 붉은 한 알에 풍부한 맛과 영양을 오롯이 품은 대추방울토마토를 신선하게 전해드릴게요. 평소 방울토마토를 간식, 샐러드, 주스 등으로 꾸준히 드시는 분이라면 손쉽게 담아가 보세요. 여러 가지 메뉴에 알맞게 활용하기 좋은 양이랍니다.",
+			"stock": 1000,
+			"sales_rate": 1,
+			"is_crawl": true,
+			"ship_type": "샛별배송",
+			"allergy": "",
+			"user_id": 1
+		}
+	},
+	{
+		"model": "products.Product",
+		"fields": {
+			"title": "[Kurly's] 탱글탱글 국탕용 종합 어묵",
+			"price": 4500,
+			"unit": "봉",
+			"weight": "426g(어묵401g+소스25g)",
+			"crawl_produt_thum_img": "https://img-cf.kurly.com/shop/data/goodsview/20210809/gv10000210043_1.jpg",
+			"crawl_produt_detail_img": "https://img-cf.kurly.com/cdn-cgi/image/width=676,format=auto/shop/data/goods/1653036974739l0.jpeg",
+			"crawl_produt_desc_img": "https://img-cf.kurly.com/shop/data/goodsview/20220502/gv20000309945_1.jpg",
+			"description": "각양각색 어묵으로 완성하는 어묵탕\n[Kurly's]\n탱글탱글 국탕용 종합어묵\n진한 국물과 담백한 어묵의 조화가 일품인 어묵탕. 재료의 배합부터 어묵의 모양까지 하나하나 신경써서 만든 컬리스 국탕용 종합어묵으로 한층 풍성하게 즐겨보세요. 곱게 다진 연육을 약 73%의 함량으로 듬뿍 채워 넣어, 특유의 탱글탱글한 식감과 고소한 맛을 한껏 살려 만들었어요. 부드럽게 치댄 반죽은 5가지의 각기 다른 모양으로 빚어, 더욱 다채롭게 즐길 수 있도록 완성했죠. 국산 양파, 무, 다시마로 맛을 낸 어묵탕 소스까지 함께 담아 보내드리니, 간단히 물만 더한 뒤 근사한 어묵탕을 완성해보세요.",
+			"stock": 1000,
+			"sales_rate": 1,
+			"is_crawl": true,
+			"ship_type": "샛별배송",
+			"allergy": "",
+			"user_id": 1
+		}
+	},
+	{
+		"model": "products.Product",
+		"fields": {
+			"title": "당도선별 서귀포 노지 감귤 1.5kg",
+			"price": 7900,
+			"unit": "1팩",
+			"weight": "1.5kg 내외",
+			"crawl_produt_thum_img": "https://img-cf.kurly.com/shop/data/goodsview/20220801/gv10000394958_1.jpg",
+			"crawl_produt_detail_img": "https://product-image.kurly.com/cdn-cgi/image/width=676,format=auto/product/image/6bb2724f-a267-4d3e-8dd3-48608607fe9c.jpg",
+			"crawl_produt_desc_img": "https://img-cf.kurly.com/shop/data/goodsview/20221107/gv10000447349_1.jpg",
+			"description": "언제 먹어도 반가운 과일\n당도선별 서귀포 노지 감귤\n손쉽게 즐길 수 있는 과일로 귤만 한 것이 없죠. 이번에는 제주의 따스한 햇살을 받고 자라, 산뜻한 단맛을 뽐내는 감귤을 가져왔어요.껍질을 벗겨 입에 넣으면, 달달한 과즙은 물론 톡톡 터지는 탱글한 과육까지 만끽할 수 있을 거예요. 남길 부담이 적은 양으로 보내 드리니, 선별된 감귤의 맛을 가볍게 누려 보세요.",
+			"stock": 1000,
+			"sales_rate": 1,
+			"is_crawl": true,
+			"ship_type": "샛별배송",
+			"allergy": "",
+			"user_id": 1
+		}
+	},
+	{
+		"model": "products.Product",
+		"fields": {
+			"title": "[풀무원] 식물성 지구식단 LIKE 텐더",
+			"price": 7980,
+			"unit": "1팩",
+			"weight": "400g",
+			"crawl_produt_thum_img": "https://img-cf.kurly.com/shop/data/goodsview/20220902/gv20000419372_1.jpg",
+			"crawl_produt_detail_img": "https://product-image.kurly.com/cdn-cgi/image/width=676,format=auto/product/image/0bb912d1-8474-40ba-9b3e-638d8f084494.jpg",
+			"crawl_produt_desc_img": "https://img-cf.kurly.com/shop/data/goodsview/20220902/gv10000419373_1.jpg",
+			"description": "고기도 부럽지 않은 든든한 매력\n[풀무원] 식물성 지구식단\n두부텐더\n가벼우면서도 든든하게 즐기는 풀무원의 두부텐더를 만나 보세요. 결이 살아있는 결두부로 만들어 퍽퍽하지 않고 쫄깃한 식감을 자랑해요. 치킨텐더보다는 부드러우면서 두부 특유의 담백한 맛이 살아있고요. 부담 없이 포만감 있는 식단을 구성하고 싶은 분에게 추천해 드립니다. 살짝 매콤하게 간이 되어있어 가벼운 안주로도 손색이 없을 거예요. 두부텐더와 함께 맛과 영양 모두를 만족하는 즐거운 식사를 시작해 보세요.",
+			"stock": 1000,
+			"sales_rate": 1,
+			"is_crawl": true,
+			"ship_type": "샛별배송",
+			"allergy": "",
+			"user_id": 1
+		}
+	},
+	{
+		"model": "products.Product",
+		"fields": {
+			"title": "[석관동 떡볶이] 오리지널 떡볶이",
+			"price": 5500,
+			"unit": "1팩",
+			"weight": "520g",
+			"crawl_produt_thum_img": "https://img-cf.kurly.com/shop/data/goodsview/20200717/gv40000108074_1.jpg",
+			"crawl_produt_detail_img": "https://img-cf.kurly.com/cdn-cgi/image/width=676,format=auto/shop/data/goods/1594968820799l0.jpg",
+			"crawl_produt_desc_img": "https://img-cf.kurly.com/shop/data/goodsview/20211207/gv10000255508_1.jpg",
+			"description": "매콤하고 달달한 2인용 떡볶이\n[석관동 떡볶이]\n오리지널 떡볶이\n맛보는 순간 학교 앞에서 즐기던 떡볶이의 매콤달달한 맛이 떠오르는 떡볶이 키트를 소개할게요. 이미 오프라인에서부터 소문난 브랜드, 석관동 떡볶이입니다. 매장에서 가장 인기 있는 메뉴인 오리지널 떡볶이는 입맛을 확 당겨줄 만큼 매우면서도 달콤함이 가득해요. 분식 떡볶이다운 맛과 쫄깃쫄깃한 밀떡의 조화가 무척 만족스럽답니다. 어묵이 함께 담겨있어 별다른 재료를 준비할 필요가 없고요. 용량도 부담스럽지 않은 2인분이라 조리하고 즐기기 간편할 거예요.",
+			"stock": 1000,
+			"sales_rate": 1,
+			"is_crawl": true,
+			"ship_type": "샛별배송",
+			"allergy": "",
+			"user_id": 1
+		}
+	},
+	{
+		"model": "products.Product",
+		"fields": {
+			"title": "[부침명장] 한입아삭 김치전",
+			"price": 7800,
+			"unit": "1봉",
+			"weight": "510g(17개입)",
+			"crawl_produt_thum_img": "https://img-cf.kurly.com/shop/data/goodsview/20220929/gv20000432014_1.jpg",
+			"crawl_produt_detail_img": "https://product-image.kurly.com/cdn-cgi/image/width=676,format=auto/product/image/e3fd407c-3a97-4c87-be5e-6ee5e055b118.jpg",
+			"crawl_produt_desc_img": "https://img-cf.kurly.com/shop/data/goodsview/20220929/gv10000432016_1.jpg",
+			"description": "살짝 구워서 완성하는 간편한 전 요리\n[부침명장] 한입 아삭 김치전\n전을 먹고 싶어 반죽을 잔뜩 만들었다가 다 먹지 못해 버렸던 경험, 한 번쯤 겪어보셨을 거예요. 특히 1~2인 가구의 경우에는 전 반죽을 한 번 만들었다가 온종일 그것만 먹어야 하는 경우도 많은데요. 지금 컬리가 소개하는 부침 명장의 한입 아삭 김치전이라면 마음의 부담 없이 맛있는 전을 즐기실 수 있습니다. 부침 명장은 국산 배추로 만든 김치에 오징어를 넣고 잘 반죽해서 한 입 크기로 솜씨 좋게 부쳐냈어요. 냉동실에 넣어두었다가 새콤한 김치전이 생각나는 날에 잘 구워 드세요. 반죽을 만들지 않아도 되니 좋고, 먹을 만큼만 꺼내어 조리할 수 있으니 마음의 부담도 한결 줄어든답니다.",
+			"stock": 1000,
+			"sales_rate": 1,
+			"is_crawl": true,
+			"ship_type": "샛별배송",
+			"allergy": "",
+			"user_id": 1
+		}
+	},
+	{
+		"model": "products.Product",
+		"fields": {
+			"title": "[풀무원] 얇은피꽉찬속 만두 2종",
+			"price": 3980,
+			"unit": "1봉",
+			"weight": "320g",
+			"crawl_produt_thum_img": "https://img-cf.kurly.com/shop/data/goodsview/20211006/gv20000231675_1.jpg",
+			"crawl_produt_detail_img": "https://img-cf.kurly.com/cdn-cgi/image/width=676,format=auto/shop/data/goods/1633573520919l0.jpg",
+			"crawl_produt_desc_img": "https://img-cf.kurly.com/shop/data/goodsview/20211006/gv40000231693_1.jpg",
+			"description": "풍성한 소가 훤히 비치는 만두\n[풀무원] 얇은피꽉찬속 만두 2종\n속이 훤히 다 비칠 정도로 만두피가 얇은 풀무원의 '얇은피꽉찬속 만두'를 소개할게요. 얇은 두께의 만두피이지만, 야들야들하면서도 쫄깃한 식감은 그대로 살린 만두입니다. 돼지고기와 부추, 버섯 등을 큼지막하게 썰어 속을 풍성히 채운 고기만두와 아삭한 깍두기, 돼지고기, 두부 등을 듬뿍 넣은 김치만두로 준비했어요. 한입보다는 약간 큰 크기로 빚었으니 속도 든든하게 채워줄 거예요. 촉촉하게 쪄서 간식으로, 또는 육수에 함께 끓여 만둣국으로 즐겨보길 추천할게요.",
+			"stock": 1000,
+			"sales_rate": 1,
+			"is_crawl": true,
+			"ship_type": "샛별배송",
+			"allergy": "",
+			"user_id": 1
+		}
+	},
+	{
+		"model": "products.Product",
+		"fields": {
+			"title": "[벽제갈비] 한우 설렁탕 & 양곰탕 & 곰탕",
+			"price": 16000,
+			"unit": "1팩",
+			"weight": "500g",
+			"crawl_produt_thum_img": "https://img-cf.kurly.com/shop/data/goodsview/20180425/gv30000022107_1.jpg",
+			"crawl_produt_detail_img": "https://img-cf.kurly.com/cdn-cgi/image/width=676,format=auto/shop/data/goods/1481854976669l0.jpg",
+			"crawl_produt_desc_img": "https://img-cf.kurly.com/shop/data/goodsview/20220701/gv30000333090_1.jpg",
+			"description": "진한 감동의 국물을 찾아서\n[벽제갈비]\n한우 설렁탕 & 양곰탕 & 곰탕\n뜨끈한 국물에 밥을 말아 김치 한 조각을 얹어 먹는 맛이 일품인 우리 고유의 음식, 바로 설렁탕과 곰탕입니다. 가마솥에 펄펄 끓인 국물은 은근하면서도 묵직한 힘을 가지고 있어서 후후 불어 입에 떠 넣다 보면 어느새 이마와 콧잔등에 땀이 송골송골 맺힐 정도이죠. 철저한 장인 시스템으로 30년 이상 한결같은 맛을 유지해 온 벽제갈비의 한우 설렁탕과 곰탕을 소개할게요. 음식마다 조리 장인 제도를 도입해 각 분야의 장인들이 각각 그 아래 후계자들에게 손맛을 전수하고 있는데요. 조리사 개인에 따라 음식의 맛이 달라지지 않도록 체계적으로 관리하기 때문에 고객들은 늘 안심하고 벽제를 찾는답니다. 벽제갈비가 전하는 깊은 맛을 이제 컬리에서 만나보세요.",
+			"stock": 1000,
+			"sales_rate": 1,
+			"is_crawl": true,
+			"ship_type": "샛별배송",
+			"allergy": "",
+			"user_id": 1
+		}
+	},
+	{
+		"model": "products.Product",
+		"fields": {
+			"title": "칠레산 블루베리 2종 (택1)",
+			"price": 4940,
+			"unit": "1팩",
+			"weight": "옵션별 상이",
+			"crawl_produt_thum_img": "https://img-cf.kurly.com/shop/data/goodsview/20181206/gv00000037807_1.jpg",
+			"crawl_produt_detail_img": "https://img-cf.kurly.com/cdn-cgi/image/width=676,format=auto/shop/data/goods/1637923286553l0.jpeg",
+			"crawl_produt_desc_img": "https://img-cf.kurly.com/shop/data/goodsview/20210930/gv00000230401_1.jpg",
+			"description": "톡톡 번져가는 상큼함 가득\n칠레산 블루베리 2종\n빛을 받은 부분이 반질반질하게 빛나는 짙은 청색의 블루베리. 매력적인 색깔과 새콤달콤한 맛, 작은 몸집에 깃든 풍부한 영양은 블루베리를 다시 보게 만들어요. 특히나 안토시아닌과 비타민이 가득하니 생과로 즐겼을 때 더없이 좋지요. 입안에 넣고 톡 깨물어 드셔보세요. 잘 여문 알에서 부드럽게 터져나오는 블루베리 과즙이 황홀한 시간을 선사할 거예요.",
+			"stock": 1000,
+			"sales_rate": 1,
+			"is_crawl": true,
+			"ship_type": "샛별배송",
+			"allergy": "",
+			"user_id": 1
+		}
+	},
+	{
+		"model": "products.Product",
+		"fields": {
+			"title": "[와카메] 어묵탕 모듬세트",
+			"price": 8980,
+			"unit": "PK",
+			"weight": "388g",
+			"crawl_produt_thum_img": "https://img-cf.kurly.com/shop/data/goodsview/20181016/gv40000033691_1.jpg",
+			"crawl_produt_detail_img": "https://img-cf.kurly.com/cdn-cgi/image/width=676,format=auto/shop/data/goods/1539682338768l0.jpg",
+			"crawl_produt_desc_img": "https://img-cf.kurly.com/shop/data/goodsview/20221101/gv30000444262_1.jpg",
+			"description": "팔팔 우러나는 어묵탕의 깊은 맛\n[와카메] 어묵탕 모듬세트\n차가운 바람이 불어올 즈음 더더욱 생각나는 따끈한 탕 요리들. 컬리는 누구든 손쉽게 끓여낼 수 있는 '어묵탕 모듬세트'를 준비했어요. 어묵 본고장인 일본에서 공수한 상품으로 어육 함량이 높고 쫄깃, 탱글탱글한 식감이 살아 있는 일본 정통 어묵이랍니다. 모양도 맛도 다른 8종류의 어묵이 각각 2개씩 들어 있는 세트 제품이에요. 2~3인이 함께 즐기기에 적당한 양이죠. 100년간 어묵 생산에만 힘쓴 '와카메'가 숙련된 내공으로 일본 현지에서 빚어낸 어묵은 오래 끓여내도 퍼지지 않아요. 특히, 어묵의 원재료로 쓰이는 생선은 잡어 등을 섞지 않고 실꼬리돔, 임연수 등을 사용해 생선 고유의 맛을 극대화했답니다. 또한 우엉, 당근, 양파, 두부, 톳 등 다양한 부재료도 함께 들어가 맛이 더욱 풍성하죠. 동봉된 쯔유 소스가 있으니 국물을 내려고 별도의 공을 들이지 않아도 돼요. 가다랑어의 풍미가 깊은 국물의 감칠맛과 팔팔 우러난 어묵의 풍미. 정통 어묵탕을 집에서 간편하게, 따끈하게 끓여보세요.\n\n\n\n영상으로 미리 만나는 어묵탕",
+			"stock": 1000,
+			"sales_rate": 1,
+			"is_crawl": true,
+			"ship_type": "샛별배송",
+			"allergy": "",
+			"user_id": 1
+		}
+	},
+	{
+		"model": "products.Product",
+		"fields": {
+			"title": "영광 신동진 쌀 10kg",
+			"price": 29900,
+			"unit": "1포",
+			"weight": "10kg",
+			"crawl_produt_thum_img": "https://img-cf.kurly.com/shop/data/goodsview/20200408/gv40000089587_1.jpg",
+			"crawl_produt_detail_img": "https://img-cf.kurly.com/cdn-cgi/image/width=676,format=auto/shop/data/goods/1653038373359l0.jpeg",
+			"crawl_produt_desc_img": "https://img-cf.kurly.com/shop/data/goodsview/20200408/gv40000089591_1.jpg",
+			"description": "굵은 쌀알에 가득 들어찬 밥맛\n영광 신동진쌀\n밥맛을 결정하는 요소는 많지만, 꼬들꼬들한 식감을 빼놓을 수는 없을 거예요. 입 안 가득 씹는 재미와 담백한 맛을 동시에 선사해 줄 신동진쌀을 만나보세요. 맑은 공기와 깨끗한 물이 어우러진 영광에서 길러낸 쌀인데요. 알이 굵고 씹는 맛이 좋기로 유명한 신동진쌀을 단일 품종으로 담았습니다. 따끈하게 밥으로 지어내면, 알알이 들어찬 굵은 쌀알이 그득한 밥맛을 전해주지요. 넉넉하게 두고 드시기 좋은 양으로 준비했으니, 매일 먹는 쌀로 담아가 보세요. 그 어떤 반찬과도 잘 어울리는 풍미로 즐기기 제격일 거예요.",
+			"stock": 1000,
+			"sales_rate": 1,
+			"is_crawl": true,
+			"ship_type": "샛별배송",
+			"allergy": "",
+			"user_id": 1
+		}
+	},
+	{
+		"model": "products.Product",
+		"fields": {
+			"title": "감홍 사과 1.3kg (4~6입)",
+			"price": 13600,
+			"unit": "1봉",
+			"weight": "1.3kg내외",
+			"crawl_produt_thum_img": "https://img-cf.kurly.com/shop/data/goodsview/20201023/gv40000129460_1.jpg",
+			"crawl_produt_detail_img": "https://img-cf.kurly.com/cdn-cgi/image/width=676,format=auto/shop/data/goods/160342712083l0.jpg",
+			"crawl_produt_desc_img": "https://img-cf.kurly.com/shop/data/goodsview/20221011/gv40000434877_1.jpg",
+			"description": "풍성하고 녹진한 단맛\n감홍 사과\n검붉은 껍질을 지닌 '감홍' 사과는 생김새가 다소 투박한 편이지만, 겉모습만으로 판단하기엔 이르답니다. 국내 농가에서 정성스레 길러낸 감홍 사과를 컬리가 선보일게요. '달고 붉은 사과'라는 의미를 지닌 이름처럼, 과육 곳곳에서 진한 단맛이 풍부하게 전해지죠. 녹진하게 번지는 달콤함은 다른 사과보다 깊이감이 있는데요. 덕분에 새큼한 맛을 좋아하지 않는 분들도 맛있게 즐길 수 있는 사과랍니다. 튼실한 과실에 깃든 향긋함과 달콤함을 손쉽게 누려보세요.",
+			"stock": 1000,
+			"sales_rate": 1,
+			"is_crawl": true,
+			"ship_type": "샛별배송",
+			"allergy": "",
+			"user_id": 1
+		}
+	},
+	{
+		"model": "products.Product",
+		"fields": {
+			"title": "[비비고] 왕교자 만두 대용량 1.05kg",
+			"price": 10480,
+			"unit": "1봉",
+			"weight": "1050g",
+			"crawl_produt_thum_img": "https://img-cf.kurly.com/shop/data/goodsview/20210928/gv30000229635_1.jpg",
+			"crawl_produt_detail_img": "https://img-cf.kurly.com/cdn-cgi/image/width=676,format=auto/shop/data/goods/1637806354520l0.jpeg",
+			"crawl_produt_desc_img": "https://img-cf.kurly.com/shop/data/goodsview/20210928/gv00000229637_1.jpg",
+			"description": "넉넉하게 누리는 만두의 정석\n[비비고] 왕교자 대용량\n재료 본연의 풍성한 맛과 식감으로 많은 사랑을 받아 온 비비고 왕교자. 더욱 넉넉한 용량으로 아쉬움 없이 즐겨 보세요. 쫄깃한 만두피 속에 돼지고기와 부추 등을 식감 좋게 썰어 넣었답니다. 한 입 베어 물면 담백한 육즙을 풍부하게 만끽할 수 있지요. 냉동 상태 그대로 조리할 수 있으니 간편하기까지 해요. 취향에 따라 바삭한 군만두, 촉촉한 찐만두로 조리해 즐겨보세요.",
+			"stock": 1000,
+			"sales_rate": 1,
+			"is_crawl": true,
+			"ship_type": "샛별배송",
+			"allergy": "",
+			"user_id": 1
+		}
+	},
+	{
+		"model": "products.Product",
+		"fields": {
+			"title": "[블루보틀] 블렌드 원두 4종",
+			"price": 25000,
+			"unit": "1봉",
+			"weight": "300g",
+			"crawl_produt_thum_img": "https://img-cf.kurly.com/shop/data/goodsview/20200617/gv00000101683_1.jpg",
+			"crawl_produt_detail_img": "https://img-cf.kurly.com/cdn-cgi/image/width=676,format=auto/shop/data/goods/1592377041102l0.jpg",
+			"crawl_produt_desc_img": "https://img-cf.kurly.com/shop/data/goodsview/20221122/gv30000454516_1.jpg",
+			"description": "집에서 맛보는 감각적인 향미\n[블루보틀] 블렌드 원두 4종\n블렌드 원두는 로스터리가 들려주는 하나의 이야기입니다. 각기 다른 향미를 지닌 원두를 조합해 그려낸 풍경은 우리의 미각과 후각을 동시에 사로잡죠. 심플한 로고만으로도 우리의 마음을 설레게 하는 브랜드, 블루보틀 또한 세심한 감각이 담긴 블렌드 원두로 컬리를 찾아왔어요. 블루보틀은 원두마다 최고의 맛을 낼 수 있는 시점을 고려해 로스팅하고, 전문가로 구성된 팀이 끊임없는 테이스팅으로 품질을 유지합니다. 매장에서 구입할 수 있는 제품과 동일한 원두이니 맛은 걱정하지 않으셔도 괜찮아요. 취향에 맞는 옵션을 골라 에스프레소와 드립으로, 때로는 콜드브루로 다양하게 즐겨보세요. 자신만의 추출법으로 멋진 커피 한 잔을 완성하는 기쁨을 누리실 수 있을 거예요.",
+			"stock": 1000,
+			"sales_rate": 1,
+			"is_crawl": true,
+			"ship_type": "샛별배송",
+			"allergy": "",
+			"user_id": 1
+		}
+	},
+	{
+		"model": "products.Product",
+		"fields": {
+			"title": "[오뗄블랙라벨] 제주돼지로 만든 비엔나 소시지 250g",
+			"price": 3900,
+			"unit": "1봉",
+			"weight": "250g",
+			"crawl_produt_thum_img": "https://img-cf.kurly.com/shop/data/goodsview/20210520/gv20000183942_1.jpg",
+			"crawl_produt_detail_img": "https://img-cf.kurly.com/cdn-cgi/image/width=676,format=auto/shop/data/goods/1621491437945l0.jpg",
+			"crawl_produt_desc_img": "https://img-cf.kurly.com/shop/data/goodsview/20210520/gv30000184773_1.jpg",
+			"description": "제주돼지로 아낌 없이 채운\n[오뗄블랙라벨]\n제주돼지로 만든\n비엔나 소시지\n오뗄블랙라벨이 제주산 돼지고기로 가득 채운 비엔나 소시지를 준비했어요. 제주산 돼지고기를 96.08% 사용해 남다른 풍미를 자랑한답니다. 고소하면서도 부드러운 맛은 물론이고, 오뗄만의 정통 방식으로 훈연해 깊게 배인 감칠맛이 돋보이지요. 제법 두툼한 크기 덕분에 한 입 가득 풍성한 식감까지 즐길 수 있을 거예요. 고루 구워 간단 밥 반찬 또는 근사한 안주로 활용해 보세요.",
+			"stock": 1000,
+			"sales_rate": 1,
+			"is_crawl": true,
+			"ship_type": "샛별배송",
+			"allergy": "",
+			"user_id": 1
+		}
+	},
+	{
+		"model": "products.Product",
+		"fields": {
+			"title": "[한일관 X 백년가게] 등심 불고기",
+			"price": 25415,
+			"unit": "1팩",
+			"weight": "500g이상",
+			"crawl_produt_thum_img": "https://img-cf.kurly.com/shop/data/goodsview/20170710/gv30000005015_1.jpg",
+			"crawl_produt_detail_img": "https://img-cf.kurly.com/cdn-cgi/image/width=676,format=auto/shop/data/goods/1499675402657l0.jpg",
+			"crawl_produt_desc_img": "https://img-cf.kurly.com/shop/data/goodsview/20210916/gv20000227796_1.jpg",
+			"description": "서울식 불고기의 원조\n[한일관] 등심 불고기\n정갈한 상차림과 담백하고 맛깔스러운 음식으로 전통의 맛을 전하는 한식당 한일관은 서울식 불고기를 만드는 곳으로도 유명합니다. 그중에서도 한일관의 대표 메뉴인 불고기는 ‘살아있는 불고기의 역사’라는 웅장한 타이틀로 각종 매스컴에 오르내리며 그 명성이 자자해, 한일관의 불고기를 맛보기 위해 오랜 시간 줄을 서서 기다릴 정도지요. 그래서 컬리는 역사와 전통이 살아 숨 쉬는 불고기를 맛보는 귀중한 경험을 모두 체험하기를 바라는 마음으로 한일관의 등심 불고기를 준비했어요. 한일관에서만 먹을 수 있었던 고급스러운 서울식 불고기의 맛을 집에서 오롯이 느껴보세요. 야들야들한 고기에 달콤한 국물을 온 가족이 둘러앉아 나누다 보면 마음까지 따뜻해질 테니까요.",
+			"stock": 1000,
+			"sales_rate": 1,
+			"is_crawl": true,
+			"ship_type": "샛별배송",
+			"allergy": "",
+			"user_id": 1
+		}
+	},
+	{
+		"model": "products.Product",
+		"fields": {
+			"title": "[고온어다이어트] 시즌3 도시락 5종",
+			"price": 3500,
+			"unit": "1팩",
+			"weight": "옵션별 상이",
+			"crawl_produt_thum_img": "https://img-cf.kurly.com/shop/data/goodsview/20211221/gv30000259934_1.jpg",
+			"crawl_produt_detail_img": "https://img-cf.kurly.com/cdn-cgi/image/width=676,format=auto/shop/data/goods/1640066047448l0.jpg",
+			"crawl_produt_desc_img": "https://img-cf.kurly.com/shop/data/goodsview/20211221/gv20000259937_1.jpg",
+			"description": "맛과 식감을 모두 고려한 메뉴 구성\n[고온어다이어트]\n시즌3 도시락 5종\n하루하루를 바쁘게 지내다 보면 균형 잡힌 식사를 하는 일이 어렵게만 느껴지죠. 비단 식단 조절을 하는 분뿐만 아니라 간편하고 맛있는 음식을 먹고 싶은 분에게도 꼭 맞는 제품을 준비했습니다. 지금 소개하는 고온어다이어트의 시즌3 도시락은 맛과 식감 모두를 고려한 메뉴들로 다채롭게 구성했어요. 뽀득뽀득한 소시지와 톡톡 터지는 렌틸콩고구마밥부터 육즙이 가득한 함박스테이크와 새우살이 탱글하게 씹히는 필라프까지 다채롭게 담았답니다. 전자레인지에 데우기만하면 되니 든든한 한 끼를 손쉽게 마련해 보세요.",
+			"stock": 1000,
+			"sales_rate": 1,
+			"is_crawl": true,
+			"ship_type": "샛별배송",
+			"allergy": "",
+			"user_id": 1
+		}
+	},
+	{
+		"model": "products.Product",
+		"fields": {
+			"title": "[샐러드판다] 병 샐러드 11종",
+			"price": 5500,
+			"unit": "1팩",
+			"weight": "품목별 상이 (하단 참조)",
+			"crawl_produt_thum_img": "https://img-cf.kurly.com/shop/data/goodsview/20220523/gv40000318415_1.jpg",
+			"crawl_produt_detail_img": "https://img-cf.kurly.com/cdn-cgi/image/width=676,format=auto/shop/data/goods/1653354392116l0.jpg",
+			"crawl_produt_desc_img": "https://img-cf.kurly.com/shop/data/goodsview/20221020/gv00000438231_1.jpg",
+			"description": "언제 어디서나 즐기는 고품격 샐러드\n[샐러드판다]\n병 샐러드 11종\n과식으로 더부룩한 속을 하루쯤은 비우기 위해, 건강한 내 몸을 위해 점심이나 저녁 대용으로 샐러드를 즐겨드시는 분들이 굉장히 많아졌어요. 그래서 요즘은 베이커리나 편의점 등에서도 간편하게 즐길 수 있는 샐러드 제품을 종종 만나볼 수 있죠. 컬리가 소개하는 샐러드판다는 각종 고품질의 특수 채소와 고급 식재료들을 담은 고품격 샐러드입니다. 편리한 원형 통에 담긴 간편식이지만, 레스토랑에서 만나볼 수 있는 샐러드와 비교해보아도 맛이나 식재료 면에서도 손색이 전혀 없죠. 간편하면서도 신선한 샐러드 판다를 수시로 한 통씩 즐겨 보세요.",
+			"stock": 1000,
+			"sales_rate": 1,
+			"is_crawl": true,
+			"ship_type": "샛별배송",
+			"allergy": "",
+			"user_id": 1
+		}
+	},
+	{
+		"model": "products.Product",
+		"fields": {
+			"title": "[힙] 콤비오틱 유기농 분유 3종",
+			"price": 39800,
+			"unit": "PK",
+			"weight": "800g",
+			"crawl_produt_thum_img": "https://img-cf.kurly.com/shop/data/goodsview/20211102/gv40000239081_1.jpg",
+			"crawl_produt_detail_img": "https://img-cf.kurly.com/cdn-cgi/image/width=676,format=auto/shop/data/goods/163792349492l0.jpeg",
+			"crawl_produt_desc_img": "https://img-cf.kurly.com/shop/data/goodsview/20211018/gv00000234753_1.jpg",
+			"description": "건강한 성장을 위해\n[힙] 콤비오틱\n유기농 분유 3종\n힙(HiPP)은 50년 동안 최상의 분유를 생산하기 위해 모든 경험과 노력을 쏟아 왔습니다. 엄격한 유기농 농법으로 생산한 힙 분유는 유기농 인증 원유만을 사용하고 유기 인증 기관에서 매년 정기적으로 유기 인증 절차를 거쳐 관리되고 있습니다. HiPP 콤비오틱 유기농 1단계와 2단계는 엄선된 유기농 원료와 자연에서 얻은 소중한 재료의 조합으로 탄생한 조제유입니다. 3단계는 분유 연구에 대한 모든 노력과 경험의 결과물로 개발되었으며 영양 전문가의 최신 권장사항을 반영하였습니다.*\n\n*독일 소아과 및 청소년 의학회(DGK), 2011\n\n※ 모유가 아기에게 가장 좋은 식품입니다.",
+			"stock": 1000,
+			"sales_rate": 1,
+			"is_crawl": true,
+			"ship_type": "샛별배송",
+			"allergy": "",
+			"user_id": 1
+		}
+	},
+	{
+		"model": "products.Product",
+		"fields": {
+			"title": "[안원당] 우거지 감자탕",
+			"price": 6900,
+			"unit": "1봉",
+			"weight": "920g",
+			"crawl_produt_thum_img": "https://img-cf.kurly.com/shop/data/goodsview/20200116/gv20000078129_1.jpg",
+			"crawl_produt_detail_img": "https://img-cf.kurly.com/cdn-cgi/image/width=676,format=auto/shop/data/goods/157914210270l0.jpg",
+			"crawl_produt_desc_img": "https://img-cf.kurly.com/shop/data/goodsview/20220825/gv10000415836_1.jpg",
+			"description": "구수하고 든든한 속풀이 음식\n[안원당] 우거지 감자탕\n건더기를 푸짐하게 쌓아 올린 우거지 감자탕은 그 담음새부터 군침을 돌게 하죠. 전국 팔도의 특색있는 요리를 새롭게 풀어내는 안원당은 간편한 우거지 감자탕을 선보였어요. 쫄깃한 식감의 살코기가 넉넉하게 붙어 있는 돼지 목뼈 부위를 선별한 다음, 우거지와 같이 가마솥에 넣고 전통방식 그대로 푹 끓여내서 칼칼하지만 깊은 맛을 완성했어요. 속 재료를 듬뿍 넣어 만든 순대까지 들어 있어 더 푸짐하게 즐길 수 있죠. 감자와 좋아하는 채소만 별도로 준비해서 함께 넣고 끓여 푸짐한 감자탕을 집에서도 즐겨 보세요.",
+			"stock": 1000,
+			"sales_rate": 1,
+			"is_crawl": true,
+			"ship_type": "샛별배송",
+			"allergy": "",
+			"user_id": 1
+		}
+	},
+	{
+		"model": "products.Product",
+		"fields": {
+			"title": "[Kurly's] 국산콩 두부 300g",
+			"price": 1900,
+			"unit": "1팩",
+			"weight": "300g",
+			"crawl_produt_thum_img": "https://img-cf.kurly.com/shop/data/goodsview/20200925/gv10000123459_1.jpg",
+			"crawl_produt_detail_img": "https://img-cf.kurly.com/cdn-cgi/image/width=676,format=auto/shop/data/goods/164730389977l0.jpg",
+			"crawl_produt_desc_img": "https://img-cf.kurly.com/shop/data/goodsview/20220315/gv00000288942_1.jpg",
+			"description": "기본을 지킨 고소한 두부\n[Kurly's] 국산콩 두부\n자주 먹는 식재료일수록 좋은 재료로 활용도 있게 만들어, 부담 없는 가격에 드실 수 있는 상품이 더 많아져야 한다고 컬리스는 생각합니다. 세상에 이미 많은 두부가 있지만 컬리스가 두부를 선보이는 것 또한 이 때문이죠. 1등급 국산콩* 만을 사용해 고소한 맛을 살리고, 거품제거제와 유화제는 사용하지 않았습니다. 좋은 콩으로 제대로 만든 만큼 식탁에 매일같이 올리기에 참 편안한 두부예요. 기본을 지켜 다용도로 쓰기 좋게 만든 기본 두부, 컬리스로 선택해 보세요.\n\n* 콩의 등급은 농림축산식품부 고시 농산물 검사 기준에 준함",
+			"stock": 1000,
+			"sales_rate": 1,
+			"is_crawl": true,
+			"ship_type": "샛별배송",
+			"allergy": "",
+			"user_id": 1
+		}
+	},
+	{
+		"model": "products.Product",
+		"fields": {
+			"title": "[도리깨침] 월남쌈 밀키트",
+			"price": 19500,
+			"unit": "1개",
+			"weight": "700g",
+			"crawl_produt_thum_img": "https://img-cf.kurly.com/shop/data/goodsview/20200714/gv00000107157_1.jpg",
+			"crawl_produt_detail_img": "https://img-cf.kurly.com/cdn-cgi/image/width=676,format=auto/shop/data/goods/1594708483846l0.jpg",
+			"crawl_produt_desc_img": "https://img-cf.kurly.com/shop/data/goodsview/20220905/gv30000420032_1.jpg",
+			"description": "풍성한 재료에 담긴 다채로운 맛\n[도리깨침]\n월남쌈 밀키트\n집에서 월남쌈 한 번 먹을까 싶어도 재료 준비가 번거로워 좀처럼 엄두가 나질 않죠. 도리깨침은 13가지 재료를 정갈하게 손질하고, 소스 두 종류에 라이스페이퍼까지 넉넉하게 챙겨 가정으로 보내드려요. 소고기는 얇게 썰어내어 두 가지 버섯과 함께 알맞게 조리하고, 다양한 야채는 가늘게 채썰어 식감과 보는 맛을 함께 더했습니다. 월남쌈을 취향에 따라 땅콩이나 칠리 소스에 살짝 찍어서 드세요. 넓은 그릇에 재료를 옮겨 담기만 해도 알록달록한 색감에 눈이 즐겁고, 풍성한 재료에 담긴 다채로운 맛까지 느낄 수 있답니다.",
+			"stock": 1000,
+			"sales_rate": 1,
+			"is_crawl": true,
+			"ship_type": "샛별배송",
+			"allergy": "",
+			"user_id": 1
+		}
+	},
+	{
+		"model": "products.Product",
+		"fields": {
+			"title": "[바른식]부산 조방낙지 낙곱새 (2인분)",
+			"price": 18300,
+			"unit": "1팩",
+			"weight": "700g",
+			"crawl_produt_thum_img": "https://img-cf.kurly.com/shop/data/goodsview/20211019/gv20000235150_1.jpg",
+			"crawl_produt_detail_img": "https://img-cf.kurly.com/cdn-cgi/image/width=676,format=auto/shop/data/goods/1653037798484l0.jpeg",
+			"crawl_produt_desc_img": "https://img-cf.kurly.com/shop/data/goodsview/20221104/gv00000446373_1.jpg",
+			"description": "집에서 만나는 부산의 별미\n[바른식] 부산 조방낙지 낙곱새\n부산의 별미, 낙곱새 전문 식당 중에서도 단연 돋보이는 곳이 있어요. 바로 50년 전통의 조방낙지랍니다. 범일동 ‘조선방직’ 앞 작은 식당에서 시작된 음식이라하여, 조방낙지 낙곱새라 별칭까지 얻었는데요. 한결 같은 매콤 달콤한 그 감칠맛을 이제 집에서도 만나보세요. 낙지와 새우, 그리고 쫄깃한 식감을 한층 살려줄 대창을 알차게 꾸려 넣었어요. 따뜻한 밥을 따로 준비해 양념장, 김가루와 슥 비벼 먹어도 좋고 노릇하게 볶아도 무척 별미랍니다.",
+			"stock": 1000,
+			"sales_rate": 1,
+			"is_crawl": true,
+			"ship_type": "샛별배송",
+			"allergy": "",
+			"user_id": 1
+		}
+	},
+	{
+		"model": "products.Product",
+		"fields": {
+			"title": "[성수동 팩피 : FAGP] 봉골레 오일 파스타",
+			"price": 6715,
+			"unit": "1팩",
+			"weight": "400g",
+			"crawl_produt_thum_img": "https://img-cf.kurly.com/shop/data/goodsview/20220901/gv10000418959_1.jpg",
+			"crawl_produt_detail_img": "https://product-image.kurly.com/cdn-cgi/image/width=676,format=auto/product/image/0aa79c10-00b5-46cb-ae65-c594e1eb12ce.jpg",
+			"crawl_produt_desc_img": "https://img-cf.kurly.com/shop/data/goodsview/20220901/gv00000418961_1.jpg",
+			"description": "백합조개의 진한 감칠맛\n[성수동 팩피 : FAGP]\n봉골레 오일 파스타\n어디에서도 맛볼 수 없던 특별한 파스타, 성수동의 명소로 꼽히는 파스타 전문점 팩피(FAGP)에서 만나보세요. 반지르르한 껍질 속 쫄깃한 속살과 진한 감칠맛을 품은 백합조개로 만든 봉골레 오일 파스타를 준비했답니다. 엔초비와 멸치, 바지락 엑기스로 맛을 낸 오일 소스 덕분에 해산물의 농축된 풍미를 즐길 수 있고요. 굵기가 가는 딸리올리니 생면을 사용해서 소스가 착 감겨드는 것은 물론, 꼬들꼬들한 식감이 살아있답니다. 동봉된 올리브유를 마지막에 둘러 풋풋한 향미를 한껏 살려 완성해 보세요.",
+			"stock": 1000,
+			"sales_rate": 1,
+			"is_crawl": true,
+			"ship_type": "샛별배송",
+			"allergy": "",
+			"user_id": 1
+		}
+	},
+	{
+		"model": "products.Product",
+		"fields": {
+			"title": "[레인코스트] 크리스프 크래커 5종",
+			"price": 11800,
+			"unit": "1팩",
+			"weight": "150g",
+			"crawl_produt_thum_img": "https://img-cf.kurly.com/shop/data/goodsview/20220519/gv20000317344_1.jpg",
+			"crawl_produt_detail_img": "https://img-cf.kurly.com/cdn-cgi/image/width=676,format=auto/shop/data/goods/1652924040524l0.jpg",
+			"crawl_produt_desc_img": "https://img-cf.kurly.com/shop/data/goodsview/20220902/gv00000419661_1.jpg",
+			"description": "취향따라 골라 먹는 건강한 크래커\n[레인코스트]\n크리스프 크래커 5종\n멀리 캐나다에서 날아온 크래커를 소개할게요. 원재료부터 가공까지 전 공정에 대한 식품 인증인 코셔 인증을 받은 레인코스트 크리스프 크래커예요. 무화과, 복숭아 등의 건과일, 아몬드와 아마씨 등의 견과류를 궁합에 맞춰 배합했어요. 원재료의 맛이 살아있고, 지나치게 딱딱하지 않아 치아에 무리가 가지 않아요. 종류별로 어울리는 치츠를 곁들여도 좋고, 크림치즈와도 무난하게 어울려요.",
+			"stock": 1000,
+			"sales_rate": 1,
+			"is_crawl": true,
+			"ship_type": "샛별배송",
+			"allergy": "",
+			"user_id": 1
+		}
+	},
+	{
+		"model": "products.Product",
+		"fields": {
+			"title": "[경복궁 BLACK] 사골 도가니탕",
+			"price": 9350,
+			"unit": "1봉",
+			"weight": "700g",
+			"crawl_produt_thum_img": "https://img-cf.kurly.com/shop/data/goodsview/20200605/gv10000099382_1.jpg",
+			"crawl_produt_detail_img": "https://img-cf.kurly.com/cdn-cgi/image/width=676,format=auto/shop/data/goods/1653039845825l0.jpeg",
+			"crawl_produt_desc_img": "https://img-cf.kurly.com/shop/data/goodsview/20220712/gv40000337086_1.jpg",
+			"description": "한우로 끓인 깊고 진한 국물\n[경복궁 black]\n사골 도가니탕\n30년이 넘는 시간 동안 정갈한 한식을 선보인 브랜드, 경복궁이 프리미엄 라인을 들고 컬리를 찾아왔습니다. 한우 사골과 도가니로 우려 맛이 깊은 경복궁 black의 사골 도가니탕을 만나보세요. 경복궁 black은 누린내 없이 깔끔한 도가니탕을 완성하기 위해 핏물 빼기부터 공을 들였다고 해요. 사골을 세 번에 걸쳐 우려내고, 특허 기술*로 육수의 기름기를 깔끔하게 제거해 눈으로 보기만 해도 깊은 맛이 느껴집니다. 뜨끈하게 끓인 후 취향에 따라 간을 더해서 드세요. 지친 마음에 든든한 에너지를 줄 거예요.\n\n* 특허 제 10-1959685호 : 가열조리 육수의 기름부유물 제거장치",
+			"stock": 1000,
+			"sales_rate": 1,
+			"is_crawl": true,
+			"ship_type": "샛별배송",
+			"allergy": "",
+			"user_id": 1
+		}
+	},
+	{
+		"model": "products.Product",
+		"fields": {
+			"title": "[피코크] 조선호텔 배추김치 4kg",
+			"price": 32800,
+			"unit": "1팩",
+			"weight": "4kg",
+			"crawl_produt_thum_img": "https://img-cf.kurly.com/shop/data/goodsview/20221013/gv40000436086_1.jpg",
+			"crawl_produt_detail_img": "https://product-image.kurly.com/cdn-cgi/image/width=676,format=auto/product/image/ddc9a216-e2a6-4d57-b2d4-7559e909046f.jpg",
+			"crawl_produt_desc_img": "https://img-cf.kurly.com/shop/data/goodsview/20221013/gv00000436090_1.jpg",
+			"description": "넉넉하게 구비하는 포기김치\n[피코크]\n조선호텔 배추김치\n식탁에 오르는 친숙한 음식, 김치는 그 재료와 담그는 방법에 따라 맛이 천차만별이지요. 부담 없이 맛 좋은 김치를 즐기고 싶다면 피코크의 조선호텔 배추김치를 만나보세요. 김치의 아삭하고 개운한 풍미에 조선호텔의 노하우가 얹어진 포기김치입니다. 국내산 배추와 무, 고춧가루에 조선호텔의 특제 육수가 들어가 더욱 깊은 감칠맛으로 완성했답니다. 넉넉한 양을 보내드리니, 구비해 두고 온 가족이 함께 먹기에 좋지요. 원하는 크기로 잘라 다양한 요리에 활용해 보세요.",
+			"stock": 1000,
+			"sales_rate": 1,
+			"is_crawl": true,
+			"ship_type": "샛별배송",
+			"allergy": "",
+			"user_id": 1
+		}
+	},
+	{
+		"model": "products.Product",
+		"fields": {
+			"title": "[KF365] 아보카도 200g (1개)",
+			"price": 2580,
+			"unit": "1개",
+			"weight": "1박스 48과 기준 사이즈",
+			"crawl_produt_thum_img": "https://img-cf.kurly.com/shop/data/goodsview/20210521/gv20000184118_1.jpg",
+			"crawl_produt_detail_img": "https://img-cf.kurly.com/cdn-cgi/image/width=676,format=auto/shop/data/goods/165303553166l0.jpg",
+			"crawl_produt_desc_img": "https://img-cf.kurly.com/shop/data/goodsview/20211014/gv10000233698_1.jpg",
+			"description": "버터 같은 과일\n아보카도\n부드럽고 고소한 아보카도 과육은 마치 싱그러운 버터를 한 입 베어 문 것 같은 착각에 빠지게 만들어요. 아주 신선하고 촉촉하면서도, 느끼하지 않아 늘 생각나곤 하는데요. 미네랄과 아미노산, 비타민 등 그 안에 담긴 영양성분만 봐도 아보카도가 왜 '슈퍼푸드'라 불리는지 단번에 알 수 있답니다. 컬리가 영양 가득한 아보카도 1개를 엄선해 문 앞까지 전해드릴게요. 크리미하게 녹아드는 담백한 아보카도로 남다른 맛과 비주얼의 요리를 만들어보세요. 익을수록 점점 껍질 색깔이 진해지니, 취향에 맞게 후숙해 녹진한 풍미를 한껏 누려봐도 좋을 거예요.",
+			"stock": 1000,
+			"sales_rate": 1,
+			"is_crawl": true,
+			"ship_type": "샛별배송",
+			"allergy": "",
+			"user_id": 1
+		}
+	},
+	{
+		"model": "products.Product",
+		"fields": {
+			"title": "[이화수] 프리미엄 전통육개장",
+			"price": 5487,
+			"unit": "1개",
+			"weight": "600g",
+			"crawl_produt_thum_img": "https://img-cf.kurly.com/shop/data/goodsview/20220503/gv30000310090_1.jpg",
+			"crawl_produt_detail_img": "https://img-cf.kurly.com/cdn-cgi/image/width=676,format=auto/shop/data/goods/1653034443535l0.jpeg",
+			"crawl_produt_desc_img": "https://img-cf.kurly.com/shop/data/goodsview/20220511/gv30000313781_1.jpg",
+			"description": "전통 방식으로 만든 시원한 감칠맛\n[이화수] 전통 육개장\n좋은 재료로 만든 맛의 가치를 아는 곳, 이화수의 요리를 가정에서 편히 즐겨보세요. 지금 소개하는 제품은 매장의 대표 메뉴, 전통 육개장입니다. 이화수의 노하우와 정성이 담긴 사골 농축액을 베이스로 해 깊고 시원한 맛을 지닌 것이 특징이죠. 여기에 얼큰한 소스를 슬슬 풀고, 쫄깃한 양지를 쭉쭉 찢어 넣으니 그 맛이 일품이랍니다. 큼직한 대파도 송송 썰어 마무리했으니 아삭한 식감과 달큰한 풍미까지 느낄 수 있을 거예요. 따끈한 밥만 준비해, 속 풀리는 든든한 한 끼로 마련해 보세요.",
+			"stock": 1000,
+			"sales_rate": 1,
+			"is_crawl": true,
+			"ship_type": "샛별배송",
+			"allergy": "",
+			"user_id": 1
+		}
+	},
+	{
+		"model": "products.Product",
+		"fields": {
+			"title": "[스윗밸런스] 오늘의 식단 도시락 6종",
+			"price": 3900,
+			"unit": "1팩",
+			"weight": "옵션별 상이",
+			"crawl_produt_thum_img": "https://img-cf.kurly.com/shop/data/goodsview/20220527/gv10000321056_1.jpg",
+			"crawl_produt_detail_img": "https://img-cf.kurly.com/cdn-cgi/image/width=676,format=auto/shop/data/goods/1653641549214l0.jpg",
+			"crawl_produt_desc_img": "https://img-cf.kurly.com/shop/data/goodsview/20220929/gv30000432066_1.jpg",
+			"description": "매일 골라 먹기 좋은 식단 도시락\n[스윗밸런스]\n오늘의 식단 도시락 6종\n간단하면서도 건강한 식사를 고민하고 있다면, 지금 소개하는 상품이 분명 마음에 드실 거예요. 스윗밸런스가 매일 취향에 따라 골라 먹기 좋은 오늘의 식단 도시락 6종을 준비했답니다. 탄단지를 고루 챙길 수 있도록, 한 팩에 단백질을 12g 이상 함유하고 있는 것은 물론이고요. 카레현미밥, 김치볶음밥 등 다채로운 종류의 밥과 풍성한 반찬을 조화롭게 배치해 매일 먹어도 지루하지 않답니다. 바쁜 일상 속 간편하게 식단을 챙기고 싶다면, 스윗밸런스의 도움을 받아보세요.",
+			"stock": 1000,
+			"sales_rate": 1,
+			"is_crawl": true,
+			"ship_type": "샛별배송",
+			"allergy": "",
+			"user_id": 1
+		}
+	},
+	{
+		"model": "products.Product",
+		"fields": {
+			"title": "[KF365] 감자 1kg",
+			"price": 4200,
+			"unit": "1봉",
+			"weight": "1kg",
+			"crawl_produt_thum_img": "https://img-cf.kurly.com/shop/data/goodsview/20210218/gv30000159355_1.jpg",
+			"crawl_produt_detail_img": "https://img-cf.kurly.com/cdn-cgi/image/width=676,format=auto/shop/data/goods/1637154387515l0.jpg",
+			"crawl_produt_desc_img": "https://img-cf.kurly.com/shop/data/goodsview/20221118/gv40000453854_1.jpg",
+			"description": "포슬포슬하고 고소한 맛\n감자\n촉촉하게 쪄 먹어도 좋고, 다양한 요리와 함께 곁들이기도 좋은 감자는 우리 식탁에 빼놓을 수 없는 식재료이죠. 탄수화물은 물론이고 단백질, 비타민 C까지 풍부해 포만감과 영양을 동시에 충족시키는데요. 컬리는 국내 농가에서 기른 맛 좋은 감자를 엄선해 문 앞까지 신선하게 전해드릴게요. 취향에 따라 간단하게 찌거나 구워서 즐겨보세요. 볶음, 튀김 등의 요리로 다채롭게 변신시키면 매일 식탁에 올려도 질리지 않을 거예요.",
+			"stock": 1000,
+			"sales_rate": 1,
+			"is_crawl": true,
+			"ship_type": "샛별배송",
+			"allergy": "",
+			"user_id": 1
+		}
+	},
+	{
+		"model": "products.Product",
+		"fields": {
+			"title": "[스윗볼] 스테비아 토마토 500g",
+			"price": 6980,
+			"unit": "1팩",
+			"weight": "500g",
+			"crawl_produt_thum_img": "https://img-cf.kurly.com/shop/data/goodsview/20210913/gv10000226287_1.jpg",
+			"crawl_produt_detail_img": "https://img-cf.kurly.com/cdn-cgi/image/width=676,format=auto/shop/data/goods/1653038832359l0.jpeg",
+			"crawl_produt_desc_img": "https://img-cf.kurly.com/shop/data/goodsview/20220817/gv00000409002_1.jpg",
+			"description": "한입에 톡 터지는 과즙\n스윗볼 스테비아 토마토\n달달한 맛이 일품인 스테비아 토마토를 소개할게요. 싱싱한 대추방울 토마토에 감미료를 주입하여 당도를 높인 토마토예요. 씹으면 톡 터지는 과즙은 과하게 달지 않아 부담 없이 즐기기 좋답니다. 앙증 맞은 크기 덕에 하나씩 쏙쏙 집어 먹기도 간편하지요. 토마토 특유의 새콤함을 싫어하셨던 분들도, 탱글탱글한 대추방울로 색다른 토마토의 세계를 경험해 보세요.",
+			"stock": 1000,
+			"sales_rate": 1,
+			"is_crawl": true,
+			"ship_type": "샛별배송",
+			"allergy": "",
+			"user_id": 1
+		}
+	},
+	{
+		"model": "products.Product",
+		"fields": {
+			"title": "[감자밭] 감자빵 오리지널",
+			"price": 16000,
+			"unit": "1박스",
+			"weight": "120g*5개입",
+			"crawl_produt_thum_img": "https://img-cf.kurly.com/shop/data/goodsview/20221017/gv40000436858_1.jpg",
+			"crawl_produt_detail_img": "https://product-image.kurly.com/cdn-cgi/image/width=676,format=auto/product/image/65d244fc-ebf0-4b27-9bcc-127f319e5f8d.jpg",
+			"crawl_produt_desc_img": "https://img-cf.kurly.com/shop/data/goodsview/20221017/gv00000436862_1.jpg",
+			"description": "고소한 감자빵을 한아름\n[감자밭]\n감자빵 오리지널\n감자밭 카페에서 먹던 맛 그대로 컬리에서 만나보세요. 막 밭에서 캐낸 감자를 쏙 빼닮은 모습에 절로 눈이 가는데요. 쌀가루로 만들어 한층 쫄깃한 빵피 속에는 포슬하게 삶아 으깬 감자가 꽉 들어차 있답니다. 포슬포슬한 식감과 달달한 맛을 지닌 로즈 감자, 쫀득하면서도 고소한 설봉 감자를 주 재료로 사용해 감자 본연의 담백한 풍미를 한층 살려냈지요. 냉동 상태로 하나씩 깔끔하게 포장해 보내드리니, 따끈따끈하게 데워 드셔보세요. 부드럽고 쫀득한 감자빵의 매력에 빠져들게 되실 거예요.",
+			"stock": 1000,
+			"sales_rate": 1,
+			"is_crawl": true,
+			"ship_type": "샛별배송",
+			"allergy": "",
+			"user_id": 1
+		}
+	},
+	{
+		"model": "products.Product",
+		"fields": {
+			"title": "[삼삼물산] 전 국민이 좋아하는 통영굴 200g (중굴, 생물)",
+			"price": 7500,
+			"unit": "1팩",
+			"weight": "200g 내외",
+			"crawl_produt_thum_img": "https://img-cf.kurly.com/shop/data/goodsview/20191217/gv00000073189_1.jpg",
+			"crawl_produt_detail_img": "https://img-cf.kurly.com/cdn-cgi/image/width=676,format=auto/shop/data/goods/1576561898773l0.jpg",
+			"crawl_produt_desc_img": "https://img-cf.kurly.com/shop/data/goodsview/20210119/gv10000152546_1.jpg",
+			"description": "통영 앞바다에서 온 우윳빛 선물\n[삼삼물산]\n전 국민이 좋아하는 통영굴(중굴)\n굴은 고소함 사이사이 피어오르는 진득한 바다 향이 참 매력적이에요. 때문에 날 것부터 익힌 것 까지 다양한 요리에 활용되며 동서양의 진미로 손꼽히는데요. 컬리는 진한 우유 빛깔에 본연의 감칠맛을 자랑하는 통영굴(중굴)을 준비했습니다. 굴의 생장에 최적의 환경을 갖춘 통영에서 길러낸 굴로, 그대로 드시기 좋은 중굴 사이즈만을 엄선했어요. 굴의 세척에 사용되는 물의 온도부터 세척 시설까지 꼼꼼하게 챙긴 뒤 포장했고요. 신선한 회로, 뜨끈한 탕으로 뽀얀 감칠맛을 즐겨 보세요.",
+			"stock": 1000,
+			"sales_rate": 1,
+			"is_crawl": true,
+			"ship_type": "샛별배송",
+			"allergy": "",
+			"user_id": 1
+		}
+	},
+	{
+		"model": "products.Product",
+		"fields": {
+			"title": "[로컬식탁] 부산식 물떡&어묵꼬치",
+			"price": 5900,
+			"unit": "1봉",
+			"weight": "400g(물떡어묵꼬치 350g + 소스 50g)",
+			"crawl_produt_thum_img": "https://img-cf.kurly.com/shop/data/goodsview/20220304/gv10000286078_1.jpg",
+			"crawl_produt_detail_img": "https://img-cf.kurly.com/cdn-cgi/image/width=676,format=auto/shop/data/goods/1646376497723l0.jpg",
+			"crawl_produt_desc_img": "https://img-cf.kurly.com/shop/data/goodsview/20220412/gv00000301542_1.jpg",
+			"description": "부산의 별미 분식\n[로컬식탁]\n부산식 물떡&어묵꼬치\n부산에서는 떡볶이로 만들 법한 두툼한 가래떡을 육수에 담가 어묵처럼 먹곤 하는데요. 이번에는 부산에 들렀다면 빼놓지 않고 찾는 별미, 물떡&어묵꼬치를 준비했어요. 쫀득한 물떡 속 감칠맛나는 국물이 스며 들어 자꾸만 생각나는 맛을 가졌지요. 육수를 만들어줄 소스는 물론, 물떡과 어묵은 꼬치를 끼워 각각 세 개씩 담았어요. 물에 소스와 꼬치를 팔팔 끓이기만 하면 완성이니, 색다른 분식 또는 캠핑 요리로 추천드려요.",
+			"stock": 1000,
+			"sales_rate": 1,
+			"is_crawl": true,
+			"ship_type": "샛별배송",
+			"allergy": "",
+			"user_id": 1
+		}
+	},
+	{
+		"model": "products.Product",
+		"fields": {
+			"title": "[어게인리프레쉬] 샐러드 7종 (택1)",
+			"price": 5900,
+			"unit": "PK",
+			"weight": "옵션별 상이",
+			"crawl_produt_thum_img": "https://img-cf.kurly.com/shop/data/goodsview/20211231/gv20000263544_1.jpg",
+			"crawl_produt_detail_img": "https://img-cf.kurly.com/cdn-cgi/image/width=676,format=auto/shop/data/goods/1653039633578l0.jpeg",
+			"crawl_produt_desc_img": "https://img-cf.kurly.com/shop/data/goodsview/20220728/gv00000393146_1.jpg",
+			"description": "내 취향에 맞는 샐러드 고르기\n[어게인리프레쉬] 샐러드 7종\n샐러드로 한 끼 식사로 즐기는 분들이 많아지면서 샐러드 전문점들이 눈에 띄게 많아졌습니다. 홍대에서 시작된 어게인리프레쉬도 그중 하나예요. 예쁜 나무 볼에 먹음직스러운 샐러드를 한가득 담아 주는 '샐러드 볼'로 탄탄한 팬층을 확보했죠. 이제 컬리에서도 어게인리프레쉬의 샐러드를 만나보실 수 있어요. 로메인, 적근대, 케일, 라디치오 등의 신선한 채소에 어게인리프레쉬만의 다채로운 토핑을 더했답니다. 연어, 새우, 비프, 닭가슴살, 리코타등 7가지 종류를 다채롭게 준비했으니 골라 먹는 재미를 느낄 수 있을 거예요.",
+			"stock": 1000,
+			"sales_rate": 1,
+			"is_crawl": true,
+			"ship_type": "샛별배송",
+			"allergy": "",
+			"user_id": 1
+		}
+	},
+	{
+		"model": "products.Product",
+		"fields": {
+			"title": "[투다리] 시그니처 김치우동 (2인분)",
+			"price": 10115,
+			"unit": "1개",
+			"weight": "862g",
+			"crawl_produt_thum_img": "https://img-cf.kurly.com/shop/data/goodsview/20220809/gv40000405249_1.jpg",
+			"crawl_produt_detail_img": "https://product-image.kurly.com/cdn-cgi/image/width=676,format=auto/product/image/cfdaaee7-1a0d-4fd1-a778-611014196880.jpg",
+			"crawl_produt_desc_img": "https://img-cf.kurly.com/shop/data/goodsview/20220809/gv00000405251_1.jpg",
+			"description": "집에서 맛보는 인기 메뉴\n[투다리] 시그니처 김치우동\n투다리는 전국 곳곳에서 오랜 사랑을 받고 있는 꼬치 요리 전문점인데요. 이번에는 꼬치류 외에도 꾸준한 인기를 자랑하는 시그니처 메뉴, 김치우동을 준비했어요. 시원한 감칠맛을 자아내는 투다리 맛김치에 가쓰오, 다시마 엑기스로 만든 우동 소스가 어우러지니 국물 맛은 더할 나위 없지요. 여기에 동봉된 유부와 야채 튀김을 푹 적셔 주면 매장에서 맛보던 그 얼큰한 메뉴를 그대로 만끽할 수 있답니다. 간단한 식사는 물론이고 안주로도 손쉽게 마련해 보세요.",
+			"stock": 1000,
+			"sales_rate": 1,
+			"is_crawl": true,
+			"ship_type": "샛별배송",
+			"allergy": "",
+			"user_id": 1
+		}
+	},
+	{
+		"model": "products.Product",
+		"fields": {
+			"title": "[아우어베이커리] 빨미까레",
+			"price": 4400,
+			"unit": "1봉",
+			"weight": "90g",
+			"crawl_produt_thum_img": "https://img-cf.kurly.com/shop/data/goodsview/20200623/gv00000102790_1.jpg",
+			"crawl_produt_detail_img": "https://img-cf.kurly.com/cdn-cgi/image/width=676,format=auto/shop/data/goods/1592879300275l0.jpg",
+			"crawl_produt_desc_img": "https://img-cf.kurly.com/shop/data/goodsview/20220524/gv00000319065_1.jpg",
+			"description": "결이 살아 있는 초코 페이스트리\n[아우어베이커리]\n빨미까레\n아우어 베이커리는 도산공원 맛집을 넘어 국내외 여러 매장에서 사랑받고 있는 인기 베이커리죠. 아우어 베이커리의 인기 메뉴 중 하나인 빨미까레를 소개할게요. 반죽을 겹겹이 쌓아 바삭하게 구워낸 페이스트리에 다크초콜릿을 입혀 완성했답니다. 프랑스, 뉴질랜드산 버터의 부드러운 풍미와 초콜릿의 진한 달콤함이 전하는 근사한 하모니를 마음껏 누려 보세요.",
+			"stock": 1000,
+			"sales_rate": 1,
+			"is_crawl": true,
+			"ship_type": "샛별배송",
+			"allergy": "",
+			"user_id": 1
+		}
+	},
+	{
+		"model": "products.Product",
+		"fields": {
+			"title": "김장용 해남 절임 배추 20kg (예약일 수령)",
+			"price": 43553,
+			"unit": "1BOX",
+			"weight": "20kg(7~10포기)",
+			"crawl_produt_thum_img": "https://img-cf.kurly.com/shop/data/goodsview/20221114/gv30000449924_1.jpg",
+			"crawl_produt_detail_img": "https://img-cf.kurly.com/cdn-cgi/image/width=676,format=auto/shop/data/goods/1572931731508l0.jpg",
+			"crawl_produt_desc_img": "https://img-cf.kurly.com/shop/data/goodsview/20221117/gv20000453224_1.jpg",
+			"description": "두 번에 걸쳐 골고루 절인\n김장용 해남 절임 배추\n배추를 절이는 일은 사실 참 손이 많이 가고 품도 드는 일이에요. 배추를 씻고 균일하게 소금을 쳐서 뒤집어주기를 몇 번, 절인 배추를 씻어 물기를 빼기만 해도 하루가 금방 가죠. 컬리는 해남에서 신선한 배추를 엄선하여 잘 절임한 제품을 보내드립니다. 두 번에 걸쳐 골고루 절임해 어디가 덜 절여지거나 더 절여지거나 하는 것 없이 고르게 맛이 들었어요. 아삭한 식감하며 단맛도 잘 살아있지요. 세척 후 물기를 빼서 총 20k를 담아 보내드리니 받으신 후에는 바로 김장 김치로 만들어보세요. 좀 더 수월하게 김장을 끝내실 수 있을 거예요.",
+			"stock": 1000,
+			"sales_rate": 1,
+			"is_crawl": true,
+			"ship_type": "샛별배송",
+			"allergy": "",
+			"user_id": 1
+		}
+	},
+	{
+		"model": "products.Product",
+		"fields": {
+			"title": "[Kurly's] 간편하게 바삭, 유린기",
+			"price": 8800,
+			"unit": "1팩",
+			"weight": "유린기(140g*2ea)+소스(150g)",
+			"crawl_produt_thum_img": "https://img-cf.kurly.com/shop/data/goodsview/20210313/gv30000165047_1.jpg",
+			"crawl_produt_detail_img": "https://img-cf.kurly.com/cdn-cgi/image/width=676,format=auto/shop/data/goods/1615619680902l0.jpg",
+			"crawl_produt_desc_img": "https://img-cf.kurly.com/shop/data/goodsview/20220304/gv10000285858_1.jpg",
+			"description": "집에서 만끽하는 근사한 중식 한상\n[Kurly's]\n간편하게 바삭, 유린기\n‘뜨거운 기름을 뿌린 닭고기’를 뜻하는 유린기, 그동안 주로 레스토랑에서 드시지 않았나요? 까다로운 조리 과정 때문에 집에서 만들기 부담스러웠다면, 이제 컬리스와 집에서도 번거로움 없이 즐기세요. 컬리스 간편하게 바삭, 유린기는 수제로 입힌 배터 덕분에 바삭한 식감을 유지해요. 에어프라이어에 굽기만 하면 되니 조리 과정 또한 간편하죠. 집에서 만끽하는 중식 한상, 컬리스가 책임질게요.",
+			"stock": 1000,
+			"sales_rate": 1,
+			"is_crawl": true,
+			"ship_type": "샛별배송",
+			"allergy": "",
+			"user_id": 1
+		}
+	},
+	{
+		"model": "products.Product",
+		"fields": {
+			"title": "[LOTS OF LOVE] 차돌듬뿍 묵은지 볶음밥",
+			"price": 7900,
+			"unit": "1PK",
+			"weight": "460g",
+			"crawl_produt_thum_img": "https://img-cf.kurly.com/shop/data/goodsview/20211116/gv30000026648_1.jpg",
+			"crawl_produt_detail_img": "https://img-cf.kurly.com/cdn-cgi/image/width=676,format=auto/shop/data/goods/165303656813l0.jpeg",
+			"crawl_produt_desc_img": "https://img-cf.kurly.com/shop/data/goodsview/20211116/gv30000243403_1.jpg",
+			"description": "칼칼한 묵은지와 차돌박이의 푸짐한 맛\n[LOTS OF LOVE] 차돌 듬뿍 묵은지 볶음밥\nLOST OF LOVE의 베스트 메뉴 차돌듬뿍 묵은지 볶음밥으로, 잘 익은 묵은지와 큼직하게 썰어넣은 차돌박이의 깊고도 고소한 조화를 만끽해보세요. 국산 배추로 만든 묵은지와 차돌박이, 밥을 최적의 비율로 볶아, 한층 구수하면서도 칼칼한 감칠맛을 자랑하는데요. 국산 쌀밥을 넓게펼쳐서 냉동했기에, 갓 지은듯 고슬고슬한 식감을 가득 즐길 수 있어 더욱 특별하답니다. 2인분을 지퍼백 패키지에 담아 보내드리니, 드실 만큼씩 전자레인지나 프라이팬에 넣고 간편하게 조리해 즐겨보세요.",
+			"stock": 1000,
+			"sales_rate": 1,
+			"is_crawl": true,
+			"ship_type": "샛별배송",
+			"allergy": "",
+			"user_id": 1
+		}
+	},
+	{
+		"model": "products.Product",
+		"fields": {
+			"title": "[비비고] 순살고등어구이 60G",
+			"price": 2780,
+			"unit": "1팩",
+			"weight": "60g",
+			"crawl_produt_thum_img": "https://img-cf.kurly.com/shop/data/goodsview/20220930/gv40000234844_1.jpg",
+			"crawl_produt_detail_img": "https://product-image.kurly.com/cdn-cgi/image/width=676,format=auto/product/image/5688d71f-c070-4254-9ec9-95883793453e.jpg",
+			"crawl_produt_desc_img": "https://img-cf.kurly.com/shop/data/goodsview/20220930/gv20000432759_1.jpg",
+			"description": "가시를 제거해 더욱 간편\n[비비고]\n순살고등어구이\n생선구이를 좋아하지만, 구울 때 나는 냄새와 연기 때문에 망설여지는 분들도 있을 텐데요. 비비고가 전자레인지 1분 조리만으로 걱정 없이 즐길 수 있는 순살고등어구이를 준비했습니다. 수작업으로 잔가시까지 제거한 덕분에 일일이 발라내는 번거로움까지 말끔히 해결할 수 있지요. 짭짤하면서도 고소한 고등어의 풍미가 입맛을 돋워주니 이만한 밥반찬이 없지요. 간단한 생선구이는 물론이고, 덮밥이나 파스타 등의 요리에도 다채롭게 활용해 보세요.",
+			"stock": 1000,
+			"sales_rate": 1,
+			"is_crawl": true,
+			"ship_type": "샛별배송",
+			"allergy": "",
+			"user_id": 1
+		}
+	},
+	{
+		"model": "products.Product",
+		"fields": {
+			"title": "[진실된손맛] 더진한 소곱창전골 (리뉴얼)",
+			"price": 8800,
+			"unit": "1팩",
+			"weight": "600g",
+			"crawl_produt_thum_img": "https://img-cf.kurly.com/shop/data/goodsview/20221014/gv30000436478_1.jpg",
+			"crawl_produt_detail_img": "https://product-image.kurly.com/cdn-cgi/image/width=676,format=auto/product/image/a4cd94f8-9e7a-445b-9aa6-f1a9e49eea3b.jpg",
+			"crawl_produt_desc_img": "https://img-cf.kurly.com/shop/data/goodsview/20221017/gv00000436629_1.jpg",
+			"description": "얼큰한 국물에 빠진 고소한 곱창\n[진실된손맛]\n더진한 소곱창전골\n곱창의 풍미를 얼큰하게 담아낸 진실된손맛의 더진한 소곱창전골을 소개합니다. 통통한 소곱창을 푸짐하게 넣은 전골인데요. 씹을수록 고소한 풍미가 매콤한 국물과 절묘하게 어우러진답니다. 사골 베이스의 국물이라 더욱 깊은 맛이 느껴지고요. 국내산 배추우거지를 더해 한층 구수하고 개운한 맛을 살렸답니다. 뜨끈한 전골이 땡기는 날, 간편하게 데워 밥과 함께 즐겨 보세요. 남은 국물은 볶음밥으로 활용하면 더욱 든든한 한 끼가 완성된답니다.",
+			"stock": 1000,
+			"sales_rate": 1,
+			"is_crawl": true,
+			"ship_type": "샛별배송",
+			"allergy": "",
+			"user_id": 1
+		}
+	},
+	{
+		"model": "products.Product",
+		"fields": {
+			"title": "제주 무농약 노지 감귤 2kg",
+			"price": 11700,
+			"unit": "1박스",
+			"weight": "상세페이지 별도표기",
+			"crawl_produt_thum_img": "https://img-cf.kurly.com/shop/data/goodsview/20221101/gv10000444179_1.jpg",
+			"crawl_produt_detail_img": "https://product-image.kurly.com/cdn-cgi/image/width=676,format=auto/product/image/f6628c8e-9741-4712-aacb-4b02b56d6ec2.jpg",
+			"crawl_produt_desc_img": "https://img-cf.kurly.com/shop/data/goodsview/20221101/gv20000444181_1.jpg",
+			"description": "부드러움과 달콤함이 남다른\n제주 무농약 노지 감귤\n찬바람이 불기 시작하면 드디어 귤의 계절입니다. 따뜻한 이불 속에서 귤을 까먹으며 부족한 비타민을 충전하세요. 컬리는 제주도, 그중에서도 서귀포에서 재배한 귤을 선보일게요. 농약 걱정 없는 친환경 귤이기에 더욱 안심이 된답니다. 당도가 끝까지 올라왔을 때 수확한 제철 감귤은 속까지 달콤함이 가득 차 있어요. 껍질마저 얇고 부드러워 까는 재미도 누릴 수 있을 거예요.",
+			"stock": 1000,
+			"sales_rate": 1,
+			"is_crawl": true,
+			"ship_type": "샛별배송",
+			"allergy": "",
+			"user_id": 1
+		}
+	},
+	{
+		"model": "products.Product",
+		"fields": {
+			"title": "깐대파 500g",
+			"price": 3290,
+			"unit": "봉",
+			"weight": "500g 내외",
+			"crawl_produt_thum_img": "https://img-cf.kurly.com/shop/data/goodsview/20180727/gv10000028122_1.jpg",
+			"crawl_produt_detail_img": "https://img-cf.kurly.com/cdn-cgi/image/width=676,format=auto/shop/data/goods/1653037895339l0.jpeg",
+			"crawl_produt_desc_img": "https://img-cf.kurly.com/shop/data/goodsview/20180727/gv00000028126_1.jpg",
+			"description": "시원한 국물 맛의 비밀\n깐대파\n생으로 먹거나 살짝 데쳐냈을 때는 알싸하면서도 은은한 단맛을, 오래 끓여내면 시원한 맛을 내는 마법의 채소, 대파를 소개할게요. 각종 국물 요리의 육수를 낼 때는 통으로 넣어주면 시원한 맛이 제대로 우러나요. 기름기가 있는 요리에 곁들인다면 얇게 채를 썰어 파절이를 만들거나 동그랗게 송송 썰어 고명으로 뿌려주세요. 다채로운 활용도를 자랑하는 만큼 잦은 손질이 필요한 대파를 조금 더 간편하게 사용해보세요. 컬리는 그때그때 유명산지 대파를 가락시장에서 수급하여 보내드립니다.",
+			"stock": 1000,
+			"sales_rate": 1,
+			"is_crawl": true,
+			"ship_type": "샛별배송",
+			"allergy": "",
+			"user_id": 1
+		}
+	},
+	{
+		"model": "products.Product",
+		"fields": {
+			"title": "[스윗볼] 스테비아 토마토 1kg",
+			"price": 13900,
+			"unit": "1팩",
+			"weight": "1kg",
+			"crawl_produt_thum_img": "https://img-cf.kurly.com/shop/data/goodsview/20210913/gv40000226300_1.jpg",
+			"crawl_produt_detail_img": "https://img-cf.kurly.com/cdn-cgi/image/width=676,format=auto/shop/data/goods/1637924799112l0.jpeg",
+			"crawl_produt_desc_img": "https://img-cf.kurly.com/shop/data/goodsview/20220817/gv40000409006_1.jpg",
+			"description": "한입에 톡 터지는 달콤함\n스윗볼 스테비아 토마토\n달달한 맛이 일품인 스테비아 토마토를 소개할게요. 싱싱한 대추방울 토마토에 감미료를 주입하여 당도를 높인 토마토예요. 씹으면 톡 터지는 과즙은 과하게 달지 않아 부담 없이 즐기기 좋답니다. 앙증 맞은 크기 덕에 하나씩 쏙쏙 집어 먹기도 간편하지요. 토마토 특유의 새콤함을 싫어하셨던 분들도, 탱글탱글한 대추방울로 색다른 토마토의 세계를 경험해 보세요.",
+			"stock": 1000,
+			"sales_rate": 1,
+			"is_crawl": true,
+			"ship_type": "샛별배송",
+			"allergy": "",
+			"user_id": 1
+		}
+	},
+	{
+		"model": "products.Product",
+		"fields": {
+			"title": "[피코크] 조선호텔 포기김치 3kg",
+			"price": 30800,
+			"unit": "1통",
+			"weight": "3kg",
+			"crawl_produt_thum_img": "https://img-cf.kurly.com/shop/data/goodsview/20220711/gv30000336388_1.jpg",
+			"crawl_produt_detail_img": "https://img-cf.kurly.com/cdn-cgi/image/width=676,format=auto/shop/data/goods/1657527899990l0.jpg",
+			"crawl_produt_desc_img": "https://img-cf.kurly.com/shop/data/goodsview/20220711/gv00000336394_1.jpg",
+			"description": "빼놓을 수 없는 개운한 감칠맛\n[피코크]\n조선호텔 포기김치\n식탁에 오르는 친숙한 음식, 김치는 그 재료와 담그는 방법에 따라 맛이 천차만별이지요. 부담 없이 맛 좋은 김치를 즐기고 싶다면 피코크의 조선호텔 포기김치를 만나보세요. 김치의 아삭하고 개운한 풍미에 조선호텔의 노하우가 얹어진 포기김치입니다. 국내산 배추와 무, 고춧가루에 조선호텔의 특제 육수가 들어가 더욱 깊은 감칠맛으로 완성했답니다. 바로 두고 사용할 수 있는 플라스틱 용기에 담겨져 있어 그대로 보관하기에도 무척 편리하지요. 한입 크기로 썰어 따끈한 밥에 얹어 즐기면 여느 반찬이 부럽지 않을 거예요.",
+			"stock": 1000,
+			"sales_rate": 1,
+			"is_crawl": true,
+			"ship_type": "샛별배송",
+			"allergy": "",
+			"user_id": 1
+		}
+	},
+	{
+		"model": "products.Product",
+		"fields": {
+			"title": "시나노골드 (금사과) 1.3kg (5~7입)",
+			"price": 9900,
+			"unit": "1봉",
+			"weight": "1.3kg내외",
+			"crawl_produt_thum_img": "https://img-cf.kurly.com/shop/data/goodsview/20201013/gv20000126876_1.jpg",
+			"crawl_produt_detail_img": "https://img-cf.kurly.com/cdn-cgi/image/width=676,format=auto/shop/data/goods/1538466010000_l.jpg",
+			"crawl_produt_desc_img": "https://img-cf.kurly.com/shop/data/goodsview/20221011/gv40000434889_1.jpg",
+			"description": "황금빛 사과에 깃든 향긋함\n시나노 골드 (금사과)\n홍옥이나 부사처럼 빨갛게 익어가는 사과가 있는가 하면, 노랗게 여무는 사과도 있어요. '금사과'로도 불리는 시나노 골드는 처음 열매가 맺혔을 땐 연둣빛을 띠고 있지만, 시간이 지날수록 밝은 노란색으로 물들어 가지요. 아삭아삭한 식감과 수분감이 뛰어나고, 신맛과 단맛의 조화가 무척 훌륭한 사과랍니다. 향기는 또 어떨까요. 사과 본연의 존재감을 그대로 드러내듯, 기분 좋게 번지는 그윽한 향은 모자람이 없답니다.",
+			"stock": 1000,
+			"sales_rate": 1,
+			"is_crawl": true,
+			"ship_type": "샛별배송",
+			"allergy": "",
+			"user_id": 1
+		}
+	},
+	{
+		"model": "products.Product",
+		"fields": {
+			"title": "[탄단지] 가벼운 한식 도시락 6종 (2개입) (택1)",
+			"price": 9000,
+			"unit": "1개",
+			"weight": "상세페이지 참고",
+			"crawl_produt_thum_img": "https://img-cf.kurly.com/shop/data/goodsview/20220831/gv20000418520_1.jpg",
+			"crawl_produt_detail_img": "https://product-image.kurly.com/cdn-cgi/image/width=676,format=auto/product/image/82f8b62b-3b82-4be2-a74e-a454249c9b54.jpg",
+			"crawl_produt_desc_img": "https://img-cf.kurly.com/shop/data/goodsview/20220906/gv00000420126_1.jpg",
+			"description": "칼로리 부담 없는 건강한 한 끼\n[탄단지]\n가벼운 한식 도시락 6종\n감칠맛 가득한 한식 메뉴로 가벼운 한 끼를 챙길 수 있는 탄단지의 도시락을 소개할게요. 국내산 쌀에 다양한 나물을 더 해 구수한 향과 맛을 낸 밥을 지어 담았는데요. 오징어 볶음, 돈육 숯불구이, 춘천 닭갈비 등의 반찬도 알차게 꾸려 넣어 다채로운 도시락을 완성했답니다. 299kcal에서 358kcal로 구성된 식단이라, 칼로리 걱정 없이 가볍게 드시기 좋을 거예요. 따로 해동할 필요 없이 전자레인지에 돌리기만 하면 완성되니, 어디서나 맛있고 가벼운 한 끼를 챙겨보세요.",
+			"stock": 1000,
+			"sales_rate": 1,
+			"is_crawl": true,
+			"ship_type": "샛별배송",
+			"allergy": "",
+			"user_id": 1
+		}
+	},
+	{
+		"model": "products.Product",
+		"fields": {
+			"title": "유기농 무화과 550g",
+			"price": 12900,
+			"unit": "1팩",
+			"weight": "550g내외",
+			"crawl_produt_thum_img": "https://img-cf.kurly.com/shop/data/goodsview/20190729/gv00000057340_1.jpg",
+			"crawl_produt_detail_img": "https://img-cf.kurly.com/cdn-cgi/image/width=676,format=auto/shop/data/goods/1564391943299l0.jpg",
+			"crawl_produt_desc_img": "https://img-cf.kurly.com/shop/data/goodsview/20210720/gv20000203921_1.jpg",
+			"description": "부드럽게 감겨드는 달콤함\n유기농 무화과\n잘 익은 무화과는 말랑말랑한 식감 덕분에 한 입 베어 물면 마치 크림처럼 입안에 감겨드는 과일이에요. 껍질이 진한 갈색으로 물들어가는 동안 점점 더 부드럽고 달콤해지죠. 무화과는 껍질째도 먹는 과일인 만큼 유기농 등급으로 준비했어요. 농약과 화학 비료 없이 건강하게 재배했기에 더욱 안심하고 드셔도 좋답니다. 중량에 맞춰 6~8개를 담아 보내드리니, 생과나 잼으로 또는 짭짤한 치즈나 하몽에 곁들여 즐겨보세요.",
+			"stock": 1000,
+			"sales_rate": 1,
+			"is_crawl": true,
+			"ship_type": "샛별배송",
+			"allergy": "",
+			"user_id": 1
+		}
+	},
+	{
+		"model": "products.Product",
+		"fields": {
+			"title": "[오모가리] 수제 김치찌개 2종",
+			"price": 5700,
+			"unit": "1봉",
+			"weight": "500g",
+			"crawl_produt_thum_img": "https://img-cf.kurly.com/shop/data/goodsview/20190422/gv10000048208_1.jpg",
+			"crawl_produt_detail_img": "https://img-cf.kurly.com/cdn-cgi/image/width=676,format=auto/shop/data/goods/1555917574617l0.jpg",
+			"crawl_produt_desc_img": "https://img-cf.kurly.com/shop/data/goodsview/20190422/gv40000048214_1.jpg",
+			"description": "맛있는 김치찌개를 위한 베이스\n[오모가리]\n수제 김치찌개 2종\n김치찌개는 한 그릇 비우기엔 쉬워도 막상 만들어보면 그 맛을 찾아내기 어려운 메뉴 중 하나예요. 2% 부족한 맛에 실망했던 기억 하나쯤은 누구나 가지고 있을 정도지요. 컬리는 60년 전통을 가진 묵은지 요리 전문점 오모가리의 수제 김치찌개를 준비했어요. 오모가리의 만의 노하우가 담긴 묵은지의 깊고 진한 감칠맛을 품은 김치찌개예요. 항상 찌개가 남아 걱정이셨던 분들을 위해 1~2인분 정도 소량씩 포장했고요. 끓여만 주면 되는 간단한 조리법 덕분에 찌개 먹기 힘들었던 자취생 분들도 부담 없이 즐길 수 있답니다. 1인 가구라면 별다른 재료를 추가하지 않고도 간단하게 곁들일 국물로 제격이고, 푸짐한 김치찌개를 드시고 싶으신 분들은 오모가리 수제 김치찌개를 베이스로 찌개용 돼지고기나 파, 두부 등을 추가해 드시면 됩니다. 돼지 김치찌개, 참치 김치찌개 두 종류를 준비했으니 기호에 맞게 선택해보세요.",
+			"stock": 1000,
+			"sales_rate": 1,
+			"is_crawl": true,
+			"ship_type": "샛별배송",
+			"allergy": "",
+			"user_id": 1
+		}
+	},
+	{
+		"model": "products.Product",
+		"fields": {
+			"title": "아삭한 햇 사과 1.5kg (4~7입)",
+			"price": 7990,
+			"unit": "1봉",
+			"weight": "1.5kg 내외",
+			"crawl_produt_thum_img": "https://img-cf.kurly.com/shop/data/goodsview/20210827/gv10000220245_1.jpg",
+			"crawl_produt_detail_img": "https://img-cf.kurly.com/cdn-cgi/image/width=676,format=auto/shop/data/goods/1630048390673l0.jpg",
+			"crawl_produt_desc_img": "https://img-cf.kurly.com/shop/data/goodsview/20221012/gv40000435389_1.jpg",
+			"description": "아삭하고 달콤함 가득한 사과\n아삭한 햇 사과\n사과 한 알을 골라도 맛있게 드시고 싶은 분들이라면 주목하세요. 새빨간 껍질 속에 산뜻한 맛과 향을 품은 사과를 준비했습니다. 아삭한 식감과 풍부한 과즙, 여기에 깊은 달콤함까지 고루 갖추고 있어요. 탐스럽게 잘 익은 사과 중에서도 당도가 빼어난 것으로 엄선해 담았답니다. 신선하게 드시기 좋은 양으로 담아 보내드리니, 새콤달콤한 즐거움을 가득 베어 물어 보세요.",
+			"stock": 1000,
+			"sales_rate": 1,
+			"is_crawl": true,
+			"ship_type": "샛별배송",
+			"allergy": "",
+			"user_id": 1
+		}
+	},
+	{
+		"model": "products.Product",
+		"fields": {
+			"title": "향기가득 샤인머스캣 2kg",
+			"price": 29000,
+			"unit": "1박스",
+			"weight": "2kg",
+			"crawl_produt_thum_img": "https://img-cf.kurly.com/shop/data/goodsview/20190906/gv00000061389_1.jpg",
+			"crawl_produt_detail_img": "https://img-cf.kurly.com/cdn-cgi/image/width=676,format=auto/shop/data/goods/1637923382994l0.jpeg",
+			"crawl_produt_desc_img": "https://img-cf.kurly.com/shop/data/goodsview/20220825/gv40000415968_1.jpg",
+			"description": "톡톡 터지는 달콤함\n향기가득 샤인머스캣\n청량한 단맛이 입맛을 사로잡는 샤인머스캣. 껍질이 얇고 씨가 거의 없어 한 알씩 톡톡 뜯어 먹으면 한 송이쯤은 금세 먹게 되지요. 마성의 과일이라 불리는 만큼 뛰어난 맛과 향을 자랑한답니다. 쫀쫀하다 못해 찰진 과육을 씹는 재미도 있지요. 그래서 컬리는 부담 없이 샤인머스캣을 맛있게 즐길 수 있도록 2kg 제품을 준비했어요. 품질 좋은 샤인머스캣만 깐깐하게 골라 박스에 포장해서 보내드려요. 흐르는 물에 씻어 그대로 먹어보세요. 당도가 높아 식후 디저트로 좋고, 쌉쌀한 차와 어울리는 다과로도 제격이에요.",
+			"stock": 1000,
+			"sales_rate": 1,
+			"is_crawl": true,
+			"ship_type": "샛별배송",
+			"allergy": "",
+			"user_id": 1
+		}
+	},
+	{
+		"model": "products.Product",
+		"fields": {
+			"title": "[스타벅스] by 네스프레소 호환 캡슐 10종",
+			"price": 7990,
+			"unit": "1박스(10개입)",
+			"weight": "옵션별 상이",
+			"crawl_produt_thum_img": "https://img-cf.kurly.com/shop/data/goodsview/20220401/gv30000298378_1.jpg",
+			"crawl_produt_detail_img": "https://img-cf.kurly.com/cdn-cgi/image/width=676,format=auto/shop/data/goods/1563948119225l0.jpg",
+			"crawl_produt_desc_img": "https://img-cf.kurly.com/shop/data/goodsview/20220519/gv00000317723_1.jpg",
+			"description": "집에서 내려 마시는 스타벅스 커피\n[스타벅스]\nby 네스프레소 호환 캡슐 11종\n스타벅스 커피를 이제 집에서 편안히 네스프레소 커피 머신으로 내려 드세요. 컬리는 네스프레소와 스타벅스가 함께 만든 캡슐 11종을 선보입니다. 네스프레소의 고압 추출 방식에 맞게 개발한 제품이니 맛은 걱정하지 않으셔도 돼요. 세계 유명 산지에서 공수한 원두에 블론드, 미디엄, 다크로 세 가지 방식의 스타벅스 로스팅 방식을 적용해 풍미도 뛰어나지요. 그렇게 완성된 스타벅스 커피의 맛을 캡슐에 그대로 담아 맛과 향이 잘 살아 있답니다. 취향에 맞는 정도로 샷을 추출해 즐겨보세요.",
+			"stock": 1000,
+			"sales_rate": 1,
+			"is_crawl": true,
+			"ship_type": "샛별배송",
+			"allergy": "",
+			"user_id": 1
+		}
+	},
+	{
+		"model": "products.Product",
+		"fields": {
+			"title": "[Mr.주꾸미] 주꾸미 볶음 2종 (택1)",
+			"price": 8900,
+			"unit": "1팩",
+			"weight": "350g / 500g 내외",
+			"crawl_produt_thum_img": "https://img-cf.kurly.com/shop/data/goodsview/20180713/gv10000027213_1.jpg",
+			"crawl_produt_detail_img": "https://img-cf.kurly.com/cdn-cgi/image/width=676,format=auto/shop/data/goods/1531469051568l0.jpg",
+			"crawl_produt_desc_img": "https://img-cf.kurly.com/shop/data/goodsview/20200901/gv40000117725_1.jpg",
+			"description": "취향대로 볶아 먹는 매콤한 별미\n[Mr.주꾸미] 주꾸미볶음 2종\n야들야들 부드러운 주꾸미의 살을 매콤한 양념에 잘 버무려 살살 볶아먹는 그 맛! 주꾸미볶음은 입맛 돋우는 일품요리부터 술안주로, 남은 양념까지 알뜰하게 즐길 수 있는 음식이에요. 컬리는 양념한 주꾸미를 급속 냉동해 해동 후에도 신선하게 즐길 수 있는 주꾸미볶음을 선보입니다. 양념한 주꾸미만 들어있으니 취향대로 먹을 수 있다는 점도 좋죠. 기호에 맞게 양파, 당근, 버섯, 양배추, 콩나물 등의 재료를 준비해두세요. 야채를 먼저 볶다가 냉장실에서 해동한 주꾸미를 더해 살짝만 더 익히면 맛있는 주꾸미볶음이 완성됩니다. 탱글탱글한 식감이며 과하게 맵지 않은 양념 때문에 자꾸만 접시로 손이 갈 거예요.",
+			"stock": 1000,
+			"sales_rate": 1,
+			"is_crawl": true,
+			"ship_type": "샛별배송",
+			"allergy": "",
+			"user_id": 1
+		}
+	},
+	{
+		"model": "products.Product",
+		"fields": {
+			"title": "유명산지 머스크 멜론 1.6kg",
+			"price": 11990,
+			"unit": "1통",
+			"weight": "1.6kg 내외",
+			"crawl_produt_thum_img": "https://img-cf.kurly.com/shop/data/goodsview/20210526/gv40000187488_1.jpg",
+			"crawl_produt_detail_img": "https://img-cf.kurly.com/cdn-cgi/image/width=676,format=auto/shop/data/goods/1637922854753l0.jpeg",
+			"crawl_produt_desc_img": "https://img-cf.kurly.com/shop/data/goodsview/20221017/gv00000436909_1.jpg",
+			"description": "부드러운 달콤함과 풍부한 향\n유명산지 머스크 멜론\n부드러운 과육과 풍부한 향을 자랑하는 멜론 중의 멜론, 머스크 멜론을 만나보세요. 칼륨과 식이섬유, 수분을 풍부하게 함유하고 있어 식사 후의 디저트로 즐기기에도 안성맞춤인데요. 컬리는 멜론이 맛있기로 유명한 유명산지를 찾아가 맛있는 머스크 멜론을 엄선했습니다. 실온에서 달큰한 향이 올라올 때까지 충분히 후숙한 뒤 즐겨보세요. 그대로 썰어 드셔도 좋지만, 다양한 메뉴로도 활용 가능하답니다. 프로슈토나 하몽 등을 곁들여 달콤 짭짤한 안주로 즐기거나, 얼린 멜론 조각과 두유를 넣고 갈아 색다른 스무디로 활용해 보세요.",
+			"stock": 1000,
+			"sales_rate": 1,
+			"is_crawl": true,
+			"ship_type": "샛별배송",
+			"allergy": "",
+			"user_id": 1
+		}
+	},
+	{
+		"model": "products.Product",
+		"fields": {
+			"title": "[고래사] 프리미엄 어묵탕",
+			"price": 10900,
+			"unit": "1팩",
+			"weight": "450g",
+			"crawl_produt_thum_img": "https://img-cf.kurly.com/shop/data/goodsview/20200924/gv30000124053_1.jpg",
+			"crawl_produt_detail_img": "https://img-cf.kurly.com/cdn-cgi/image/width=676,format=auto/shop/data/goods/1648207061216l0.jpeg",
+			"crawl_produt_desc_img": "https://img-cf.kurly.com/shop/data/goodsview/20211012/gv30000232884_1.jpg",
+			"description": "따끈하게 뚝딱 완성하는\n[고래사] 프리미엄 어묵탕\n따끈하게 끓인 어묵탕은 식사에 곁들이거나 안주로도 모자람이 없는 요리입니다. 또한 어묵이 주인공인만큼 어묵의 맛이 무엇보다 중요한데요. 어묵의 명가인 고래사는 프리미엄 어묵만을 알차게 골라담아 어묵탕 키트를 선보여요. 다양한 맛과 식감의 어묵에 쯔유, 건더기 스프를 함께 구성해 물을 더해 보글보글 끓여주기만 하면 됩니다. 간단하지만 푸짐한 안주가 필요한 날, 혹은 캠핑 요리로 하나씩 챙겨보세요. 입맛에 따라 고춧가루, 청양고추 등을 더해주시면 한결 매콤하게 즐기실 수도 있어요.",
+			"stock": 1000,
+			"sales_rate": 1,
+			"is_crawl": true,
+			"ship_type": "샛별배송",
+			"allergy": "",
+			"user_id": 1
+		}
+	},
+	{
+		"model": "products.Product",
+		"fields": {
+			"title": "[서울마님] 간편 간식 떡구이 7종 (리뉴얼 & 4개입)",
+			"price": 8800,
+			"unit": "1팩",
+			"weight": "480g",
+			"crawl_produt_thum_img": "https://img-cf.kurly.com/shop/data/goodsview/20221013/gv00000436133_1.jpg",
+			"crawl_produt_detail_img": "https://product-image.kurly.com/cdn-cgi/image/width=676,format=auto/product/image/60b72e1a-599b-4f0a-b974-e557562f3da8.jpg",
+			"crawl_produt_desc_img": "https://img-cf.kurly.com/shop/data/goodsview/20221013/gv30000436135_1.jpg",
+			"description": "다양한 토핑으로 채운 떡 구이\n[서울마님]\n간편 간식 떡 구이 7종\n매력적인 토핑을 가득 채운 서울마님의 떡 구이 7종을 만나보세요. 떡을 노릇하게 구워 겉은 바삭하면서도 속은 쫀득한 식감이 제대로 살아있어요. 씨앗 호떡, 피자 등을 연상시키는 다채로운 토핑 덕에 취향대로 골라 먹는 재미까지 쏠쏠하지요. 전자레인지에 잠깐 데우기만 하면 언제든 간편하게 드실 수 있답니다. 바쁜 아침에 서둘러 움직이는 대신, 서울마님의 간편 떡 구이와 함께 여유를 즐겨 보세요.",
+			"stock": 1000,
+			"sales_rate": 1,
+			"is_crawl": true,
+			"ship_type": "샛별배송",
+			"allergy": "",
+			"user_id": 1
+		}
+	},
+	{
+		"model": "products.Product",
+		"fields": {
+			"title": "[아티제] 버터롤",
+			"price": 5500,
+			"unit": "1봉",
+			"weight": "250g/10개입",
+			"crawl_produt_thum_img": "https://img-cf.kurly.com/shop/data/goodsview/20201027/gv10000130358_1.jpg",
+			"crawl_produt_detail_img": "https://img-cf.kurly.com/cdn-cgi/image/width=676,format=auto/shop/data/goods/1653038714146l0.jpeg",
+			"crawl_produt_desc_img": "https://img-cf.kurly.com/shop/data/goodsview/20220217/gv40000281339_1.jpg",
+			"description": "버터향 가득 촉촉한 모닝롤\n[아티제] 버터롤\n폭신폭신 촉촉한 모닝롤은 바쁜 아침 간편한 식사로도, 나른한 오후 든든한 간식으로도 훌륭하죠. 맛있는 베이커리, 여유로운 분위기를 누릴 수 있는 아티제의 버터롤을 소개할게요. 동글동글한 빵을 한입 베어 물면 고소한 버터 향이 입 안 가득 은은하게 퍼진답니다. 그대로 먹어도 맛있지만 과일잼이나 버터 등을 발라 즐겨도 좋고요. 반을 갈라 샐러드, 햄 등을 차곡차곡 쌓으면 귀여운 미니 샌드위치를 완성할 수 있을 거예요.",
+			"stock": 1000,
+			"sales_rate": 1,
+			"is_crawl": true,
+			"ship_type": "샛별배송",
+			"allergy": "",
+			"user_id": 1
+		}
+	},
+	{
+		"model": "products.Product",
+		"fields": {
+			"title": "[파제르] 핀란드 시그니처 초콜릿 4종",
+			"price": 9900,
+			"unit": "1박스",
+			"weight": "270g",
+			"crawl_produt_thum_img": "https://img-cf.kurly.com/shop/data/goodsview/20201214/gv10000142919_1.jpg",
+			"crawl_produt_detail_img": "https://img-cf.kurly.com/cdn-cgi/image/width=676,format=auto/shop/data/goods/1607930413465l0.jpg",
+			"crawl_produt_desc_img": "https://img-cf.kurly.com/shop/data/goodsview/20220519/gv40000317446_1.jpg",
+			"description": "핀란드에서 온 녹진한 초콜릿\n[파제르] 핀란드\n시그니처 초콜릿 4종\n핀란드 여행 쇼핑리스트로 손꼽히는 파제르의 초콜릿을 이제 집에서 간편하게 만나보세요. 1891년 헬싱키에서 설립된 파제르는 100년이 넘는 기간동안 유럽인들의 꾸준한 사랑을 받고 있는 브랜드인데요. 신선한 우유와 고품질의 아리바 코코아를 주재료로 하여 깊고 진한 풍미를 지닌 것이 특징이에요. 고급스러운 금장 로고와 깔끔한 패키지는 선물용으로도 제격이지요. 파제르를 대표하는 4종의 제품을 준비했으니, 취향에 맞게 담아 달콤함을 선물해보세요.",
+			"stock": 1000,
+			"sales_rate": 1,
+			"is_crawl": true,
+			"ship_type": "샛별배송",
+			"allergy": "",
+			"user_id": 1
+		}
+	},
+	{
+		"model": "products.Product",
+		"fields": {
+			"title": "[픽어베이글] 베이글 8종",
+			"price": 2800,
+			"unit": "1개",
+			"weight": "113g",
+			"crawl_produt_thum_img": "https://img-cf.kurly.com/shop/data/goodsview/20190208/gv40000042905_1.jpg",
+			"crawl_produt_detail_img": "https://img-cf.kurly.com/cdn-cgi/image/width=676,format=auto/shop/data/goods/1637921352140l0.jpeg",
+			"crawl_produt_desc_img": "https://img-cf.kurly.com/shop/data/goodsview/20211123/gv30000247520_1.jpg",
+			"description": "뉴욕에서 맛본 바로 그 맛\n[픽어베이글] 베이글 8종\n여행을 가면 잊지 않고 들리는 곳이 비단 세계적으로 유명한 관광지만은 아니지요. 그 지역에서 이름난 맛집을 찾아가는 건, 여행지에서 빠질 수 없는 즐거움이에요. 예를 들어 스페인 바르셀로나에 가면 ‘츄레리아’의 츄러스를, 홍콩에 가면 ‘타이청’의 에그타르트를 찾아 가는 것처럼요. 그렇다면 뉴욕은? 뉴욕에서 먹어야 할 음식의 리스트를 작성할 때 꼭 빠지지 않고 맨 위에 채워지는 것이 바로 베이글이죠. 정통 뉴욕식 베이글을 만드는 ‘픽어베이글(Pick a bagel)’은 미국에서도 뉴욕 맨하튼에서만 만나볼 수 있는 오리지널 뉴욕 베이글 브랜드입니다. 뉴욕 여행에서 먹었던 베이글의 그 맛을, 컬리가 여러분의 집 앞에 가져다 드릴게요.",
+			"stock": 1000,
+			"sales_rate": 1,
+			"is_crawl": true,
+			"ship_type": "샛별배송",
+			"allergy": "",
+			"user_id": 1
+		}
+	},
+	{
+		"model": "products.Product",
+		"fields": {
+			"title": "[사미헌] 갈비탕",
+			"price": 12000,
+			"unit": "PK",
+			"weight": "1KG",
+			"crawl_produt_thum_img": "https://img-cf.kurly.com/shop/data/goodsview/20200803/gv40000025492_1.jpg",
+			"crawl_produt_detail_img": "https://img-cf.kurly.com/cdn-cgi/image/width=676,format=auto/shop/data/goods/1648206780555l0.jpeg",
+			"crawl_produt_desc_img": "https://img-cf.kurly.com/shop/data/goodsview/20200803/gv00000111118_1.jpg",
+			"description": "진짜 갈비로 우려낸 전통 갈비탕\n[사미헌] 갈비탕\n부산 서면문화로 거리를 18년째 묵묵히 지키고 있는 한결같은 맛집이 있어요. 바로 부산의 대표 고깃집 사미헌인데요. 컬리는 진짜 갈비로 육수를 우려낸 사미헌 갈비탕을 가져왔어요. 사미헌은 오랜 세월 이어온 비법을 담아 육수를 끓이고 질 좋은 고기를 듬뿍 사용합니다. 엄선한 소갈비만을 사용하고, 직접 선별한 신선한 재료를 매일 아침 손질하여 육수를 고아내죠. 착색료(캐러멜 색소)를 넣지 않아 담백하고 시원한 맑은 육수와 살이 많은 갈비의 쫄깃함이 잘 어우러집니다. HACCP 인증 시설에서 만들어 위생적이고 안전하게 드실 수 있어요. 오늘은 뭐 먹을까 고민이 되는 직장인 또는 우리 아이 영양 식단으로 좋습니다.",
+			"stock": 1000,
+			"sales_rate": 1,
+			"is_crawl": true,
+			"ship_type": "샛별배송",
+			"allergy": "",
+			"user_id": 1
+		}
+	},
+	{
+		"model": "products.Product",
+		"fields": {
+			"title": "[채선당] 샤브샤브 밀키트 (2인)",
+			"price": 15900,
+			"unit": "1팩",
+			"weight": "955g",
+			"crawl_produt_thum_img": "https://img-cf.kurly.com/shop/data/goodsview/20220120/gv00000270203_1.jpg",
+			"crawl_produt_detail_img": "https://img-cf.kurly.com/cdn-cgi/image/width=676,format=auto/shop/data/goods/1642657975572l0.jpg",
+			"crawl_produt_desc_img": "https://img-cf.kurly.com/shop/data/goodsview/20220120/gv30000270205_1.jpg",
+			"description": "매장의 노하우로 완성\n[채선당] 샤브샤브\n‘야채가 신선한 집’이라는 뜻을 지닌 채선당은 늘 신선한 식재료로 정직한 맛을 전하고 있는데요. 이번에는 갖은 채소를 한데 넣고 보글보글 끓여 먹는 매장의 대표 메뉴, 샤브샤브를 준비했어요. 달큰한 알배추와 청경채는 물론 갖은 버섯과 부드러운 소고기 목심, 마무리 우동 면까지. 매장에서 먹던 그대로 푸짐하게 담았답니다. 채선당이 최적의 배합으로 완성한 육수 엑기스는 자극적이지 않은 짭조름한 감칠맛이 일품이에요. 채선당이 전하는 정갈하고 담백한 맛을 이제 매장에 가지 않고도 집에서 간편하게 누려보세요.",
+			"stock": 1000,
+			"sales_rate": 1,
+			"is_crawl": true,
+			"ship_type": "샛별배송",
+			"allergy": "",
+			"user_id": 1
+		}
+	},
+	{
+		"model": "products.Product",
+		"fields": {
+			"title": "[동원참치] 라이트 스탠다드 85g 8캔",
+			"price": 13980,
+			"unit": "1묶음",
+			"weight": "85g/8캔",
+			"crawl_produt_thum_img": "https://img-cf.kurly.com/shop/data/goodsview/20191129/gv20000070252_1.jpg",
+			"crawl_produt_detail_img": "https://img-cf.kurly.com/cdn-cgi/image/width=676,format=auto/shop/data/goods/1575002812180l0.jpg",
+			"crawl_produt_desc_img": "https://img-cf.kurly.com/shop/data/goodsview/20191129/gv20000070295_1.jpg",
+			"description": "합리적으로 만나는 국내 대표 참치캔\n[동원참치]\n라이트 스탠다드 85g 8캔\n부엌 찬장에 '동원참치 라이트 스탠다드'를 구비해두면 마음이 한결 든든할 거예요. 샐러드, 카레, 볶음밥, 김치찌개 등 어느 요리에나 무궁무진하게 활용할 수 있으니까요. 컬리는 1인분 요리에도 남김없이 털어 넣기 좋은 85g 단량의 캔을 준비했어요. 선상에서 바로 급속으로 냉동해 육질이 살아있는 가다랑어가 담겼지요. 넉넉하게 쓸 수 있으면서도 부담스럽지 않은 개수, 딱 8캔을 담아 보내드릴게요. 이런저런 요리에 곁들이면 감초 같은 역할을 톡톡히 해낼 거예요.",
+			"stock": 1000,
+			"sales_rate": 1,
+			"is_crawl": true,
+			"ship_type": "샛별배송",
+			"allergy": "",
+			"user_id": 1
+		}
+	},
+	{
+		"model": "products.Product",
+		"fields": {
+			"title": "[리틀넥] 스테이크 키트",
+			"price": 18810,
+			"unit": "1팩",
+			"weight": "340g",
+			"crawl_produt_thum_img": "https://img-cf.kurly.com/shop/data/goodsview/20211215/gv20000258163_1.jpg",
+			"crawl_produt_detail_img": "https://img-cf.kurly.com/cdn-cgi/image/width=676,format=auto/shop/data/goods/1648206381454l0.jpeg",
+			"crawl_produt_desc_img": "https://img-cf.kurly.com/shop/data/goodsview/20220614/gv10000326623_1.jpg",
+			"description": "묵직함과 산뜻함의 공존\n[리틀넥]\n스테이크 키트\n청담의 올데이 브런치 레스토랑, 리틀넥. 피크닉을 온 듯 여유로운 식사를 집에서도 만나보세요. 이번에는 대표 메뉴인 스테이크 키트를 준비했어요. 와규 전각 스테이크의 풍부한 육즙은 물론이고, 부드러운 매쉬드 포테이토까지 그대로 만나볼 수 있죠. 무엇보다도 바질 페이스트와 화이트 식초로 만든 초록빛 치미추리 소스가 눈길을 사로잡는데요. 산뜻하면서도 약간의 산미가 감돌아, 입맛은 가볍게 돋워주고 기름진 입안을 정돈해 주어 깔끔한 마무리를 선사할 거예요.",
+			"stock": 1000,
+			"sales_rate": 1,
+			"is_crawl": true,
+			"ship_type": "샛별배송",
+			"allergy": "",
+			"user_id": 1
+		}
+	},
+	{
+		"model": "products.Product",
+		"fields": {
+			"title": "[노티드] 스마일 만쥬",
+			"price": 5900,
+			"unit": "1봉",
+			"weight": "185g",
+			"crawl_produt_thum_img": "https://img-cf.kurly.com/shop/data/goodsview/20221107/gv40000447473_1.jpg",
+			"crawl_produt_detail_img": "https://product-image.kurly.com/cdn-cgi/image/width=676,format=auto/product/image/21704a23-582c-4710-8349-2f8ad9ebb32f.jpg",
+			"crawl_produt_desc_img": "https://img-cf.kurly.com/shop/data/goodsview/20221107/gv10000447475_1.jpg",
+			"description": "부드러운 우유크림이 가득\n[노티드] 스마일 만쥬\n톡톡 튀는 감성으로 많은 사랑을 받고 있는 디저트 카페, 노티드의 스마일 만쥬를 만나보세요. 한 입 크기로 앙증맞게 구워낸 만쥬에 장난꾸러기 같은 노티드 스마일 마크를 콕 찍어 완성했어요. 속에는 달달한 우유크림을 아낌 없이 채워 넣은 덕분에 부족함 없이 꽉 찬 풍미로 즐길 수 있답니다. 아이들은 우유와, 어른들은 커피와 곁들여 행복한 간식 시간을 누려보세요.",
+			"stock": 1000,
+			"sales_rate": 1,
+			"is_crawl": true,
+			"ship_type": "샛별배송",
+			"allergy": "",
+			"user_id": 1
+		}
+	},
+	{
+		"model": "products.Product",
+		"fields": {
+			"title": "[바비엔] 오징어 볶음 2종",
+			"price": 7120,
+			"unit": "1팩",
+			"weight": "품목별 상이 (하단 참조)",
+			"crawl_produt_thum_img": "https://img-cf.kurly.com/shop/data/goodsview/20190318/gv10000044993_1.jpg",
+			"crawl_produt_detail_img": "https://img-cf.kurly.com/cdn-cgi/image/width=676,format=auto/shop/data/goods/1653037345236l0.jpeg",
+			"crawl_produt_desc_img": "https://img-cf.kurly.com/shop/data/goodsview/20200313/gv40000085418_1.jpg",
+			"description": "쫄깃한 식감과 화끈한 매운맛\n[바비엔] 오징어 볶음 2종\n부드러운 몸통이며 쫄깃한 다리까지 어느 하나 버릴 것 없는 오징어. 매콤한 양념에 버무려 부드럽게 볶아주면 근사한 오징어 볶음이 완성되는데요. 컬리는 중독적인 매운맛이 매력적인 바비엔 오징어 볶음을 준비했어요. 밥과 함께 후후 불어먹는 반찬으로, 소면과 함께 술안주로도 좋은 메뉴지요. 취향에 따라 원하는 재료를 함께 넣어 드실 수 있도록 별다른 부재료 없이 오직 양념 된 오징어만 담았어요. 별도의 손질 없이 볶아만 주면 완성되니 간단하게 차려 먹기 좋답니다. 양파, 당근, 버섯 등 다양한 재료를 넣어 드셔보세요. 혀가 아릿해지는 매운맛에도 쉽게 젓가락질을 멈추기 힘들 거에요.",
+			"stock": 1000,
+			"sales_rate": 1,
+			"is_crawl": true,
+			"ship_type": "샛별배송",
+			"allergy": "",
+			"user_id": 1
+		}
+	},
+	{
+		"model": "products.Product",
+		"fields": {
+			"title": "[My little recipe] 안동에서 올라온 전통찜닭 (2인용)",
+			"price": 16055,
+			"unit": "1팩",
+			"weight": "1300g",
+			"crawl_produt_thum_img": "https://img-cf.kurly.com/shop/data/goodsview/20200228/gv10000083272_1.jpg",
+			"crawl_produt_detail_img": "https://product-image.kurly.com/cdn-cgi/image/width=676,format=auto/product/image/4c9ec7b6-e293-45ad-9d45-b8217da74894.jpg",
+			"crawl_produt_desc_img": "https://img-cf.kurly.com/shop/data/goodsview/20200228/gv00000083276_1.jpg",
+			"description": "집에서 간편하게 즐기는 안동 찜닭\n[My little recipe]\n안동에서 올라온 전통찜닭\n(2인용)\n든든함과 편리함을 고루 갖춘 My little recipe 찜닭 밀키트를 만나보세요. 안동 지역의 대표 음식으로 이름난 찜닭을 번거로운 준비 과정 없이, 집에서도 간편히 조리할 수 있도록 필요한 재료들을 고루 담았습니다. 항생제를 쓰지 않고 건강하게 키운 국내산 닭고기와, 다양한 국내산 채소들을 개별 포장했기에 찜닭을 더욱 안심하고 즐길 수 있지요. 달콤 짭조름한 간장 베이스에, 쫄깃한 식감의 중화풍 납작당면까지 들어있어 아이들을 위한 일품요리로도 손색이 없답니다. 야심차게 준비한 찜닭 밀키트로 맛있는 안동 찜닭을 손쉽게 만들어 보세요.",
+			"stock": 1000,
+			"sales_rate": 1,
+			"is_crawl": true,
+			"ship_type": "샛별배송",
+			"allergy": "",
+			"user_id": 1
+		}
+	},
+	{
+		"model": "products.Product",
+		"fields": {
+			"title": "[데체코] 엑스트라버진 올리브 오일",
+			"price": 8640,
+			"unit": "1병",
+			"weight": "500ml",
+			"crawl_produt_thum_img": "https://img-cf.kurly.com/shop/data/goodsview/20220518/gv00000317248_1.jpg",
+			"crawl_produt_detail_img": "https://img-cf.kurly.com/cdn-cgi/image/width=676,format=auto/shop/data/goods/1653037164206l0.jpg",
+			"crawl_produt_desc_img": "https://img-cf.kurly.com/shop/data/goodsview/20220518/gv40000317249_1.jpg",
+			"description": "이탈리아의 우수 품종 올리브를 냉압착한\n[데체코] 엑스트라버진\n올리브 오일\n세상에는 너무나 많은 종류의 올리브유가 있습니다. 푸드마켓의 오일 코너에는 이미 수십 가지의 올리브유가 빽빽하게 진열돼 있죠. 무엇을, 어떤 기준으로 골라야 할지도 막막합니다. 컬리는 올리브유를 고를 때마다 고민하는 분들을 위해, 직접 경험해 본 맛있는 올리브유만을 소개하기로 했습니다. 컬리가 깐깐하게 고른 이 컬렉션을 통해, 올리브유를 쇼핑하며 겪게 되는 시행착오를 조금이라도 줄이시길 바라는 마음에서죠. 컬리 올리브유 컬렉션의 첫 번째는 바로 ‘데체코’의 엑스트라버진 올리브유입니다. 올리브에서 처음 짜내 산도, 퀄리티, 풍미가 좋은 프리미엄 등급의 올리브 오일로 높은 퀄리티를 자랑하지요. 합리적인 가격으로 이탈리아뿐만 아니라 국내에서도 인기가 좋은 대중급의 엑스트라버진 올리브 오일 ‘클라시코’를 소개할게요.",
+			"stock": 1000,
+			"sales_rate": 1,
+			"is_crawl": true,
+			"ship_type": "샛별배송",
+			"allergy": "",
+			"user_id": 1
+		}
+	},
+	{
+		"model": "products.Product",
+		"fields": {
+			"title": "[풀무원] 육즙 듬뿍 만두 (렌지용)",
+			"price": 3000,
+			"unit": "1팩",
+			"weight": "150g (6개입)",
+			"crawl_produt_thum_img": "https://img-cf.kurly.com/shop/data/goodsview/20201008/gv00000028769_1.jpg",
+			"crawl_produt_detail_img": "https://img-cf.kurly.com/cdn-cgi/image/width=676,format=auto/shop/data/goods/1602144225845l0.jpg",
+			"crawl_produt_desc_img": "https://img-cf.kurly.com/shop/data/goodsview/20201008/gv00000126238_1.jpg",
+			"description": "정통 중국식 딤섬 샤오룽바오의 풍미가 그대로\n[풀무원] 육즙 듬뿍 만두\n육즙이 가득한 중국식 딤섬이라고 하면 곧바로 샤오룽바오(소룡포)가 떠올라요. 딤섬 전문점이 아니라면 쉽게 접하기 힘들었던 샤오룽바오의 맛을 집에서도 간편하게 즐기실 수 있도록 컬리가 육즙 듬뿍 만두를 준비했어요. 전자레인지에 간편하게 데워 먹어도 좋지만, 찜기에 6~7분 정도 쪄내면 만두의 맛이 최고로 살아난답니다. 잘 익힌 만두를 조심스럽게 숟가락에 얹고 만두피를 살짝 찢어보세요. 신선한 국산 생고기와 생채소에서 배어나온 풍미 가득한 육즙을 먼저 즐기고, 쫀득한 만두피와 풍성한 만두소를 먹으면 별다른 양념 없이도 입 안 가득 흐뭇한 맛을 느낄 수 있을 거에요. 육즙은 만두피나 소보다 훨씬 뜨거울 수 있어요. 입을 데지 않도록 조심해서 드세요.",
+			"stock": 1000,
+			"sales_rate": 1,
+			"is_crawl": true,
+			"ship_type": "샛별배송",
+			"allergy": "",
+			"user_id": 1
+		}
+	},
+	{
+		"model": "products.Product",
+		"fields": {
+			"title": "[떡미당] 굳지않는 앙꼬절편 2종",
+			"price": 5200,
+			"unit": "1팩",
+			"weight": "300g",
+			"crawl_produt_thum_img": "https://img-cf.kurly.com/shop/data/goodsview/20201123/gv40000136711_1.jpg",
+			"crawl_produt_detail_img": "https://img-cf.kurly.com/cdn-cgi/image/width=676,format=auto/shop/data/goods/1606113592849l0.jpg",
+			"crawl_produt_desc_img": "https://img-cf.kurly.com/shop/data/goodsview/20221026/gv10000441007_1.jpg",
+			"description": "언제나 말랑하게 즐기는 절편\n[떡미당]\n굳지않는 앙꼬절편 2종\n언제나 갓 쪄낸 떡처럼 말랑한 식감을 선사하는 떡미당의 앙꼬절편을 만나보세요. 국내산 멥쌀을 곱게 갈아낸 뒤 떡미당의 30년 노하우로 오랜 시간 촘촘하게 치대어 쫄깃한 식감을 살렸는데요. 완성한 떡을 영하 40℃의 온도에서 빠르게 식혀 굳지 않는 절편을 완성했답니다. 저감미 방식으로 달지 않게 완성한 수제 앙금을 넣어 누구나 부담없이 먹을 수 있을 거예요. 하얀 절편과 깊은 쑥 향이 폴폴 풍기는 쑥 절편을 준비했으니, 취향에 따라 골라 드셔보세요.",
+			"stock": 1000,
+			"sales_rate": 1,
+			"is_crawl": true,
+			"ship_type": "샛별배송",
+			"allergy": "",
+			"user_id": 1
+		}
+	},
+	{
+		"model": "products.Product",
+		"fields": {
+			"title": "[온더고] 간편 미식 도시락 4종",
+			"price": 5000,
+			"unit": "1팩",
+			"weight": "옵션별 상이",
+			"crawl_produt_thum_img": "https://img-cf.kurly.com/shop/data/goodsview/20221006/gv30000434266_1.jpg",
+			"crawl_produt_detail_img": "https://product-image.kurly.com/cdn-cgi/image/width=676,format=auto/product/image/6b47d566-ff09-4ef7-9585-512c98a89167.jpg",
+			"crawl_produt_desc_img": "https://img-cf.kurly.com/shop/data/goodsview/20221006/gv20000434265_1.jpg",
+			"description": "간편하게 즐기는 이색 도시락\n[온더고]\n간편 도시락 4종\n도시락 하나를 먹더라도 제대로 된 한 끼를 먹고 싶은 마음은 누구나 같을 거예요. 간편함은 그대로, 맛과 풍성함은 가득한 온더고의 도시락 4종을 만나보세요. 든든한 소고기 비빔밥부터 모짜렐라 치즈를 아낌없이 넣은 매콤불닭&치즈, 매콤한 맛을 살린 중화풍 해물잡채덮밥까지. 다채롭고 이색적인 메뉴들로 구성했어요. 전자레인지에 살짝 데우기만 하면 되니, 언제 어디서든 간편하게 근사한 한 끼를 즐겨보세요.",
+			"stock": 1000,
+			"sales_rate": 1,
+			"is_crawl": true,
+			"ship_type": "샛별배송",
+			"allergy": "",
+			"user_id": 1
+		}
+	},
+	{
+		"model": "products.Product",
+		"fields": {
+			"title": "[콜린스그린] 더 오렌지 1000mL",
+			"price": 14960,
+			"unit": "1병",
+			"weight": "1000ml",
+			"crawl_produt_thum_img": "https://img-cf.kurly.com/shop/data/goodsview/20170523/gv00000003288_1.jpg",
+			"crawl_produt_detail_img": "https://img-cf.kurly.com/cdn-cgi/image/width=676,format=auto/shop/data/goods/1648203571907l0.jpg",
+			"crawl_produt_desc_img": "https://img-cf.kurly.com/shop/data/goodsview/20210402/gv10000169768_1.jpg",
+			"description": "진짜 과일의 상큼한 맛\n[콜린스그린] 더 오렌지\n신선한 생과일을 먹을 때 느끼는 새콤달콤한 과즙과 가득 씹히는 과육의 맛을 한 잔의 주스로 맛보고 싶을 때가 있죠. 그래서 컬리는 생과일의 상큼하고 신선한 맛을 즐기고 싶은 분들을 위해 콜린스그린의 과일주스 ‘더 오렌지’를 준비했습니다. 물 한 방울, 설탕 한 스푼 넣지 않고 생과일 그대로만 짜서 담아낸 콜린스그린의 주스는 남다른 청량함이 가득 담겨있죠. 금방 터져 나온 것 같은 신선한 과즙이 자꾸만 손이 가게 만듭니다.",
+			"stock": 1000,
+			"sales_rate": 1,
+			"is_crawl": true,
+			"ship_type": "샛별배송",
+			"allergy": "",
+			"user_id": 1
+		}
+	},
+	{
+		"model": "products.Product",
+		"fields": {
+			"title": "[바른식] 강릉식 짬뽕순두부 찌개",
+			"price": 8900,
+			"unit": "1팩",
+			"weight": "860g",
+			"crawl_produt_thum_img": "https://img-cf.kurly.com/shop/data/goodsview/20220908/gv30000421046_1.jpg",
+			"crawl_produt_detail_img": "https://product-image.kurly.com/cdn-cgi/image/width=676,format=auto/product/image/d9f878c4-b07d-4f0c-9263-2b0032540cc4.jpg",
+			"crawl_produt_desc_img": "https://img-cf.kurly.com/shop/data/goodsview/20220908/gv20000421048_1.jpg",
+			"description": "칼칼한 국물 속 풍성한 해물\n[바른식] 강릉식\n짬뽕순두부 찌개\n건강하고 올바른 먹거리를 제안하는 바른식의 밀키트를 만나보세요. 이번에는 해물을 풍성하게 넣고 매콤하게 끓이는 강릉식 짬뽕순두부 찌개를 준비했어요. 칼칼한 국물 속 몽글몽글한 순두부가 어우러지며 조화로운 맛을 선사한답니다. 쫄깃한 식감이 살아있는 솔방울 오징어와 탱글한 새우를 아낌없이 넣어, 한 술 떠올릴 때마다 만족감이 밀려올 거예요. 2인이 먹기 좋은 양을 담았으니, 든든한 한 끼를 손쉽게 준비해 보세요.",
+			"stock": 1000,
+			"sales_rate": 1,
+			"is_crawl": true,
+			"ship_type": "샛별배송",
+			"allergy": "",
+			"user_id": 1
+		}
+	},
+	{
+		"model": "products.Product",
+		"fields": {
+			"title": "[굽네] 닭가슴살 만두 3종",
+			"price": 2450,
+			"unit": "1봉",
+			"weight": "180g",
+			"crawl_produt_thum_img": "https://img-cf.kurly.com/shop/data/goodsview/20210707/gv40000200426_1.jpg",
+			"crawl_produt_detail_img": "https://img-cf.kurly.com/cdn-cgi/image/width=676,format=auto/shop/data/goods/165303911321l0.jpeg",
+			"crawl_produt_desc_img": "https://img-cf.kurly.com/shop/data/goodsview/20210707/gv10000200432_1.jpg",
+			"description": "닭가슴살로 만든 이색 만두\n[굽네]\n닭가슴살 만두 3종\n어쩐지 출출한 시간, 부담 없이 즐기기 좋은 굽네의 닭가슴살 만두를 소개할게요. 쫀득한 메밀피에 국산 닭가슴살과 배추 등의 재료로 알차게 속을 채워 만들었는데요. 귀여운 크기의 만두를 베어 물면, 촉촉하면서도 고소한 만두소가 만족스러운 한 입을 선사한답니다. 해동할 필요 없이, 패키지를 약간 뜯어 그대로 전자레인지에 데우기만 하면 완성이니 더할 나위 없이 간편해요. 담백함이 매력적인 오리지널과 매콤함을 가미한 김치 만두, 달콤짭짤한 갈비맛 만두까지 준비했으니 취향에 맞게 골라보세요.",
+			"stock": 1000,
+			"sales_rate": 1,
+			"is_crawl": true,
+			"ship_type": "샛별배송",
+			"allergy": "",
+			"user_id": 1
+		}
+	},
+	{
+		"model": "products.Product",
+		"fields": {
+			"title": "[착한떡] 꿀설기 2종",
+			"price": 8800,
+			"unit": "1 상자 (10개입)",
+			"weight": "45g * 10개 (450g)",
+			"crawl_produt_thum_img": "https://img-cf.kurly.com/shop/data/goodsview/20180904/gv00000031410_1.jpg",
+			"crawl_produt_detail_img": "https://img-cf.kurly.com/cdn-cgi/image/width=676,format=auto/shop/data/goods/1536054932361l0.jpg",
+			"crawl_produt_desc_img": "https://img-cf.kurly.com/shop/data/goodsview/20220408/gv10000300558_1.jpg",
+			"description": "달콤고소한 흑임자 소스가 쏙\n[착한떡] 꿀설기 2종\n포슬포슬한 설기 속에 독특한 소스를 넣은 꿀설기를 소개할게요. 착한떡의 설기는 3년 이상 간수를 뺀 신안 천일염과 설탕만으로 간을 하고, 각각 국내산 우유와 무농약 단호박을 넣어 만들었기 때문에 자연스러운 고소함이 배어납니다. 설기 옆면에 검은 점이 콕콕 박힌 촉촉한 갈색 줄이 보이시나요? 캐러멜과 코코아의 중간에 있는 듯한 풍미를 지닌 흑설탕을 흑임자와 섞어 만든 달콤고소한 소스의 흔적이랍니다. 한결 달콤해진 설기를 한 번에 먹기 좋은 양을 개별 포장했어요. 언제 어디서나 간편하게 즐겨보세요.",
+			"stock": 1000,
+			"sales_rate": 1,
+			"is_crawl": true,
+			"ship_type": "샛별배송",
+			"allergy": "",
+			"user_id": 1
+		}
+	},
+	{
+		"model": "products.Product",
+		"fields": {
+			"title": "[프레시지] 부채살 하와이안 찹스테이크",
+			"price": 10353,
+			"unit": "1팩",
+			"weight": "321g",
+			"crawl_produt_thum_img": "https://img-cf.kurly.com/shop/data/goodsview/20220728/gv10000394167_1.jpg",
+			"crawl_produt_detail_img": "https://product-image.kurly.com/cdn-cgi/image/width=676,format=auto/product/image/4a908bef-bf2f-426e-90dc-ecb7f1562d81.jpg",
+			"crawl_produt_desc_img": "https://img-cf.kurly.com/shop/data/goodsview/20220728/gv00000394169_1.jpg",
+			"description": "남녀노소 좋아하는 근사한 메인 요리\n[프레시지]\n부채살 하와이안 찹스테이크\nFresh Easy, 프레시지는 그 이름답게 신선한 재료로 간편하게 요리하는 즐거움을 선사하는 브랜드예요. 우리 집 식탁의 근사한 메인 메뉴가 되어 줄 프레시지의 부채살 하와이안 찹스테이크를 만나 보세요. 포크로 콕 찍어 간편하게 즐기기 좋도록 큐브 모양으로 정형한 부채살부터 가니쉬용 채소는 물론이고요. 달큰함을 더해줄 파인애플과 파프리카, 달짝지근한 소스까지. 요리에 필요한 재료는 모두 준비되어 있답니다. 원팬으로 간편하게 조리 가능한 상품이니 바쁜 날 간편하게 활용해 보세요. 근사한 메인 요리 역할을 톡톡히 해낼 거예요.",
+			"stock": 1000,
+			"sales_rate": 1,
+			"is_crawl": true,
+			"ship_type": "샛별배송",
+			"allergy": "",
+			"user_id": 1
+		}
+	},
+	{
+		"model": "products.Product",
+		"fields": {
+			"title": "[마이비밀] 다이어트 도시락 8종 (2개입) (택1)",
+			"price": 8800,
+			"unit": "1묶음",
+			"weight": "220~240g*2",
+			"crawl_produt_thum_img": "https://img-cf.kurly.com/shop/data/goodsview/20220905/gv00000419847_1.jpg",
+			"crawl_produt_detail_img": "https://product-image.kurly.com/cdn-cgi/image/width=676,format=auto/product/image/b096c774-7962-4309-ba6f-d253a68a60f4.jpg",
+			"crawl_produt_desc_img": "https://img-cf.kurly.com/shop/data/goodsview/20220923/gv10000429525_1.jpg",
+			"description": "다양하게 즐기는 가벼운 한 끼\n[마이비밀]\n다이어트 도시락 8종\n마이비밀의 다이어트 도시락으로 집밥 같은 한 끼를 누려보세요. 칼로리, 탄단지의 구성을 고려해 만든 도시락이랍니다. 귀리, 렌틸콩, 현미 등 식단 관리에 적합한 곡물로 밥을 짓고요. 숯불고기와 함박스테이크, 닭갈비까지 취향에 맞게 고를 수 있도록 다채로운 메뉴를 담았답니다. 여기에 비타민 C와 칼슘까지 동시에 챙길 수 있어 더욱 만족스러워요. 패키지를 뜯어 전자레인지에 돌리기만 하면 완성되니, 식단 관리가 보다 간편해질 거예요.",
+			"stock": 1000,
+			"sales_rate": 1,
+			"is_crawl": true,
+			"ship_type": "샛별배송",
+			"allergy": "",
+			"user_id": 1
+		}
+	},
+	{
+		"model": "products.Product",
+		"fields": {
+			"title": "[Sea to Table] 손질 생새우살 200g (냉동)",
+			"price": 7715,
+			"unit": "1팩",
+			"weight": "200g 내외",
+			"crawl_produt_thum_img": "https://img-cf.kurly.com/shop/data/goodsview/20180910/gv40000031740_1.jpg",
+			"crawl_produt_detail_img": "https://img-cf.kurly.com/cdn-cgi/image/width=676,format=auto/shop/data/goods/165303588022l0.jpeg",
+			"crawl_produt_desc_img": "https://img-cf.kurly.com/shop/data/goodsview/20221103/gv30000445589_1.jpg",
+			"description": "껍질, 내장, 꼬리까지 완벽 제거한\n[Sea to table] 손질 생새우살\n언제나 맛있는 새우이지만, 늘 드는 생각이 하나 있죠. 누군가 새우의 속살만을 쏙 발라내 준다면 얼마나 좋을까? 컬리가 준비한 손질 생새우살은 새우의 껍질과 내장, 꼬리까지 제거돼 세척만 마치면 손질 없이, 누구든 간편하게 즐길 수 있는 상품이에요. 4~5성급 호텔에 식자재로 납품될 정도로 맛과 품질이 우수한데요. 오동통 속살이 탄력 있게 차올라 흐뭇한 웃음을 안겨요. 크기가 꽤 커서 칠리 새우, 새우튀김 등 새우를 메인으로 한 요리에 활용하기도 좋지요. 손질이 번거롭다는 이유로 새우를 멀리하셨다면, 앞으로는 빠르고 자신 있게 요리해보세요. 200g 소분했기에 1~2인 가구라도 부담 없이 즐길 수 있어요.",
+			"stock": 1000,
+			"sales_rate": 1,
+			"is_crawl": true,
+			"ship_type": "샛별배송",
+			"allergy": "",
+			"user_id": 1
+		}
+	},
+	{
+		"model": "products.Product",
+		"fields": {
+			"title": "[폴 바셋] 젤라또 파인트 아이스크림 2종 (밀크, 커피)",
+			"price": 13900,
+			"unit": "1통",
+			"weight": "474mL",
+			"crawl_produt_thum_img": "https://img-cf.kurly.com/shop/data/goodsview/20220616/gv30000327508_1.jpg",
+			"crawl_produt_detail_img": "https://img-cf.kurly.com/cdn-cgi/image/width=676,format=auto/shop/data/goods/1655360604184l0.jpg",
+			"crawl_produt_desc_img": "https://img-cf.kurly.com/shop/data/goodsview/20220616/gv00000327512_1.jpg",
+			"description": "부드럽게 녹아드는 달콤함\n[폴 바셋] 젤라또\n파인트 아이스크림 2종\n아이스크림이 커피 못지않게 유명한 카페, 폴 바셋의 아이스크림을 넉넉한 용량으로 만나보세요. 국산 원유를 사용해 고소하고 담백한 풍미가 돋보이는 제품이랍니다. 젤라또처럼 밀도 있는 텍스쳐로 완성해, 쫀득하면서도 부드러운 식감이 돋보이죠. 우유의 담백함과 고소함을 오롯이 담은 밀크, 폴 바셋의 시그니처 블렌드 추출액을 넣어 진한 매력을 더한 커피. 두 가지 종류 중 취향에 따라 골라보세요. 시원하고 달콤한 식후 디저트로도 그만일 거예요.",
+			"stock": 1000,
+			"sales_rate": 1,
+			"is_crawl": true,
+			"ship_type": "샛별배송",
+			"allergy": "",
+			"user_id": 1
+		}
+	}
+]
